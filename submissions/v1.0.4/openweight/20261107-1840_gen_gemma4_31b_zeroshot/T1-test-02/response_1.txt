@@ -1,0 +1,288 @@
+```idf
+Building {
+  }
+
+Material {
+  name                Concrete_Heavy;
+  roughness-coefficient 0.05;
+  epsilon              0.9;
+  density              2240;
+  specificheat         836.8;
+  conductivity          1.311;
+  }
+
+Material {
+  name                Carpet;
+  roughness-coefficient 0.05;
+  epsilon              0.9;
+  density              288;
+  specificheat         1380;
+  conductivity          0.06;
+  }
+
+Material {
+  name                Gypsum;
+  roughness-coefficient 0.05;
+  epsilon              0.9;
+  density              784.9;
+  specificheat         830;
+  conductivity          0.16;
+  }
+
+Material {
+  name                Lightweight_Insulation;
+  roughness-coefficient 0.05;
+  epsilon              0.9;
+  density              50;
+  specificheat         1000;
+  conductivity          0.035;
+  }
+
+Material {
+  name                Lightweight_Skin;
+  roughness-coefficient 0.05;
+  epsilon              0.9;
+  density              800;
+  specificheat         1000;
+  conductivity          0.2;
+  }
+
+Construction {
+  name                Wall_Lightweight;
+  layer 1              Lightweight_Skin;
+  thickness           0.01;
+  layer 2              Lightweight_Insulation;
+  thickness           0.12;
+  }
+
+Construction {
+  name                Roof_Heavyweight;
+  layer 1              Concrete_Heavy;
+  thickness           0.1;
+  layer 2              Lightweight_Insulation;
+  thickness           0.15;
+  }
+
+Construction {
+  name                Floor_Ground;
+  layer 1              Carpet;
+  thickness           0.0127;
+  layer 2              Concrete_Heavy;
+  thickness           0.1;
+  }
+
+Construction {
+  name                Wall_Interior;
+  layer 1              Gypsum;
+  thickness           0.0127;
+  layer 2              Gypsum;
+  thickness           0.0127;
+  }
+
+WindowMaterial {
+  name                Glazing_Simple;
+  optical-properties   GLAZING;
+  u-factor             2.9;
+  shgc                 0.58;
+  visible-transmittance 0.75;
+  }
+
+Construction {
+  name                Window_Simple;
+  layer 1              Glazing_Simple;
+  thickness           0.02;
+  }
+
+Zone {
+  name                Clinic_Zone;
+  }
+
+BuildingSurface:Detailed {
+  name                Floor;
+  zone-name           Clinic_Zone;
+  construction-name   Floor_Ground;
+  outside-boundary-condition Ground;
+  sun-shade           No;
+  wind-exposure       Normal;
+  basins-on-surface   No;
+  vertex 1            0.0, 0.0, 0.0;
+  vertex 2            31.0, 0.0, 0.0;
+  vertex 3            31.0, 21.0, 0.0;
+  vertex 4            0.0, 21.0, 0.0;
+  }
+
+BuildingSurface:Detailed {
+  name                Roof;
+  zone-name           Clinic_Zone;
+  construction-name   Roof_Heavyweight;
+  outside-boundary-condition Outdoors;
+  sun-shade           No;
+  wind-exposure       Normal;
+  basins-on-surface   No;
+  vertex 1            0.0, 0.0, 3.8;
+  vertex 2            31.0, 0.0, 3.8;
+  vertex 3            31.0, 21.0, 3.8;
+  vertex 4            0.0, 21.0, 3.8;
+  }
+
+BuildingSurface:Detailed {
+  name                Wall_South;
+  zone-name           Clinic_Zone;
+  construction-name   Wall_Lightweight;
+  outside-boundary-condition Outdoors;
+  sun-shade           No;
+  wind-exposure       Normal;
+  basins-on-surface   No;
+  vertex 1            0.0, 0.0, 0.0;
+  vertex 2            31.0, 0.0, 0.0;
+  vertex 3            31.0, 0.0, 3.8;
+  vertex 4            0.0, 0.0, 3.8;
+  }
+
+BuildingSurface:Detailed {
+  name                Wall_East;
+  zone-name           Clinic_Zone;
+  construction-name   Wall_Lightweight;
+  outside-boundary-condition Outdoors;
+  sun-shade           No;
+  wind-exposure       Normal;
+  basins-on-surface   No;
+  vertex 1            31.0, 0.0, 0.0;
+  vertex 2            31.0, 21.0, 0.0;
+  vertex 3            31.0, 21.0, 3.8;
+  vertex 4            31.0, 0.0, 3.8;
+  }
+
+BuildingSurface:Detailed {
+  name                Wall_North;
+  zone-name           Clinic_Zone;
+  construction-name   Wall_Lightweight;
+  outside-boundary-condition Outdoors;
+  sun-shade           No;
+  wind-exposure       Normal;
+  basins-on-surface   No;
+  vertex 1            31.0, 21.0, 0.0;
+  vertex 2            0.0, 21.0, 0.0;
+  vertex 3            0.0, 21.0, 3.8;
+  vertex 4            31.0, 21.0, 3.8;
+  }
+
+BuildingSurface:Detailed {
+  name                Wall_West;
+  zone-name           Clinic_Zone;
+  construction-name   Wall_Lightweight;
+  outside-boundary-condition Outdoors;
+  sun-shade           No;
+  wind-exposure       Normal;
+  basins-on-surface   No;
+  vertex 1            0.0, 21.0, 0.0;
+  vertex 2            0.0, 0.0, 0.0;
+  vertex 3            0.0, 0.0, 3.8;
+  vertex 4            0.0, 21.0, 3.8;
+  }
+
+FenestrationSurface:Detailed {
+  name                Win_North;
+  zone-name           Clinic_Zone;
+  construction-name   Window_Simple;
+  outside-boundary-condition Outdoors;
+  sun-shade           No;
+  wind-exposure       Normal;
+  basins-on-surface   No;
+  vertex 1            10.0, 21.0, 1.0;
+  vertex 2            21.0, 21.0, 1.0;
+  vertex 3            21.0, 21.0, 2.8;
+  vertex 4            10.0, 21.0, 2.8;
+  }
+
+FenestrationSurface:Detailed {
+  name                Win_South;
+  zone-name           Clinic_Zone;
+  construction-name   Window_Simple;
+  outside-boundary-condition Outdoors;
+  sun-shade           No;
+  wind-exposure       Normal;
+  basins-on-surface   No;
+  vertex 1            5.0, 0.0, 1.0;
+  vertex 2            26.0, 0.0, 1.0;
+  vertex 3            26.0, 0.0, 2.8;
+  vertex 4            5.0, 0.0, 2.8;
+  }
+
+FenestrationSurface:Detailed {
+  name                Win_West;
+  zone-name           Clinic_Zone;
+  construction-name   Window_Simple;
+  outside-boundary-condition Outdoors;
+  sun-shade           No;
+  wind-exposure       Normal;
+  basins-on-surface   No;
+  vertex 1            0.0, 5.0, 1.0;
+  vertex 2            0.0, 16.0, 1.0;
+  vertex 3            0.0, 16.0, 2.8;
+  vertex 4            0.0, 5.0, 2.8;
+  }
+
+Schedule:Compact {
+  name                Occupancy_Sched;
+  field 1             Weekday, 07:00, 1.0; 19:00, 0.0;
+  field 2             Saturday, 08:00, 1.0; 13:00, 0.0;
+  field 3             Sunday, 0.0;
+  }
+
+Schedule:Compact {
+  name                Lighting_Sched;
+  field 1             Weekday, 07:00, 1.0; 19:00, 0.1;
+  field 2             Saturday, 08:00, 1.0; 13:00, 0.1;
+  field 3             Sunday, 0.1;
+  }
+
+Schedule:Compact {
+  name                Equipment_Sched;
+  field 1             Weekday, 07:00, 1.0; 19:00, 0.35;
+  field 2             Saturday, 08:00, 1.0; 13:00, 0.35;
+  field 3             Sunday, 0.35;
+  }
+
+People {
+  name                Clinic_People;
+  zone-name           Clinic_Zone;
+  number-of-people-m2 0.07407;
+  schedule-name      Occupancy_Sched;
+  load-per-person    130;
+  }
+
+Lights {
+  name                Clinic_Lights;
+  zone-name           Clinic_Zone;
+  electric-power-m2  9.1;
+  schedule-name      Lighting_Sched;
+  }
+
+ElectricEquipment {
+  name                Clinic_Equip;
+  zone-name           Clinic_Zone;
+  electric-power-m2  9.2;
+  schedule-name      Equipment_Sched;
+  }
+
+ZoneInfiltration:Constant {
+  name                Clinic_Infil;
+  zone-name           Clinic_Zone;
+  air-changes-per-hour 0.5;
+  }
+
+ZoneControl:Thermostat {
+  name                Clinic_Thermostat;
+  zone-name           Clinic_Zone;
+  heating-setpoint-temperature-occupied 21.5;
+  cooling-setpoint-temperature-occupied 23.0;
+  heating-setpoint-temperature-unoccupied 17.0;
+  cooling-setpoint-temperature-unoccupied 30.0;
+  }
+
+HVACTemplate:Zone:IdealLoadsAirSystem {
+  name                Clinic_HVAC;
+  zone-name           Clinic_Zone;
+  }
+```

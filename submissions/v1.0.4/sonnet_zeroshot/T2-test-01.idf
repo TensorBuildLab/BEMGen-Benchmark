@@ -1,0 +1,114 @@
+Version,22.2;
+Building,T2-test-01,0,Suburbs,0.04,0.4,FullExterior,25,6;
+Timestep,4;
+GlobalGeometryRules,UpperLeftCorner,Counterclockwise,Relative;
+
+ScheduleTypeLimits,Fraction,0,1,Continuous;
+ScheduleTypeLimits,Temperature,-60,200,Continuous;
+ScheduleTypeLimits,Any,,,Continuous;
+
+Material,Concrete200,MediumRough,0.2,1.311,2240,836.8,0.9,0.7,0.7;
+Material,Gypsum13,MediumRough,0.0127,0.16,784.9,830,0.9,0.7,0.7;
+Material,Membrane10,MediumRough,0.0095,0.16,1121.3,1460,0.9,0.7,0.7;
+Material,MetalDeck,MediumRough,0.0015,45.006,7680,418.4,0.9,0.7,0.7;
+Material,Concrete100,MediumRough,0.1,1.311,2240,836.8,0.9,0.7,0.7;
+Material,Carpet,MediumRough,0.0127,0.06,288,1380,0.9,0.7,0.7;
+Material,WallIns,MediumRough,0.04411,0.049,265,836.8,0.9,0.7,0.7;
+Material,RoofIns,MediumRough,0.19439,0.049,265,836.8,0.9,0.7,0.7;
+
+Construction,ExtWall_Cons,Concrete200,WallIns,Gypsum13;
+Construction,Roof_Cons,Membrane10,RoofIns,MetalDeck;
+Construction,Slab_Cons,Concrete100,Carpet;
+Construction,Partition_Cons,Gypsum13,Gypsum13;
+
+WindowMaterial:SimpleGlazingSystem,Glazing,1.5,0.24,0.34;
+Construction,Win_Cons,Glazing;
+
+Zone,Perim_S,0,0,0,0,1,1,autocalculate,autocalculate;
+Zone,Perim_E,0,0,0,0,1,1,autocalculate,autocalculate;
+Zone,Perim_N,0,0,0,0,1,1,autocalculate,autocalculate;
+Zone,Perim_W,0,0,0,0,1,1,autocalculate,autocalculate;
+Zone,Core,0,0,0,0,1,1,autocalculate,autocalculate;
+
+! South zone
+BuildingSurface:Detailed,S_Ext,Wall,ExtWall_Cons,Perim_S,,Outdoors,,SunExposed,WindExposed,autocalculate,4,0,0,3.5,0,0,0,22,0,0,22,0,3.5;
+FenestrationSurface:Detailed,S_Ext_Win,Window,Win_Cons,S_Ext,,autocalculate,,1,4,0.5,0,2.025,0.5,0,1.475,21.5,0,1.475,21.5,0,2.025;
+BuildingSurface:Detailed,S_toE,Wall,Partition_Cons,Perim_S,,Surface,E_toS,NoSun,NoWind,autocalculate,4,22,0,3.5,22,0,0,17,5,0,17,5,3.5;
+BuildingSurface:Detailed,S_toC,Wall,Partition_Cons,Perim_S,,Surface,C_toS,NoSun,NoWind,autocalculate,4,17,5,3.5,17,5,0,5,5,0,5,5,3.5;
+BuildingSurface:Detailed,S_toW,Wall,Partition_Cons,Perim_S,,Surface,W_toS,NoSun,NoWind,autocalculate,4,5,5,3.5,5,5,0,0,0,0,0,0,3.5;
+BuildingSurface:Detailed,S_Floor,Floor,Slab_Cons,Perim_S,,Ground,,NoSun,NoWind,autocalculate,4,5,5,0,17,5,0,22,0,0,0,0,0;
+BuildingSurface:Detailed,S_Roof,Roof,Roof_Cons,Perim_S,,Outdoors,,SunExposed,WindExposed,autocalculate,4,0,0,3.5,22,0,3.5,17,5,3.5,5,5,3.5;
+
+! East zone
+BuildingSurface:Detailed,E_Ext,Wall,ExtWall_Cons,Perim_E,,Outdoors,,SunExposed,WindExposed,autocalculate,4,22,0,3.5,22,0,0,22,18.5,0,22,18.5,3.5;
+FenestrationSurface:Detailed,E_Ext_Win,Window,Win_Cons,E_Ext,,autocalculate,,1,4,22,0.5,2.3975,22,0.5,1.1025,22,18,1.1025,22,18,2.3975;
+BuildingSurface:Detailed,E_toN,Wall,Partition_Cons,Perim_E,,Surface,N_toE,NoSun,NoWind,autocalculate,4,22,18.5,3.5,22,18.5,0,17,13.5,0,17,13.5,3.5;
+BuildingSurface:Detailed,E_toC,Wall,Partition_Cons,Perim_E,,Surface,C_toE,NoSun,NoWind,autocalculate,4,17,13.5,3.5,17,13.5,0,17,5,0,17,5,3.5;
+BuildingSurface:Detailed,E_toS,Wall,Partition_Cons,Perim_E,,Surface,S_toE,NoSun,NoWind,autocalculate,4,17,5,3.5,17,5,0,22,0,0,22,0,3.5;
+BuildingSurface:Detailed,E_Floor,Floor,Slab_Cons,Perim_E,,Ground,,NoSun,NoWind,autocalculate,4,17,5,0,17,13.5,0,22,18.5,0,22,0,0;
+BuildingSurface:Detailed,E_Roof,Roof,Roof_Cons,Perim_E,,Outdoors,,SunExposed,WindExposed,autocalculate,4,22,0,3.5,22,18.5,3.5,17,13.5,3.5,17,5,3.5;
+
+! North zone
+BuildingSurface:Detailed,N_Ext,Wall,ExtWall_Cons,Perim_N,,Outdoors,,SunExposed,WindExposed,autocalculate,4,22,18.5,3.5,22,18.5,0,0,18.5,0,0,18.5,3.5;
+FenestrationSurface:Detailed,N_Ext_Win,Window,Win_Cons,N_Ext,,autocalculate,,1,4,21.5,18.5,1.9333,21.5,18.5,1.5667,0.5,18.5,1.5667,0.5,18.5,1.9333;
+BuildingSurface:Detailed,N_toW,Wall,Partition_Cons,Perim_N,,Surface,W_toN,NoSun,NoWind,autocalculate,4,0,18.5,3.5,0,18.5,0,5,13.5,0,5,13.5,3.5;
+BuildingSurface:Detailed,N_toC,Wall,Partition_Cons,Perim_N,,Surface,C_toN,NoSun,NoWind,autocalculate,4,5,13.5,3.5,5,13.5,0,17,13.5,0,17,13.5,3.5;
+BuildingSurface:Detailed,N_toE,Wall,Partition_Cons,Perim_N,,Surface,E_toN,NoSun,NoWind,autocalculate,4,17,13.5,3.5,17,13.5,0,22,18.5,0,22,18.5,3.5;
+BuildingSurface:Detailed,N_Floor,Floor,Slab_Cons,Perim_N,,Ground,,NoSun,NoWind,autocalculate,4,17,13.5,0,5,13.5,0,0,18.5,0,22,18.5,0;
+BuildingSurface:Detailed,N_Roof,Roof,Roof_Cons,Perim_N,,Outdoors,,SunExposed,WindExposed,autocalculate,4,22,18.5,3.5,0,18.5,3.5,5,13.5,3.5,17,13.5,3.5;
+
+! West zone
+BuildingSurface:Detailed,W_Ext,Wall,ExtWall_Cons,Perim_W,,Outdoors,,SunExposed,WindExposed,autocalculate,4,0,18.5,3.5,0,18.5,0,0,0,0,0,0,3.5;
+FenestrationSurface:Detailed,W_Ext_Win,Window,Win_Cons,W_Ext,,autocalculate,,1,4,0,18,1.935,0,18,1.565,0,0.5,1.565,0,0.5,1.935;
+BuildingSurface:Detailed,W_toS,Wall,Partition_Cons,Perim_W,,Surface,S_toW,NoSun,NoWind,autocalculate,4,0,0,3.5,0,0,0,5,5,0,5,5,3.5;
+BuildingSurface:Detailed,W_toC,Wall,Partition_Cons,Perim_W,,Surface,C_toW,NoSun,NoWind,autocalculate,4,5,5,3.5,5,5,0,5,13.5,0,5,13.5,3.5;
+BuildingSurface:Detailed,W_toN,Wall,Partition_Cons,Perim_W,,Surface,N_toW,NoSun,NoWind,autocalculate,4,5,13.5,3.5,5,13.5,0,0,18.5,0,0,18.5,3.5;
+BuildingSurface:Detailed,W_Floor,Floor,Slab_Cons,Perim_W,,Ground,,NoSun,NoWind,autocalculate,4,5,13.5,0,5,5,0,0,0,0,0,18.5,0;
+BuildingSurface:Detailed,W_Roof,Roof,Roof_Cons,Perim_W,,Outdoors,,SunExposed,WindExposed,autocalculate,4,0,18.5,3.5,0,0,3.5,5,5,3.5,5,13.5,3.5;
+
+! Core zone
+BuildingSurface:Detailed,C_toS,Wall,Partition_Cons,Core,,Surface,S_toC,NoSun,NoWind,autocalculate,4,5,5,3.5,5,5,0,17,5,0,17,5,3.5;
+BuildingSurface:Detailed,C_toE,Wall,Partition_Cons,Core,,Surface,E_toC,NoSun,NoWind,autocalculate,4,17,5,3.5,17,5,0,17,13.5,0,17,13.5,3.5;
+BuildingSurface:Detailed,C_toN,Wall,Partition_Cons,Core,,Surface,N_toC,NoSun,NoWind,autocalculate,4,17,13.5,3.5,17,13.5,0,5,13.5,0,5,13.5,3.5;
+BuildingSurface:Detailed,C_toW,Wall,Partition_Cons,Core,,Surface,W_toC,NoSun,NoWind,autocalculate,4,5,13.5,3.5,5,13.5,0,5,5,0,5,5,3.5;
+BuildingSurface:Detailed,C_Floor,Floor,Slab_Cons,Core,,Ground,,NoSun,NoWind,autocalculate,4,5,13.5,0,17,13.5,0,17,5,0,5,5,0;
+BuildingSurface:Detailed,C_Roof,Roof,Roof_Cons,Core,,Outdoors,,SunExposed,WindExposed,autocalculate,4,5,5,3.5,17,5,3.5,17,13.5,3.5,5,13.5,3.5;
+
+Schedule:Compact,ALWAYS_ON,Fraction,Through: 12/31,For: AllDays,Until: 24:00,1;
+Schedule:Compact,OCC_SCH,Fraction,Through: 12/31,For: Weekdays SummerDesignDay WinterDesignDay,Until: 08:00,0,Until: 18:00,1,Until: 24:00,0,For: AllOtherDays,Until: 24:00,0;
+Schedule:Compact,LTG_SCH,Fraction,Through: 12/31,For: Weekdays SummerDesignDay WinterDesignDay,Until: 08:00,0.05,Until: 18:00,0.95,Until: 24:00,0.05,For: AllOtherDays,Until: 24:00,0.05;
+Schedule:Compact,EQP_SCH,Fraction,Through: 12/31,For: Weekdays SummerDesignDay WinterDesignDay,Until: 08:00,0.35,Until: 18:00,0.95,Until: 24:00,0.35,For: AllOtherDays,Until: 24:00,0.35;
+Schedule:Compact,HTGSETP_SCH,Temperature,Through: 12/31,For: Weekdays SummerDesignDay WinterDesignDay,Until: 08:00,15.5,Until: 18:00,21,Until: 24:00,15.5,For: AllOtherDays,Until: 24:00,15.5;
+Schedule:Compact,CLGSETP_SCH,Temperature,Through: 12/31,For: Weekdays SummerDesignDay WinterDesignDay,Until: 08:00,29,Until: 18:00,23,Until: 24:00,29,For: AllOtherDays,Until: 24:00,29;
+Schedule:Compact,ACTIVITY_SCH,Any,Through: 12/31,For: AllDays,Until: 24:00,120;
+
+People,Perim_S_People,Perim_S,OCC_SCH,Area/Person,,,24,0.3,autocalculate,ACTIVITY_SCH;
+People,Perim_E_People,Perim_E,OCC_SCH,Area/Person,,,24,0.3,autocalculate,ACTIVITY_SCH;
+People,Perim_N_People,Perim_N,OCC_SCH,Area/Person,,,24,0.3,autocalculate,ACTIVITY_SCH;
+People,Perim_W_People,Perim_W,OCC_SCH,Area/Person,,,24,0.3,autocalculate,ACTIVITY_SCH;
+People,Core_People,Core,OCC_SCH,Area/Person,,,24,0.3,autocalculate,ACTIVITY_SCH;
+
+Lights,Perim_S_Lights,Perim_S,LTG_SCH,Watts/Area,,6.2,,0,0.7,0.2,1;
+Lights,Perim_E_Lights,Perim_E,LTG_SCH,Watts/Area,,6.2,,0,0.7,0.2,1;
+Lights,Perim_N_Lights,Perim_N,LTG_SCH,Watts/Area,,6.2,,0,0.7,0.2,1;
+Lights,Perim_W_Lights,Perim_W,LTG_SCH,Watts/Area,,6.2,,0,0.7,0.2,1;
+Lights,Core_Lights,Core,LTG_SCH,Watts/Area,,6.2,,0,0.7,0.2,1;
+
+ElectricEquipment,Perim_S_Equip,Perim_S,EQP_SCH,Watts/Area,,11.6,,0,0.5,0;
+ElectricEquipment,Perim_E_Equip,Perim_E,EQP_SCH,Watts/Area,,11.6,,0,0.5,0;
+ElectricEquipment,Perim_N_Equip,Perim_N,EQP_SCH,Watts/Area,,11.6,,0,0.5,0;
+ElectricEquipment,Perim_W_Equip,Perim_W,EQP_SCH,Watts/Area,,11.6,,0,0.5,0;
+ElectricEquipment,Core_Equip,Core,EQP_SCH,Watts/Area,,11.6,,0,0.5,0;
+
+ZoneInfiltration:DesignFlowRate,Perim_S_Infil,Perim_S,ALWAYS_ON,AirChanges/Hour,,,,0.15,1,0,0,0;
+ZoneInfiltration:DesignFlowRate,Perim_E_Infil,Perim_E,ALWAYS_ON,AirChanges/Hour,,,,0.15,1,0,0,0;
+ZoneInfiltration:DesignFlowRate,Perim_N_Infil,Perim_N,ALWAYS_ON,AirChanges/Hour,,,,0.15,1,0,0,0;
+ZoneInfiltration:DesignFlowRate,Perim_W_Infil,Perim_W,ALWAYS_ON,AirChanges/Hour,,,,0.15,1,0,0,0;
+ZoneInfiltration:DesignFlowRate,Core_Infil,Core,ALWAYS_ON,AirChanges/Hour,,,,0.15,1,0,0,0;
+
+HVACTemplate:Thermostat,Tstat,HTGSETP_SCH,,CLGSETP_SCH,;
+HVACTemplate:Zone:IdealLoadsAirSystem,Perim_S,Tstat;
+HVACTemplate:Zone:IdealLoadsAirSystem,Perim_E,Tstat;
+HVACTemplate:Zone:IdealLoadsAirSystem,Perim_N,Tstat;
+HVACTemplate:Zone:IdealLoadsAirSystem,Perim_W,Tstat;
+HVACTemplate:Zone:IdealLoadsAirSystem,Core,Tstat;

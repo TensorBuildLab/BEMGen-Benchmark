@@ -1,0 +1,1043 @@
+TY  - JOUR
+ID  - wan2025exploring
+AU  - Wan, Hanlong
+AU  - Zhang, Jian
+AU  - Chen, Yan
+AU  - Xu, Weili
+AU  - Feng, Fan
+TI  - Exploring Gen-AI applications in building research and industry: A review
+T2  - Building Simulation
+J2  - Build. Simul.
+PY  - 2025
+VL  - 18
+IS  - 6
+SP  - 1251
+EP  - 1273
+DO  - 10.1007/s12273-025-1279-x
+UR  - https://doi.org/10.1007/s12273-025-1279-x
+ER  - 
+
+TY  - JOUR
+ID  - erfani2026applications
+AU  - Erfani, Abdolmajid
+AU  - Mansouri, Ali
+TI  - Applications of multimodal large language models in construction industry
+T2  - Advanced Engineering Informatics
+J2  - Advanced Engineering Informatics
+PY  - 2026
+VL  - 69
+SP  - 103909
+DO  - 10.1016/j.aei.2025.103909
+UR  - https://doi.org/10.1016/j.aei.2025.103909
+ER  - 
+
+TY  - JOUR
+ID  - liang2026aecbench
+AU  - Liang, Chen
+AU  - Huang, Zhaoqi
+AU  - Wang, Haofen
+AU  - Chai, Fu
+AU  - Yu, Chunying
+AU  - Wei, Huanhuan
+AU  - Liu, Zhengjie
+AU  - Li, Yanpeng
+AU  - Wang, Hongjun
+AU  - Luo, Ruifeng
+AU  - Zhao, Xianzhong
+TI  - AECBench: A hierarchical benchmark for knowledge evaluation of large language models in the AEC field
+T2  - Advanced Engineering Informatics
+J2  - Advanced Engineering Informatics
+PY  - 2026
+VL  - 71
+SP  - 104314
+DO  - 10.1016/j.aei.2026.104314
+UR  - https://doi.org/10.1016/j.aei.2026.104314
+ER  - 
+
+TY  - JOUR
+ID  - xiong2026socio
+AU  - Xiong, Ruoxin
+AU  - Netser, Yael
+AU  - Tang, Pingbo
+AU  - Li, Beibei
+AU  - Hwang, Joonsun
+TI  - Socio-technical assessment of generative AI integration in architecture, engineering, and construction (AEC) workflows: An empirical study using O*NET occupational taxonomy
+T2  - Advanced Engineering Informatics
+J2  - Advanced Engineering Informatics
+PY  - 2026
+VL  - 71
+SP  - 104392
+DO  - 10.1016/j.aei.2026.104392
+UR  - https://doi.org/10.1016/j.aei.2026.104392
+ER  - 
+
+TY  - JOUR
+ID  - zentgraf2026bim
+AU  - Zentgraf, Sven
+AU  - Hagedorn, Philipp
+AU  - König, Markus
+TI  - A BIM-based framework for automated building code extraction and compliance checking
+T2  - Advanced Engineering Informatics
+J2  - Advanced Engineering Informatics
+PY  - 2026
+VL  - 74
+SP  - 104735
+DO  - 10.1016/j.aei.2026.104735
+UR  - https://doi.org/10.1016/j.aei.2026.104735
+ER  - 
+
+TY  - JOUR
+ID  - chaudhary2016evaluation
+AU  - Chaudhary, Gaurav
+AU  - New, Joshua
+AU  - Sanyal, Jibonananda
+AU  - Im, Piljae
+AU  - O’Neill, Zheng
+AU  - Garg, Vishal
+TI  - Evaluation of “Autotune” calibration against manual calibration of building energy models
+T2  - Applied Energy
+J2  - Applied Energy
+PY  - 2016
+VL  - 182
+SP  - 115
+EP  - 134
+DO  - 10.1016/j.apenergy.2016.08.073
+UR  - https://doi.org/10.1016/j.apenergy.2016.08.073
+ER  - 
+
+TY  - JOUR
+ID  - jiang2024eplus
+AU  - Jiang, Gang
+AU  - Ma, Zhihao
+AU  - Zhang, Liang
+AU  - Chen, Jianli
+TI  - EPlus-LLM: A large language model-based computing platform for automated building energy modeling
+T2  - Applied Energy
+J2  - Applied Energy
+PY  - 2024
+VL  - 367
+SP  - 123431
+DO  - 10.1016/j.apenergy.2024.123431
+UR  - https://doi.org/10.1016/j.apenergy.2024.123431
+ER  - 
+
+TY  - JOUR
+ID  - han2026human
+AU  - Han, Jinmog
+AU  - Mo, Yunjeong
+TI  - Human-building interaction in energy management systems: A systematic review with LLM-based topic modeling for user-responsive and adaptive energy systems
+T2  - Applied Energy
+J2  - Applied Energy
+PY  - 2026
+VL  - 403
+SP  - 127079
+DO  - 10.1016/j.apenergy.2025.127079
+UR  - https://doi.org/10.1016/j.apenergy.2025.127079
+ER  - 
+
+TY  - JOUR
+ID  - yang2024prompt
+AU  - Yang, Fan
+AU  - Zhang, Jiansong
+TI  - Prompt-based automation of building code information transformation for compliance checking
+T2  - Automation in Construction
+J2  - Automation in Construction
+PY  - 2024
+VL  - 168
+SP  - 105817
+DO  - 10.1016/j.autcon.2024.105817
+UR  - https://doi.org/10.1016/j.autcon.2024.105817
+ER  - 
+
+TY  - JOUR
+ID  - jiang2025efficient
+AU  - Jiang, Gang
+AU  - Chen, Jianli
+TI  - Efficient fine-tuning of large language models for automated building energy modeling in complex cases
+T2  - Automation in Construction
+J2  - Automation in Construction
+PY  - 2025
+VL  - 175
+SP  - 106223
+DO  - 10.1016/j.autcon.2025.106223
+UR  - https://doi.org/10.1016/j.autcon.2025.106223
+ER  - 
+
+TY  - JOUR
+ID  - zhang2025large
+AU  - Zhang, Liang
+AU  - Fu, Xiaoqin
+AU  - Li, Yanfei
+AU  - Chen, Jianli
+TI  - Large language model-based agent Schema and library for automated building energy analysis and modeling
+T2  - Automation in Construction
+J2  - Automation in Construction
+PY  - 2025
+VL  - 176
+SP  - 106244
+DO  - 10.1016/j.autcon.2025.106244
+UR  - https://doi.org/10.1016/j.autcon.2025.106244
+ER  - 
+
+TY  - JOUR
+ID  - dong2025ai
+AU  - Dong, Yaxian
+AU  - Zhan, Zijun
+AU  - Hu, Yuqing
+AU  - Doe, Daniel Mawunyo
+AU  - Han, Zhu
+TI  - AI BIM coordinator for non-expert interaction in building design using LLM-driven multi-agent systems
+T2  - Automation in Construction
+J2  - Automation in Construction
+PY  - 2025
+VL  - 180
+SP  - 106563
+DO  - 10.1016/j.autcon.2025.106563
+UR  - https://doi.org/10.1016/j.autcon.2025.106563
+ER  - 
+
+TY  - JOUR
+ID  - elbasani2026llm
+AU  - Elbasani, Ermal
+AU  - Tran, Tran B.
+AU  - Lee, Seunghye
+AU  - Lee, Jaehong
+TI  - LLM-enabled automation of CAD–structural analysis via Model Context Protocol
+T2  - Automation in Construction
+J2  - Automation in Construction
+PY  - 2026
+VL  - 188
+SP  - 107030
+DO  - 10.1016/j.autcon.2026.107030
+UR  - https://doi.org/10.1016/j.autcon.2026.107030
+ER  - 
+
+TY  - JOUR
+ID  - li2026comprehensive
+AU  - Li, Yue
+AU  - Li, Shaoheng
+AU  - Li, Duantengchuan
+AU  - Chen, Feng
+AU  - Liu, Yu
+TI  - Comprehensive benchmark of large language models for construction engineering and management
+T2  - Automation in Construction
+J2  - Automation in Construction
+PY  - 2026
+VL  - 190
+SP  - 107101
+DO  - 10.1016/j.autcon.2026.107101
+UR  - https://doi.org/10.1016/j.autcon.2026.107101
+ER  - 
+
+TY  - JOUR
+ID  - zhang2024large
+AU  - Zhang, Liang
+AU  - Chen, Zhelun
+TI  - Large language model-based interpretable machine learning control in building energy systems
+T2  - Energy and Buildings
+J2  - Energy and Buildings
+PY  - 2024
+VL  - 313
+SP  - 114278
+DO  - 10.1016/j.enbuild.2024.114278
+UR  - https://doi.org/10.1016/j.enbuild.2024.114278
+ER  - 
+
+TY  - JOUR
+ID  - zhang2024advancing
+AU  - Zhang, Liang
+AU  - Chen, Zhelun
+AU  - Ford, Vitaly
+TI  - Advancing building energy modeling with large language models: Exploration and case studies
+T2  - Energy and Buildings
+J2  - Energy and Buildings
+PY  - 2024
+VL  - 323
+SP  - 114788
+DO  - 10.1016/j.enbuild.2024.114788
+UR  - https://doi.org/10.1016/j.enbuild.2024.114788
+ER  - 
+
+TY  - JOUR
+ID  - zhang2025automatic
+AU  - Zhang, Liang
+AU  - Ford, Vitaly
+AU  - Chen, Zhelun
+AU  - Chen, Jianli
+TI  - Automatic building energy model development and debugging using large language models agentic workflow
+T2  - Energy and Buildings
+J2  - Energy and Buildings
+PY  - 2025
+VL  - 327
+SP  - 115116
+DO  - 10.1016/j.enbuild.2024.115116
+UR  - https://doi.org/10.1016/j.enbuild.2024.115116
+ER  - 
+
+TY  - JOUR
+ID  - guo2025uav
+AU  - Guo, Haojie
+AU  - Chen, Zhihua
+AU  - Chen, Xi
+AU  - Yang, Jingjing
+AU  - Song, Chengcheng
+AU  - Chen, Yixing
+TI  - UAV-BIM-BEM: An automatic unmanned aerial vehicles-based building energy model generation platform
+T2  - Energy and Buildings
+J2  - Energy and Buildings
+PY  - 2025
+VL  - 328
+SP  - 115120
+DO  - 10.1016/j.enbuild.2024.115120
+UR  - https://doi.org/10.1016/j.enbuild.2024.115120
+ER  - 
+
+TY  - JOUR
+ID  - arslan2026large
+AU  - Arslan, Muhammad
+AU  - Munawar, Saba
+TI  - Large language models in building energy applications: a survey
+T2  - Energy and Buildings
+J2  - Energy and Buildings
+PY  - 2026
+VL  - 352
+SP  - 116800
+DO  - 10.1016/j.enbuild.2025.116800
+UR  - https://doi.org/10.1016/j.enbuild.2025.116800
+ER  - 
+
+TY  - JOUR
+ID  - liu2026large
+AU  - Liu, Deli
+AU  - Zhou, Xiaoping
+AU  - Li, Yu
+TI  - Large language model–driven building energy model generation
+T2  - Energy and Buildings
+J2  - Energy and Buildings
+PY  - 2026
+VL  - 359
+SP  - 117255
+DO  - 10.1016/j.enbuild.2026.117255
+UR  - https://doi.org/10.1016/j.enbuild.2026.117255
+ER  - 
+
+TY  - JOUR
+ID  - lee2026knowledge
+AU  - Lee, Gowoon
+AU  - Yoon, Sungmin
+TI  - A knowledge-based multi-agent system using large language models for automated building energy modeling and simulation service
+T2  - Energy and Buildings
+J2  - Energy and Buildings
+PY  - 2026
+VL  - 367
+SP  - 117688
+DO  - 10.1016/j.enbuild.2026.117688
+UR  - https://doi.org/10.1016/j.enbuild.2026.117688
+ER  - 
+
+TY  - JOUR
+ID  - hu2026autocontrol
+AU  - Hu, Ziqi
+AU  - Li, Mingchen
+AU  - Han, Xu
+AU  - Li, Lunlong
+AU  - Wang, Zhe
+TI  - AutoControl-MPC: An automated model predictive control development framework based on large language models for HVAC systems
+T2  - Energy and Buildings
+J2  - Energy and Buildings
+PY  - 2026
+VL  - 369
+SP  - 118025
+DO  - 10.1016/j.enbuild.2026.118025
+UR  - https://doi.org/10.1016/j.enbuild.2026.118025
+ER  - 
+
+TY  - JOUR
+ID  - jiang2025prompt
+AU  - Jiang, Gang
+AU  - Ma, Zhihao
+AU  - Zhang, Liang
+AU  - Chen, Jianli
+TI  - Prompt engineering to inform large language model in automated building energy modeling
+T2  - Energy
+J2  - Energy
+PY  - 2025
+VL  - 316
+SP  - 134548
+DO  - 10.1016/j.energy.2025.134548
+UR  - https://doi.org/10.1016/j.energy.2025.134548
+ER  - 
+
+TY  - JOUR
+ID  - tian2013review
+AU  - Tian, Wei
+TI  - A review of sensitivity analysis methods in building energy analysis
+T2  - Renewable and Sustainable Energy Reviews
+J2  - Renewable and Sustainable Energy Reviews
+PY  - 2013
+VL  - 20
+SP  - 411
+EP  - 419
+DO  - 10.1016/j.rser.2012.12.014
+UR  - https://doi.org/10.1016/j.rser.2012.12.014
+ER  - 
+
+TY  - JOUR
+ID  - coakley2014review
+AU  - Coakley, Daniel
+AU  - Raftery, Paul
+AU  - Keane, Marcus
+TI  - A review of methods to match building energy simulation models to measured data
+T2  - Renewable and Sustainable Energy Reviews
+J2  - Renewable and Sustainable Energy Reviews
+PY  - 2014
+VL  - 37
+SP  - 123
+EP  - 141
+DO  - 10.1016/j.rser.2014.05.007
+UR  - https://doi.org/10.1016/j.rser.2014.05.007
+ER  - 
+
+TY  - JOUR
+ID  - zhang2025opportunities
+AU  - Zhang, Liang
+AU  - Chen, Zhelun
+TI  - Opportunities of applying Large Language Models in building energy sector
+T2  - Renewable and Sustainable Energy Reviews
+J2  - Renewable and Sustainable Energy Reviews
+PY  - 2025
+VL  - 214
+SP  - 115558
+DO  - 10.1016/j.rser.2025.115558
+UR  - https://doi.org/10.1016/j.rser.2025.115558
+ER  - 
+
+TY  - JOUR
+ID  - li2025energyplus
+AU  - Li, Han
+AU  - Xu, Yujie
+AU  - Hong, Tianzhen
+TI  - EnergyPlus-MCP: A model-context-protocol server for ai-driven building energy modeling
+T2  - SoftwareX
+J2  - SoftwareX
+PY  - 2025
+VL  - 32
+SP  - 102367
+DO  - 10.1016/j.softx.2025.102367
+UR  - https://doi.org/10.1016/j.softx.2025.102367
+ER  - 
+
+TY  - JOUR
+ID  - ball2026openstudio
+AU  - Ball, Brian L.
+AU  - Long, Nicholas
+AU  - Fleming, Katherine
+AU  - Goldwasser, David
+TI  - OpenStudio-MCP: a model context protocol (MCP) server for AI agent-driven building energy modeling with the OpenStudio SDK
+T2  - SoftwareX
+J2  - SoftwareX
+PY  - 2026
+VL  - 36
+SP  - 103020
+DO  - 10.1016/j.softx.2026.103020
+UR  - https://doi.org/10.1016/j.softx.2026.103020
+ER  - 
+
+TY  - JOUR
+ID  - miller2020building
+AU  - Miller, Clayton
+AU  - Kathirgamanathan, Anjukan
+AU  - Picchetti, Bianca
+AU  - Arjunan, Pandarasamy
+AU  - Park, June Young
+AU  - Nagy, Zoltan
+AU  - Raftery, Paul
+AU  - Hobson, Brodie W.
+AU  - Shi, Zixiao
+AU  - Meggers, Forrest
+TI  - The Building Data Genome Project 2, energy meter data from the ASHRAE Great Energy Predictor III competition
+T2  - Scientific Data
+J2  - Sci Data
+PY  - 2020
+VL  - 7
+IS  - 1
+SP  - 368
+DO  - 10.1038/s41597-020-00712-x
+UR  - https://doi.org/10.1038/s41597-020-00712-x
+ER  - 
+
+TY  - JOUR
+ID  - woloszyn2016treating
+AU  - Woloszyn, Monika
+AU  - Beausoleil-Morrison, Ian
+TI  - Treating uncertainty in building performance simulation
+T2  - Journal of Building Performance Simulation
+J2  - Journal of Building Performance Simulation
+PY  - 2016
+VL  - 10
+IS  - 1
+SP  - 1
+EP  - 2
+DO  - 10.1080/19401493.2017.1261641
+UR  - https://doi.org/10.1080/19401493.2017.1261641
+ER  - 
+
+TY  - JOUR
+ID  - vanhove2023quality
+AU  - Van Hove, M. Y. C.
+AU  - Delghust, M.
+AU  - Laverge, J.
+TI  - Quality assurance for building-stock energy models: a performance comparison of eleven uncertainty and sensitivity analysis methods
+T2  - Journal of Building Performance Simulation
+J2  - Journal of Building Performance Simulation
+PY  - 2023
+VL  - 17
+IS  - 2
+SP  - 149
+EP  - 175
+DO  - 10.1080/19401493.2023.2248063
+UR  - https://doi.org/10.1080/19401493.2023.2248063
+ER  - 
+
+TY  - JOUR
+ID  - tian2024advanced
+AU  - Tian, Wei
+TI  - Towards advanced uncertainty and sensitivity analysis of building energy performance using machine learning techniques
+T2  - Journal of Building Performance Simulation
+J2  - Journal of Building Performance Simulation
+PY  - 2024
+VL  - 17
+IS  - 6
+SP  - 655
+EP  - 662
+DO  - 10.1080/19401493.2024.2387071
+UR  - https://doi.org/10.1080/19401493.2024.2387071
+ER  - 
+
+TY  - JOUR
+ID  - miller2020ashrae
+AU  - Miller, Clayton
+AU  - Arjunan, Pandarasamy
+AU  - Kathirgamanathan, Anjukan
+AU  - Fu, Chun
+AU  - Roth, Jonathan
+AU  - Park, June Young
+AU  - Balbach, Chris
+AU  - Gowri, Krishnan
+AU  - Nagy, Zoltan
+AU  - Fontanini, Anthony D.
+AU  - Haberl, Jeff
+TI  - The ASHRAE Great Energy Predictor III competition: Overview and results
+T2  - Science and Technology for the Built Environment
+J2  - Science and Technology for the Built Environment
+PY  - 2020
+VL  - 26
+IS  - 10
+SP  - 1427
+EP  - 1447
+DO  - 10.1080/23744731.2020.1795514
+UR  - https://doi.org/10.1080/23744731.2020.1795514
+ER  - 
+
+TY  - JOUR
+ID  - miller2022limitations
+AU  - Miller, Clayton
+AU  - Picchetti, Bianca
+AU  - Fu, Chun
+AU  - Pantelic, Jovan
+TI  - Limitations of machine learning for building energy prediction: ASHRAE Great Energy Predictor III Kaggle competition error analysis
+T2  - Science and Technology for the Built Environment
+J2  - Science and Technology for the Built Environment
+PY  - 2022
+VL  - 28
+IS  - 5
+SP  - 610
+EP  - 627
+DO  - 10.1080/23744731.2022.2067466
+UR  - https://doi.org/10.1080/23744731.2022.2067466
+ER  - 
+
+TY  - CPAPER
+ID  - mitchell2019model
+AU  - Mitchell, Margaret
+AU  - Wu, Simone
+AU  - Zaldivar, Andrew
+AU  - Barnes, Parker
+AU  - Vasserman, Lucy
+AU  - Hutchinson, Ben
+AU  - Spitzer, Elena
+AU  - Raji, Inioluwa Deborah
+AU  - Gebru, Timnit
+TI  - Model Cards for Model Reporting
+T2  - Proceedings of the Conference on Fairness, Accountability, and Transparency
+PY  - 2019
+SP  - 220
+EP  - 229
+PB  - ACM
+DO  - 10.1145/3287560.3287596
+UR  - https://doi.org/10.1145/3287560.3287596
+ER  - 
+
+TY  - CPAPER
+ID  - vazquezcanteli2019citylearn
+AU  - Vázquez-Canteli, José R.
+AU  - Kämpf, Jérôme
+AU  - Henze, Gregor
+AU  - Nagy, Zoltan
+TI  - CityLearn v1.0: An OpenAI Gym Environment for Demand Response with Deep Reinforcement Learning
+T2  - Proceedings of the 6th ACM International Conference on Systems for Energy-Efficient Buildings, Cities, and Transportation
+PY  - 2019
+SP  - 356
+EP  - 357
+PB  - ACM
+DO  - 10.1145/3360322.3360998
+UR  - https://doi.org/10.1145/3360322.3360998
+ER  - 
+
+TY  - CPAPER
+ID  - hutchinson2021accountability
+AU  - Hutchinson, Ben
+AU  - Smart, Andrew
+AU  - Hanna, Alex
+AU  - Denton, Remi
+AU  - Greer, Christina
+AU  - Kjartansson, Oddur
+AU  - Barnes, Parker
+AU  - Mitchell, Margaret
+TI  - Towards Accountability for Machine Learning Datasets: Practices from Software Engineering and Infrastructure
+T2  - Proceedings of the 2021 ACM Conference on Fairness, Accountability, and Transparency
+PY  - 2021
+SP  - 560
+EP  - 575
+PB  - ACM
+DO  - 10.1145/3442188.3445918
+UR  - https://doi.org/10.1145/3442188.3445918
+ER  - 
+
+TY  - JOUR
+ID  - gebru2021datasheets
+AU  - Gebru, Timnit
+AU  - Morgenstern, Jamie
+AU  - Vecchione, Briana
+AU  - Vaughan, Jennifer Wortman
+AU  - Wallach, Hanna
+AU  - III, Hal Daumé
+AU  - Crawford, Kate
+TI  - Datasheets for datasets
+T2  - Communications of the ACM
+J2  - Commun. ACM
+PY  - 2021
+VL  - 64
+IS  - 12
+SP  - 86
+EP  - 92
+DO  - 10.1145/3458723
+UR  - https://doi.org/10.1145/3458723
+ER  - 
+
+TY  - JOUR
+ID  - imam2017building
+AU  - Imam, Salah
+AU  - Coley, David A
+AU  - Walker, Ian
+TI  - The building performance gap: Are modellers literate?
+T2  - Building Services Engineering Research and Technology
+J2  - Building Services Engineering Research and Technology
+PY  - 2017
+VL  - 38
+IS  - 3
+SP  - 351
+EP  - 375
+DO  - 10.1177/0143624416684641
+UR  - https://doi.org/10.1177/0143624416684641
+ER  - 
+
+TY  - GEN
+ID  - lee2026model
+AU  - Lee, Dong  Kyu
+AU  - Wee, Jung  Hoon
+AU  - Chae, Young Tae
+TI  - Model-Agnostic Calibration Strategy: Integrating Active Learning with Large Language Models for Building Energy Systems
+PY  - 2026
+PB  - Elsevier BV
+N1  - Preprint (not peer reviewed)
+DO  - 10.2139/ssrn.6086104
+UR  - https://doi.org/10.2139/ssrn.6086104
+ER  - 
+
+TY  - GEN
+ID  - ko2026darlin
+AU  - Ko, Yun-Dam
+AU  - Jain, Rishee  Kumar
+TI  - DARLIN: Domain-Guided Augmented Retrieval for LLM-Based Interpretable and Transferable HVAC Control
+PY  - 2026
+PB  - Elsevier BV
+N1  - Preprint (not peer reviewed)
+DO  - 10.2139/ssrn.7135996
+UR  - https://doi.org/10.2139/ssrn.7135996
+ER  - 
+
+TY  - RPRT
+ID  - deru2011u
+AU  - Deru, M.
+AU  - Field, K.
+AU  - Studer, D.
+AU  - Benne, K.
+AU  - Griffith, B.
+AU  - Torcellini, P.
+AU  - Liu, B.
+AU  - Halverson, M.
+AU  - Winiarski, D.
+AU  - Rosenberg, M.
+AU  - Yazdanian, M.
+AU  - Huang, J.
+AU  - Crawley, D.
+TI  - U.S. Department of Energy Commercial Reference Building Models of the National Building Stock
+PY  - 2011
+PB  - Office of Scientific and Technical Information (OSTI)
+DO  - 10.2172/1009264
+UR  - https://doi.org/10.2172/1009264
+ER  - 
+
+TY  - RPRT
+ID  - judkoff2011building
+AU  - Judkoff, R.
+AU  - Polly, B.
+AU  - Bianchi, M.
+AU  - Neymark, J.
+TI  - Building Energy Simulation Test for Existing Homes (BESTEST-EX) Methodology: Preprint
+PY  - 2011
+PB  - Office of Scientific and Technical Information (OSTI)
+DO  - 10.2172/1029029
+UR  - https://doi.org/10.2172/1029029
+ER  - 
+
+TY  - RPRT
+ID  - neymark2002international
+AU  - Neymark, J.
+AU  - Judkoff, R.
+TI  - International Energy Agency Building Energy Simulation Test and Diagnostic Method for Heating, Ventilating, and Air-Conditioning Equipment Models (HVAC BESTEST); Volume 1: Cases E100-E200
+PY  - 2002
+PB  - Office of Scientific and Technical Information (OSTI)
+DO  - 10.2172/15000340
+UR  - https://doi.org/10.2172/15000340
+ER  - 
+
+TY  - RPRT
+ID  - neymark2004international
+AU  - Neymark, J
+AU  - Judkoff, R
+TI  - International Energy Agency Building Energy Simulation Test and Diagnostic Method for Heating, Ventilating, and Air-Conditioning Equipment Models (HVAC BESTEST): Volume 2: Cases E300-E545.
+PY  - 2004
+PB  - Office of Scientific and Technical Information (OSTI)
+DO  - 10.2172/15015114
+UR  - https://doi.org/10.2172/15015114
+ER  - 
+
+TY  - RPRT
+ID  - pigman2022end
+AU  - Pigman, Margaret
+AU  - Frick, Natalie
+AU  - Wilson, Eric
+AU  - Parker, Andrew
+AU  - Present, Elaina
+TI  - End-Use Load Profiles for the U.S. Building Stock: Practical Guidance on Accessing and Using the Data
+PY  - 2022
+PB  - Office of Scientific and Technical Information (OSTI)
+DO  - 10.2172/1906716
+UR  - https://doi.org/10.2172/1906716
+ER  - 
+
+TY  - RPRT
+ID  - judkoff2010building
+AU  - Judkoff, R.
+AU  - Polly, B.
+AU  - Bianchi, M.
+AU  - Neymark, J.
+TI  - Building Energy Simulation Test for Existing Homes (BESTEST-EX); Phase 1 Test Procedure: Building Thermal Fabric Cases
+PY  - 2010
+PB  - Office of Scientific and Technical Information (OSTI)
+DO  - 10.2172/988600
+UR  - https://doi.org/10.2172/988600
+ER  - 
+
+TY  - JOUR
+ID  - wang2026generative
+AU  - Wang, Yujue
+AU  - Liao, Wenjie
+TI  - Generative AI-Driven Architectural and Structural Engineering Designs: A Review
+T2  - Journal of Intelligent Construction
+J2  - Journal of Intell. Const.
+PY  - 2026
+VL  - 4
+IS  - 3
+SP  - 1
+EP  - 21
+DO  - 10.26599/jic.2026.9180126
+UR  - https://doi.org/10.26599/jic.2026.9180126
+ER  - 
+
+TY  - CPAPER
+ID  - berkeley2015effect
+AU  - Berkeley, Pamela
+AU  - Haves, Philip
+AU  - Kolderup, Erik
+TI  - The Effect of Modeler Decisions on Simulation Uncertainty: Some Implications for User Interface Design
+T2  - Building Simulation Conference Proceedings
+PY  - 2015
+VL  - 14
+PB  - IBPSA
+DO  - 10.26868/25222708.2015.2739
+UR  - https://doi.org/10.26868/25222708.2015.2739
+ER  - 
+
+TY  - CPAPER
+ID  - arroyo2021introduction
+AU  - Arroyo, Javier
+AU  - Blum, David
+TI  - Introduction to the BOPTEST framework for simulation-based benchmarking of advanced controllers
+T2  - Building Simulation Conference Proceedings
+PY  - 2021
+PB  - KU Leuven
+DO  - 10.26868/25222708.2021.11134
+UR  - https://doi.org/10.26868/25222708.2021.11134
+ER  - 
+
+TY  - CPAPER
+ID  - supriyatno2025sensitivity
+AU  - Supriyatno, Alessandro
+AU  - Abdelsalam, Mohamed
+AU  - Pudleiner, David
+TI  - Sensitivity analysis of US housing stock building characteristics using ResStock
+T2  - Building Simulation Conference Proceedings
+PY  - 2025
+VL  - 19
+PB  - IBPSA
+DO  - 10.26868/25222708.2025.1632
+UR  - https://doi.org/10.26868/25222708.2025.1632
+ER  - 
+
+TY  - CPAPER
+ID  - berkeley2014impact
+AU  - Berkeley, Pamela
+AU  - Haves, Philip
+AU  - Kolderup, Erik
+TI  - Impact of Modeler Decisions on Simulation Results
+T2  - ASHRAE/IBPSA-USA Building Simulation Conference
+PY  - 2014
+VL  - 6
+PB  - IBPSA-USA
+DO  - 10.26868/25746308.2014.26
+UR  - https://doi.org/10.26868/25746308.2014.26
+ER  - 
+
+TY  - CPAPER
+ID  - field2010using
+AU  - Field, Kristin
+AU  - Deru, Michael
+AU  - Studer, Daniel
+TI  - Using DOE Commercial Reference Buildings for Simulation Studies
+T2  - IBPSA-USA Building Simulation Conference
+PY  - 2010
+VL  - 4
+PB  - IBPSA-USA
+DO  - 10.26868/30680611.2010.ts02b-02-field
+UR  - https://doi.org/10.26868/30680611.2010.ts02b-02-field
+ER  - 
+
+TY  - CPAPER
+ID  - zhang2024advancingb
+AU  - Zhang, Liang
+AU  - Chen, Zhelun
+AU  - Ford, Vitaly
+AU  - Xu, Peng
+TI  - Advancing Building Energy Modeling with Large Language Models: Exploration and Case Studies
+T2  - IBPSA-USA Building Simulation Conference
+PY  - 2024
+VL  - 11
+PB  - IBPSA-USA
+DO  - 10.26868/30680611.2024.2104
+UR  - https://doi.org/10.26868/30680611.2024.2104
+ER  - 
+
+TY  - JOUR
+ID  - onatayo2024generative
+AU  - Onatayo, Damilola
+AU  - Onososen, Adetayo
+AU  - Oyediran, Abiola Oluwasogo
+AU  - Oyediran, Hafiz
+AU  - Arowoiya, Victor
+AU  - Onatayo, Eniola
+TI  - Generative AI Applications in Architecture, Engineering, and Construction: Trends, Implications for Practice, Education & Imperatives for Upskilling—A Review
+T2  - Architecture
+J2  - Architecture
+PY  - 2024
+VL  - 4
+IS  - 4
+SP  - 877
+EP  - 902
+DO  - 10.3390/architecture4040046
+UR  - https://doi.org/10.3390/architecture4040046
+ER  - 
+
+TY  - JOUR
+ID  - memon2025generative
+AU  - Memon, Shoeb Ahmed
+AU  - Shehata, Waled
+AU  - Rowlinson, Steve
+AU  - Sunindijo, Riza Yosia
+TI  - Generative Artificial Intelligence in Architecture, Engineering, Construction, and Operations: A Systematic Review
+T2  - Buildings
+J2  - Buildings
+PY  - 2025
+VL  - 15
+IS  - 13
+SP  - 2270
+DO  - 10.3390/buildings15132270
+UR  - https://doi.org/10.3390/buildings15132270
+ER  - 
+
+TY  - JOUR
+ID  - jiang2026large
+AU  - Jiang, Ruiqin
+AU  - Xia, Ke
+AU  - Huang, Jiahua
+AU  - Lu, Jie
+TI  - Large Language Model-Based Method for HVAC System Control Code Automatic Generation
+T2  - Buildings
+J2  - Buildings
+PY  - 2026
+VL  - 16
+IS  - 9
+SP  - 1722
+DO  - 10.3390/buildings16091722
+UR  - https://doi.org/10.3390/buildings16091722
+ER  - 
+
+TY  - JOUR
+ID  - madireddy2025large
+AU  - Madireddy, Soumya
+AU  - Gao, Lu
+AU  - Din, Zia Ud
+AU  - Kim, Kinam
+AU  - Senouci, Ahmed
+AU  - Han, Zhe
+AU  - Zhang, Yunpeng
+TI  - Large Language Model-Driven Code Compliance Checking in Building Information Modeling
+T2  - Electronics
+J2  - Electronics
+PY  - 2025
+VL  - 14
+IS  - 11
+SP  - 2146
+DO  - 10.3390/electronics14112146
+UR  - https://doi.org/10.3390/electronics14112146
+ER  - 
+
+TY  - JOUR
+ID  - fabrizio2015methodologies
+AU  - Fabrizio, Enrico
+AU  - Monetti, Valentina
+TI  - Methodologies and Advancements in the Calibration of Building Energy Models
+T2  - Energies
+J2  - Energies
+PY  - 2015
+VL  - 8
+IS  - 4
+SP  - 2548
+EP  - 2574
+DO  - 10.3390/en8042548
+UR  - https://doi.org/10.3390/en8042548
+ER  - 
+
+TY  - GEN
+ID  - zhan2025leveraging
+AU  - Zhan, Dongxue
+AU  - Rayegan, Saeed
+AU  - Qin, Shaoxiang
+AU  - Wang, Liangzhu (Leon)
+AU  - Hassan, Ibrahim Galal
+TI  - Leveraging large language models to enhance urban building energy modeling: A case study
+PY  - 2025
+PB  - Copernicus GmbH
+N1  - Preprint (not peer reviewed)
+DO  - 10.5194/icuc12-542
+UR  - https://doi.org/10.5194/icuc12-542
+ER  - 
+
+TY  - CPAPER
+ID  - emami2023buildingsbench
+AU  - Emami, Patrick
+AU  - Sahu, Abhijeet
+AU  - Graf, Peter
+TI  - BuildingsBench: A Large-Scale Dataset of 900K Buildings and Benchmark for Short-Term Load Forecasting
+T2  - Advances in Neural Information Processing Systems 36
+PY  - 2023
+SP  - 19823
+EP  - 19857
+PB  - Neural Information Processing Systems Foundation, Inc. (NeurIPS)
+DO  - 10.52202/075280-0871
+UR  - https://doi.org/10.52202/075280-0871
+ER  - 
+
+TY  - JOUR
+ID  - wan2026localized
+AU  - Wan, Hanlong
+AU  - Yuan, Yanping
+TI  - Localized LLM selection for agentic building energy modeling worker routing
+T2  - The Innovation Energy
+PY  - 2026
+VL  - 3
+IS  - 4
+SP  - 100194
+DO  - 10.59717/j.xinn-energy.2026.100194
+UR  - https://doi.org/10.59717/j.xinn-energy.2026.100194
+ER  - 
+
+TY  - CPAPER
+ID  - jiang2024eplusb
+AU  - Jiang, Gang
+AU  - Zhang, Liang
+AU  - Chen, Jianli
+TI  - Eplus-LLM: A Novel Automated Building Simulation Platform Using Natural Language
+T2  - 2024 ASHRAE Annual Conference
+PY  - 2024
+PB  - ASHRAE
+DO  - 10.63044/s24jia28
+UR  - https://doi.org/10.63044/s24jia28
+ER  - 
+
+TY  - CPAPER
+ID  - ashrae2026automating
+TI  - Automating Complex Building Energy Modeling from Natural Language: Real-World Cases Using EPlus-LLM
+T2  - 2026 ASHRAE Winter Conference
+PY  - 2026
+PB  - ASHRAE
+DO  - 10.63044/w26jia171
+UR  - https://doi.org/10.63044/w26jia171
+ER  -
+
+TY  - JOUR
+ID  - crawley2001energyplus
+AU  - Crawley, Drury B.
+AU  - Lawrie, Linda K.
+AU  - Winkelmann, Frederick C.
+AU  - Buhl, W.F.
+AU  - Huang, Y.Joe
+AU  - Pedersen, Curtis O.
+AU  - Strand, Richard K.
+AU  - Liesen, Richard J.
+AU  - Fisher, Daniel E.
+AU  - Witte, Michael J.
+AU  - Glazer, Jason
+TI  - EnergyPlus: creating a new-generation building energy simulation program
+T2  - Energy and Buildings
+J2  - Energy and Buildings
+PY  - 2001
+VL  - 33
+IS  - 4
+SP  - 319
+EP  - 331
+DO  - 10.1016/s0378-7788(00)00114-6
+UR  - https://doi.org/10.1016/s0378-7788(00)00114-6
+ER  - 

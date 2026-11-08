@@ -1,0 +1,450 @@
+Building,
+    School Chicago,          !- Name
+    0,                       !- North Axis {deg}
+    Suburbs,                 !- Terrain
+    0.04,                    !- Loads Convergence Tolerance Value
+    0.4,                     !- Temperature Convergence Tolerance Value
+    FullExterior,            !- Solar Distribution
+    25,                      !- Maximum Number of Warmup Days
+    6;                       !- Minimum Number of Warmup Days
+
+Timestep,6;
+
+GlobalGeometryRules,
+    UpperLeftCorner,         !- Starting Vertex Position
+    Counterclockwise,        !- Vertex Entry Direction
+    Relative;                !- Coordinate System
+
+!- ===================== Schedule type limits =====================
+
+ScheduleTypeLimits,Fraction,0,1,Continuous;
+ScheduleTypeLimits,Temperature,-60,200,Continuous;
+ScheduleTypeLimits,Any Number;
+ScheduleTypeLimits,Control Type,0,4,Discrete;
+
+!- ===================== Schedules =====================
+
+Schedule:Compact,
+    Always On,Fraction,
+    Through: 12/31,For: AllDays,Until: 24:00,1;
+
+Schedule:Compact,
+    Cycling Fan Sch,Any Number,
+    Through: 12/31,For: AllDays,Until: 24:00,0;
+
+Schedule:Compact,
+    Activity Sch,Any Number,
+    Through: 12/31,For: AllDays,Until: 24:00,110;
+
+Schedule:Compact,
+    Occupancy Sch,Fraction,
+    Through: 12/31,
+    For: Weekdays SummerDesignDay WinterDesignDay,
+    Until: 07:00,0,
+    Until: 16:00,1,
+    Until: 24:00,0,
+    For: AllOtherDays,
+    Until: 24:00,0;
+
+Schedule:Compact,
+    Lighting Sch,Fraction,
+    Through: 12/31,
+    For: Weekdays SummerDesignDay WinterDesignDay,
+    Until: 07:00,0.15,
+    Until: 16:00,1,
+    Until: 24:00,0.15,
+    For: AllOtherDays,
+    Until: 24:00,0.15;
+
+Schedule:Compact,
+    Equipment Sch,Fraction,
+    Through: 12/31,
+    For: Weekdays SummerDesignDay WinterDesignDay,
+    Until: 07:00,0.4,
+    Until: 16:00,0.85,
+    Until: 24:00,0.4,
+    For: AllOtherDays,
+    Until: 24:00,0.4;
+
+Schedule:Compact,
+    Heating Setpoint Sch,Temperature,
+    Through: 12/31,
+    For: Weekdays SummerDesignDay WinterDesignDay,
+    Until: 07:00,14.5,
+    Until: 16:00,22,
+    Until: 24:00,14.5,
+    For: AllOtherDays,
+    Until: 24:00,14.5;
+
+Schedule:Compact,
+    Cooling Setpoint Sch,Temperature,
+    Through: 12/31,
+    For: Weekdays SummerDesignDay WinterDesignDay,
+    Until: 07:00,27.5,
+    Until: 16:00,23.5,
+    Until: 24:00,27.5,
+    For: AllOtherDays,
+    Until: 24:00,27.5;
+
+!- ===================== Materials =====================
+
+Material,
+    HW Concrete 200mm,       !- Name
+    MediumRough,             !- Roughness
+    0.2,                     !- Thickness {m}
+    1.311,                   !- Conductivity {W/m-K}
+    2240,                    !- Density {kg/m3}
+    836.8,                   !- Specific Heat {J/kg-K}
+    0.9,0.7,0.7;
+
+Material,
+    Wall Insulation,         !- Name
+    MediumRough,             !- Roughness
+    0.0673,                  !- Thickness {m}
+    0.049,                   !- Conductivity {W/m-K}
+    265,                     !- Density {kg/m3}
+    836.8,                   !- Specific Heat {J/kg-K}
+    0.9,0.7,0.7;
+
+Material,
+    Gypsum 12.7mm,           !- Name
+    Smooth,                  !- Roughness
+    0.0127,                  !- Thickness {m}
+    0.16,                    !- Conductivity {W/m-K}
+    784.9,                   !- Density {kg/m3}
+    830,                     !- Specific Heat {J/kg-K}
+    0.9,0.92,0.92;
+
+Material,
+    Roof Membrane,           !- Name
+    VeryRough,               !- Roughness
+    0.0095,                  !- Thickness {m}
+    0.16,                    !- Conductivity {W/m-K}
+    1121.29,                 !- Density {kg/m3}
+    1460,                    !- Specific Heat {J/kg-K}
+    0.9,0.7,0.7;
+
+Material,
+    Roof Insulation,         !- Name
+    MediumRough,             !- Roughness
+    0.1616,                  !- Thickness {m}
+    0.049,                   !- Conductivity {W/m-K}
+    265,                     !- Density {kg/m3}
+    836.8,                   !- Specific Heat {J/kg-K}
+    0.9,0.7,0.7;
+
+Material,
+    HW Concrete 100mm,       !- Name
+    MediumRough,             !- Roughness
+    0.1,                     !- Thickness {m}
+    1.311,                   !- Conductivity {W/m-K}
+    2240,                    !- Density {kg/m3}
+    836.8,                   !- Specific Heat {J/kg-K}
+    0.9,0.7,0.7;
+
+Material,
+    Carpet 12.7mm,           !- Name
+    VeryRough,               !- Roughness
+    0.0127,                  !- Thickness {m}
+    0.06,                    !- Conductivity {W/m-K}
+    288,                     !- Density {kg/m3}
+    1380,                    !- Specific Heat {J/kg-K}
+    0.9,0.8,0.8;
+
+WindowMaterial:SimpleGlazingSystem,
+    Simple Glazing,          !- Name
+    2,                       !- U-Factor {W/m2-K}
+    0.41,                    !- Solar Heat Gain Coefficient
+    0.58;                    !- Visible Transmittance
+
+!- ===================== Constructions =====================
+
+Construction,Ext Wall,HW Concrete 200mm,Wall Insulation,Gypsum 12.7mm;
+Construction,Roof,Roof Membrane,Roof Insulation,HW Concrete 100mm;
+Construction,Ground Floor,HW Concrete 100mm,Carpet 12.7mm;
+Construction,Interior Floor,HW Concrete 100mm,Carpet 12.7mm;
+Construction,Interior Ceiling,Carpet 12.7mm,HW Concrete 100mm;
+Construction,Interior Partition,Gypsum 12.7mm,Gypsum 12.7mm;
+Construction,Window,Simple Glazing;
+
+!- ===================== Zones =====================
+
+Zone,
+    Story1,                  !- Name
+    0,                       !- Direction of Relative North {deg}
+    0,0,0,                   !- X,Y,Z Origin {m}
+    ,                        !- Type
+    1;                       !- Multiplier
+
+Zone,
+    Story2,                  !- Name
+    0,                       !- Direction of Relative North {deg}
+    0,0,3.2,                 !- X,Y,Z Origin {m}
+    ,                        !- Type
+    1;                       !- Multiplier
+
+!- ===================== Surfaces: Story1 =====================
+
+BuildingSurface:Detailed,
+    S1 South Wall,Wall,Ext Wall,Story1,,Outdoors,,SunExposed,WindExposed,autocalculate,4,
+    0,0,3.2,
+    0,0,0,
+    35.5,0,0,
+    35.5,0,3.2;
+
+BuildingSurface:Detailed,
+    S1 East Wall,Wall,Ext Wall,Story1,,Outdoors,,SunExposed,WindExposed,autocalculate,4,
+    35.5,0,3.2,
+    35.5,0,0,
+    35.5,17.5,0,
+    35.5,17.5,3.2;
+
+BuildingSurface:Detailed,
+    S1 North Wall,Wall,Ext Wall,Story1,,Outdoors,,SunExposed,WindExposed,autocalculate,4,
+    35.5,17.5,3.2,
+    35.5,17.5,0,
+    0,17.5,0,
+    0,17.5,3.2;
+
+BuildingSurface:Detailed,
+    S1 West Wall,Wall,Ext Wall,Story1,,Outdoors,,SunExposed,WindExposed,autocalculate,4,
+    0,17.5,3.2,
+    0,17.5,0,
+    0,0,0,
+    0,0,3.2;
+
+BuildingSurface:Detailed,
+    S1 Floor,Floor,Ground Floor,Story1,,Ground,,NoSun,NoWind,autocalculate,4,
+    35.5,0,0,
+    0,0,0,
+    0,17.5,0,
+    35.5,17.5,0;
+
+BuildingSurface:Detailed,
+    S1 Ceiling,Ceiling,Interior Ceiling,Story1,,Surface,S2 Floor,NoSun,NoWind,autocalculate,4,
+    35.5,17.5,3.2,
+    0,17.5,3.2,
+    0,0,3.2,
+    35.5,0,3.2;
+
+!- ===================== Surfaces: Story2 =====================
+
+BuildingSurface:Detailed,
+    S2 South Wall,Wall,Ext Wall,Story2,,Outdoors,,SunExposed,WindExposed,autocalculate,4,
+    0,0,3.2,
+    0,0,0,
+    35.5,0,0,
+    35.5,0,3.2;
+
+BuildingSurface:Detailed,
+    S2 East Wall,Wall,Ext Wall,Story2,,Outdoors,,SunExposed,WindExposed,autocalculate,4,
+    35.5,0,3.2,
+    35.5,0,0,
+    35.5,17.5,0,
+    35.5,17.5,3.2;
+
+BuildingSurface:Detailed,
+    S2 North Wall,Wall,Ext Wall,Story2,,Outdoors,,SunExposed,WindExposed,autocalculate,4,
+    35.5,17.5,3.2,
+    35.5,17.5,0,
+    0,17.5,0,
+    0,17.5,3.2;
+
+BuildingSurface:Detailed,
+    S2 West Wall,Wall,Ext Wall,Story2,,Outdoors,,SunExposed,WindExposed,autocalculate,4,
+    0,17.5,3.2,
+    0,17.5,0,
+    0,0,0,
+    0,0,3.2;
+
+BuildingSurface:Detailed,
+    S2 Floor,Floor,Interior Floor,Story2,,Surface,S1 Ceiling,NoSun,NoWind,autocalculate,4,
+    35.5,0,0,
+    0,0,0,
+    0,17.5,0,
+    35.5,17.5,0;
+
+BuildingSurface:Detailed,
+    S2 Roof,Roof,Roof,Story2,,Outdoors,,SunExposed,WindExposed,autocalculate,4,
+    35.5,17.5,3.2,
+    0,17.5,3.2,
+    0,0,3.2,
+    35.5,0,3.2;
+
+!- ===================== Windows =====================
+!- South 35%: 24.85 x 1.6 = 39.76 m2; East 25%: 8.75 x 1.6 = 14.0 m2
+!- North 30%: 21.3 x 1.6 = 34.08 m2; West 20%: 7.0 x 1.6 = 11.2 m2
+
+FenestrationSurface:Detailed,
+    S1 South Window,Window,Window,S1 South Wall,,autocalculate,,1,4,
+    5.325,0,2.4,
+    5.325,0,0.8,
+    30.175,0,0.8,
+    30.175,0,2.4;
+
+FenestrationSurface:Detailed,
+    S1 East Window,Window,Window,S1 East Wall,,autocalculate,,1,4,
+    35.5,4.375,2.4,
+    35.5,4.375,0.8,
+    35.5,13.125,0.8,
+    35.5,13.125,2.4;
+
+FenestrationSurface:Detailed,
+    S1 North Window,Window,Window,S1 North Wall,,autocalculate,,1,4,
+    28.4,17.5,2.4,
+    28.4,17.5,0.8,
+    7.1,17.5,0.8,
+    7.1,17.5,2.4;
+
+FenestrationSurface:Detailed,
+    S1 West Window,Window,Window,S1 West Wall,,autocalculate,,1,4,
+    0,12.25,2.4,
+    0,12.25,0.8,
+    0,5.25,0.8,
+    0,5.25,2.4;
+
+FenestrationSurface:Detailed,
+    S2 South Window,Window,Window,S2 South Wall,,autocalculate,,1,4,
+    5.325,0,2.4,
+    5.325,0,0.8,
+    30.175,0,0.8,
+    30.175,0,2.4;
+
+FenestrationSurface:Detailed,
+    S2 East Window,Window,Window,S2 East Wall,,autocalculate,,1,4,
+    35.5,4.375,2.4,
+    35.5,4.375,0.8,
+    35.5,13.125,0.8,
+    35.5,13.125,2.4;
+
+FenestrationSurface:Detailed,
+    S2 North Window,Window,Window,S2 North Wall,,autocalculate,,1,4,
+    28.4,17.5,2.4,
+    28.4,17.5,0.8,
+    7.1,17.5,0.8,
+    7.1,17.5,2.4;
+
+FenestrationSurface:Detailed,
+    S2 West Window,Window,Window,S2 West Wall,,autocalculate,,1,4,
+    0,12.25,2.4,
+    0,12.25,0.8,
+    0,5.25,0.8,
+    0,5.25,2.4;
+
+!- ===================== Internal gains =====================
+
+ZoneList,All Zones,Story1,Story2;
+
+People,
+    All People,              !- Name
+    All Zones,               !- Zone or ZoneList or Space or SpaceList Name
+    Occupancy Sch,           !- Number of People Schedule Name
+    Area/Person,             !- Number of People Calculation Method
+    ,                        !- Number of People
+    ,                        !- People per Floor Area
+    5.5,                     !- Floor Area per Person {m2/person}
+    0.3,                     !- Fraction Radiant
+    autocalculate,           !- Sensible Heat Fraction
+    Activity Sch;            !- Activity Level Schedule Name
+
+Lights,
+    All Lights,              !- Name
+    All Zones,               !- Zone or ZoneList or Space or SpaceList Name
+    Lighting Sch,            !- Schedule Name
+    Watts/Area,              !- Design Level Calculation Method
+    ,                        !- Lighting Level {W}
+    8,                       !- Watts per Zone Floor Area {W/m2}
+    ,                        !- Watts per Person
+    0,                       !- Return Air Fraction
+    0.7,                     !- Fraction Radiant
+    0.2,                     !- Fraction Visible
+    1;                       !- Fraction Replaceable
+
+ElectricEquipment,
+    All Equipment,           !- Name
+    All Zones,               !- Zone or ZoneList or Space or SpaceList Name
+    Equipment Sch,           !- Schedule Name
+    Watts/Area,              !- Design Level Calculation Method
+    ,                        !- Design Level {W}
+    7.6,                     !- Watts per Zone Floor Area {W/m2}
+    ,                        !- Watts per Person
+    0,                       !- Fraction Latent
+    0.5,                     !- Fraction Radiant
+    0;                       !- Fraction Lost
+
+ZoneInfiltration:DesignFlowRate,
+    All Infiltration,        !- Name
+    All Zones,               !- Zone or ZoneList or Space or SpaceList Name
+    Always On,               !- Schedule Name
+    AirChanges/Hour,         !- Design Flow Rate Calculation Method
+    ,                        !- Design Flow Rate {m3/s}
+    ,                        !- Flow per Zone Floor Area {m3/s-m2}
+    ,                        !- Flow per Exterior Surface Area {m3/s-m2}
+    0.3,                     !- Air Changes per Hour {1/hr}
+    1,                       !- Constant Term Coefficient
+    0,                       !- Temperature Term Coefficient
+    0,                       !- Velocity Term Coefficient
+    0;                       !- Velocity Squared Term Coefficient
+
+!- ===================== HVAC =====================
+
+HVACTemplate:Thermostat,
+    School Thermostat,       !- Name
+    Heating Setpoint Sch,    !- Heating Setpoint Schedule Name
+    ,                        !- Constant Heating Setpoint {C}
+    Cooling Setpoint Sch,    !- Cooling Setpoint Schedule Name
+    ;                        !- Constant Cooling Setpoint {C}
+
+HVACTemplate:Zone:PTAC,
+    Story1,                  !- Zone Name
+    School Thermostat,       !- Template Thermostat Name
+    autosize,                !- Cooling Supply Air Flow Rate {m3/s}
+    autosize,                !- Heating Supply Air Flow Rate {m3/s}
+    ,                        !- No Load Supply Air Flow Rate {m3/s}
+    ,                        !- Zone Heating Sizing Factor
+    ,                        !- Zone Cooling Sizing Factor
+    Flow/Person,             !- Outdoor Air Method
+    0.005,                   !- Outdoor Air Flow Rate per Person {m3/s}
+    0,                       !- Outdoor Air Flow Rate per Zone Floor Area {m3/s-m2}
+    0,                       !- Outdoor Air Flow Rate per Zone {m3/s}
+    ,                        !- System Availability Schedule Name
+    Cycling Fan Sch,         !- Supply Fan Operating Mode Schedule Name
+    DrawThrough,             !- Supply Fan Placement
+    0.7,                     !- Supply Fan Total Efficiency
+    150,                     !- Supply Fan Delta Pressure {Pa}
+    0.9,                     !- Supply Fan Motor Efficiency
+    SingleSpeedDX,           !- Cooling Coil Type
+    ,                        !- Cooling Coil Availability Schedule Name
+    autosize,                !- Cooling Coil Gross Rated Total Capacity {W}
+    autosize,                !- Cooling Coil Gross Rated Sensible Heat Ratio
+    3,                       !- Cooling Coil Gross Rated Cooling COP {W/W}
+    Electric,                !- Heating Coil Type
+    ,                        !- Heating Coil Availability Schedule Name
+    autosize;                !- Heating Coil Capacity {W}
+
+HVACTemplate:Zone:PTAC,
+    Story2,                  !- Zone Name
+    School Thermostat,       !- Template Thermostat Name
+    autosize,                !- Cooling Supply Air Flow Rate {m3/s}
+    autosize,                !- Heating Supply Air Flow Rate {m3/s}
+    ,                        !- No Load Supply Air Flow Rate {m3/s}
+    ,                        !- Zone Heating Sizing Factor
+    ,                        !- Zone Cooling Sizing Factor
+    Flow/Person,             !- Outdoor Air Method
+    0.005,                   !- Outdoor Air Flow Rate per Person {m3/s}
+    0,                       !- Outdoor Air Flow Rate per Zone Floor Area {m3/s-m2}
+    0,                       !- Outdoor Air Flow Rate per Zone {m3/s}
+    ,                        !- System Availability Schedule Name
+    Cycling Fan Sch,         !- Supply Fan Operating Mode Schedule Name
+    DrawThrough,             !- Supply Fan Placement
+    0.7,                     !- Supply Fan Total Efficiency
+    150,                     !- Supply Fan Delta Pressure {Pa}
+    0.9,                     !- Supply Fan Motor Efficiency
+    SingleSpeedDX,           !- Cooling Coil Type
+    ,                        !- Cooling Coil Availability Schedule Name
+    autosize,                !- Cooling Coil Gross Rated Total Capacity {W}
+    autosize,                !- Cooling Coil Gross Rated Sensible Heat Ratio
+    3,                       !- Cooling Coil Gross Rated Cooling COP {W/W}
+    Electric,                !- Heating Coil Type
+    ,                        !- Heating Coil Availability Schedule Name
+    autosize;                !- Heating Coil Capacity {W}

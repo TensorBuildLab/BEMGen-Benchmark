@@ -1,0 +1,292 @@
+Building {
+  }
+
+Zone {
+  Name = RetailZone;
+}
+
+Material {
+  Name = WallInsulation;
+  Roughness = Rough;
+  Density = 40.0;
+  SpecificHeat = 1200.0;
+  Conductivity = 0.035;
+}
+
+Material {
+  Name = WallSkin;
+  Roughness = Smooth;
+  Density = 1000.0;
+  SpecificHeat = 800.0;
+  Conductivity = 0.5;
+}
+
+Material {
+  Name = RoofConcrete;
+  Roughness = Rough;
+  Density = 2240.0;
+  SpecificHeat = 836.8;
+  Conductivity = 1.311;
+}
+
+Material {
+  Name = RoofInsulation;
+  Roughness = Rough;
+  Density = 30.0;
+  SpecificHeat = 1000.0;
+  Conductivity = 0.025;
+}
+
+Material {
+  Name = FloorConcrete;
+  Roughness = Rough;
+  Density = 2240.0;
+  SpecificHeat = 836.8;
+  Conductivity = 1.311;
+}
+
+Material {
+  Name = Carpet;
+  Roughness = Rough;
+  Density = 288.0;
+  SpecificHeat = 1380.0;
+  Conductivity = 0.06;
+}
+
+Material {
+  Name = GypsumBoard;
+  Roughness = Smooth;
+  Density = 784.9;
+  SpecificHeat = 830.0;
+  Conductivity = 0.16;
+}
+
+Construction {
+  Name = ExtWallConst;
+  Layer 1 { MaterialName = WallSkin; Thickness = 0.01; }
+  Layer 2 { MaterialName = WallInsulation; Thickness = 0.12; }
+}
+
+Construction {
+  Name = RoofConst;
+  Layer 1 { MaterialName = RoofConcrete; Thickness = 0.10; }
+  Layer 2 { MaterialName = RoofInsulation; Thickness = 0.15; }
+}
+
+Construction {
+  Name = FloorConst;
+  Layer 1 { MaterialName = Carpet; Thickness = 0.0127; }
+  Layer 2 { MaterialName = FloorConcrete; Thickness = 0.10; }
+}
+
+Construction {
+  Name = IntWallConst;
+  Layer 1 { MaterialName = GypsumBoard; Thickness = 0.0127; }
+  Layer 2 { MaterialName = GypsumBoard; Thickness = 0.0127; }
+}
+
+Construction {
+  Name = GlazingConst;
+  Layer 1 { MaterialName = GlazingMaterial; Thickness = 0.003; }
+}
+
+WindowMaterial {
+  Name = GlazingMaterial;
+  OpticalProperties {
+    UFactor = 2.3;
+    SHGC = 0.59;
+    VisibleTransmittance = 0.75;
+  }
+}
+
+BuildingSurface:Wall {
+  Name = Wall_North;
+  ConstructionName = ExtWallConst;
+  ZoneName = RetailZone;
+  OutsideBoundaryCondition = Outdoors;
+  SunDisposition = SunExposed;
+  WindExposed = Yes;
+  Vertex 1 { X = 0.0; Y = 23.5; Z = 4.1; }
+  Vertex 2 { X = 29.5; Y = 23.5; Z = 4.1; }
+  Vertex 3 { X = 29.5; Y = 23.5; Z = 0.0; }
+  Vertex 4 { X = 0.0; Y = 23.5; Z = 0.0; }
+}
+
+BuildingSurface:Wall {
+  Name = Wall_East;
+  ConstructionName = ExtWallConst;
+  ZoneName = RetailZone;
+  OutsideBoundaryCondition = Outdoors;
+  SunDisposition = SunExposed;
+  WindExposed = Yes;
+  Vertex 1 { X = 29.5; Y = 23.5; Z = 4.1; }
+  Vertex 2 { X = 29.5; Y = 0.0; Z = 4.1; }
+  Vertex 3 { X = 29.5; Y = 0.0; Z = 0.0; }
+  Vertex 4 { X = 29.5; Y = 23.5; Z = 0.0; }
+}
+
+BuildingSurface:Wall {
+  Name = Wall_South;
+  ConstructionName = ExtWallConst;
+  ZoneName = RetailZone;
+  OutsideBoundaryCondition = Outdoors;
+  SunDisposition = SunExposed;
+  WindExposed = Yes;
+  Vertex 1 { X = 29.5; Y = 0.0; Z = 4.1; }
+  Vertex 2 { X = 0.0; Y = 0.0; Z = 4.1; }
+  Vertex 3 { X = 0.0; Y = 0.0; Z = 0.0; }
+  Vertex 4 { X = 29.5; Y = 0.0; Z = 0.0; }
+}
+
+BuildingSurface:Wall {
+  Name = Wall_West;
+  ConstructionName = ExtWallConst;
+  ZoneName = RetailZone;
+  OutsideBoundaryCondition = Outdoors;
+  SunDisposition = SunExposed;
+  WindExposed = Yes;
+  Vertex 1 { X = 0.0; Y = 0.0; Z = 4.1; }
+  Vertex 2 { X = 0.0; Y = 23.5; Z = 4.1; }
+  Vertex 3 { X = 0.0; Y = 23.5; Z = 0.0; }
+  Vertex 4 { X = 0.0; Y = 0.0; Z = 0.0; }
+}
+
+BuildingSurface:Roof {
+  Name = Roof;
+  ConstructionName = RoofConst;
+  ZoneName = RetailZone;
+  OutsideBoundaryCondition = Outdoors;
+  SunDisposition = SunExposed;
+  WindExposed = Yes;
+  Vertex 1 { X = 0.0; Y = 0.0; Z = 4.1; }
+  Vertex 2 { X = 29.5; Y = 0.0; Z = 4.1; }
+  Vertex 3 { X = 29.5; Y = 23.5; Z = 4.1; }
+  Vertex 4 { X = 0.0; Y = 23.5; Z = 4.1; }
+}
+
+BuildingSurface:Floor {
+  Name = Floor;
+  ConstructionName = FloorConst;
+  ZoneName = RetailZone;
+  OutsideBoundaryCondition = Ground;
+  Vertex 1 { X = 0.0; Y = 0.0; Z = 0.0; }
+  Vertex 2 { X = 29.5; Y = 0.0; Z = 0.0; }
+  Vertex 3 { X = 29.5; Y = 23.5; Z = 0.0; }
+  Vertex 4 { X = 0.0; Y = 23.5; Z = 0.0; }
+}
+
+BuildingSurface:Window {
+  Name = Win_North;
+  ConstructionName = GlazingConst;
+  ZoneName = RetailZone;
+  OutsideBoundaryCondition = Outdoors;
+  SunDisposition = SunExposed;
+  WindExposed = Yes;
+  Vertex 1 { X = 0.0; Y = 23.5; Z = 3.0; }
+  Vertex 2 { X = 29.5; Y = 23.5; Z = 3.0; }
+  Vertex 3 { X = 29.5; Y = 23.5; Z = 1.1; }
+  Vertex 4 { X = 0.0; Y = 23.5; Z = 1.1; }
+}
+
+BuildingSurface:Window {
+  Name = Win_South;
+  ConstructionName = GlazingConst;
+  ZoneName = RetailZone;
+  OutsideBoundaryCondition = Outdoors;
+  SunDisposition = SunExposed;
+  WindExposed = Yes;
+  Vertex 1 { X = 29.5; Y = 0.0; Z = 3.0; }
+  Vertex 2 { X = 0.0; Y = 0.0; Z = 3.0; }
+  Vertex 3 { X = 0.0; Y = 0.0; Z = 1.1; }
+  Vertex 4 { X = 29.5; Y = 0.0; Z = 1.1; }
+}
+
+BuildingSurface:Window {
+  Name = Win_West;
+  ConstructionName = GlazingConst;
+  ZoneName = RetailZone;
+  OutsideBoundaryCondition = Outdoors;
+  SunDisposition = SunExposed;
+  WindExposed = Yes;
+  Vertex 1 { X = 0.0; Y = 0.0; Z = 3.0; }
+  Vertex 2 { X = 0.0; Y = 23.5; Z = 3.0; }
+  Vertex 3 { X = 0.0; Y = 23.5; Z = 1.1; }
+  Vertex 4 { X = 0.0; Y = 0.0; Z = 1.1; }
+}
+
+Schedule:Compact {
+  Name = OccupancySchedule;
+  ScheduleTypeLimits = Fraction;
+  Field1 { Value = 0.0; For: AllDays; }
+  Field2 { Value = 1.0; For: AllDays; From = 09:00; To = 21:00; }
+}
+
+Schedule:Compact {
+  Name = LightingSchedule;
+  ScheduleTypeLimits = Fraction;
+  Field1 { Value = 0.1; For: AllDays; }
+  Field2 { Value = 0.8; For: AllDays; From = 09:00; To = 21:00; }
+}
+
+Schedule:Compact {
+  Name = EquipmentSchedule;
+  ScheduleTypeLimits = Fraction;
+  Field1 { Value = 0.4; For: AllDays; }
+  Field2 { Value = 0.9; For: AllDays; From = 09:00; To = 21:00; }
+}
+
+Schedule:Compact {
+  Name = HeatingSetpointSchedule;
+  ScheduleTypeLimits = Temperature;
+  Field1 { Value = 16.5; For: AllDays; }
+  Field2 { Value = 20.5; For: AllDays; From = 09:00; To = 21:00; }
+}
+
+Schedule:Compact {
+  Name = CoolingSetpointSchedule;
+  ScheduleTypeLimits = Temperature;
+  Field1 { Value = 29.5; For: AllDays; }
+  Field2 { Value = 23.5; For: AllDays; From = 09:00; To = 21:00; }
+}
+
+People {
+  Name = RetailPeople;
+  ZoneName = RetailZone;
+  NumberofPersons_or_Density = 25.1;
+  Person_Application = Density;
+  Density = 1.0/10.5;
+  ActivityLevel = 110.0;
+  ScheduleName = OccupancySchedule;
+}
+
+Lights {
+  Name = RetailLights;
+  ZoneName = RetailZone;
+  ElectricPower = 12.9;
+  ScheduleName = LightingSchedule;
+}
+
+ElectricEquipment {
+  Name = RetailEquipment;
+  ZoneName = RetailZone;
+  ElectricPower = 3.8;
+  ScheduleName = EquipmentSchedule;
+}
+
+ZoneInfiltration:Constant {
+  Name = RetailInfiltration;
+  ZoneName = RetailZone;
+  InfiltrationRate = 0.4;
+}
+
+ZoneControl:Thermostat {
+  Name = RetailThermostat;
+  ZoneName = RetailZone;
+  HeatingSetpointTemperatureScheduleName = HeatingSetpointSchedule;
+  CoolingSetpointTemperatureScheduleName = CoolingSetpointSchedule;
+}
+
+HVACTemplate:Zone:IdealLoadsAirSystem {
+  Name = RetailHVAC;
+  ZoneName = RetailZone;
+}

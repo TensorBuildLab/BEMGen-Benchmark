@@ -1,0 +1,55 @@
+TY  - STAND
+ID  - ashrae2020std140
+AU  - ASHRAE
+TI  - ANSI/ASHRAE Standard 140-2020, Standard Method of Test for the Evaluation of Building Energy Analysis Computer Programs
+PB  - ASHRAE
+CY  - Atlanta, GA
+PY  - 2020
+UR  - https://www.ashrae.org/technical-resources/bookstore/standard-140
+Y2  - 2026-11-07
+N1  - Written by hand from the publisher page; check by hand.
+ER  - 
+
+TY  - STAND
+ID  - ashrae2014guideline14
+AU  - ASHRAE
+TI  - ASHRAE Guideline 14-2014, Measurement of Energy, Demand, and Water Savings
+PB  - ASHRAE
+CY  - Atlanta, GA
+PY  - 2014
+UR  - https://www.ashrae.org/technical-resources/bookstore/guideline-14-measurement-of-energy-demand-and-water-savings
+Y2  - 2026-11-07
+N1  - Written by hand from the publisher page; check by hand.
+ER  - 
+
+TY  - STAND
+ID  - ashrae2019std901
+AU  - ASHRAE
+TI  - ANSI/ASHRAE/IES Standard 90.1-2019, Energy Standard for Buildings Except Low-Rise Residential Buildings
+PB  - ASHRAE
+CY  - Atlanta, GA
+PY  - 2019
+UR  - https://www.ashrae.org/technical-resources/bookstore/standard-90-1
+Y2  - 2026-11-07
+N1  - Written by hand from the publisher page; check by hand.
+ER  - 
+
+TY  - COMP
+ID  - doe2022energyplus
+AU  - U.S. Department of Energy
+TI  - EnergyPlus, version 22.2.0
+PY  - 2022
+UR  - https://github.com/NREL/EnergyPlus/releases/tag/v22.2.0
+Y2  - 2026-11-07
+N1  - Software release page; check by hand.
+ER  - 
+
+TY  - ELEC
+ID  - openai2024swebenchverified
+AU  - OpenAI
+TI  - Introducing SWE-bench Verified
+PY  - 2024
+UR  - https://openai.com/index/introducing-swe-bench-verified/
+Y2  - 2026-11-07
+N1  - Web page; check by hand.
+ER  - 

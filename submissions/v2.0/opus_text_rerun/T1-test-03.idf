@@ -1,0 +1,290 @@
+Version,22.2;
+
+Building,
+  Retail T1-test-03,       !- Name
+  0,                       !- North Axis {deg}
+  Suburbs,                 !- Terrain
+  0.04,                    !- Loads Convergence Tolerance Value
+  0.4,                     !- Temperature Convergence Tolerance Value
+  FullExterior,            !- Solar Distribution
+  25,                      !- Maximum Number of Warmup Days
+  6;                       !- Minimum Number of Warmup Days
+
+Timestep,6;
+
+GlobalGeometryRules,
+  UpperLeftCorner,         !- Starting Vertex Position
+  Counterclockwise,        !- Vertex Entry Direction
+  World;                   !- Coordinate System
+
+ScheduleTypeLimits,Fraction,0,1,Continuous;
+ScheduleTypeLimits,Temperature,-100,200,Continuous;
+ScheduleTypeLimits,AnyNumber;
+
+Schedule:Compact,
+  OccSch,Fraction,
+  Through: 12/31,
+  For: AllDays,
+  Until: 09:00,0,
+  Until: 21:00,1,
+  Until: 24:00,0;
+
+Schedule:Compact,
+  LightSch,Fraction,
+  Through: 12/31,
+  For: AllDays,
+  Until: 09:00,0.1,
+  Until: 21:00,0.8,
+  Until: 24:00,0.1;
+
+Schedule:Compact,
+  EquipSch,Fraction,
+  Through: 12/31,
+  For: AllDays,
+  Until: 09:00,0.4,
+  Until: 21:00,0.9,
+  Until: 24:00,0.4;
+
+Schedule:Compact,
+  ActivitySch,AnyNumber,
+  Through: 12/31,
+  For: AllDays,
+  Until: 24:00,110;
+
+Schedule:Compact,
+  AlwaysOn,Fraction,
+  Through: 12/31,
+  For: AllDays,
+  Until: 24:00,1;
+
+Schedule:Compact,
+  HtgSetSch,Temperature,
+  Through: 12/31,
+  For: AllDays,
+  Until: 09:00,16.5,
+  Until: 21:00,20.5,
+  Until: 24:00,16.5;
+
+Schedule:Compact,
+  ClgSetSch,Temperature,
+  Through: 12/31,
+  For: AllDays,
+  Until: 09:00,29.5,
+  Until: 21:00,23.5,
+  Until: 24:00,29.5;
+
+Material,
+  WallInsulation,          !- Name
+  MediumRough,             !- Roughness
+  0.093405,                !- Thickness {m}
+  0.04,                    !- Conductivity {W/m-K}
+  30,                      !- Density {kg/m3}
+  1210;                    !- Specific Heat {J/kg-K}
+
+Material,
+  Gypsum12.7mm,            !- Name
+  Smooth,                  !- Roughness
+  0.0127,                  !- Thickness {m}
+  0.16,                    !- Conductivity {W/m-K}
+  784.9,                   !- Density {kg/m3}
+  830;                     !- Specific Heat {J/kg-K}
+
+Material,
+  MetalSiding,             !- Name
+  Smooth,                  !- Roughness
+  0.0015,                  !- Thickness {m}
+  45,                      !- Conductivity {W/m-K}
+  7680,                    !- Density {kg/m3}
+  418.4;                   !- Specific Heat {J/kg-K}
+
+Material,
+  RoofMembrane,            !- Name
+  VeryRough,               !- Roughness
+  0.0095,                  !- Thickness {m}
+  0.16,                    !- Conductivity {W/m-K}
+  1121.29,                 !- Density {kg/m3}
+  1460;                    !- Specific Heat {J/kg-K}
+
+Material,
+  RoofInsulation,          !- Name
+  MediumRough,             !- Roughness
+  0.097206,                !- Thickness {m}
+  0.04,                    !- Conductivity {W/m-K}
+  30,                      !- Density {kg/m3}
+  1210;                    !- Specific Heat {J/kg-K}
+
+Material,
+  HWConcrete100mm,         !- Name
+  MediumRough,             !- Roughness
+  0.1,                     !- Thickness {m}
+  1.311,                   !- Conductivity {W/m-K}
+  2240,                    !- Density {kg/m3}
+  836.8;                   !- Specific Heat {J/kg-K}
+
+Material,
+  Carpet12.7mm,            !- Name
+  VeryRough,               !- Roughness
+  0.0127,                  !- Thickness {m}
+  0.06,                    !- Conductivity {W/m-K}
+  288,                     !- Density {kg/m3}
+  1380;                    !- Specific Heat {J/kg-K}
+
+WindowMaterial:SimpleGlazingSystem,
+  GlazingSimple,           !- Name
+  2.3,                     !- U-Factor {W/m2-K}
+  0.59,                    !- Solar Heat Gain Coefficient
+  0.75;                    !- Visible Transmittance
+
+Construction,
+  ExtWall,                 !- Name
+  MetalSiding,             !- Outside Layer
+  WallInsulation,          !- Layer 2
+  Gypsum12.7mm;            !- Layer 3
+
+Construction,
+  Roof,                    !- Name
+  RoofMembrane,            !- Outside Layer
+  RoofInsulation,          !- Layer 2
+  HWConcrete100mm;         !- Layer 3
+
+Construction,
+  GroundFloor,             !- Name
+  HWConcrete100mm,         !- Outside Layer
+  Carpet12.7mm;            !- Layer 2
+
+Construction,
+  Window,                  !- Name
+  GlazingSimple;           !- Outside Layer
+
+Zone,
+  Zone1,                   !- Name
+  0,                       !- Direction of Relative North {deg}
+  0,                       !- X Origin {m}
+  0,                       !- Y Origin {m}
+  0,                       !- Z Origin {m}
+  1,                       !- Type
+  1;                       !- Multiplier
+
+BuildingSurface:Detailed,
+  Zone1_WallSouth,Wall,ExtWall,Zone1,,Outdoors,,SunExposed,WindExposed,autocalculate,4,
+  0,0,4.1,
+  0,0,0,
+  29.5,0,0,
+  29.5,0,4.1;
+
+BuildingSurface:Detailed,
+  Zone1_WallEast,Wall,ExtWall,Zone1,,Outdoors,,SunExposed,WindExposed,autocalculate,4,
+  29.5,0,4.1,
+  29.5,0,0,
+  29.5,23.5,0,
+  29.5,23.5,4.1;
+
+BuildingSurface:Detailed,
+  Zone1_WallNorth,Wall,ExtWall,Zone1,,Outdoors,,SunExposed,WindExposed,autocalculate,4,
+  29.5,23.5,4.1,
+  29.5,23.5,0,
+  0,23.5,0,
+  0,23.5,4.1;
+
+BuildingSurface:Detailed,
+  Zone1_WallWest,Wall,ExtWall,Zone1,,Outdoors,,SunExposed,WindExposed,autocalculate,4,
+  0,23.5,4.1,
+  0,23.5,0,
+  0,0,0,
+  0,0,4.1;
+
+BuildingSurface:Detailed,
+  Zone1_Roof,Roof,Roof,Zone1,,Outdoors,,SunExposed,WindExposed,autocalculate,4,
+  0,23.5,4.1,
+  0,0,4.1,
+  29.5,0,4.1,
+  29.5,23.5,4.1;
+
+BuildingSurface:Detailed,
+  Zone1_Floor,Floor,GroundFloor,Zone1,,Ground,,NoSun,NoWind,autocalculate,4,
+  0,0,0,
+  0,23.5,0,
+  29.5,23.5,0,
+  29.5,0,0;
+
+FenestrationSurface:Detailed,
+  Zone1_WinSouth,Window,Window,Zone1_WallSouth,,autocalculate,,1,4,
+  1.475,0,2.84722,
+  1.475,0,1.25278,
+  28.025,0,1.25278,
+  28.025,0,2.84722;
+
+FenestrationSurface:Detailed,
+  Zone1_WinNorth,Window,Window,Zone1_WallNorth,,autocalculate,,1,4,
+  28.025,23.5,2.96111,
+  28.025,23.5,1.13889,
+  1.475,23.5,1.13889,
+  1.475,23.5,2.96111;
+
+FenestrationSurface:Detailed,
+  Zone1_WinWest,Window,Window,Zone1_WallWest,,autocalculate,,1,4,
+  0,22.325,2.50556,
+  0,22.325,1.59444,
+  0,1.175,1.59444,
+  0,1.175,2.50556;
+
+People,
+  Zone1_People,            !- Name
+  Zone1,                   !- Zone or ZoneList or Space or SpaceList Name
+  OccSch,                  !- Number of People Schedule Name
+  Area/Person,             !- Number of People Calculation Method
+  ,                        !- Number of People
+  ,                        !- People per Floor Area {person/m2}
+  10.5,                    !- Floor Area per Person {m2/person}
+  0.3,                     !- Fraction Radiant
+  autocalculate,           !- Sensible Heat Fraction
+  ActivitySch;             !- Activity Level Schedule Name
+
+Lights,
+  Zone1_Lights,            !- Name
+  Zone1,                   !- Zone or ZoneList or Space or SpaceList Name
+  LightSch,                !- Schedule Name
+  Watts/Area,              !- Design Level Calculation Method
+  ,                        !- Lighting Level {W}
+  12.9,                    !- Watts per Zone Floor Area {W/m2}
+  ,                        !- Watts per Person {W/person}
+  0,                       !- Return Air Fraction
+  0.7,                     !- Fraction Radiant
+  0.2;                     !- Fraction Visible
+
+ElectricEquipment,
+  Zone1_Equip,             !- Name
+  Zone1,                   !- Zone or ZoneList or Space or SpaceList Name
+  EquipSch,                !- Schedule Name
+  Watts/Area,              !- Design Level Calculation Method
+  ,                        !- Design Level {W}
+  3.8,                     !- Watts per Zone Floor Area {W/m2}
+  ,                        !- Watts per Person {W/person}
+  0,                       !- Fraction Latent
+  0.5,                     !- Fraction Radiant
+  0;                       !- Fraction Lost
+
+ZoneInfiltration:DesignFlowRate,
+  Zone1_Infil,             !- Name
+  Zone1,                   !- Zone or ZoneList or Space or SpaceList Name
+  AlwaysOn,                !- Schedule Name
+  AirChanges/Hour,         !- Design Flow Rate Calculation Method
+  ,                        !- Design Flow Rate {m3/s}
+  ,                        !- Flow per Zone Floor Area {m3/s-m2}
+  ,                        !- Flow per Exterior Surface Area {m3/s-m2}
+  0.4,                     !- Air Changes per Hour {1/hr}
+  1,                       !- Constant Term Coefficient
+  0,                       !- Temperature Term Coefficient
+  0,                       !- Velocity Term Coefficient
+  0;                       !- Velocity Squared Term Coefficient
+
+HVACTemplate:Thermostat,
+  Thermostat,              !- Name
+  HtgSetSch,               !- Heating Setpoint Schedule Name
+  ,                        !- Constant Heating Setpoint {C}
+  ClgSetSch,               !- Cooling Setpoint Schedule Name
+  ;                        !- Constant Cooling Setpoint {C}
+
+HVACTemplate:Zone:IdealLoadsAirSystem,
+  Zone1,                   !- Zone Name
+  Thermostat;              !- Template Thermostat Name

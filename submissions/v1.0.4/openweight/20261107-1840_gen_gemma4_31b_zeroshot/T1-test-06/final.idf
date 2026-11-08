@@ -1,0 +1,403 @@
+Building {
+  North Axis = 30;
+}
+
+Material {
+  Name = Mat_Wall_Lightweight;
+  Roughness = Rough;
+  Density = 600;
+  Specific Heat = 1000;
+  Conductivity = 0.15;
+}
+
+Material {
+  Name = Mat_Roof_Insulation;
+  Roughness = Rough;
+  Density = 30;
+  Specific Heat = 1200;
+  Conductivity = 0.03;
+}
+
+Material {
+  Name = Mat_Concrete;
+  Roughness = Rough;
+  Density = 2240;
+  Specific Heat = 836.8;
+  Conductivity = 1.311;
+}
+
+Material {
+  Name = Mat_Carpet;
+  Roughness = Rough;
+  Density = 288;
+  Specific Heat = 1380;
+  Conductivity = 0.06;
+}
+
+Material {
+  Name = Mat_Gypsum;
+  Roughness = Rough;
+  Density = 784.9;
+  Specific Heat = 830;
+  Conductivity = 0.16;
+}
+
+Construction {
+  Name = Const_Wall;
+  Layer 1 {
+    Material Name = Mat_Wall_Lightweight;
+    Thickness = 0.25;
+  }
+}
+
+Construction {
+  Name = Const_Roof;
+  Layer 1 {
+    Material Name = Mat_Concrete;
+    Thickness = 0.10;
+  }
+  Layer 2 {
+    Material Name = Mat_Roof_Insulation;
+    Thickness = 0.18;
+  }
+}
+
+Construction {
+  Name = Const_Floor;
+  Layer 1 {
+    Material Name = Mat_Carpet;
+    Thickness = 0.0127;
+  }
+  Layer 2 {
+    Material Name = Mat_Concrete;
+    Thickness = 0.10;
+  }
+}
+
+Construction {
+  Name = Const_Partition;
+  Layer 1 {
+    Material Name = Mat_Gypsum;
+    Thickness = 0.0127;
+  }
+  Layer 2 {
+    Material Name = Mat_Gypsum;
+    Thickness = 0.0127;
+  }
+}
+
+WindowMaterial {
+  Name = WinMat_Simple;
+  Optical Properties {
+    U-Factor = 2.5;
+    Solar Heat Gain Coefficient = 0.23;
+    Visible Transmittance = 0.29;
+  }
+}
+
+Construction {
+  Name = Const_Window;
+  Layer 1 {
+    WindowMaterial Name = WinMat_Simple;
+    Thickness = 0.024;
+  }
+}
+
+Zone {
+  Name = Zone_1;
+}
+
+BuildingSurface:Detailed {
+  Name = Wall_North;
+  Construction Name = Const_Wall;
+  Surface Type = Wall;
+  Outside Boundary Condition = Outdoors;
+  Sun Blocking = No;
+  Wind Blocking = No;
+  North Axis = 30;
+  Vertex 1 { X = 0; Y = 20.5; Z = 0; }
+  Vertex 2 { X = 47.5; Y = 20.5; Z = 0; }
+  Vertex 3 { X = 47.5; Y = 20.5; Z = 3.6; }
+  Vertex 4 { X = 0; Y = 20.5; Z = 3.6; }
+}
+
+BuildingSurface:Detailed {
+  Name = Wall_East;
+  Construction Name = Const_Wall;
+  Surface Type = Wall;
+  Outside Boundary Condition = Outdoors;
+  Sun Blocking = No;
+  Wind Blocking = No;
+  North Axis = 30;
+  Vertex 1 { X = 47.5; Y = 20.5; Z = 0; }
+  Vertex 2 { X = 47.5; Y = 0; Z = 0; }
+  Vertex 3 { X = 47.5; Y = 0; Z = 3.6; }
+  Vertex 4 { X = 47.5; Y = 20.5; Z = 3.6; }
+}
+
+BuildingSurface:Detailed {
+  Name = Wall_South;
+  Construction Name = Const_Wall;
+  Surface Type = Wall;
+  Outside Boundary Condition = Outdoors;
+  Sun Blocking = No;
+  Wind Blocking = No;
+  North Axis = 30;
+  Vertex 1 { X = 47.5; Y = 0; Z = 0; }
+  Vertex 2 { X = 0; Y = 0; Z = 0; }
+  Vertex 3 { X = 0; Y = 0; Z = 3.6; }
+  Vertex 4 { X = 47.5; Y = 0; Z = 3.6; }
+}
+
+BuildingSurface:Detailed {
+  Name = Wall_West;
+  Construction Name = Const_Wall;
+  Surface Type = Wall;
+  Outside Boundary Condition = Outdoors;
+  Sun Blocking = No;
+  Wind Blocking = No;
+  North Axis = 30;
+  Vertex 1 { X = 0; Y = 0; Z = 0; }
+  Vertex 2 { X = 0; Y = 20.5; Z = 0; }
+  Vertex 3 { X = 0; Y = 20.5; Z = 3.6; }
+  Vertex 4 { X = 0; Y = 0; Z = 3.6; }
+}
+
+BuildingSurface:Detailed {
+  Name = Roof;
+  Construction Name = Const_Roof;
+  Surface Type = Roof;
+  Outside Boundary Condition = Outdoors;
+  Sun Blocking = No;
+  Wind Blocking = No;
+  North Axis = 30;
+  Vertex 1 { X = 0; Y = 0; Z = 3.6; }
+  Vertex 2 { X = 47.5; Y = 0; Z = 3.6; }
+  Vertex 3 { X = 47.5; Y = 20.5; Z = 3.6; }
+  Vertex 4 { X = 0; Y = 20.5; Z = 3.6; }
+}
+
+BuildingSurface:Detailed {
+  Name = Floor;
+  Construction Name = Const_Floor;
+  Surface Type = Floor;
+  Outside Boundary Condition = Ground;
+  Sun Blocking = No;
+  Wind Blocking = No;
+  North Axis = 30;
+  Vertex 1 { X = 0; Y = 0; Z = 0; }
+  Vertex 2 { X = 47.5; Y = 0; Z = 0; }
+  Vertex 3 { X = 47.5; Y = 20.5; Z = 0; }
+  Vertex 4 { X = 0; Y = 20.5; Z = 0; }
+}
+
+FenestrationSurface:Detailed {
+  Name = Win_North;
+  Construction Name = Const_Window;
+  Surface Type = Window;
+  Outside Boundary Condition = Outdoors;
+  Sun Blocking = No;
+  Wind Blocking = No;
+  North Axis = 30;
+  Vertex 1 { X = 11.875; Y = 20.5; Z = 0.6; }
+  Vertex 2 { X = 35.625; Y = 20.5; Z = 0.6; }
+  Vertex 3 { X = 35.625; Y = 20.5; Z = 3.0; }
+  Vertex 4 { X = 11.875; Y = 20.5; Z = 3.0; }
+}
+
+FenestrationSurface:Detailed {
+  Name = Win_East;
+  Construction Name = Const_Window;
+  Surface Type = Window;
+  Outside Boundary Condition = Outdoors;
+  Sun Blocking = No;
+  Wind Blocking = No;
+  North Axis = 30;
+  Vertex 1 { X = 47.5; Y = 8.5; Z = 0.6; }
+  Vertex 2 { X = 47.5; Y = 12.0; Z = 0.6; }
+  Vertex 3 { X = 47.5; Y = 12.0; Z = 3.0; }
+  Vertex 4 { X = 47.5; Y = 8.5; Z = 3.0; }
+}
+
+FenestrationSurface:Detailed {
+  Name = Win_South;
+  Construction Name = Const_Window;
+  Surface Type = Window;
+  Outside Boundary Condition = Outdoors;
+  Sun Blocking = No;
+  Wind Blocking = No;
+  North Axis = 30;
+  Vertex 1 { X = 11.875; Y = 0; Z = 0.6; }
+  Vertex 2 { X = 35.625; Y = 0; Z = 0.6; }
+  Vertex 3 { X = 35.625; Y = 0; Z = 3.0; }
+  Vertex 4 { X = 11.875; Y = 0; Z = 3.0; }
+}
+
+FenestrationSurface:Detailed {
+  Name = Win_West;
+  Construction Name = Const_Window;
+  Surface Type = Window;
+  Outside Boundary Condition = Outdoors;
+  Sun Blocking = No;
+  Wind Blocking = No;
+  North Axis = 30;
+  Vertex 1 { X = 0; Y = 9.25; Z = 0.6; }
+  Vertex 2 { X = 0; Y = 11.25; Z = 0.6; }
+  Vertex 3 { X = 0; Y = 11.25; Z = 3.0; }
+  Vertex 4 { X = 0; Y = 9.25; Z = 3.0; }
+}
+
+ZoneHVAC:IdealLoadsAirSystem {
+  Name = IdealAirSystem_1;
+  Availability Schedule Name = AlwaysOn;
+}
+
+HVACTemplate:Zone:IdealLoadsAirSystem {
+  Name = IdealZone_1;
+  Zone Name = Zone_1;
+  IdealLoadsAirSystem Name = IdealAirSystem_1;
+}
+
+Schedule:Compact {
+  Name = Occupied_Schedule;
+  Field 1 {
+    Value = 1;
+    Days = Weekdays;
+    Time = 08:00;
+  }
+  Field 2 {
+    Value = 0;
+    Days = Weekdays;
+    Time = 18:00;
+  }
+  Field 3 {
+    Value = 0;
+    Days = Weekends;
+    Time = 00:00;
+  }
+}
+
+Schedule:Compact {
+  Name = Lighting_Schedule;
+  Field 1 {
+    Value = 0.9;
+    Days = Weekdays;
+    Time = 08:00;
+  }
+  Field 2 {
+    Value = 0.15;
+    Days = Weekdays;
+    Time = 18:00;
+  }
+  Field 3 {
+    Value = 0.15;
+    Days = Weekends;
+    Time = 00:00;
+  }
+}
+
+Schedule:Compact {
+  Name = Equipment_Schedule;
+  Field 1 {
+    Value = 0.9;
+    Days = Weekdays;
+    Time = 08:00;
+  }
+  Field 2 {
+    Value = 0.45;
+    Days = Weekdays;
+    Time = 18:00;
+  }
+  Field 3 {
+    Value = 0.45;
+    Days = Weekends;
+    Time = 00:00;
+  }
+}
+
+Schedule:Compact {
+  Name = AlwaysOn;
+  Field 1 {
+    Value = 1;
+    Days = All;
+    Time = 00:00;
+  }
+}
+
+People {
+  Name = People_1;
+  Zone Name = Zone_1;
+  Number of People = 54.5;
+  Activity Level = 120;
+  Schedule Name = Occupied_Schedule;
+}
+
+Lights {
+  Name = Lights_1;
+  Zone Name = Zone_1;
+  Electric Power = 10300;
+  Schedule Name = Lighting_Schedule;
+}
+
+ElectricEquipment {
+  Name = Equip_1;
+  Zone Name = Zone_1;
+  Electric Power = 6300;
+  Schedule Name = Equipment_Schedule;
+}
+
+ZoneInfiltration:Constant {
+  Name = Infilt_1;
+  Zone Name = Zone_1;
+  Infiltration Rate = 0.2;
+}
+
+ZoneControl:Thermostat {
+  Name = Therm_1;
+  Zone Name = Zone_1;
+  Heating Setpoint Temperature Schedule Name = Heat_Set;
+  Cooling Setpoint Temperature Schedule Name = Cool_Set;
+}
+
+Schedule:Compact {
+  Name = Heat_Set;
+  Field 1 {
+    Value = 21.0;
+    Days = Weekdays;
+    Time = 08:00;
+  }
+  Field 2 {
+    Value = 13.5;
+    Days = Weekdays;
+    Time = 18:00;
+  }
+  Field 3 {
+    Value = 13.5;
+    Days = Weekends;
+    Time = 00:00;
+  }
+}
+
+Schedule:Compact {
+  Name = Cool_Set;
+  Field 1 {
+    Value = 24.0;
+    Days = Weekdays;
+    Time = 08:00;
+  }
+  Field 2 {
+    Value = 28.5;
+    Days = Weekdays;
+    Time = 18:00;
+  }
+  Field 3 {
+    Value = 28.5;
+    Days = Weekends;
+    Time = 00:00;
+  }
+}
+
+Zone {
+  Name = Zone_1;
+  Surface List = Wall_North, Wall_East, Wall_South, Wall_West, Roof, Floor;
+}

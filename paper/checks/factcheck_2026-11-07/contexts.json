@@ -1,0 +1,1014 @@
+{
+ "source": "/srv/data1/liangzhang/Benchmark_Building_Engineering/genai-bem-benchmark/paper/paper.md",
+ "contexts": [
+  {
+   "refs": [
+    "R39",
+    "R49"
+   ],
+   "sentence": "Modellers translate drawings, specifications and schedules into thousands of simulator inputs, and the translation itself is a known source of error [imam2017building, berkeley2015effect].",
+   "location": "Introduction, paragraph 7",
+   "section": "Introduction",
+   "id": "X001",
+   "kind": "general"
+  },
+  {
+   "refs": [
+    "R07",
+    "R10",
+    "R20"
+   ],
+   "sentence": "They write EnergyPlus input files from descriptions [jiang2024eplus, jiang2025efficient, liu2026large], debug them through simulation loops [zhang2025automatic], drive simulation tools through standard protocols [li2025energyplus, ball2026openstudio], and generate control code and other building engineering models [jiang2026large, wan2025automating, yue2025foam].",
+   "location": "Introduction, paragraph 7",
+   "section": "Introduction",
+   "id": "X002",
+   "kind": "general"
+  },
+  {
+   "refs": [
+    "R17"
+   ],
+   "sentence": "They write EnergyPlus input files from descriptions [jiang2024eplus, jiang2025efficient, liu2026large], debug them through simulation loops [zhang2025automatic], drive simulation tools through standard protocols [li2025energyplus, ball2026openstudio], and generate control code and other building engineering models [jiang2026large, wan2025automating, yue2025foam].",
+   "location": "Introduction, paragraph 7",
+   "section": "Introduction",
+   "id": "X003",
+   "kind": "general"
+  },
+  {
+   "refs": [
+    "R27",
+    "R28"
+   ],
+   "sentence": "They write EnergyPlus input files from descriptions [jiang2024eplus, jiang2025efficient, liu2026large], debug them through simulation loops [zhang2025automatic], drive simulation tools through standard protocols [li2025energyplus, ball2026openstudio], and generate control code and other building engineering models [jiang2026large, wan2025automating, yue2025foam].",
+   "location": "Introduction, paragraph 7",
+   "section": "Introduction",
+   "id": "X004",
+   "kind": "general"
+  },
+  {
+   "refs": [
+    "R57",
+    "R94",
+    "R119"
+   ],
+   "sentence": "They write EnergyPlus input files from descriptions [jiang2024eplus, jiang2025efficient, liu2026large], debug them through simulation loops [zhang2025automatic], drive simulation tools through standard protocols [li2025energyplus, ball2026openstudio], and generate control code and other building engineering models [jiang2026large, wan2025automating, yue2025foam].",
+   "location": "Introduction, paragraph 7",
+   "section": "Introduction",
+   "id": "X005",
+   "kind": "general"
+  },
+  {
+   "refs": [
+    "R01",
+    "R26",
+    "R19"
+   ],
+   "sentence": "Reviews expect these tools to change modelling practice [wan2025exploring, zhang2025opportunities, arslan2026large].",
+   "location": "Introduction, paragraph 7",
+   "section": "Introduction",
+   "id": "X006",
+   "kind": "general"
+  },
+  {
+   "refs": [
+    "R68",
+    "R80"
+   ],
+   "sentence": "In machine learning and software engineering, shared benchmarks answer these questions [chen2021evaluating, jimenez2023swe].",
+   "location": "Introduction, paragraph 8",
+   "section": "Introduction",
+   "id": "X007",
+   "kind": "general"
+  },
+  {
+   "refs": [
+    "R113",
+    "R115",
+    "R118",
+    "R116"
+   ],
+   "sentence": "They also bring their own problems: contamination of test data, overfitting to leaderboards, saturation, and graders that measure the wrong thing [reuel2024betterbench, bean2025measuring, singh2025leaderboard, zhu2025establishing].",
+   "location": "Introduction, paragraph 8",
+   "section": "Introduction",
+   "id": "X008",
+   "kind": "general"
+  },
+  {
+   "refs": [
+    "R121",
+    "R44"
+   ],
+   "sentence": "Building simulation has its own validation tradition: comparative testing of programs [ashrae2020std140, neymark2002international] and calibration criteria for models against measurements [ashrae2014guideline14].",
+   "location": "Introduction, paragraph 15",
+   "section": "Introduction",
+   "id": "X009",
+   "kind": "general"
+  },
+  {
+   "refs": [
+    "R122"
+   ],
+   "sentence": "Building simulation has its own validation tradition: comparative testing of programs [ashrae2020std140, neymark2002international] and calibration criteria for models against measurements [ashrae2014guideline14].",
+   "location": "Introduction, paragraph 15",
+   "section": "Introduction",
+   "id": "X010",
+   "kind": "general"
+  },
+  {
+   "refs": [
+    "R07",
+    "R16",
+    "R10",
+    "R17",
+    "R20",
+    "R21"
+   ],
+   "sentence": "These include simulation input files written from a description [jiang2024eplus, zhang2024advancing, jiang2025efficient, zhang2025automatic, liu2026large, lee2026knowledge], models produced by agents that call simulation tools [zhang2025large, li2025energyplus, ball2026openstudio, wan2026localized], control code and control sequences [jiang2026large, zhang2024large, hu2026autocontrol], code-compliance rules and BIM checks [yang2024prompt, madireddy2025large, zentgraf2026bim], structural analysis models driven from CAD [elbasani2026llm], and computational fluid dynamics (CFD) cases [pandey2025openfoamgpt, yue2025foam].",
+   "location": "What is being generated, and how is it evaluated today?, paragraph 39",
+   "section": "What is being generated, and how is it evaluated today?",
+   "id": "X011",
+   "kind": "general"
+  },
+  {
+   "refs": [
+    "R11",
+    "R27",
+    "R28",
+    "R62"
+   ],
+   "sentence": "These include simulation input files written from a description [jiang2024eplus, zhang2024advancing, jiang2025efficient, zhang2025automatic, liu2026large, lee2026knowledge], models produced by agents that call simulation tools [zhang2025large, li2025energyplus, ball2026openstudio, wan2026localized], control code and control sequences [jiang2026large, zhang2024large, hu2026autocontrol], code-compliance rules and BIM checks [yang2024prompt, madireddy2025large, zentgraf2026bim], structural analysis models driven from CAD [elbasani2026llm], and computational fluid dynamics (CFD) cases [pandey2025openfoamgpt, yue2025foam].",
+   "location": "What is being generated, and how is it evaluated today?, paragraph 39",
+   "section": "What is being generated, and how is it evaluated today?",
+   "id": "X012",
+   "kind": "general"
+  },
+  {
+   "refs": [
+    "R57",
+    "R15",
+    "R22"
+   ],
+   "sentence": "These include simulation input files written from a description [jiang2024eplus, zhang2024advancing, jiang2025efficient, zhang2025automatic, liu2026large, lee2026knowledge], models produced by agents that call simulation tools [zhang2025large, li2025energyplus, ball2026openstudio, wan2026localized], control code and control sequences [jiang2026large, zhang2024large, hu2026autocontrol], code-compliance rules and BIM checks [yang2024prompt, madireddy2025large, zentgraf2026bim], structural analysis models driven from CAD [elbasani2026llm], and computational fluid dynamics (CFD) cases [pandey2025openfoamgpt, yue2025foam].",
+   "location": "What is being generated, and how is it evaluated today?, paragraph 39",
+   "section": "What is being generated, and how is it evaluated today?",
+   "id": "X013",
+   "kind": "general"
+  },
+  {
+   "refs": [
+    "R09",
+    "R58",
+    "R05"
+   ],
+   "sentence": "These include simulation input files written from a description [jiang2024eplus, zhang2024advancing, jiang2025efficient, zhang2025automatic, liu2026large, lee2026knowledge], models produced by agents that call simulation tools [zhang2025large, li2025energyplus, ball2026openstudio, wan2026localized], control code and control sequences [jiang2026large, zhang2024large, hu2026autocontrol], code-compliance rules and BIM checks [yang2024prompt, madireddy2025large, zentgraf2026bim], structural analysis models driven from CAD [elbasani2026llm], and computational fluid dynamics (CFD) cases [pandey2025openfoamgpt, yue2025foam].",
+   "location": "What is being generated, and how is it evaluated today?, paragraph 39",
+   "section": "What is being generated, and how is it evaluated today?",
+   "id": "X014",
+   "kind": "general"
+  },
+  {
+   "refs": [
+    "R13"
+   ],
+   "sentence": "These include simulation input files written from a description [jiang2024eplus, zhang2024advancing, jiang2025efficient, zhang2025automatic, liu2026large, lee2026knowledge], models produced by agents that call simulation tools [zhang2025large, li2025energyplus, ball2026openstudio, wan2026localized], control code and control sequences [jiang2026large, zhang2024large, hu2026autocontrol], code-compliance rules and BIM checks [yang2024prompt, madireddy2025large, zentgraf2026bim], structural analysis models driven from CAD [elbasani2026llm], and computational fluid dynamics (CFD) cases [pandey2025openfoamgpt, yue2025foam].",
+   "location": "What is being generated, and how is it evaluated today?, paragraph 39",
+   "section": "What is being generated, and how is it evaluated today?",
+   "id": "X015",
+   "kind": "general"
+  },
+  {
+   "refs": [
+    "R117",
+    "R119"
+   ],
+   "sentence": "These include simulation input files written from a description [jiang2024eplus, zhang2024advancing, jiang2025efficient, zhang2025automatic, liu2026large, lee2026knowledge], models produced by agents that call simulation tools [zhang2025large, li2025energyplus, ball2026openstudio, wan2026localized], control code and control sequences [jiang2026large, zhang2024large, hu2026autocontrol], code-compliance rules and BIM checks [yang2024prompt, madireddy2025large, zentgraf2026bim], structural analysis models driven from CAD [elbasani2026llm], and computational fluid dynamics (CFD) cases [pandey2025openfoamgpt, yue2025foam].",
+   "location": "What is being generated, and how is it evaluated today?, paragraph 39",
+   "section": "What is being generated, and how is it evaluated today?",
+   "id": "X016",
+   "kind": "general"
+  },
+  {
+   "refs": [
+    "R01",
+    "R26",
+    "R19",
+    "R55",
+    "R56",
+    "R48",
+    "R04"
+   ],
+   "sentence": "Reviews of the field cover the opportunities and the range of applications [wan2025exploring, zhang2025opportunities, arslan2026large, onatayo2024generative, memon2025generative, wang2026generative, xiong2026socio].",
+   "location": "What is being generated, and how is it evaluated today?, paragraph 39",
+   "section": "What is being generated, and how is it evaluated today?",
+   "id": "X017",
+   "kind": "general"
+  },
+  {
+   "refs": [
+    "R03"
+   ],
+   "sentence": "The few benchmarks that exist test knowledge, through question answering on architecture, engineering and construction (AEC) [liang2026aecbench] or construction engineering and management [li2026comprehensive].",
+   "location": "What is being generated, and how is it evaluated today?, paragraph 39",
+   "section": "What is being generated, and how is it evaluated today?",
+   "id": "X018",
+   "kind": "general"
+  },
+  {
+   "refs": [
+    "R14"
+   ],
+   "sentence": "The few benchmarks that exist test knowledge, through question answering on architecture, engineering and construction (AEC) [liang2026aecbench] or construction engineering and management [li2026comprehensive].",
+   "location": "What is being generated, and how is it evaluated today?, paragraph 39",
+   "section": "What is being generated, and how is it evaluated today?",
+   "id": "X019",
+   "kind": "general"
+  },
+  {
+   "refs": [
+    "R16",
+    "R17"
+   ],
+   "sentence": "Two repeated runs to show variance; both report the same ten-run experiment on one building [zhang2024advancing, zhang2025automatic].",
+   "location": "What is being generated, and how is it evaluated today?, paragraph 40",
+   "section": "What is being generated, and how is it evaluated today?",
+   "id": "X020",
+   "kind": "specific"
+  },
+  {
+   "refs": [
+    "R07"
+   ],
+   "sentence": "None used a stated numerical tolerance: success meant that the model ran without errors, or matched the reference exactly [jiang2024eplus].",
+   "location": "What is being generated, and how is it evaluated today?, paragraph 40",
+   "section": "What is being generated, and how is it evaluated today?",
+   "id": "X021",
+   "kind": "general"
+  },
+  {
+   "refs": [
+    "R03"
+   ],
+   "sentence": "Only one study, a knowledge benchmark, released its full test set [liang2026aecbench].",
+   "location": "What is being generated, and how is it evaluated today?, paragraph 40",
+   "section": "What is being generated, and how is it evaluated today?",
+   "id": "X022",
+   "kind": "specific"
+  },
+  {
+   "refs": [
+    "R07"
+   ],
+   "sentence": "Headline results are therefore high but hard to compare: \"100% accuracy\" on simple rectangular buildings [jiang2024eplus], ten of ten error-free runs on one building [zhang2025automatic], and 97.1% control-code accuracy on rooms from one project [jiang2026large].",
+   "location": "What is being generated, and how is it evaluated today?, paragraph 40",
+   "section": "What is being generated, and how is it evaluated today?",
+   "id": "X023",
+   "kind": "specific"
+  },
+  {
+   "refs": [
+    "R17"
+   ],
+   "sentence": "Headline results are therefore high but hard to compare: \"100% accuracy\" on simple rectangular buildings [jiang2024eplus], ten of ten error-free runs on one building [zhang2025automatic], and 97.1% control-code accuracy on rooms from one project [jiang2026large].",
+   "location": "What is being generated, and how is it evaluated today?, paragraph 40",
+   "section": "What is being generated, and how is it evaluated today?",
+   "id": "X024",
+   "kind": "specific"
+  },
+  {
+   "refs": [
+    "R57"
+   ],
+   "sentence": "Headline results are therefore high but hard to compare: \"100% accuracy\" on simple rectangular buildings [jiang2024eplus], ten of ten error-free runs on one building [zhang2025automatic], and 97.1% control-code accuracy on rooms from one project [jiang2026large].",
+   "location": "What is being generated, and how is it evaluated today?, paragraph 40",
+   "section": "What is being generated, and how is it evaluated today?",
+   "id": "X025",
+   "kind": "specific"
+  },
+  {
+   "refs": [
+    "R91"
+   ],
+   "sentence": "Buildrix shares and benchmarks agent skills for building engineering, including an EnergyPlus generation skill scored against expert-verified cases [jiang2026buildrix].",
+   "location": "What is being generated, and how is it evaluated today?, paragraph 41",
+   "section": "What is being generated, and how is it evaluated today?",
+   "id": "X026",
+   "kind": "general"
+  },
+  {
+   "refs": [
+    "R120"
+   ],
+   "sentence": "BEMEval-Doc2Schema benchmarks extraction of structured building data from documents, a step upstream of model generation, and announces a benchmark suite for energy-modelling tasks [jia2026bemeval].",
+   "location": "What is being generated, and how is it evaluated today?, paragraph 41",
+   "section": "What is being generated, and how is it evaluated today?",
+   "id": "X027",
+   "kind": "specific"
+  },
+  {
+   "refs": [
+    "R95",
+    "R92"
+   ],
+   "sentence": "In neighbouring simulation domains, ModiGen and a Modelica workflow benchmark grade generated Modelica models by simulation [xiang2025modigen, wang2026executable].",
+   "location": "What is being generated, and how is it evaluated today?, paragraph 41",
+   "section": "What is being generated, and how is it evaluated today?",
+   "id": "X028",
+   "kind": "general"
+  },
+  {
+   "refs": [
+    "R94"
+   ],
+   "sentence": "A Modelica study generates building control modules [wan2025automating].",
+   "location": "What is being generated, and how is it evaluated today?, paragraph 41",
+   "section": "What is being generated, and how is it evaluated today?",
+   "id": "X029",
+   "kind": "general"
+  },
+  {
+   "refs": [
+    "R98"
+   ],
+   "sentence": "CFDLLMBench grades generated OpenFOAM cases [somasekharan2025cfdllmbench], EngDesign grades engineering designs with domain simulators [guo2025engineering], and AutoB2G scores generated building–grid co-simulation pipelines by tier [zhang2026autob2g].",
+   "location": "What is being generated, and how is it evaluated today?, paragraph 41",
+   "section": "What is being generated, and how is it evaluated today?",
+   "id": "X030",
+   "kind": "specific"
+  },
+  {
+   "refs": [
+    "R93"
+   ],
+   "sentence": "CFDLLMBench grades generated OpenFOAM cases [somasekharan2025cfdllmbench], EngDesign grades engineering designs with domain simulators [guo2025engineering], and AutoB2G scores generated building–grid co-simulation pipelines by tier [zhang2026autob2g].",
+   "location": "What is being generated, and how is it evaluated today?, paragraph 41",
+   "section": "What is being generated, and how is it evaluated today?",
+   "id": "X031",
+   "kind": "specific"
+  },
+  {
+   "refs": [
+    "R97"
+   ],
+   "sentence": "CFDLLMBench grades generated OpenFOAM cases [somasekharan2025cfdllmbench], EngDesign grades engineering designs with domain simulators [guo2025engineering], and AutoB2G scores generated building–grid co-simulation pipelines by tier [zhang2026autob2g].",
+   "location": "What is being generated, and how is it evaluated today?, paragraph 41",
+   "section": "What is being generated, and how is it evaluated today?",
+   "id": "X032",
+   "kind": "specific"
+  },
+  {
+   "refs": [
+    "R96"
+   ],
+   "sentence": "Grader validation by mutation has been done for code benchmarks [siddeeq2026codeassay], but not for simulation-graded ones.",
+   "location": "What is being generated, and how is it evaluated today?, paragraph 41",
+   "section": "What is being generated, and how is it evaluated today?",
+   "id": "X033",
+   "kind": "general"
+  },
+  {
+   "refs": [
+    "R07"
+   ],
+   "sentence": "| EPlus-LLM [jiang2024eplus] | brief → IDF | 152 | no | exact match | no | no |",
+   "location": "What is being generated, and how is it evaluated today?, paragraph 45",
+   "section": "What is being generated, and how is it evaluated today?",
+   "id": "X034",
+   "kind": "specific"
+  },
+  {
+   "refs": [
+    "R16"
+   ],
+   "sentence": "| Zhang et al. [zhang2024advancing] | IDF objects, edits | 3–4 cases | no | yes | no | 10 runs |",
+   "location": "What is being generated, and how is it evaluated today?, paragraph 46",
+   "section": "What is being generated, and how is it evaluated today?",
+   "id": "X035",
+   "kind": "specific"
+  },
+  {
+   "refs": [
+    "R17"
+   ],
+   "sentence": "| Zhang et al. [zhang2025automatic] | brief → IDF, agents | 1 building | no | yes | no | 10 runs |",
+   "location": "What is being generated, and how is it evaluated today?, paragraph 47",
+   "section": "What is being generated, and how is it evaluated today?",
+   "id": "X036",
+   "kind": "specific"
+  },
+  {
+   "refs": [
+    "R23"
+   ],
+   "sentence": "| Jiang et al. [jiang2025prompt] | brief → IDF, prompting | 648 | partly | n.r. | no | no |",
+   "location": "What is being generated, and how is it evaluated today?, paragraph 48",
+   "section": "What is being generated, and how is it evaluated today?",
+   "id": "X037",
+   "kind": "specific"
+  },
+  {
+   "refs": [
+    "R62"
+   ],
+   "sentence": "| Wan et al. [wan2026localized] | agent routing | 100 per language | n.r. | manual check | no | n.r. |",
+   "location": "What is being generated, and how is it evaluated today?, paragraph 49",
+   "section": "What is being generated, and how is it evaluated today?",
+   "id": "X038",
+   "kind": "specific"
+  },
+  {
+   "refs": [
+    "R57"
+   ],
+   "sentence": "| Jiang et al. [jiang2026large] | HVAC control code | 173 rooms | n.r. | via simulation | n.r. | n.r. |",
+   "location": "What is being generated, and how is it evaluated today?, paragraph 50",
+   "section": "What is being generated, and how is it evaluated today?",
+   "id": "X039",
+   "kind": "specific"
+  },
+  {
+   "refs": [
+    "R27"
+   ],
+   "sentence": "| EnergyPlus-MCP [li2025energyplus] | tool server | 1 demo | no | no | no | no |",
+   "location": "What is being generated, and how is it evaluated today?, paragraph 51",
+   "section": "What is being generated, and how is it evaluated today?",
+   "id": "X040",
+   "kind": "specific"
+  },
+  {
+   "refs": [
+    "R03"
+   ],
+   "sentence": "| AECBench [liang2026aecbench] | knowledge QA | 4800 | yes | expert rubric | no | n.r. |",
+   "location": "What is being generated, and how is it evaluated today?, paragraph 52",
+   "section": "What is being generated, and how is it evaluated today?",
+   "id": "X041",
+   "kind": "specific"
+  },
+  {
+   "refs": [
+    "R119"
+   ],
+   "sentence": "| Foam-Agent [yue2025foam] | brief → CFD case | 110+ | n.r. | execution | n.r. | n.r. |",
+   "location": "What is being generated, and how is it evaluated today?, paragraph 53",
+   "section": "What is being generated, and how is it evaluated today?",
+   "id": "X042",
+   "kind": "specific"
+  },
+  {
+   "refs": [
+    "R39"
+   ],
+   "sentence": "Modelling time is a recognised barrier in practice, and model quality drives the performance gap [imam2017building].",
+   "location": "Which benchmark is most needed first?, paragraph 61",
+   "section": "Which benchmark is most needed first?",
+   "id": "X043",
+   "kind": "general"
+  },
+  {
+   "refs": [
+    "R122",
+    "R25",
+    "R59"
+   ],
+   "sentence": "Calibration to measured data is the next most valuable task, and Guideline 14 gives accepted criteria [ashrae2014guideline14, coakley2014review, fabrizio2015methodologies].",
+   "location": "Which benchmark is most needed first?, paragraph 61",
+   "section": "Which benchmark is most needed first?",
+   "id": "X044",
+   "kind": "specific"
+  },
+  {
+   "refs": [
+    "R25"
+   ],
+   "sentence": "But calibration ground truth is ill-posed: many parameter sets reproduce the same meter data [coakley2014review].",
+   "location": "Which benchmark is most needed first?, paragraph 61",
+   "section": "Which benchmark is most needed first?",
+   "id": "X045",
+   "kind": "general"
+  },
+  {
+   "refs": [
+    "R50"
+   ],
+   "sentence": "Control-sequence generation can borrow the key performance indicators and test cases of BOPTEST [arroyo2021introduction].",
+   "location": "Which benchmark is most needed first?, paragraph 61",
+   "section": "Which benchmark is most needed first?",
+   "id": "X046",
+   "kind": "general"
+  },
+  {
+   "refs": [
+    "R03"
+   ],
+   "sentence": "| Domain question answering | L–M | H (exact answer) | M (expert-written) | exists [liang2026aecbench] |",
+   "location": "Which benchmark is most needed first?, paragraph 72",
+   "section": "Which benchmark is most needed first?",
+   "id": "X047",
+   "kind": "general"
+  },
+  {
+   "refs": [
+    "R52",
+    "R49"
+   ],
+   "sentence": "When several modellers model the same building, their results differ [berkeley2014impact, berkeley2015effect], and modeller competence is a documented source of the performance gap [imam2017building].",
+   "location": "Where does the ground truth come from? Must it be human-made?, paragraph 75",
+   "section": "Where does the ground truth come from? Must it be human-made?",
+   "id": "X048",
+   "kind": "general"
+  },
+  {
+   "refs": [
+    "R39"
+   ],
+   "sentence": "When several modellers model the same building, their results differ [berkeley2014impact, berkeley2015effect], and modeller competence is a documented source of the performance gap [imam2017building].",
+   "location": "Where does the ground truth come from? Must it be human-made?, paragraph 75",
+   "section": "Where does the ground truth come from? Must it be human-made?",
+   "id": "X049",
+   "kind": "general"
+  },
+  {
+   "refs": [
+    "R42",
+    "R53"
+   ],
+   "sentence": "Mined corpora. Prototype and reference models [deru2011u, field2010using] and building-stock models [pigman2022end] are realistic and plentiful.",
+   "location": "Where does the ground truth come from? Must it be human-made?, paragraph 76",
+   "section": "Where does the ground truth come from? Must it be human-made?",
+   "id": "X050",
+   "kind": "general"
+  },
+  {
+   "refs": [
+    "R46"
+   ],
+   "sentence": "Mined corpora. Prototype and reference models [deru2011u, field2010using] and building-stock models [pigman2022end] are realistic and plentiful.",
+   "location": "Where does the ground truth come from? Must it be human-made?, paragraph 76",
+   "section": "Where does the ground truth come from? Must it be human-made?",
+   "id": "X051",
+   "kind": "general"
+  },
+  {
+   "refs": [
+    "R90"
+   ],
+   "sentence": "But they are public, so they are likely in training data [xu2024benchmark], and turning a model with thousands of inputs into a brief that fixes all of them is hard.",
+   "location": "Where does the ground truth come from? Must it be human-made?, paragraph 76",
+   "section": "Where does the ground truth come from? Must it be human-made?",
+   "id": "X052",
+   "kind": "general"
+  },
+  {
+   "refs": [
+    "R81",
+    "R85"
+   ],
+   "sentence": "The task set can be regenerated at will, which matters for contamination [white2024livebench, jain2024livecodebench].",
+   "location": "Where does the ground truth come from? Must it be human-made?, paragraph 77",
+   "section": "Where does the ground truth come from? Must it be human-made?",
+   "id": "X053",
+   "kind": "general"
+  },
+  {
+   "refs": [
+    "R61"
+   ],
+   "sentence": "BuildingsBench took this route for load forecasting, with 900 000 simulated buildings [emami2023buildingsbench].",
+   "location": "Where does the ground truth come from? Must it be human-made?, paragraph 77",
+   "section": "Where does the ground truth come from? Must it be human-made?",
+   "id": "X054",
+   "kind": "specific"
+  },
+  {
+   "refs": [
+    "R68",
+    "R80"
+   ],
+   "sentence": "This is the building analogue of the unit tests used in code benchmarks [chen2021evaluating, jimenez2023swe].",
+   "location": "Where does the ground truth come from? Must it be human-made?, paragraph 78",
+   "section": "Where does the ground truth come from? Must it be human-made?",
+   "id": "X055",
+   "kind": "general"
+  },
+  {
+   "refs": [
+    "R115",
+    "R67"
+   ],
+   "sentence": "What they cannot be replaced in is deciding what is worth testing (construct validity [bean2025measuring, raji2021ai]), writing or reviewing briefs for realism, and auditing a sample of the labels.",
+   "location": "Where does the ground truth come from? Must it be human-made?, paragraph 79",
+   "section": "Where does the ground truth come from? Must it be human-made?",
+   "id": "X056",
+   "kind": "general"
+  },
+  {
+   "refs": [
+    "R73"
+   ],
+   "sentence": "Test-set errors of a few per cent are enough to change model rankings [northcutt2021pervasive], so the audit is not optional.",
+   "location": "Where does the ground truth come from? Must it be human-made?, paragraph 79",
+   "section": "Where does the ground truth come from? Must it be human-made?",
+   "id": "X057",
+   "kind": "general"
+  },
+  {
+   "refs": [
+    "R121",
+    "R44",
+    "R47"
+   ],
+   "sentence": "A smaller expert-curated track gives realism, and its \"truth\" is a tolerance band set by inter-modeller spread, in the way ASHRAE Standard 140 and BESTEST judge programs against the range of reference programs rather than against one answer [ashrae2020std140, neymark2002international, judkoff2010building].",
+   "location": "Where does the ground truth come from? Must it be human-made?, paragraph 79",
+   "section": "Where does the ground truth come from? Must it be human-made?",
+   "id": "X058",
+   "kind": "specific"
+  },
+  {
+   "refs": [
+    "R106",
+    "R100"
+   ],
+   "sentence": "A model judge is cheaper than an expert but has known biases [zheng2023judging, wang2023large].",
+   "location": "If there is not enough data, how can it be generated?, paragraph 83",
+   "section": "If there is not enough data, how can it be generated?",
+   "id": "X059",
+   "kind": "general"
+  },
+  {
+   "refs": [
+    "R105"
+   ],
+   "sentence": "Mutants test the grader rather than the systems, as test-suite augmentation does in code benchmarks [liu2023code].",
+   "location": "If there is not enough data, how can it be generated?, paragraph 84",
+   "section": "If there is not enough data, how can it be generated?",
+   "id": "X060",
+   "kind": "general"
+  },
+  {
+   "refs": [
+    "R103"
+   ],
+   "sentence": "Human-in-the-loop collection [kiela2021dynabench]: experts write tasks that current systems fail; the most realistic, but slow.",
+   "location": "If there is not enough data, how can it be generated?, paragraph 85",
+   "section": "If there is not enough data, how can it be generated?",
+   "id": "X061",
+   "kind": "general"
+  },
+  {
+   "refs": [
+    "R38",
+    "R104"
+   ],
+   "sentence": "These costs argue for documenting the generator in a datasheet [gebru2021datasheets, pushkarna2022data] and for the realism track above, not against generation.",
+   "location": "If there is not enough data, how can it be generated?, paragraph 86",
+   "section": "If there is not enough data, how can it be generated?",
+   "id": "X062",
+   "kind": "general"
+  },
+  {
+   "refs": [
+    "R68",
+    "R76",
+    "R86"
+   ],
+   "sentence": "Code benchmarks score by executing unit tests [chen2021evaluating, austin2021program, zhuo2024bigcodebench].",
+   "location": "How should a generated model be scored?, paragraph 87",
+   "section": "How should a generated model be scored?",
+   "id": "X063",
+   "kind": "general"
+  },
+  {
+   "refs": [
+    "R114"
+   ],
+   "sentence": "Scientific-code benchmarks compare numerical outputs with gold values within a tolerance [tian2024scicode].",
+   "location": "How should a generated model be scored?, paragraph 87",
+   "section": "How should a generated model be scored?",
+   "id": "X064",
+   "kind": "general"
+  },
+  {
+   "refs": [
+    "R110",
+    "R107"
+   ],
+   "sentence": "Hardware benchmarks simulate the generated design against a reference testbench [liu2023verilogeval, lu2023rtllm].",
+   "location": "How should a generated model be scored?, paragraph 87",
+   "section": "How should a generated model be scored?",
+   "id": "X065",
+   "kind": "general"
+  },
+  {
+   "refs": [
+    "R122"
+   ],
+   "sentence": "Guideline 14's NMBE and CV(RMSE) limits [ashrae2014guideline14] were designed to judge a model against noisy measurements, not to tell a correct model from a wrong one when both are noise-free simulations.",
+   "location": "How should a generated model be scored?, paragraph 92",
+   "section": "How should a generated model be scored?",
+   "id": "X066",
+   "kind": "specific"
+  },
+  {
+   "refs": [
+    "R67",
+    "R115"
+   ],
+   "sentence": "Construct and scope. Define what competence the benchmark measures and claim no more [raji2021ai, bean2025measuring].",
+   "location": "How is a benchmark kept trustworthy over time?, paragraph 94",
+   "section": "How is a benchmark kept trustworthy over time?",
+   "id": "X067",
+   "kind": "general"
+  },
+  {
+   "refs": [
+    "R71",
+    "R87",
+    "R85",
+    "R81"
+   ],
+   "sentence": "Contamination. Keep the test answers private, stamp tasks with a version and date, refresh them, and embed a canary string [srivastava2022imitation, mialon2023gaia, jain2024livecodebench, white2024livebench].",
+   "location": "How is a benchmark kept trustworthy over time?, paragraph 95",
+   "section": "How is a benchmark kept trustworthy over time?",
+   "id": "X068",
+   "kind": "general"
+  },
+  {
+   "refs": [
+    "R88",
+    "R90"
+   ],
+   "sentence": "Do not rely on n-gram decontamination [yang2023rethinking, xu2024benchmark].",
+   "location": "How is a benchmark kept trustworthy over time?, paragraph 95",
+   "section": "How is a benchmark kept trustworthy over time?",
+   "id": "X069",
+   "kind": "general"
+  },
+  {
+   "refs": [
+    "R70",
+    "R101",
+    "R66"
+   ],
+   "sentence": "Leaderboard governance. Repeated submissions to a fixed test set overfit it [blum2015ladder, dwork2014preserving, recht2019imagenet].",
+   "location": "How is a benchmark kept trustworthy over time?, paragraph 96",
+   "section": "How is a benchmark kept trustworthy over time?",
+   "id": "X070",
+   "kind": "general"
+  },
+  {
+   "refs": [
+    "R118"
+   ],
+   "sentence": "Undisclosed private testing distorts rankings [singh2025leaderboard].",
+   "location": "How is a benchmark kept trustworthy over time?, paragraph 96",
+   "section": "How is a benchmark kept trustworthy over time?",
+   "id": "X071",
+   "kind": "general"
+  },
+  {
+   "refs": [
+    "R33",
+    "R34"
+   ],
+   "sentence": "The ASHRAE Great Energy Predictor III competition showed the same overfitting risks in our own field [miller2020ashrae, miller2022limitations].",
+   "location": "How is a benchmark kept trustworthy over time?, paragraph 96",
+   "section": "How is a benchmark kept trustworthy over time?",
+   "id": "X072",
+   "kind": "specific"
+  },
+  {
+   "refs": [
+    "R83",
+    "R102"
+   ],
+   "sentence": "Statistics. Report confidence intervals and paired comparisons, and plan the number of tasks from a power analysis [miller2024adding, dodge2019show].",
+   "location": "How is a benchmark kept trustworthy over time?, paragraph 97",
+   "section": "How is a benchmark kept trustworthy over time?",
+   "id": "X073",
+   "kind": "specific"
+  },
+  {
+   "refs": [
+    "R89",
+    "R72",
+    "R69"
+   ],
+   "sentence": "Reproducibility. Release the harness, fix the prompts, pin the simulator version, and log everything that affects the score [biderman2024lessons, pineau2020improving, liang2022holistic].",
+   "location": "How is a benchmark kept trustworthy over time?, paragraph 98",
+   "section": "How is a benchmark kept trustworthy over time?",
+   "id": "X074",
+   "kind": "general"
+  },
+  {
+   "refs": [
+    "R113"
+   ],
+   "sentence": "Audit the benchmark itself. Checklists exist for benchmark quality [reuel2024betterbench] and for agentic task and outcome validity [zhu2025establishing]; apply them before release.",
+   "location": "How is a benchmark kept trustworthy over time?, paragraph 99",
+   "section": "How is a benchmark kept trustworthy over time?",
+   "id": "X075",
+   "kind": "general"
+  },
+  {
+   "refs": [
+    "R116"
+   ],
+   "sentence": "Audit the benchmark itself. Checklists exist for benchmark quality [reuel2024betterbench] and for agentic task and outcome validity [zhu2025establishing]; apply them before release.",
+   "location": "How is a benchmark kept trustworthy over time?, paragraph 99",
+   "section": "How is a benchmark kept trustworthy over time?",
+   "id": "X076",
+   "kind": "general"
+  },
+  {
+   "refs": [
+    "R83"
+   ],
+   "sentence": "Paired comparisons on the same tasks need fewer [miller2024adding]. @sec:power gives the numbers for our case.",
+   "location": "Other decisions that confuse benchmark builders, paragraph 100",
+   "section": "Other decisions that confuse benchmark builders",
+   "id": "X077",
+   "kind": "general"
+  },
+  {
+   "refs": [
+    "R80",
+    "R82",
+    "R75",
+    "R111",
+    "R79"
+   ],
+   "sentence": "One shot or agent? Code benchmarks moved from single-shot functions to agents acting in environments [jimenez2023swe, liu2023agentbench, zhou2023webarena, xu2024theagentcompany, chan2024mle].",
+   "location": "Other decisions that confuse benchmark builders, paragraph 101",
+   "section": "Other decisions that confuse benchmark builders",
+   "id": "X078",
+   "kind": "general"
+  },
+  {
+   "refs": [
+    "R102"
+   ],
+   "sentence": "The condition must also report the budget (attempts, tokens, time), because performance grows with budget [dodge2019show].",
+   "location": "Other decisions that confuse benchmark builders, paragraph 101",
+   "section": "Other decisions that confuse benchmark builders",
+   "id": "X079",
+   "kind": "specific"
+  },
+  {
+   "refs": [
+    "R106",
+    "R100"
+   ],
+   "sentence": "Judges have position, verbosity and self-preference biases [zheng2023judging, wang2023large].",
+   "location": "Other decisions that confuse benchmark builders, paragraph 104",
+   "section": "Other decisions that confuse benchmark builders",
+   "id": "X080",
+   "kind": "general"
+  },
+  {
+   "refs": [
+    "R113"
+   ],
+   "sentence": "We combine the lifecycle of BetterBench [reuel2024betterbench], the validity checklist of agentic benchmarks [zhu2025establishing], documentation practice [gebru2021datasheets, mitchell2019model] and the comparative-testing tradition of Standard 140 [ashrae2020std140] into ten steps (@fig:workflow). @sec:partB carries out each step for an energy-modelling benchmark.",
+   "location": "A workflow for building a benchmark in building engineering, paragraph 116",
+   "section": "A workflow for building a benchmark in building engineering",
+   "id": "X081",
+   "kind": "specific"
+  },
+  {
+   "refs": [
+    "R116"
+   ],
+   "sentence": "We combine the lifecycle of BetterBench [reuel2024betterbench], the validity checklist of agentic benchmarks [zhu2025establishing], documentation practice [gebru2021datasheets, mitchell2019model] and the comparative-testing tradition of Standard 140 [ashrae2020std140] into ten steps (@fig:workflow). @sec:partB carries out each step for an energy-modelling benchmark.",
+   "location": "A workflow for building a benchmark in building engineering, paragraph 116",
+   "section": "A workflow for building a benchmark in building engineering",
+   "id": "X082",
+   "kind": "specific"
+  },
+  {
+   "refs": [
+    "R38",
+    "R35"
+   ],
+   "sentence": "We combine the lifecycle of BetterBench [reuel2024betterbench], the validity checklist of agentic benchmarks [zhu2025establishing], documentation practice [gebru2021datasheets, mitchell2019model] and the comparative-testing tradition of Standard 140 [ashrae2020std140] into ten steps (@fig:workflow). @sec:partB carries out each step for an energy-modelling benchmark.",
+   "location": "A workflow for building a benchmark in building engineering, paragraph 116",
+   "section": "A workflow for building a benchmark in building engineering",
+   "id": "X083",
+   "kind": "specific"
+  },
+  {
+   "refs": [
+    "R121"
+   ],
+   "sentence": "We combine the lifecycle of BetterBench [reuel2024betterbench], the validity checklist of agentic benchmarks [zhu2025establishing], documentation practice [gebru2021datasheets, mitchell2019model] and the comparative-testing tradition of Standard 140 [ashrae2020std140] into ten steps (@fig:workflow). @sec:partB carries out each step for an energy-modelling benchmark.",
+   "location": "A workflow for building a benchmark in building engineering, paragraph 116",
+   "section": "A workflow for building a benchmark in building engineering",
+   "id": "X084",
+   "kind": "specific"
+  },
+  {
+   "refs": [
+    "R67"
+   ],
+   "sentence": "We therefore claim nothing about \"energy-modelling ability\" in general [raji2021ai].",
+   "location": "Construct, scope and interface (steps 1–2), paragraph 130",
+   "section": "Construct, scope and interface (steps 1–2)",
+   "id": "X085",
+   "kind": "general"
+  },
+  {
+   "refs": [
+    "R65",
+    "R124"
+   ],
+   "sentence": "EnergyPlus 22.2 [crawley2001energyplus, doe2022energyplus].",
+   "location": "Construct, scope and interface (steps 1–2), paragraph 131",
+   "section": "Construct, scope and interface (steps 1–2)",
+   "id": "X086",
+   "kind": "specific"
+  },
+  {
+   "refs": [
+    "R123"
+   ],
+   "sentence": "unmet heating plus cooling hours ≤ 300, the 90.1 Appendix G limit [ashrae2019std901];",
+   "location": "Tasks and ground truth (steps 3–5), paragraph 141",
+   "section": "Tasks and ground truth (steps 3–5)",
+   "id": "X087",
+   "kind": "specific"
+  },
+  {
+   "refs": [
+    "R71"
+   ],
+   "sentence": "Each brief carries a canary string so that leaked copies can be detected in training data [srivastava2022imitation].",
+   "location": "Briefs (step 4), paragraph 145",
+   "section": "Briefs (step 4)",
+   "id": "X088",
+   "kind": "general"
+  },
+  {
+   "refs": [
+    "R122"
+   ],
+   "sentence": "the Guideline 14 monthly calibration criteria applied to monthly facility energy (|NMBE| ≤ 5%, CV(RMSE) ≤ 15%) [ashrae2014guideline14].",
+   "location": "Grader validation (step 8), paragraph 184",
+   "section": "Grader validation (step 8)",
+   "id": "X089",
+   "kind": "specific"
+  },
+  {
+   "refs": [
+    "R35"
+   ],
+   "sentence": "Submissions are directories of IDFs with a metadata card [mitchell2019model].",
+   "location": "Hosting and governance (step 10), paragraph 197",
+   "section": "Hosting and governance (step 10)",
+   "id": "X090",
+   "kind": "general"
+  },
+  {
+   "refs": [
+    "R70",
+    "R101",
+    "R118"
+   ],
+   "sentence": "To limit adaptive overfitting [blum2015ladder, dwork2014preserving, singh2025leaderboard]:",
+   "location": "Hosting and governance (step 10), paragraph 201",
+   "section": "Hosting and governance (step 10)",
+   "id": "X091",
+   "kind": "specific"
+  },
+  {
+   "refs": [
+    "R85"
+   ],
+   "sentence": "Old splits are retired to the public development pool, which also gives a contamination check: the score gap between old and new splits [jain2024livecodebench].",
+   "location": "Hosting and governance (step 10), paragraph 206",
+   "section": "Hosting and governance (step 10)",
+   "id": "X092",
+   "kind": "general"
+  },
+  {
+   "refs": [
+    "R73"
+   ],
+   "sentence": "That is the procedural-benchmark version of the test-set error problem in machine learning [northcutt2021pervasive].",
+   "location": "What the case study says about the questions in Part A, paragraph 324",
+   "section": "What the case study says about the questions in Part A",
+   "id": "X093",
+   "kind": "general"
+  },
+  {
+   "refs": [
+    "R52",
+    "R49"
+   ],
+   "sentence": "The inter-modeller literature [berkeley2014impact, berkeley2015effect] suggests that human modellers would not reach 100% on fidelity under the same tolerances.",
+   "location": "Limitations, paragraph 345",
+   "section": "Limitations",
+   "id": "X094",
+   "kind": "specific"
+  }
+ ]
+}

@@ -1,0 +1,350 @@
+```idf
+Building {
+  }
+
+Material {
+  name                Wall_Lightweight_Mat;
+  roughness                MediumRough;
+  conductivity          0.060000;
+  density              600.000000;
+  specificheat         1000.000000;
+  }
+
+Material {
+  name                Roof_Lightweight_Mat;
+  roughness                MediumRough;
+  conductivity          0.030000;
+  density              300.000000;
+  specificheat         1200.000000;
+  }
+
+Material {
+  name                Concrete_Slab;
+  roughness                MediumRough;
+  conductivity          1.311000;
+  density              2240.000000;
+  specificheat         836.800000;
+  }
+
+Material {
+  name                Carpet_Layer;
+  roughness                MediumRough;
+  conductivity          0.060000;
+  density              288.000000;
+  specificheat         1380.000000;
+  }
+
+Material {
+  name                Gypsum_Board;
+  roughness                MediumRough;
+  conductivity          0.160000;
+  density              784.900000;
+  specificheat         830.000000;
+  }
+
+Material {
+  name                Glass_Mat;
+  roughness                Smooth;
+  conductivity          1.000000;
+  density              2500.000000;
+  specificheat         800.000000;
+  }
+
+Construction {
+  name                Wall_Const;
+  layer 1              Wall_Lightweight_Mat;
+  }
+
+Construction {
+  name                Roof_Const;
+  layer 1              Roof_Lightweight_Mat;
+  }
+
+Construction {
+  name                Floor_Const;
+  layer 1              Carpet_Layer;
+  layer 2              Concrete_Slab;
+  }
+
+Construction {
+  name                Partition_Const;
+  layer 1              Gypsum_Board;
+  layer 2              Gypsum_Board;
+  }
+
+Construction {
+  name                Glass_Const;
+  layer 1              Glass_Mat;
+  }
+
+WindowMaterial {
+  name                Glass_Mat_Opt;
+  optical_properties   Glass_Opt;
+  thermal_properties   Glass_Mat;
+  }
+
+OpticalProperties {
+  name                Glass_Opt;
+  transmittance        0.400000;
+  solartransmittance  0.340000;
+  }
+
+Zone {
+  name                School_Zone;
+}
+
+BuildingSurface:Detailed {
+  name                Floor;
+  zone-name           School_Zone;
+  construction-name   Floor_Const;
+  outside-boundary-condition Ground;
+  sun-shade-control   NoSunShade;
+  wind-exposure-control WindExposure_Default;
+  north-axis          0;
+  vertex 1            0.0, 0.0, 0.0;
+  vertex 2            26.5, 0.0, 0.0;
+  vertex 3            26.5, 19.5, 0.0;
+  vertex 4            0.0, 19.5, 0.0;
+  }
+
+BuildingSurface:Detailed {
+  name                Roof;
+  zone-name           School_Zone;
+  construction-name   Roof_Const;
+  outside-boundary-condition Outdoors;
+  sun-shade-control   NoSunShade;
+  wind-exposure-control WindExposure_Default;
+  north-axis          0;
+  vertex 1            0.0, 0.0, 3.6;
+  vertex 2            26.5, 0.0, 3.6;
+  vertex 3            26.5, 19.5, 3.6;
+  vertex 4            0.0, 19.5, 3.6;
+  }
+
+BuildingSurface:Detailed {
+  name                Wall_South;
+  zone-name           School_Zone;
+  construction-name   Wall_Const;
+  outside-boundary-condition Outdoors;
+  sun-shade-control   NoSunShade;
+  wind-exposure-control WindExposure_Default;
+  north-axis          0;
+  vertex 1            0.0, 0.0, 0.0;
+  vertex 2            26.5, 0.0, 0.0;
+  vertex 3            26.5, 0.0, 3.6;
+  vertex 4            0.0, 0.0, 3.6;
+  }
+
+BuildingSurface:Detailed {
+  name                Wall_East;
+  zone-name           School_Zone;
+  construction-name   Wall_Const;
+  outside-boundary-condition Outdoors;
+  sun-shade-control   NoSunShade;
+  wind-exposure-control WindExposure_Default;
+  north-axis          0;
+  vertex 1            26.5, 0.0, 0.0;
+  vertex 2            26.5, 19.5, 0.0;
+  vertex 3            26.5, 19.5, 3.6;
+  vertex 4            26.5, 0.0, 3.6;
+  }
+
+BuildingSurface:Detailed {
+  name                Wall_North;
+  zone-name           School_Zone;
+  construction-name   Wall_Const;
+  outside-boundary-condition Outdoors;
+  sun-shade-control   NoSunShade;
+  wind-exposure-control WindExposure_Default;
+  north-axis          0;
+  vertex 1            26.5, 19.5, 0.0;
+  vertex 2            0.0, 19.5, 0.0;
+  vertex 3            0.0, 19.5, 3.6;
+  vertex 4            26.5, 19.5, 3.6;
+  }
+
+BuildingSurface:Detailed {
+  name                Wall_West;
+  zone-name           School_Zone;
+  construction-name   Wall_Const;
+  outside-boundary-condition Outdoors;
+  sun-shade-control   NoSunShade;
+  wind-exposure-control WindExposure_Default;
+  north-axis          0;
+  vertex 1            0.0, 19.5, 0.0;
+  vertex 2            0.0, 0.0, 0.0;
+  vertex 3            0.0, 0.0, 3.6;
+  vertex 4            0.0, 19.5, 3.6;
+  }
+
+FenestrationSurface:Detailed {
+  name                Win_South;
+  zone-name           School_Zone;
+  construction-name   Glass_Const;
+  outside-boundary-condition Outdoors;
+  sun-shade-control   NoSunShade;
+  wind-exposure-control WindExposure_Default;
+  north-axis          0;
+  vertex 1            11.0, 0.0, 0.5;
+  vertex 2            15.5, 0.0, 0.5;
+  vertex 3            15.5, 0.0, 3.1;
+  vertex 4            11.0, 0.0, 3.1;
+  }
+
+FenestrationSurface:Detailed {
+  name                Win_East;
+  zone-name           School_Zone;
+  construction-name   Glass_Const;
+  outside-boundary-condition Outdoors;
+  sun-shade-control   NoSunShade;
+  wind-exposure-control WindExposure_Default;
+  north-axis          0;
+  vertex 1            26.5, 7.0, 0.5;
+  vertex 2            26.5, 12.5, 0.5;
+  vertex 3            26.5, 12.5, 3.1;
+  vertex 4            26.5, 7.0, 3.1;
+  }
+
+FenestrationSurface:Detailed {
+  name                Win_North;
+  zone-name           School_Zone;
+  construction-name   Glass_Const;
+  outside-boundary-condition Outdoors;
+  sun-shade-control   NoSunShade;
+  wind-exposure-control WindExposure_Default;
+  north-axis          0;
+  vertex 1            12.0, 19.5, 0.5;
+  vertex 2            14.5, 19.5, 0.5;
+  vertex 3            14.5, 19.5, 3.1;
+  vertex 4            12.0, 19.5, 3.1;
+  }
+
+FenestrationSurface:Detailed {
+  name                Win_West;
+  zone-name           School_Zone;
+  construction-name   Glass_Const;
+  outside-boundary-condition Outdoors;
+  sun-shade-control   NoSunShade;
+  wind-exposure-control WindExposure_Default;
+  north-axis          0;
+  vertex 1            0.0, 7.0, 0.5;
+  vertex 2            0.0, 12.5, 0.5;
+  vertex 3            0.0, 12.5, 3.1;
+  vertex 4            0.0, 7.0, 3.1;
+  }
+
+Schedule:Compact {
+  name                Occupancy_Sched;
+  field 1             For: AllDays;
+  field 2             00:00 0.0;
+  field 3             07:00 1.0;
+  field 4             16:00 0.0;
+  field 5             24:00 0.0;
+  }
+
+Schedule:Compact {
+  name                Lighting_Sched;
+  field 1             For: Weekdays;
+  field 2             00:00 0.05;
+  field 3             07:00 0.85;
+  field 4             16:00 0.05;
+  field 5             24:00 0.05;
+  }
+
+Schedule:Compact {
+  name                Lighting_Weekend;
+  field 1             For: Weekends;
+  field 2             00:00 0.05;
+  field 3             24:00 0.05;
+  }
+
+Schedule:Compact {
+  name                Plug_Sched;
+  field 1             For: Weekdays;
+  field 2             00:00 0.4;
+  field 3             07:00 0.95;
+  field 4             16:00 0.4;
+  field 5             24:00 0.4;
+  }
+
+Schedule:Compact {
+  name                Plug_Weekend;
+  field 1             For: Weekends;
+  field 2             00:00 0.4;
+  field 3             24:00 0.4;
+  }
+
+Schedule:Compact {
+  name                Heating_Setpt_Sched;
+  field 1             For: Weekdays;
+  field 2             00:00 14.0;
+  field 3             07:00 20.0;
+  field 4             16:00 14.0;
+  field 5             24:00 14.0;
+  }
+
+Schedule:Compact {
+  name                Heating_Setpt_Weekend;
+  field 1             For: Weekends;
+  field 2             00:00 14.0;
+  field 3             24:00 14.0;
+  }
+
+Schedule:Compact {
+  name                Cooling_Setpt_Sched;
+  field 1             For: Weekdays;
+  field 2             00:00 27.5;
+  field 3             07:00 25.0;
+  field 4             16:00 27.5;
+  field 5             24:00 27.5;
+  }
+
+Schedule:Compact {
+  name                Cooling_Setpt_Weekend;
+  field 1             For: Weekends;
+  field 2             00:00 27.5;
+  field 3             24:00 27.5;
+  }
+
+People {
+  name                School_People;
+  zone-name           School_Zone;
+  number-of-people-m2 0.142857;
+  schedule-name      Occupancy_Sched;
+  heat-fraction      1.0;
+  sensible-heat-gain-per-person 110.0;
+  }
+
+Lights {
+  name                School_Lights;
+  zone-name           School_Zone;
+  electric-power-m2   10.7;
+  schedule-name      Lighting_Sched;
+  }
+
+ElectricEquipment {
+  name                School_Plug;
+  zone-name           School_Zone;
+  electric-power-m2   5.5;
+  schedule-name      Plug_Sched;
+  }
+
+ZoneInfiltration {
+  name                School_Infilt;
+  zone-name           School_Zone;
+  infiltration-type   Constant;
+  air-changes-per-hour 0.35;
+  }
+
+ZoneControl:Thermostat {
+  name                School_Thermostat;
+  zone-name           School_Zone;
+  heating-setpoint-temperature-schedule Heating_Setpt_Sched;
+  cooling-setpoint-temperature-schedule Cooling_Setpt_Sched;
+  }
+
+HVACTemplate:Zone:IdealLoadsAirSystem {
+  name                Ideal_System;
+  zone-name           School_Zone;
+}
+```

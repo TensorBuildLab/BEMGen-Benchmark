@@ -1,0 +1,811 @@
+TY  - JOUR
+ID  - ruiz2017validation
+AU  - Ruiz, Germán
+AU  - Bandera, Carlos
+TI  - Validation of Calibrated Energy Models: Common Errors
+T2  - Energies
+PY  - 2017
+VL  - 10
+IS  - 10
+SP  - 1587
+DO  - 10.3390/en10101587
+UR  - https://doi.org/10.3390/en10101587
+N1  - record from Crossref API 2026-11-08
+ER  - 
+
+TY  - JOUR
+ID  - chakraborty2017performance
+AU  - Chakraborty, Debaditya
+AU  - Elzarka, Hazem
+TI  - Performance testing of energy models: are we using the right statistical metrics?
+T2  - Journal of Building Performance Simulation
+PY  - 2017
+VL  - 11
+IS  - 4
+SP  - 433
+EP  - 448
+DO  - 10.1080/19401493.2017.1387607
+UR  - https://doi.org/10.1080/19401493.2017.1387607
+N1  - record from Crossref API 2026-11-08
+ER  - 
+
+TY  - JOUR
+ID  - ramosruiz2017analysis
+AU  - Ramos Ruiz, Germán
+AU  - Fernández Bandera, Carlos
+TI  - Analysis of uncertainty indices used for building envelope calibration
+T2  - Applied Energy
+PY  - 2017
+VL  - 185
+SP  - 82
+EP  - 94
+DO  - 10.1016/j.apenergy.2016.10.054
+UR  - https://doi.org/10.1016/j.apenergy.2016.10.054
+N1  - record from Crossref API 2026-11-08
+ER  - 
+
+TY  - JOUR
+ID  - raftery2011calibrating
+AU  - Raftery, Paul
+AU  - Keane, Marcus
+AU  - O’Donnell, James
+TI  - Calibrating whole building energy models: An evidence-based methodology
+T2  - Energy and Buildings
+PY  - 2011
+VL  - 43
+IS  - 9
+SP  - 2356
+EP  - 2364
+DO  - 10.1016/j.enbuild.2011.05.020
+UR  - https://doi.org/10.1016/j.enbuild.2011.05.020
+N1  - record from Crossref API 2026-11-08
+ER  - 
+
+TY  - JOUR
+ID  - ryan2012validation
+AU  - Ryan, Emily M.
+AU  - Sanquist, Thomas F.
+TI  - Validation of building energy modeling tools under idealized and realistic conditions
+T2  - Energy and Buildings
+PY  - 2012
+VL  - 47
+SP  - 375
+EP  - 382
+DO  - 10.1016/j.enbuild.2011.12.020
+UR  - https://doi.org/10.1016/j.enbuild.2011.12.020
+N1  - record from Crossref API 2026-11-08
+ER  - 
+
+TY  - RPRT
+ID  - doe2023supplement
+AU  - National Renewable Energy Laboratory (NREL), Golden, CO (United States)
+AU  - Walker, Christine
+AU  - USDOE Office of Energy Efficiency and Renewable Energy (EERE), Energy Efficiency Office
+AU  - USDOE Federal Energy Management Program Office
+AU  - Coleman, Phil
+AU  - Voss, Phil
+TI  - Supplement to M&V Guidelines: Measurement and Verification for Performance-Based Contracts Version 4.0
+PY  - 2023
+DO  - 10.2172/1999779
+UR  - https://doi.org/10.2172/1999779
+N1  - record from Crossref API 2026-11-08
+ER  - 
+
+TY  - CONF
+ID  - judkoff2013twenty
+AU  - JUDKOFF, Ron
+AU  - NEYMARK, Joel
+TI  - Twenty Years On!: Updating The Iea Bestest Building Thermal Fabric Test Cases For Ashrae Standard 140
+T2  - Building Simulation Conference Proceedings
+PY  - 2013
+VL  - 13
+DO  - 10.26868/25222708.2013.1049
+UR  - https://doi.org/10.26868/25222708.2013.1049
+N1  - record from Crossref API 2026-11-08
+ER  - 
+
+TY  - RPRT
+ID  - judkoff2010example
+AU  - Judkoff, R.
+AU  - Polly, B.
+AU  - Bianchi, M.
+AU  - Neymark, J.
+TI  - Example Procedures for Developing Acceptance-Range Criteria for BESTEST-EX
+PY  - 2010
+DO  - 10.2172/988597
+UR  - https://doi.org/10.2172/988597
+N1  - record from Crossref API 2026-11-08
+ER  - 
+
+TY  - RPRT
+ID  - ipmvp2002international
+AU  - National Renewable Energy Lab., Golden, CO. (US)
+TI  - International Performance Measurement and Verification Protocol: Concepts and Options for Determining Energy and Water Savings, Volume I (Revised)
+PY  - 2002
+DO  - 10.2172/15000242
+UR  - https://doi.org/10.2172/15000242
+N1  - record from Crossref API 2026-11-08
+ER  - 
+
+TY  - JOUR
+ID  - chen2018metamorphic
+AU  - Chen, Tsong Yueh
+AU  - Kuo, Fei-Ching
+AU  - Liu, Huai
+AU  - Poon, Pak-Lok
+AU  - Towey, Dave
+AU  - Tse, T. H.
+AU  - Zhou, Zhi Quan
+TI  - Metamorphic Testing
+T2  - ACM Computing Surveys
+PY  - 2018
+VL  - 51
+IS  - 1
+SP  - 1
+EP  - 27
+DO  - 10.1145/3143561
+UR  - https://doi.org/10.1145/3143561
+N1  - record from Crossref API 2026-11-08
+ER  - 
+
+TY  - JOUR
+ID  - segura2016survey
+AU  - Segura, Sergio
+AU  - Fraser, Gordon
+AU  - Sanchez, Ana B.
+AU  - Ruiz-Cortes, Antonio
+TI  - A Survey on Metamorphic Testing
+T2  - IEEE Transactions on Software Engineering
+PY  - 2016
+VL  - 42
+IS  - 9
+SP  - 805
+EP  - 824
+DO  - 10.1109/tse.2016.2532875
+UR  - https://doi.org/10.1109/tse.2016.2532875
+N1  - record from Crossref API 2026-11-08
+ER  - 
+
+TY  - JOUR
+ID  - kanewala2014testing
+AU  - Kanewala, Upulee
+AU  - Bieman, James M.
+TI  - Testing scientific software: A systematic literature review
+T2  - Information and Software Technology
+PY  - 2014
+VL  - 56
+IS  - 10
+SP  - 1219
+EP  - 1232
+DO  - 10.1016/j.infsof.2014.05.006
+UR  - https://doi.org/10.1016/j.infsof.2014.05.006
+N1  - record from Crossref API 2026-11-08
+ER  - 
+
+TY  - JOUR
+ID  - barr2015oracle
+AU  - Barr, Earl T.
+AU  - Harman, Mark
+AU  - McMinn, Phil
+AU  - Shahbaz, Muzammil
+AU  - Yoo, Shin
+TI  - The Oracle Problem in Software Testing: A Survey
+T2  - IEEE Transactions on Software Engineering
+PY  - 2015
+VL  - 41
+IS  - 5
+SP  - 507
+EP  - 525
+DO  - 10.1109/tse.2014.2372785
+UR  - https://doi.org/10.1109/tse.2014.2372785
+N1  - record from Crossref API 2026-11-08
+ER  - 
+
+TY  - JOUR
+ID  - jia2011analysis
+AU  - Jia, Yue
+AU  - Harman, Mark
+TI  - An Analysis and Survey of the Development of Mutation Testing
+T2  - IEEE Transactions on Software Engineering
+PY  - 2011
+VL  - 37
+IS  - 5
+SP  - 649
+EP  - 678
+DO  - 10.1109/tse.2010.62
+UR  - https://doi.org/10.1109/tse.2010.62
+N1  - record from Crossref API 2026-11-08
+ER  - 
+
+TY  - CONF
+ID  - ribeiro2020accuracy
+AU  - Ribeiro, Marco Tulio
+AU  - Wu, Tongshuang
+AU  - Guestrin, Carlos
+AU  - Singh, Sameer
+TI  - Beyond Accuracy: Behavioral Testing of NLP Models with CheckList
+T2  - Proceedings of the 58th Annual Meeting of the Association for Computational Linguistics
+PY  - 2020
+SP  - 4902
+EP  - 4912
+DO  - 10.18653/v1/2020.acl-main.442
+UR  - https://doi.org/10.18653/v1/2020.acl-main.442
+N1  - record from Crossref API 2026-11-08
+ER  - 
+
+TY  - CONF
+ID  - raunak2021metamorphic
+AU  - Raunak, M S
+AU  - Olsen, Megan M
+TI  - Metamorphic Testing on the Continuum of Verification and Validation of Simulation Models
+T2  - 2021 IEEE/ACM 6th International Workshop on Metamorphic Testing (MET)
+PY  - 2021
+SP  - 47
+EP  - 52
+DO  - 10.1109/met52542.2021.00015
+UR  - https://doi.org/10.1109/met52542.2021.00015
+N1  - record from Crossref API 2026-11-08
+ER  - 
+
+TY  - CONF
+ID  - jacobs2021measurement
+AU  - Jacobs, Abigail Z.
+AU  - Wallach, Hanna
+TI  - Measurement and Fairness
+T2  - Proceedings of the 2021 ACM Conference on Fairness, Accountability, and Transparency
+PY  - 2021
+SP  - 375
+EP  - 385
+DO  - 10.1145/3442188.3445901
+UR  - https://doi.org/10.1145/3442188.3445901
+N1  - record from Crossref API 2026-11-08
+ER  - 
+
+TY  - JOUR
+ID  - ott2022mapping
+AU  - Ott, Simon
+AU  - Barbosa-Silva, Adriano
+AU  - Blagec, Kathrin
+AU  - Brauner, Jan
+AU  - Samwald, Matthias
+TI  - Mapping global dynamics of benchmark creation and saturation in artificial intelligence
+T2  - Nature Communications
+PY  - 2022
+VL  - 13
+IS  - 1
+SP  - 6793
+DO  - 10.1038/s41467-022-34591-0
+UR  - https://doi.org/10.1038/s41467-022-34591-0
+N1  - record from Crossref API 2026-11-08
+ER  - 
+
+TY  - CONF
+ID  - zhong2020semantic
+AU  - Zhong, Ruiqi
+AU  - Yu, Tao
+AU  - Klein, Dan
+TI  - Semantic Evaluation for Text-to-SQL with Distilled Test Suites
+T2  - Proceedings of the 2020 Conference on Empirical Methods in Natural Language Processing (EMNLP)
+PY  - 2020
+SP  - 396
+EP  - 411
+DO  - 10.18653/v1/2020.emnlp-main.29
+UR  - https://doi.org/10.18653/v1/2020.emnlp-main.29
+N1  - record from Crossref API 2026-11-08
+ER  - 
+
+TY  - JOUR
+ID  - balaji2018brick
+AU  - Balaji, Bharathan
+AU  - Bhattacharya, Arka
+AU  - Fierro, Gabriel
+AU  - Gao, Jingkun
+AU  - Gluck, Joshua
+AU  - Hong, Dezhi
+AU  - Johansen, Aslak
+AU  - Koh, Jason
+AU  - Ploennigs, Joern
+AU  - Agarwal, Yuvraj
+AU  - Bergés, Mario
+AU  - Culler, David
+AU  - Gupta, Rajesh K.
+AU  - Kjærgaard, Mikkel Baun
+AU  - Srivastava, Mani
+AU  - Whitehouse, Kamin
+TI  - Brick : Metadata schema for portable smart building applications
+T2  - Applied Energy
+PY  - 2018
+VL  - 226
+SP  - 1273
+EP  - 1292
+DO  - 10.1016/j.apenergy.2018.02.091
+UR  - https://doi.org/10.1016/j.apenergy.2018.02.091
+N1  - record from Crossref API 2026-11-08
+ER  - 
+
+TY  - JOUR
+ID  - du2026text2bim
+AU  - Du, Changyu
+AU  - Esser, Sebastian
+AU  - Nousias, Stavros
+AU  - Borrmann, André
+TI  - Text2BIM: Generating Building Models Using a Large Language Model-Based Multiagent Framework
+T2  - Journal of Computing in Civil Engineering
+PY  - 2026
+VL  - 40
+IS  - 2
+SP  - 04025142
+DO  - 10.1061/jccee5.cpeng-6386
+UR  - https://doi.org/10.1061/jccee5.cpeng-6386
+N1  - record from Crossref API 2026-11-08
+ER  - 
+
+TY  - CONF
+ID  - mulayim2024large
+AU  - Mulayim, Ozan Baris
+AU  - Paul, Lazlo
+AU  - Pritoni, Marco
+AU  - Prakash, Anand Krishnan
+AU  - Sudarshan, Malavikha
+AU  - Fierro, Gabe
+TI  - Large Language Models for the Creation and Use of Semantic Ontologies in Buildings: Requirements and Challenges
+T2  - Proceedings of the 11th ACM International Conference on Systems for Energy-Efficient Buildings, Cities, and Transportation
+PY  - 2024
+SP  - 312
+EP  - 317
+DO  - 10.1145/3671127.3698792
+UR  - https://doi.org/10.1145/3671127.3698792
+N1  - record from Crossref API 2026-11-08
+ER  - 
+
+TY  - CONF
+ID  - zhou2026eppy
+AU  - Zhou, Huiwen
+AU  - Zhang, Liang
+TI  - Eppy-LLM: An Agentic Workflow for Language-Driven Building Energy Modeling And Optimization Using EnergyPlus
+T2  - IBPSA-USA Building Simulation Conference
+PY  - 2026
+VL  - 12
+DO  - 10.26868/30680611.2026.1305
+UR  - https://doi.org/10.26868/30680611.2026.1305
+N1  - record from Crossref API 2026-11-08
+ER  - 
+
+TY  - CONF
+ID  - fadel2026automated
+AU  - Fadel, Mahjouba
+AU  - Gunay, Burak
+AU  - O'Brien, Liam
+AU  - Elehwany, Hussein
+AU  - Darwazeh, Darwish
+AU  - Zaeri Esfahani, Narges
+TI  - Toward Automated Generation of EnergyPlus Models for Existing Buildings Through Operator Descriptions
+T2  - Proceedings of eSim
+PY  - 2026
+VL  - 14
+DO  - 10.26868/31114504.2026.90
+UR  - https://doi.org/10.26868/31114504.2026.90
+N1  - record from Crossref API 2026-11-08
+ER  - 
+
+TY  - JOUR
+ID  - zhang2026large
+AU  - Zhang, Yake
+AU  - Xu, Peng
+TI  - A large language model-based framework with retrieval-augmented generation for automated building energy modeling
+T2  - E3S Web of Conferences
+PY  - 2026
+VL  - 689
+SP  - 08004
+DO  - 10.1051/e3sconf/202668908004
+UR  - https://doi.org/10.1051/e3sconf/202668908004
+N1  - record from Crossref API 2026-11-08
+ER  - 
+
+TY  - CONF
+ID  - bueno2025large
+AU  - Bueno, Oswaldo Domingo Hernandez
+AU  - Smith, Kevin
+AU  - Hamborg, Lasse
+AU  - Hviid, Christian Anker
+TI  - Using Large Multimodal Models (LMM) to digitalize scanned HVAC Schematics into Metadata Schemas for Buildings
+T2  - Building Simulation Conference Proceedings
+PY  - 2025
+VL  - 19
+DO  - 10.26868/25222708.2025.1939
+UR  - https://doi.org/10.26868/25222708.2025.1939
+N1  - record from Crossref API 2026-11-08
+ER  - 
+
+TY  - JOUR
+ID  - kapoor2024ai
+AU  - Kapoor, Sayash
+AU  - Stroebl, Benedikt
+AU  - Siegel, Zachary S.
+AU  - Nadgir, Nitya
+AU  - Narayanan, Arvind
+TI  - AI Agents That Matter
+T2  - arXiv preprint
+PY  - 2024
+DO  - 10.48550/arXiv.2407.01502
+UR  - https://arxiv.org/abs/2407.01502
+N1  - arXiv:2407.01502; record from arXiv API 2026-11-08
+ER  - 
+
+TY  - JOUR
+ID  - madaan2024quantifying
+AU  - Madaan, Lovish
+AU  - Singh, Aaditya K.
+AU  - Schaeffer, Rylan
+AU  - Poulton, Andrew
+AU  - Koyejo, Sanmi
+AU  - Stenetorp, Pontus
+AU  - Narang, Sharan
+AU  - Hupkes, Dieuwke
+TI  - Quantifying Variance in Evaluation Benchmarks
+T2  - arXiv preprint
+PY  - 2024
+DO  - 10.48550/arXiv.2406.10229
+UR  - https://arxiv.org/abs/2406.10229
+N1  - arXiv:2406.10229; record from arXiv API 2026-11-08
+ER  - 
+
+TY  - JOUR
+ID  - kapoor2025holistic
+AU  - Kapoor, Sayash
+AU  - Stroebl, Benedikt
+AU  - Kirgis, Peter
+AU  - Nadgir, Nitya
+AU  - Siegel, Zachary S
+AU  - Wei, Boyi
+AU  - Xue, Tianci
+AU  - Chen, Ziru
+AU  - Chen, Felix
+AU  - Utpala, Saiteja
+AU  - Ndzomga, Franck
+AU  - Oruganty, Dheeraj
+AU  - Luskin, Sophie
+AU  - Liu, Kangheng
+AU  - Yu, Botao
+AU  - Arora, Amit
+AU  - Hahm, Dongyoon
+AU  - Trivedi, Harsh
+AU  - Sun, Huan
+AU  - Lee, Juyong
+AU  - Jin, Tengjun
+AU  - Mai, Yifan
+AU  - Zhou, Yifei
+AU  - Zhu, Yuxuan
+AU  - Bommasani, Rishi
+AU  - Kang, Daniel
+AU  - Song, Dawn
+AU  - Henderson, Peter
+AU  - Su, Yu
+AU  - Liang, Percy
+AU  - Narayanan, Arvind
+TI  - Holistic Agent Leaderboard: The Missing Infrastructure for AI Agent Evaluation
+T2  - arXiv preprint
+PY  - 2025
+DO  - 10.48550/arXiv.2510.11977
+UR  - https://arxiv.org/abs/2510.11977
+N1  - arXiv:2510.11977; record from arXiv API 2026-11-08
+ER  - 
+
+TY  - JOUR
+ID  - thakur2024judging
+AU  - Thakur, Aman Singh
+AU  - Choudhary, Kartik
+AU  - Ramayapally, Venkat Srinik
+AU  - Vaidyanathan, Sankaran
+AU  - Hupkes, Dieuwke
+TI  - Judging the Judges: Evaluating Alignment and Vulnerabilities in LLMs-as-Judges
+T2  - arXiv preprint
+PY  - 2024
+DO  - 10.48550/arXiv.2406.12624
+UR  - https://arxiv.org/abs/2406.12624
+N1  - arXiv:2406.12624; record from arXiv API 2026-11-08
+ER  - 
+
+TY  - JOUR
+ID  - evtikhiev2022out
+AU  - Evtikhiev, Mikhail
+AU  - Bogomolov, Egor
+AU  - Sokolov, Yaroslav
+AU  - Bryksin, Timofey
+TI  - Out of the BLEU: how should we assess quality of the Code Generation models?
+T2  - arXiv preprint
+PY  - 2022
+DO  - 10.48550/arXiv.2208.03133
+UR  - https://arxiv.org/abs/2208.03133
+N1  - arXiv:2208.03133; record from arXiv API 2026-11-08
+ER  - 
+
+TY  - JOUR
+ID  - heineman2025signal
+AU  - Heineman, David
+AU  - Hofmann, Valentin
+AU  - Magnusson, Ian
+AU  - Gu, Yuling
+AU  - Smith, Noah A.
+AU  - Hajishirzi, Hannaneh
+AU  - Lo, Kyle
+AU  - Dodge, Jesse
+TI  - Signal and Noise: A Framework for Reducing Uncertainty in Language Model Evaluation
+T2  - arXiv preprint
+PY  - 2025
+DO  - 10.48550/arXiv.2508.13144
+UR  - https://arxiv.org/abs/2508.13144
+N1  - arXiv:2508.13144; record from arXiv API 2026-11-08
+ER  - 
+
+TY  - JOUR
+ID  - kulshreshtha2026multi
+AU  - Kulshreshtha, Ashir
+AU  - Mughees, Abdullah
+AU  - Sudheerbabu, Gaadha
+AU  - Ahmad, Tanwir
+AU  - Klemets, Kristian
+AU  - Truscan, Dragos
+AU  - Manngård, Mikael
+TI  - Multi-Agent Specification-based Metamorphic Testing of FMU-Based Simulations
+T2  - arXiv preprint
+PY  - 2026
+DO  - 10.48550/arXiv.2605.25101
+UR  - https://arxiv.org/abs/2605.25101
+N1  - arXiv:2605.25101; record from arXiv API 2026-11-08
+ER  - 
+
+TY  - JOUR
+ID  - wu2021deepcad
+AU  - Wu, Rundi
+AU  - Xiao, Chang
+AU  - Zheng, Changxi
+TI  - DeepCAD: A Deep Generative Network for Computer-Aided Design Models
+T2  - arXiv preprint
+PY  - 2021
+DO  - 10.48550/arXiv.2105.09492
+UR  - https://arxiv.org/abs/2105.09492
+N1  - arXiv:2105.09492; record from arXiv API 2026-11-08
+ER  - 
+
+TY  - JOUR
+ID  - zhou2023codebertscore
+AU  - Zhou, Shuyan
+AU  - Alon, Uri
+AU  - Agarwal, Sumit
+AU  - Neubig, Graham
+TI  - CodeBERTScore: Evaluating Code Generation with Pretrained Models of Code
+T2  - arXiv preprint
+PY  - 2023
+DO  - 10.48550/arXiv.2302.05527
+UR  - https://arxiv.org/abs/2302.05527
+N1  - arXiv:2302.05527; record from arXiv API 2026-11-08
+ER  - 
+
+TY  - JOUR
+ID  - kim2024flex
+AU  - Kim, Heegyu
+AU  - Jeon, Taeyang
+AU  - Choi, Seunghwan
+AU  - Choi, Seungtaek
+AU  - Cho, Hyunsouk
+TI  - FLEX: Expert-level False-Less EXecution Metric for Reliable Text-to-SQL Benchmark
+T2  - arXiv preprint
+PY  - 2024
+DO  - 10.48550/arXiv.2409.19014
+UR  - https://arxiv.org/abs/2409.19014
+N1  - arXiv:2409.19014; record from arXiv API 2026-11-08
+ER  - 
+
+TY  - JOUR
+ID  - yu2018spider
+AU  - Yu, Tao
+AU  - Zhang, Rui
+AU  - Yang, Kai
+AU  - Yasunaga, Michihiro
+AU  - Wang, Dongxu
+AU  - Li, Zifan
+AU  - Ma, James
+AU  - Li, Irene
+AU  - Yao, Qingning
+AU  - Roman, Shanelle
+AU  - Zhang, Zilin
+AU  - Radev, Dragomir
+TI  - Spider: A Large-Scale Human-Labeled Dataset for Complex and Cross-Domain Semantic Parsing and Text-to-SQL Task
+T2  - arXiv preprint
+PY  - 2018
+DO  - 10.48550/arXiv.1809.08887
+UR  - https://arxiv.org/abs/1809.08887
+N1  - arXiv:1809.08887; record from arXiv API 2026-11-08
+ER  - 
+
+TY  - JOUR
+ID  - yao2024taubench
+AU  - Yao, Shunyu
+AU  - Shinn, Noah
+AU  - Razavi, Pedram
+AU  - Narasimhan, Karthik
+TI  - $τ$-bench: A Benchmark for Tool-Agent-User Interaction in Real-World Domains
+T2  - arXiv preprint
+PY  - 2024
+DO  - 10.48550/arXiv.2406.12045
+UR  - https://arxiv.org/abs/2406.12045
+N1  - arXiv:2406.12045; record from arXiv API 2026-11-08
+ER  - 
+
+TY  - JOUR
+ID  - lai2024analogcoder
+AU  - Lai, Yao
+AU  - Lee, Sungyoung
+AU  - Chen, Guojin
+AU  - Poddar, Souradip
+AU  - Hu, Mengkang
+AU  - Pan, David Z.
+AU  - Luo, Ping
+TI  - AnalogCoder: Analog Circuit Design via Training-Free Code Generation
+T2  - arXiv preprint
+PY  - 2024
+DO  - 10.48550/arXiv.2405.14918
+UR  - https://arxiv.org/abs/2405.14918
+N1  - arXiv:2405.14918; record from arXiv API 2026-11-08
+ER  - 
+
+TY  - JOUR
+ID  - mudur2025feabench
+AU  - Mudur, Nayantara
+AU  - Cui, Hao
+AU  - Venugopalan, Subhashini
+AU  - Raccuglia, Paul
+AU  - Brenner, Michael P.
+AU  - Norgaard, Peter
+TI  - FEABench: Evaluating Language Models on Multiphysics Reasoning Ability
+T2  - arXiv preprint
+PY  - 2025
+DO  - 10.48550/arXiv.2504.06260
+UR  - https://arxiv.org/abs/2504.06260
+N1  - arXiv:2504.06260; record from arXiv API 2026-11-08
+ER  - 
+
+TY  - JOUR
+ID  - li2023llm
+AU  - Li, Jinyang
+AU  - Hui, Binyuan
+AU  - Qu, Ge
+AU  - Yang, Jiaxi
+AU  - Li, Binhua
+AU  - Li, Bowen
+AU  - Wang, Bailin
+AU  - Qin, Bowen
+AU  - Cao, Rongyu
+AU  - Geng, Ruiying
+AU  - Huo, Nan
+AU  - Zhou, Xuanhe
+AU  - Ma, Chenhao
+AU  - Li, Guoliang
+AU  - Chang, Kevin C. C.
+AU  - Huang, Fei
+AU  - Cheng, Reynold
+AU  - Li, Yongbin
+TI  - Can LLM Already Serve as A Database Interface? A BIg Bench for Large-Scale Database Grounded Text-to-SQLs
+T2  - arXiv preprint
+PY  - 2023
+DO  - 10.48550/arXiv.2305.03111
+UR  - https://arxiv.org/abs/2305.03111
+N1  - arXiv:2305.03111; record from arXiv API 2026-11-08
+ER  - 
+
+TY  - JOUR
+ID  - wang2022execution
+AU  - Wang, Zhiruo
+AU  - Zhou, Shuyan
+AU  - Fried, Daniel
+AU  - Neubig, Graham
+TI  - Execution-Based Evaluation for Open-Domain Code Generation
+T2  - arXiv preprint
+PY  - 2022
+DO  - 10.48550/arXiv.2212.10481
+UR  - https://arxiv.org/abs/2212.10481
+N1  - arXiv:2212.10481; record from arXiv API 2026-11-08
+ER  - 
+
+TY  - JOUR
+ID  - ren2020codebleu
+AU  - Ren, Shuo
+AU  - Guo, Daya
+AU  - Lu, Shuai
+AU  - Zhou, Long
+AU  - Liu, Shujie
+AU  - Tang, Duyu
+AU  - Sundaresan, Neel
+AU  - Zhou, Ming
+AU  - Blanco, Ambrosio
+AU  - Ma, Shuai
+TI  - CodeBLEU: a Method for Automatic Evaluation of Code Synthesis
+T2  - arXiv preprint
+PY  - 2020
+DO  - 10.48550/arXiv.2009.10297
+UR  - https://arxiv.org/abs/2009.10297
+N1  - arXiv:2009.10297; record from arXiv API 2026-11-08
+ER  - 
+
+TY  - JOUR
+ID  - nauata2021house
+AU  - Nauata, Nelson
+AU  - Hosseini, Sepidehsadat
+AU  - Chang, Kai-Hung
+AU  - Chu, Hang
+AU  - Cheng, Chin-Yi
+AU  - Furukawa, Yasutaka
+TI  - House-GAN++: Generative Adversarial Layout Refinement Networks
+T2  - arXiv preprint
+PY  - 2021
+DO  - 10.48550/arXiv.2103.02574
+UR  - https://arxiv.org/abs/2103.02574
+N1  - arXiv:2103.02574; record from arXiv API 2026-11-08
+ER  - 
+
+TY  - JOUR
+ID  - mallis2026text
+AU  - Mallis, Dimitrios
+AU  - Wang, Marco
+AU  - Karadeniz, Ahmet Serdar
+AU  - Ricci, Elisa
+AU  - Kacem, Anis
+AU  - Aouada, Djamila
+TI  - Text-to-CAD Evaluation with CADTests
+T2  - arXiv preprint
+PY  - 2026
+DO  - 10.48550/arXiv.2605.07807
+UR  - https://arxiv.org/abs/2605.07807
+N1  - arXiv:2605.07807; record from arXiv API 2026-11-08
+ER  - 
+
+TY  - JOUR
+ID  - polo2024tinybenchmarks
+AU  - Polo, Felipe Maia
+AU  - Weber, Lucas
+AU  - Choshen, Leshem
+AU  - Sun, Yuekai
+AU  - Xu, Gongjun
+AU  - Yurochkin, Mikhail
+TI  - tinyBenchmarks: evaluating LLMs with fewer examples
+T2  - arXiv preprint
+PY  - 2024
+DO  - 10.48550/arXiv.2402.14992
+UR  - https://arxiv.org/abs/2402.14992
+N1  - arXiv:2402.14992; record from arXiv API 2026-11-08
+ER  - 
+
+TY  - JOUR
+ID  - nithyanantham2026bim
+AU  - Nithyanantham, Bharathi Kannan
+AU  - Kujat, Clemens
+AU  - Sesterhenn, Tobias
+AU  - Telgmann, Stefan
+AU  - Nedungadi, Ashwin
+AU  - Plönnigs, Jörn
+AU  - Bartelt, Christian
+AU  - Lüdtke, Stefan
+TI  - BIM-Edit: Benchmarking Large Language Models for IFC-Based Building Information Modeling
+T2  - arXiv preprint
+PY  - 2026
+DO  - 10.48550/arXiv.2606.20146
+UR  - https://arxiv.org/abs/2606.20146
+N1  - arXiv:2606.20146; record from arXiv API 2026-11-08
+ER  - 
+
+TY  - JOUR
+ID  - qian2026brick
+AU  - Qian, Yiyue
+AU  - Zhang, Shinan
+AU  - Song, Huan
+AU  - Sokhandan, Negin
+AU  - Marlowe, Hannah
+AU  - Socolinsky, Diego
+TI  - Brick-DICL: Dynamic In-Context Learning for Automated Brick Schema Classification
+T2  - arXiv preprint
+PY  - 2026
+DO  - 10.48550/arXiv.2606.17637
+UR  - https://arxiv.org/abs/2606.17637
+N1  - arXiv:2606.17637; record from arXiv API 2026-11-08
+ER  - 

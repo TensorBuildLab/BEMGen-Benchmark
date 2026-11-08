@@ -1,0 +1,432 @@
+Building,
+  School Building,
+  0,
+  Suburbs,
+  0.04,
+  0.4,
+  FullExterior,
+  25;
+
+GlobalGeometryRules,
+  UpperLeftCorner,
+  Counterclockwise,
+  World;
+
+Timestep,4;
+
+ScheduleTypeLimits,
+  Fraction,
+  0,
+  1,
+  Continuous;
+
+ScheduleTypeLimits,
+  AnyNumber;
+
+Schedule:Compact,
+  Occupancy,
+  Fraction,
+  Through: 12/31,
+  For: Weekdays,
+  Until: 07:00,0,
+  Until: 16:00,1,
+  Until: 24:00,0,
+  For: AllOtherDays,
+  Until: 24:00,0;
+
+Schedule:Compact,
+  LightsSch,
+  Fraction,
+  Through: 12/31,
+  For: Weekdays,
+  Until: 07:00,0.15,
+  Until: 16:00,1,
+  Until: 24:00,0.15,
+  For: AllOtherDays,
+  Until: 24:00,0.15;
+
+Schedule:Compact,
+  EquipSch,
+  Fraction,
+  Through: 12/31,
+  For: Weekdays,
+  Until: 07:00,0.4,
+  Until: 16:00,0.85,
+  Until: 24:00,0.4,
+  For: AllOtherDays,
+  Until: 24:00,0.4;
+
+Schedule:Compact,
+  ActivitySch,
+  AnyNumber,
+  Through: 12/31,
+  For: AllDays,
+  Until: 24:00,110;
+
+Schedule:Compact,
+  HeatSetSch,
+  AnyNumber,
+  Through: 12/31,
+  For: Weekdays,
+  Until: 07:00,14.5,
+  Until: 16:00,22,
+  Until: 24:00,14.5,
+  For: AllOtherDays,
+  Until: 24:00,14.5;
+
+Schedule:Compact,
+  CoolSetSch,
+  AnyNumber,
+  Through: 12/31,
+  For: Weekdays,
+  Until: 07:00,27.5,
+  Until: 16:00,23.5,
+  Until: 24:00,27.5,
+  For: AllOtherDays,
+  Until: 24:00,27.5;
+
+Schedule:Compact,
+  AlwaysOn,
+  Fraction,
+  Through: 12/31,
+  For: AllDays,
+  Until: 24:00,1;
+
+Schedule:Compact,
+  FanCycling,
+  Fraction,
+  Through: 12/31,
+  For: AllDays,
+  Until: 24:00,0;
+
+HVACTemplate:Thermostat,
+  SchoolTstat,
+  HeatSetSch,
+  ,
+  CoolSetSch,
+  ;
+
+Material,
+  Concrete200,
+  Rough,
+  0.2,
+  1.311,
+  2240,
+  836.8;
+
+Material,
+  Concrete100,
+  Rough,
+  0.1,
+  1.311,
+  2240,
+  836.8;
+
+Material,
+  Carpet,
+  Rough,
+  0.0127,
+  0.06,
+  288,
+  1380;
+
+Material,
+  Gypsum,
+  Smooth,
+  0.0127,
+  0.16,
+  784.9,
+  830;
+
+Material,
+  RoofMembrane,
+  Rough,
+  0.01,
+  0.16,
+  1120,
+  1460;
+
+Material:NoMass,
+  WallInsul,
+  Rough,
+  1.37;
+
+Material:NoMass,
+  RoofInsul,
+  Rough,
+  3.29;
+
+WindowMaterial:SimpleGlazingSystem,
+  SimpleGlz,
+  2.0,
+  0.41,
+  0.58;
+
+Construction,
+  ExtWall,
+  Concrete200,
+  WallInsul,
+  Gypsum;
+
+Construction,
+  Roof,
+  RoofMembrane,
+  RoofInsul,
+  Concrete100;
+
+Construction,
+  GroundFloor,
+  Concrete100,
+  Carpet;
+
+Construction,
+  IntFloor,
+  Concrete100,
+  Carpet;
+
+Construction,
+  IntCeiling,
+  Carpet,
+  Concrete100;
+
+Construction,
+  Window,
+  SimpleGlz;
+
+Zone,
+  Floor1,
+  0,0,0,0,1,1,3.2;
+
+Zone,
+  Floor2,
+  0,0,0,0,1,1,3.2;
+
+! ---------------- Floor1 ----------------
+BuildingSurface:Detailed,
+  F1_South, Wall, ExtWall, Floor1, Outdoors, , SunExposed, WindExposed, , 4,
+  0,0,3.2,
+  0,0,0,
+  35.5,0,0,
+  35.5,0,3.2;
+
+BuildingSurface:Detailed,
+  F1_East, Wall, ExtWall, Floor1, Outdoors, , SunExposed, WindExposed, , 4,
+  35.5,17.5,3.2,
+  35.5,17.5,0,
+  35.5,0,0,
+  35.5,0,3.2;
+
+BuildingSurface:Detailed,
+  F1_North, Wall, ExtWall, Floor1, Outdoors, , SunExposed, WindExposed, , 4,
+  35.5,17.5,3.2,
+  35.5,17.5,0,
+  0,17.5,0,
+  0,17.5,3.2;
+
+BuildingSurface:Detailed,
+  F1_West, Wall, ExtWall, Floor1, Outdoors, , SunExposed, WindExposed, , 4,
+  0,0,3.2,
+  0,0,0,
+  0,17.5,0,
+  0,17.5,3.2;
+
+BuildingSurface:Detailed,
+  F1_Floor, Floor, GroundFloor, Floor1, Ground, , NoSun, NoWind, , 4,
+  0,0,0,
+  0,17.5,0,
+  35.5,17.5,0,
+  35.5,0,0;
+
+BuildingSurface:Detailed,
+  F1_Ceiling, Ceiling, IntCeiling, Floor1, Surface, F2_Floor, NoSun, NoWind, , 4,
+  0,0,3.2,
+  35.5,0,3.2,
+  35.5,17.5,3.2,
+  0,17.5,3.2;
+
+FenestrationSurface:Detailed,
+  F1_South_Win, Window, Window, F1_South, , , , , , 4,
+  0.5,0,2.17623,
+  0.5,0,1.02377,
+  35.0,0,1.02377,
+  35.0,0,2.17623;
+
+FenestrationSurface:Detailed,
+  F1_East_Win, Window, Window, F1_East, , , , , , 4,
+  35.5,17.0,2.02424,
+  35.5,17.0,1.17576,
+  35.5,0.5,1.17576,
+  35.5,0.5,2.02424;
+
+FenestrationSurface:Detailed,
+  F1_North_Win, Window, Window, F1_North, , , , , , 4,
+  35.0,17.5,2.09391,
+  35.0,17.5,1.10609,
+  0.5,17.5,1.10609,
+  0.5,17.5,2.09391;
+
+FenestrationSurface:Detailed,
+  F1_West_Win, Window, Window, F1_West, , , , , , 4,
+  0,0.5,1.93939,
+  0,0.5,1.26061,
+  0,17.0,1.26061,
+  0,17.0,1.93939;
+
+! ---------------- Floor2 ----------------
+BuildingSurface:Detailed,
+  F2_South, Wall, ExtWall, Floor2, Outdoors, , SunExposed, WindExposed, , 4,
+  0,0,6.4,
+  0,0,3.2,
+  35.5,0,3.2,
+  35.5,0,6.4;
+
+BuildingSurface:Detailed,
+  F2_East, Wall, ExtWall, Floor2, Outdoors, , SunExposed, WindExposed, , 4,
+  35.5,17.5,6.4,
+  35.5,17.5,3.2,
+  35.5,0,3.2,
+  35.5,0,6.4;
+
+BuildingSurface:Detailed,
+  F2_North, Wall, ExtWall, Floor2, Outdoors, , SunExposed, WindExposed, , 4,
+  35.5,17.5,6.4,
+  35.5,17.5,3.2,
+  0,17.5,3.2,
+  0,17.5,6.4;
+
+BuildingSurface:Detailed,
+  F2_West, Wall, ExtWall, Floor2, Outdoors, , SunExposed, WindExposed, , 4,
+  0,0,6.4,
+  0,0,3.2,
+  0,17.5,3.2,
+  0,17.5,6.4;
+
+BuildingSurface:Detailed,
+  F2_Floor, Floor, IntFloor, Floor2, Surface, F1_Ceiling, NoSun, NoWind, , 4,
+  0,0,3.2,
+  0,17.5,3.2,
+  35.5,17.5,3.2,
+  35.5,0,3.2;
+
+BuildingSurface:Detailed,
+  F2_Roof, Roof, Roof, Floor2, Outdoors, , SunExposed, WindExposed, , 4,
+  0,0,6.4,
+  35.5,0,6.4,
+  35.5,17.5,6.4,
+  0,17.5,6.4;
+
+FenestrationSurface:Detailed,
+  F2_South_Win, Window, Window, F2_South, , , , , , 4,
+  0.5,0,5.37623,
+  0.5,0,4.22377,
+  35.0,0,4.22377,
+  35.0,0,5.37623;
+
+FenestrationSurface:Detailed,
+  F2_East_Win, Window, Window, F2_East, , , , , , 4,
+  35.5,17.0,5.22424,
+  35.5,17.0,4.37576,
+  35.5,0.5,4.37576,
+  35.5,0.5,5.22424;
+
+FenestrationSurface:Detailed,
+  F2_North_Win, Window, Window, F2_North, , , , , , 4,
+  35.0,17.5,5.29391,
+  35.0,17.5,4.30609,
+  0.5,17.5,4.30609,
+  0.5,17.5,5.29391;
+
+FenestrationSurface:Detailed,
+  F2_West_Win, Window, Window, F2_West, , , , , , 4,
+  0,0.5,5.13939,
+  0,0.5,4.46061,
+  0,17.0,4.46061,
+  0,17.0,5.13939;
+
+! ---------------- Internal loads ----------------
+People,
+  Floor1_People, Floor1, Occupancy, Area/Person, , , 5.5, , 0.3, ActivitySch;
+
+People,
+  Floor2_People, Floor2, Occupancy, Area/Person, , , 5.5, , 0.3, ActivitySch;
+
+Lights,
+  Floor1_Lights, Floor1, LightsSch, Watts/Area, , 8, , 0, 0.7, 0.2, 1;
+
+Lights,
+  Floor2_Lights, Floor2, LightsSch, Watts/Area, , 8, , 0, 0.7, 0.2, 1;
+
+ElectricEquipment,
+  Floor1_Equip, Floor1, EquipSch, Watts/Area, , 7.6, , 0, 0.5, 0;
+
+ElectricEquipment,
+  Floor2_Equip, Floor2, EquipSch, Watts/Area, , 7.6, , 0, 0.5, 0;
+
+ZoneInfiltration:DesignFlowRate,
+  Floor1_Infil, Floor1, AlwaysOn, AirChanges/Hour, , , , 0.3, 1, 0, 0, 0;
+
+ZoneInfiltration:DesignFlowRate,
+  Floor2_Infil, Floor2, AlwaysOn, AirChanges/Hour, , , , 0.3, 1, 0, 0, 0;
+
+! ---------------- HVAC ----------------
+HVACTemplate:Zone:PTAC,
+  Floor1,
+  SchoolTstat,
+  autosize,
+  autosize,
+  autosize,
+  SupplyAirTemperature,
+  14,
+  ,
+  SupplyAirTemperature,
+  50,
+  ,
+  Flow/Person,
+  0.005,
+  ,
+  ,
+  AlwaysOn,
+  FanCycling,
+  DrawThrough,
+  0.7,
+  150,
+  0.9,
+  SingleSpeedDX,
+  AlwaysOn,
+  autosize,
+  autosize,
+  3,
+  Electric,
+  AlwaysOn,
+  autosize;
+
+HVACTemplate:Zone:PTAC,
+  Floor2,
+  SchoolTstat,
+  autosize,
+  autosize,
+  autosize,
+  SupplyAirTemperature,
+  14,
+  ,
+  SupplyAirTemperature,
+  50,
+  ,
+  Flow/Person,
+  0.005,
+  ,
+  ,
+  AlwaysOn,
+  FanCycling,
+  DrawThrough,
+  0.7,
+  150,
+  0.9,
+  SingleSpeedDX,
+  AlwaysOn,
+  autosize,
+  autosize,
+  3,
+  Electric,
+  AlwaysOn,
+  autosize;

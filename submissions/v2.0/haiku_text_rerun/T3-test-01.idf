@@ -1,0 +1,270 @@
+Building,
+  School Chicago,          !- Name
+  0.0,                     !- North Axis
+  City,                    !- Terrain
+  0.04,                    !- Loads Convergence Tolerance Value
+  0.4,                     !- Temperature Convergence Tolerance Value
+  FullExterior,            !- Solar Distribution
+  25,                      !- Maximum Number of Warmup Days
+  6;                       !- Minimum Number of Warmup Days
+
+Timestep,
+  4;
+
+ScheduleTypeLimits,
+  Fraction, 0, 1, Continuous, Dimensionless;
+
+ScheduleTypeLimits,
+  Temperature, -60, 200, Continuous, Temperature;
+
+ScheduleTypeLimits,
+  ActivityLevel, 0, 1000, Continuous, ActivityLevel;
+
+Schedule:Compact,
+  AlwaysOn, Fraction, Through: 12/31, For: AllDays, Until: 24:00, 1;
+
+Schedule:Compact,
+  OccSched, Fraction, Through: 12/31,
+  For: Weekdays, Until: 07:00, 0, Until: 16:00, 1, Until: 24:00, 0,
+  For: AllOtherDays, Until: 24:00, 0;
+
+Schedule:Compact,
+  LightsSched, Fraction, Through: 12/31,
+  For: Weekdays, Until: 07:00, 0.15, Until: 16:00, 1.0, Until: 24:00, 0.15,
+  For: AllOtherDays, Until: 24:00, 0.15;
+
+Schedule:Compact,
+  EquipSched, Fraction, Through: 12/31,
+  For: Weekdays, Until: 07:00, 0.4, Until: 16:00, 0.85, Until: 24:00, 0.4,
+  For: AllOtherDays, Until: 24:00, 0.4;
+
+Schedule:Compact,
+  ActivitySched, ActivityLevel, Through: 12/31, For: AllDays, Until: 24:00, 110;
+
+Schedule:Compact,
+  HeatSetSched, Temperature, Through: 12/31,
+  For: Weekdays, Until: 07:00, 14.5, Until: 16:00, 22.0, Until: 24:00, 14.5,
+  For: AllOtherDays, Until: 24:00, 14.5;
+
+Schedule:Compact,
+  CoolSetSched, Temperature, Through: 12/31,
+  For: Weekdays, Until: 07:00, 27.5, Until: 16:00, 23.5, Until: 24:00, 27.5,
+  For: AllOtherDays, Until: 24:00, 27.5;
+
+Material,
+  Concrete200mm, MediumRough, 0.2, 1.311, 2240, 836.8;
+
+Material,
+  Concrete100mm, MediumRough, 0.1, 1.311, 2240, 836.8;
+
+Material,
+  WallInsulation, Rough, 0.1, 0.073, 32, 1210;
+
+Material,
+  RoofInsulation, Rough, 0.12, 0.0365, 32, 1210;
+
+Material,
+  RoofMembrane, Rough, 0.0095, 0.16, 1120, 1460;
+
+Material,
+  Gypsum12.7mm, Smooth, 0.0127, 0.16, 784.9, 830;
+
+Material,
+  Carpet12.7mm, Rough, 0.0127, 0.06, 288, 1380;
+
+WindowMaterial:SimpleGlazingSystem,
+  GlazingSys, 2.0, 0.41, 0.58;
+
+Construction,
+  ExtWallConst, Concrete200mm, WallInsulation, Gypsum12.7mm;
+
+Construction,
+  RoofConst, RoofMembrane, RoofInsulation, Concrete100mm;
+
+Construction,
+  FloorConst, Concrete100mm, Carpet12.7mm;
+
+Construction,
+  CeilingConst, Carpet12.7mm, Concrete100mm;
+
+Construction,
+  WindowConst, GlazingSys;
+
+Zone,
+  ZoneL1, 0.0, 0.0, 0.0, 0.0, 1, 1;
+
+Zone,
+  ZoneL2, 0.0, 0.0, 0.0, 0.0, 1, 1;
+
+BuildingSurface:Detailed,
+  S1, Wall, ExtWallConst, ZoneL1, Outdoors, , SunExposed, WindExposed, autocalculate, 4,
+  0.0, 0.0, 0.0,
+  35.5, 0.0, 0.0,
+  35.5, 0.0, 3.2,
+  0.0, 0.0, 3.2;
+
+BuildingSurface:Detailed,
+  N1, Wall, ExtWallConst, ZoneL1, Outdoors, , SunExposed, WindExposed, autocalculate, 4,
+  35.5, 17.5, 0.0,
+  0.0, 17.5, 0.0,
+  0.0, 17.5, 3.2,
+  35.5, 17.5, 3.2;
+
+BuildingSurface:Detailed,
+  E1, Wall, ExtWallConst, ZoneL1, Outdoors, , SunExposed, WindExposed, autocalculate, 4,
+  35.5, 0.0, 0.0,
+  35.5, 17.5, 0.0,
+  35.5, 17.5, 3.2,
+  35.5, 0.0, 3.2;
+
+BuildingSurface:Detailed,
+  W1, Wall, ExtWallConst, ZoneL1, Outdoors, , SunExposed, WindExposed, autocalculate, 4,
+  0.0, 17.5, 0.0,
+  0.0, 0.0, 0.0,
+  0.0, 0.0, 3.2,
+  0.0, 17.5, 3.2;
+
+BuildingSurface:Detailed,
+  F1, Floor, FloorConst, ZoneL1, Ground, , NoSun, NoWind, autocalculate, 4,
+  0.0, 0.0, 0.0,
+  0.0, 17.5, 0.0,
+  35.5, 17.5, 0.0,
+  35.5, 0.0, 0.0;
+
+BuildingSurface:Detailed,
+  C1, Ceiling, CeilingConst, ZoneL1, Surface, F2, NoSun, NoWind, autocalculate, 4,
+  0.0, 0.0, 3.2,
+  35.5, 0.0, 3.2,
+  35.5, 17.5, 3.2,
+  0.0, 17.5, 3.2;
+
+BuildingSurface:Detailed,
+  S2, Wall, ExtWallConst, ZoneL2, Outdoors, , SunExposed, WindExposed, autocalculate, 4,
+  0.0, 0.0, 3.2,
+  35.5, 0.0, 3.2,
+  35.5, 0.0, 6.4,
+  0.0, 0.0, 6.4;
+
+BuildingSurface:Detailed,
+  N2, Wall, ExtWallConst, ZoneL2, Outdoors, , SunExposed, WindExposed, autocalculate, 4,
+  35.5, 17.5, 3.2,
+  0.0, 17.5, 3.2,
+  0.0, 17.5, 6.4,
+  35.5, 17.5, 6.4;
+
+BuildingSurface:Detailed,
+  E2, Wall, ExtWallConst, ZoneL2, Outdoors, , SunExposed, WindExposed, autocalculate, 4,
+  35.5, 0.0, 3.2,
+  35.5, 17.5, 3.2,
+  35.5, 17.5, 6.4,
+  35.5, 0.0, 6.4;
+
+BuildingSurface:Detailed,
+  W2, Wall, ExtWallConst, ZoneL2, Outdoors, , SunExposed, WindExposed, autocalculate, 4,
+  0.0, 17.5, 3.2,
+  0.0, 0.0, 3.2,
+  0.0, 0.0, 6.4,
+  0.0, 17.5, 6.4;
+
+BuildingSurface:Detailed,
+  F2, Floor, FloorConst, ZoneL2, Surface, C1, NoSun, NoWind, autocalculate, 4,
+  0.0, 0.0, 3.2,
+  0.0, 17.5, 3.2,
+  35.5, 17.5, 3.2,
+  35.5, 0.0, 3.2;
+
+BuildingSurface:Detailed,
+  R2, Roof, RoofConst, ZoneL2, Outdoors, , SunExposed, WindExposed, autocalculate, 4,
+  0.0, 0.0, 6.4,
+  35.5, 0.0, 6.4,
+  35.5, 17.5, 6.4,
+  0.0, 17.5, 6.4;
+
+FenestrationSurface:Detailed,
+  WinS1, Window, WindowConst, S1, , autocalculate, , , 4,
+  7.81, 0.0, 0.8,
+  27.69, 0.0, 0.8,
+  27.69, 0.0, 2.8,
+  7.81, 0.0, 2.8;
+
+FenestrationSurface:Detailed,
+  WinN1, Window, WindowConst, N1, , autocalculate, , , 4,
+  26.27, 17.5, 0.8,
+  9.23, 17.5, 0.8,
+  9.23, 17.5, 2.8,
+  26.27, 17.5, 2.8;
+
+FenestrationSurface:Detailed,
+  WinE1, Window, WindowConst, E1, , autocalculate, , , 4,
+  35.5, 5.25, 0.8,
+  35.5, 12.25, 0.8,
+  35.5, 12.25, 2.8,
+  35.5, 5.25, 2.8;
+
+FenestrationSurface:Detailed,
+  WinW1, Window, WindowConst, W1, , autocalculate, , , 4,
+  0.0, 11.55, 0.8,
+  0.0, 5.95, 0.8,
+  0.0, 5.95, 2.8,
+  0.0, 11.55, 2.8;
+
+FenestrationSurface:Detailed,
+  WinS2, Window, WindowConst, S2, , autocalculate, , , 4,
+  7.81, 0.0, 4.0,
+  27.69, 0.0, 4.0,
+  27.69, 0.0, 6.0,
+  7.81, 0.0, 6.0;
+
+FenestrationSurface:Detailed,
+  WinN2, Window, WindowConst, N2, , autocalculate, , , 4,
+  26.27, 17.5, 4.0,
+  9.23, 17.5, 4.0,
+  9.23, 17.5, 6.0,
+  26.27, 17.5, 6.0;
+
+FenestrationSurface:Detailed,
+  WinE2, Window, WindowConst, E2, , autocalculate, , , 4,
+  35.5, 5.25, 4.0,
+  35.5, 12.25, 4.0,
+  35.5, 12.25, 6.0,
+  35.5, 5.25, 6.0;
+
+FenestrationSurface:Detailed,
+  WinW2, Window, WindowConst, W2, , autocalculate, , , 4,
+  0.0, 11.55, 4.0,
+  0.0, 5.95, 4.0,
+  0.0, 5.95, 6.0,
+  0.0, 11.55, 6.0;
+
+People,
+  PeopleL1, ZoneL1, OccSched, Area/Person, , , 5.5, 0.3, , ActivitySched;
+
+People,
+  PeopleL2, ZoneL2, OccSched, Area/Person, , , 5.5, 0.3, , ActivitySched;
+
+Lights,
+  LightsL1, ZoneL1, LightsSched, Watts/Area, , 8.0, , 0.0, 0.7, 0.2;
+
+Lights,
+  LightsL2, ZoneL2, LightsSched, Watts/Area, , 8.0, , 0.0, 0.7, 0.2;
+
+ElectricEquipment,
+  EquipL1, ZoneL1, EquipSched, Watts/Area, , 7.6, , 0.0, 0.5, 0.0;
+
+ElectricEquipment,
+  EquipL2, ZoneL2, EquipSched, Watts/Area, , 7.6, , 0.0, 0.5, 0.0;
+
+ZoneInfiltration:DesignFlowRate,
+  InfilL1, ZoneL1, AlwaysOn, AirChanges/Hour, , , , 0.3, 1.0, 0.0, 0.0, 0.0;
+
+ZoneInfiltration:DesignFlowRate,
+  InfilL2, ZoneL2, AlwaysOn, AirChanges/Hour, , , , 0.3, 1.0, 0.0, 0.0, 0.0;
+
+HVACTemplate:Thermostat,
+  ZoneTStat, HeatSetSched, , CoolSetSched;
+
+HVACTemplate:Zone:PTAC,
+  ZoneL1, ZoneTStat, AlwaysOn, autosize, , , 0.005, , 0.7, 150, 0.9, 3.0, Electric;
+
+HVACTemplate:Zone:PTAC,
+  ZoneL2, ZoneTStat, AlwaysOn, autosize, , , 0.005, , 0.7, 150, 0.9, 3.0, Electric;

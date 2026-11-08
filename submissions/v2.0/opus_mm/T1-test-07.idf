@@ -1,0 +1,202 @@
+Version,22.2;
+
+Timestep,6;
+
+Building,
+  T1-test-07 School,0,Suburbs,0.04,0.4,FullExterior,25,6;
+
+GlobalGeometryRules,
+  UpperLeftCorner,Counterclockwise,Relative;
+
+ScheduleTypeLimits,Fraction,0,1,Continuous;
+ScheduleTypeLimits,Temperature,-60,200,Continuous;
+ScheduleTypeLimits,Any Number;
+
+Schedule:Compact,
+  Always On,Fraction,
+  Through: 12/31,
+  For: AllDays,
+  Until: 24:00,1;
+
+Schedule:Compact,
+  Activity Sch,Any Number,
+  Through: 12/31,
+  For: AllDays,
+  Until: 24:00,120;
+
+Schedule:Compact,
+  Occupancy Sch,Fraction,
+  Through: 12/31,
+  For: Weekdays SummerDesignDay WinterDesignDay,
+  Until: 07:00,0,
+  Until: 16:00,1,
+  Until: 24:00,0,
+  For: AllOtherDays,
+  Until: 24:00,0;
+
+Schedule:Compact,
+  Lighting Sch,Fraction,
+  Through: 12/31,
+  For: Weekdays SummerDesignDay WinterDesignDay,
+  Until: 07:00,0.15,
+  Until: 16:00,0.85,
+  Until: 24:00,0.15,
+  For: AllOtherDays,
+  Until: 24:00,0.15;
+
+Schedule:Compact,
+  Equipment Sch,Fraction,
+  Through: 12/31,
+  For: Weekdays SummerDesignDay WinterDesignDay,
+  Until: 07:00,0.35,
+  Until: 16:00,1,
+  Until: 24:00,0.35,
+  For: AllOtherDays,
+  Until: 24:00,0.35;
+
+Schedule:Compact,
+  Heating Setpoint Sch,Temperature,
+  Through: 12/31,
+  For: Weekdays SummerDesignDay WinterDesignDay,
+  Until: 07:00,16,
+  Until: 16:00,22,
+  Until: 24:00,16,
+  For: AllOtherDays,
+  Until: 24:00,16;
+
+Schedule:Compact,
+  Cooling Setpoint Sch,Temperature,
+  Through: 12/31,
+  For: Weekdays SummerDesignDay WinterDesignDay,
+  Until: 07:00,28,
+  Until: 16:00,23.5,
+  Until: 24:00,28,
+  For: AllOtherDays,
+  Until: 24:00,28;
+
+Material,
+  HW Concrete 200mm,MediumRough,0.2,1.311,2240,836.8,0.9,0.7,0.7;
+
+Material,
+  Wall Insulation,MediumRough,0.0390,0.049,265,836.8,0.9,0.7,0.7;
+
+Material,
+  Gypsum 12.7mm,Smooth,0.0127,0.16,784.9,830,0.9,0.4,0.4;
+
+Material,
+  Roof Insulation,MediumRough,0.0954,0.049,265,836.8,0.9,0.7,0.7;
+
+Material,
+  Metal Deck,MediumSmooth,0.0015,45.006,7680,418.4,0.9,0.7,0.3;
+
+Material,
+  HW Concrete 100mm,MediumRough,0.1,1.311,2240,836.8,0.9,0.7,0.7;
+
+Material,
+  Carpet 12.7mm,VeryRough,0.0127,0.06,288,1380,0.9,0.7,0.8;
+
+WindowMaterial:SimpleGlazingSystem,
+  Glazing,2.7,0.41,0.65;
+
+Construction,
+  Ext Wall,HW Concrete 200mm,Wall Insulation,Gypsum 12.7mm;
+
+Construction,
+  Roof,Roof Insulation,Metal Deck;
+
+Construction,
+  Floor,HW Concrete 100mm,Carpet 12.7mm;
+
+Construction,
+  Window,Glazing;
+
+Zone,
+  Z1,0,0,0,0,1,1,autocalculate,autocalculate;
+
+BuildingSurface:Detailed,
+  Z1 South Wall,Wall,Ext Wall,Z1,,Outdoors,,SunExposed,WindExposed,autocalculate,4,
+  0,0,3.6,
+  0,0,0,
+  44,0,0,
+  44,0,3.6;
+
+BuildingSurface:Detailed,
+  Z1 East Wall,Wall,Ext Wall,Z1,,Outdoors,,SunExposed,WindExposed,autocalculate,4,
+  44,0,3.6,
+  44,0,0,
+  44,17.5,0,
+  44,17.5,3.6;
+
+BuildingSurface:Detailed,
+  Z1 North Wall,Wall,Ext Wall,Z1,,Outdoors,,SunExposed,WindExposed,autocalculate,4,
+  44,17.5,3.6,
+  44,17.5,0,
+  0,17.5,0,
+  0,17.5,3.6;
+
+BuildingSurface:Detailed,
+  Z1 West Wall,Wall,Ext Wall,Z1,,Outdoors,,SunExposed,WindExposed,autocalculate,4,
+  0,17.5,3.6,
+  0,17.5,0,
+  0,0,0,
+  0,0,3.6;
+
+BuildingSurface:Detailed,
+  Z1 Roof,Roof,Roof,Z1,,Outdoors,,SunExposed,WindExposed,autocalculate,4,
+  44,17.5,3.6,
+  0,17.5,3.6,
+  0,0,3.6,
+  44,0,3.6;
+
+BuildingSurface:Detailed,
+  Z1 Floor,Floor,Floor,Z1,,Ground,,NoSun,NoWind,autocalculate,4,
+  0,0,0,
+  0,17.5,0,
+  44,17.5,0,
+  44,0,0;
+
+FenestrationSurface:Detailed,
+  Z1 South Window,Window,Window,Z1 South Wall,,autocalculate,,1,4,
+  4.4,0,2.81,
+  4.4,0,0.79,
+  39.6,0,0.79,
+  39.6,0,2.81;
+
+FenestrationSurface:Detailed,
+  Z1 East Window,Window,Window,Z1 East Wall,,autocalculate,,1,4,
+  44,1.75,2.14,
+  44,1.75,1.46,
+  44,15.75,1.46,
+  44,15.75,2.14;
+
+FenestrationSurface:Detailed,
+  Z1 North Window,Window,Window,Z1 North Wall,,autocalculate,,1,4,
+  39.6,17.5,2.25,
+  39.6,17.5,1.35,
+  4.4,17.5,1.35,
+  4.4,17.5,2.25;
+
+FenestrationSurface:Detailed,
+  Z1 West Window,Window,Window,Z1 West Wall,,autocalculate,,1,4,
+  0,15.75,2.81,
+  0,15.75,0.79,
+  0,1.75,0.79,
+  0,1.75,2.81;
+
+People,
+  Z1 People,Z1,Occupancy Sch,Area/Person,,,4.5,0.3,autocalculate,Activity Sch;
+
+Lights,
+  Z1 Lights,Z1,Lighting Sch,Watts/Area,,10.8,,0,0.7,0.2,0;
+
+ElectricEquipment,
+  Z1 Equipment,Z1,Equipment Sch,Watts/Area,,6.8,,0,0.5,0;
+
+ZoneInfiltration:DesignFlowRate,
+  Z1 Infiltration,Z1,Always On,AirChanges/Hour,,,,0.3,1,0,0,0;
+
+HVACTemplate:Thermostat,
+  Thermostat,Heating Setpoint Sch,,Cooling Setpoint Sch,;
+
+HVACTemplate:Zone:IdealLoadsAirSystem,
+  Z1,Thermostat;

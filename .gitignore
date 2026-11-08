@@ -1,0 +1,8 @@
+__pycache__/
+*.pyc
+*_sims/
+results/**/sims/
+answers/
+inputs/
+out/
+.DS_Store

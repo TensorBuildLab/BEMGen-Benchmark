@@ -1,0 +1,1 @@
+stopped after first tasks: vendor settings did not help (GLM content empty, reasoning not disabled by this llama-server; Qwen repetition of '1,')

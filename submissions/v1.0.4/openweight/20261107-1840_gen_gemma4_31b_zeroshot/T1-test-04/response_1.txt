@@ -1,0 +1,342 @@
+```idf
+Building {
+  North Axis = 15;
+}
+
+Material {
+  Name = Mat_Wall_Lightweight;
+  Roughness = Rough;
+  Density = 600;
+  Specific Heat = 1000;
+  Conductivity = 0.15;
+}
+
+Material {
+  Name = Mat_Roof_Lightweight;
+  Roughness = Rough;
+  Density = 600;
+  Specific Heat = 1000;
+  Conductivity = 0.06;
+}
+
+Material {
+  Name = Mat_Concrete;
+  Roughness = Rough;
+  Density = 2240;
+  Specific Heat = 836.8;
+  Conductivity = 1.311;
+}
+
+Material {
+  Name = Mat_Carpet;
+  Roughness = Rough;
+  Density = 288;
+  Specific Heat = 1380;
+  Conductivity = 0.06;
+}
+
+Material {
+  Name = Mat_Gypsum;
+  Roughness = Rough;
+  Density = 784.9;
+  Specific Heat = 830;
+  Conductivity = 0.16;
+}
+
+Construction {
+  Name = Const_Wall;
+  Layer 1 {
+    Material Name = Mat_Wall_Lightweight;
+    Thickness = 0.2;
+  }
+}
+
+Construction {
+  Name = Const_Roof;
+  Layer 1 {
+    Material Name = Mat_Roof_Lightweight;
+    Thickness = 0.2;
+  }
+}
+
+Construction {
+  Name = Const_Floor;
+  Layer 1 {
+    Material Name = Mat_Carpet;
+    Thickness = 0.0127;
+  }
+  Layer 2 {
+    Material Name = Mat_Concrete;
+    Thickness = 0.1;
+  }
+}
+
+Construction {
+  Name = Const_Partition;
+  Layer 1 {
+    Material Name = Mat_Gypsum;
+    Thickness = 0.0127;
+  }
+  Layer 2 {
+    Material Name = Mat_Gypsum;
+    Thickness = 0.0127;
+  }
+}
+
+WindowMaterial {
+  Name = WinMat_Simple;
+  Optical Properties {
+    Transmittance = 0.66;
+    Solar Transmittance = 0.44;
+  }
+  Thermal Properties {
+    Conductivity = 0.8;
+  }
+}
+
+Construction {
+  Name = Const_Window;
+  Layer 1 {
+    WindowMaterial Name = WinMat_Simple;
+    Thickness = 0.024;
+  }
+}
+
+Zone {
+  Name = Zone_1;
+}
+
+BuildingSurface:Wall {
+  Name = Wall_North;
+  Construction Name = Const_Wall;
+  Zone Name = Zone_1;
+  Outside Boundary Condition = Outdoors;
+  Sun Blocking = No;
+  Wind Blocking = No;
+  Detailed Surface Area = No;
+  Vertex 1 { X = 25.5; Y = 16.0; Z = 3.1; }
+  Vertex 2 { X = 0.0; Y = 16.0; Z = 3.1; }
+  Vertex 3 { X = 0.0; Y = 16.0; Z = 0.0; }
+  Vertex 4 { X = 25.5; Y = 16.0; Z = 0.0; }
+}
+
+BuildingSurface:Wall {
+  Name = Wall_East;
+  Construction Name = Const_Wall;
+  Zone Name = Zone_1;
+  Outside Boundary Condition = Outdoors;
+  Sun Blocking = No;
+  Wind Blocking = No;
+  Detailed Surface Area = No;
+  Vertex 1 { X = 25.5; Y = 16.0; Z = 3.1; }
+  Vertex 2 { X = 25.5; Y = 0.0; Z = 3.1; }
+  Vertex 3 { X = 25.5; Y = 0.0; Z = 0.0; }
+  Vertex 4 { X = 25.5; Y = 16.0; Z = 0.0; }
+}
+
+BuildingSurface:Wall {
+  Name = Wall_South;
+  Construction Name = Const_Wall;
+  Zone Name = Zone_1;
+  Outside Boundary Condition = Outdoors;
+  Sun Blocking = No;
+  Wind Blocking = No;
+  Detailed Surface Area = No;
+  Vertex 1 { X = 0.0; Y = 0.0; Z = 3.1; }
+  Vertex 2 { X = 25.5; Y = 0.0; Z = 3.1; }
+  Vertex 3 { X = 25.5; Y = 0.0; Z = 0.0; }
+  Vertex 4 { X = 0.0; Y = 0.0; Z = 0.0; }
+}
+
+BuildingSurface:Wall {
+  Name = Wall_West;
+  Construction Name = Const_Wall;
+  Zone Name = Zone_1;
+  Outside Boundary Condition = Outdoors;
+  Sun Blocking = No;
+  Wind Blocking = No;
+  Detailed Surface Area = No;
+  Vertex 1 { X = 0.0; Y = 0.0; Z = 3.1; }
+  Vertex 2 { X = 0.0; Y = 16.0; Z = 3.1; }
+  Vertex 3 { X = 0.0; Y = 16.0; Z = 0.0; }
+  Vertex 4 { X = 0.0; Y = 0.0; Z = 0.0; }
+}
+
+BuildingSurface:Roof {
+  Name = Roof_Flat;
+  Construction Name = Const_Roof;
+  Zone Name = Zone_1;
+  Outside Boundary Condition = Outdoors;
+  Sun Blocking = No;
+  Wind Blocking = No;
+  Detailed Surface Area = No;
+  Vertex 1 { X = 0.0; Y = 0.0; Z = 3.1; }
+  Vertex 2 { X = 25.5; Y = 0.0; Z = 3.1; }
+  Vertex 3 { X = 25.5; Y = 16.0; Z = 3.1; }
+  Vertex 4 { X = 0.0; Y = 16.0; Z = 3.1; }
+}
+
+BuildingSurface:Floor {
+  Name = Floor_Ground;
+  Construction Name = Const_Floor;
+  Zone Name = Zone_1;
+  Outside Boundary Condition = Ground;
+  Sun Blocking = No;
+  Wind Blocking = No;
+  Detailed Surface Area = No;
+  Vertex 1 { X = 0.0; Y = 0.0; Z = 0.0; }
+  Vertex 2 { X = 25.5; Y = 0.0; Z = 0.0; }
+  Vertex 3 { X = 25.5; Y = 16.0; Z = 0.0; }
+  Vertex 4 { X = 0.0; Y = 16.0; Z = 0.0; }
+}
+
+FenestrationSurface:Detailed {
+  Name = Win_East;
+  Construction Name = Const_Window;
+  Zone Name = Zone_1;
+  Outside Boundary Condition = Outdoors;
+  Sun Blocking = No;
+  Wind Blocking = No;
+  Vertex 1 { X = 25.5; Y = 12.0; Z = 3.1; }
+  Vertex 2 { X = 25.5; Y = 4.0; Z = 3.1; }
+  Vertex 3 { X = 25.5; Y = 4.0; Z = 1.0; }
+  Vertex 4 { X = 25.5; Y = 12.0; Z = 1.0; }
+}
+
+FenestrationSurface:Detailed {
+  Name = Win_South;
+  Construction Name = Const_Window;
+  Zone Name = Zone_1;
+  Outside Boundary Condition = Outdoors;
+  Sun Blocking = No;
+  Wind Blocking = No;
+  Vertex 1 { X = 1.5; Y = 0.0; Z = 3.1; }
+  Vertex 2 { X = 24.0; Y = 0.0; Z = 3.1; }
+  Vertex 3 { X = 24.0; Y = 0.0; Z = 1.0; }
+  Vertex 4 { X = 1.5; Y = 0.0; Z = 1.0; }
+}
+
+FenestrationSurface:Detailed {
+  Name = Win_West;
+  Construction Name = Const_Window;
+  Zone Name = Zone_1;
+  Outside Boundary Condition = Outdoors;
+  Sun Blocking = No;
+  Wind Blocking = No;
+  Vertex 1 { X = 0.0; Y = 12.0; Z = 3.1; }
+  Vertex 2 { X = 0.0; Y = 6.0; Z = 3.1; }
+  Vertex 3 { X = 0.0; Y = 6.0; Z = 1.0; }
+  Vertex 4 { X = 0.0; Y = 12.0; Z = 1.0; }
+}
+
+Schedule:Compact {
+  Name = Occ_Schedule;
+  Schedule Type Limits = Fraction;
+  Field 1 { Value = 1.0; For: DayOfWeek = Monday; For: TimePeriod = 08:00-18:00; }
+  Field 2 { Value = 1.0; For: DayOfWeek = Tuesday; For: TimePeriod = 08:00-18:00; }
+  Field 3 { Value = 1.0; For: DayOfWeek = Wednesday; For: TimePeriod = 08:00-18:00; }
+  Field 4 { Value = 1.0; For: DayOfWeek = Thursday; For: TimePeriod = 08:00-18:00; }
+  Field 5 { Value = 1.0; For: DayOfWeek = Friday; For: TimePeriod = 08:00-18:00; }
+  Field 6 { Value = 0.0; For: DayOfWeek = Saturday; }
+  Field 7 { Value = 0.0; For: DayOfWeek = Sunday; }
+}
+
+Schedule:Compact {
+  Name = Light_Schedule;
+  Schedule Type Limits = Fraction;
+  Field 1 { Value = 1.0; For: DayOfWeek = Monday; For: TimePeriod = 08:00-18:00; }
+  Field 2 { Value = 1.0; For: DayOfWeek = Tuesday; For: TimePeriod = 08:00-18:00; }
+  Field 3 { Value = 1.0; For: DayOfWeek = Wednesday; For: TimePeriod = 08:00-18:00; }
+  Field 4 { Value = 1.0; For: DayOfWeek = Thursday; For: TimePeriod = 08:00-18:00; }
+  Field 5 { Value = 1.0; For: DayOfWeek = Friday; For: TimePeriod = 08:00-18:00; }
+  Field 6 { Value = 0.2; For: DayOfWeek = Monday; For: TimePeriod = 00:00-08:00; }
+  Field 7 { Value = 0.2; For: DayOfWeek = Monday; For: TimePeriod = 18:00-24:00; }
+  Field 8 { Value = 0.2; For: DayOfWeek = Saturday; }
+  Field 9 { Value = 0.2; For: DayOfWeek = Sunday; }
+}
+
+Schedule:Compact {
+  Name = Equip_Schedule;
+  Schedule Type Limits = Fraction;
+  Field 1 { Value = 0.9; For: DayOfWeek = Monday; For: TimePeriod = 08:00-18:00; }
+  Field 2 { Value = 0.9; For: DayOfWeek = Tuesday; For: TimePeriod = 08:00-18:00; }
+  Field 3 { Value = 0.9; For: DayOfWeek = Wednesday; For: TimePeriod = 08:00-18:00; }
+  Field 4 { Value = 0.9; For: DayOfWeek = Thursday; For: TimePeriod = 08:00-18:00; }
+  Field 5 { Value = 0.9; For: DayOfWeek = Friday; For: TimePeriod = 08:00-18:00; }
+  Field 6 { Value = 0.4; For: DayOfWeek = Monday; For: TimePeriod = 00:00-08:00; }
+  Field 7 { Value = 0.4; For: DayOfWeek = Monday; For: TimePeriod = 18:00-24:00; }
+  Field 8 { Value = 0.4; For: DayOfWeek = Saturday; }
+  Field 9 { Value = 0.4; For: DayOfWeek = Sunday; }
+}
+
+People {
+  Name = People_1;
+  Zone Name = Zone_1;
+  Number of People = 17.33;
+  Activity Level = 120;
+  Schedule Name = Occ_Schedule;
+}
+
+Lights {
+  Name = Lights_1;
+  Zone Name = Zone_1;
+  Electric Power = 2772;
+  Schedule Name = Light_Schedule;
+}
+
+ElectricEquipment {
+  Name = Equip_1;
+  Zone Name = Zone_1;
+  Electric Power = 4158;
+  Schedule Name = Equip_Schedule;
+}
+
+ZoneInfiltration {
+  Name = Infilt_1;
+  Zone Name = Zone_1;
+  Infiltration Type = Constant;
+  Air Changes per Hour = 0.35;
+}
+
+ZoneControl:Thermostat {
+  Name = Therm_1;
+  Zone Name = Zone_1;
+  Heating Setpoint Temperature = 21.5;
+  Cooling Setpoint Temperature = 23.5;
+  Heating Setpoint Temperature Schedule Name = Heat_Unocc_Sched;
+  Cooling Setpoint Temperature Schedule Name = Cool_Unocc_Sched;
+}
+
+Schedule:Compact {
+  Name = Heat_Unocc_Sched;
+  Schedule Type Limits = Temperature;
+  Field 1 { Value = 21.5; For: DayOfWeek = Monday; For: TimePeriod = 08:00-18:00; }
+  Field 2 { Value = 21.5; For: DayOfWeek = Tuesday; For: TimePeriod = 08:00-18:00; }
+  Field 3 { Value = 21.5; For: DayOfWeek = Wednesday; For: TimePeriod = 08:00-18:00; }
+  Field 4 { Value = 21.5; For: DayOfWeek = Thursday; For: TimePeriod = 08:00-18:00; }
+  Field 5 { Value = 21.5; For: DayOfWeek = Friday; For: TimePeriod = 08:00-18:00; }
+  Field 6 { Value = 16.5; For: DayOfWeek = Monday; For: TimePeriod = 00:00-08:00; }
+  Field 7 { Value = 16.5; For: DayOfWeek = Monday; For: TimePeriod = 18:00-24:00; }
+  Field 8 { Value = 16.5; For: DayOfWeek = Saturday; }
+  Field 9 { Value = 16.5; For: DayOfWeek = Sunday; }
+}
+
+Schedule:Compact {
+  Name = Cool_Unocc_Sched;
+  Schedule Type Limits = Temperature;
+  Field 1 { Value = 23.5; For: DayOfWeek = Monday; For: TimePeriod = 08:00-18:00; }
+  Field 2 { Value = 23.5; For: DayOfWeek = Tuesday; For: TimePeriod = 08:00-18:00; }
+  Field 3 { Value = 23.5; For: DayOfWeek = Wednesday; For: TimePeriod = 08:00-18:00; }
+  Field 4 { Value = 23.5; For: DayOfWeek = Thursday; For: TimePeriod = 08:00-18:00; }
+  Field 5 { Value = 23.5; For: DayOfWeek = Friday; For: TimePeriod = 08:00-18:00; }
+  Field 6 { Value = 28.5; For: DayOfWeek = Monday; For: TimePeriod = 00:00-08:00; }
+  Field 7 { Value = 28.5; For: DayOfWeek = Monday; For: TimePeriod = 18:00-24:00; }
+  Field 8 { Value = 28.5; For: DayOfWeek = Saturday; }
+  Field 9 { Value = 28.5; For: DayOfWeek = Sunday; }
+}
+
+HVACTemplate:Zone:IdealLoadsAirSystem {
+  Name = IdealLoads_1;
+  Zone Name = Zone_1;
+}
+```

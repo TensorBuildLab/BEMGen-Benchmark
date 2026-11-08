@@ -1,0 +1,496 @@
+{
+ "X001": {
+  "verdict": "Supported",
+  "basis": "title only",
+  "note": "General background; the cited work fits the topic."
+ },
+ "X002": {
+  "verdict": "Supported",
+  "basis": "title only",
+  "note": "General background; the cited work fits the topic."
+ },
+ "X003": {
+  "verdict": "Supported",
+  "basis": "title only",
+  "note": "General background; the cited work fits the topic."
+ },
+ "X004": {
+  "verdict": "Supported",
+  "basis": "title only",
+  "note": "General background; the cited work fits the topic."
+ },
+ "X005": {
+  "verdict": "Partly",
+  "basis": "title only",
+  "note": "Foam-Agent (R119) is OpenFOAM CFD, not a building engineering model; others fit. Drop it here or reword."
+ },
+ "X006": {
+  "verdict": "Supported",
+  "basis": "title only",
+  "note": "General background; the cited work fits the topic."
+ },
+ "X007": {
+  "verdict": "Supported",
+  "basis": "title only",
+  "note": "General background; the cited work fits the topic."
+ },
+ "X008": {
+  "verdict": "Supported",
+  "basis": "title only",
+  "note": "General background; the cited work fits the topic."
+ },
+ "X009": {
+  "verdict": "Supported",
+  "basis": "title only",
+  "note": "General background; the cited work fits the topic."
+ },
+ "X010": {
+  "verdict": "Supported",
+  "basis": "title only",
+  "note": "General background; the cited work fits the topic."
+ },
+ "X011": {
+  "verdict": "Supported",
+  "basis": "title only",
+  "note": "General background; the cited work fits the topic."
+ },
+ "X012": {
+  "verdict": "Supported",
+  "basis": "title only",
+  "note": "General background; the cited work fits the topic."
+ },
+ "X013": {
+  "verdict": "Supported",
+  "basis": "title only",
+  "note": "General background; the cited work fits the topic."
+ },
+ "X014": {
+  "verdict": "Supported",
+  "basis": "title only",
+  "note": "General background; the cited work fits the topic."
+ },
+ "X015": {
+  "verdict": "Supported",
+  "basis": "title only",
+  "note": "General background; the cited work fits the topic."
+ },
+ "X016": {
+  "verdict": "Supported",
+  "basis": "title only",
+  "note": "General background; the cited work fits the topic."
+ },
+ "X017": {
+  "verdict": "Supported",
+  "basis": "title only",
+  "note": "General background; the cited work fits the topic."
+ },
+ "X018": {
+  "verdict": "Supported",
+  "basis": "title only",
+  "note": "General background; the cited work fits the topic."
+ },
+ "X019": {
+  "verdict": "Supported",
+  "basis": "title only",
+  "note": "General background; the cited work fits the topic."
+ },
+ "X020": {
+  "verdict": "Partly",
+  "basis": "web page",
+  "note": "zhang2024advancing (arXiv) reports 3 case studies; zhang2025automatic's one-building case is confirmed, but no source found for the shared ten-run experiment. Check full texts."
+ },
+ "X021": {
+  "verdict": "No access",
+  "basis": "title only",
+  "note": "Claim that the paper has no numerical tolerance and used exact match rests on the paper's body; not verifiable from the title or project page (which claims 100% accuracy)."
+ },
+ "X022": {
+  "verdict": "Partly",
+  "basis": "abstract",
+  "note": "AECBench has 4,800 questions and the arXiv page says code and data are available; the full test set release is not confirmed. Also 'only one study' is a claim about 15 papers, not the cited one."
+ },
+ "X023": {
+  "verdict": "Supported",
+  "basis": "evidence table",
+  "note": "Project page claims 100% modelling accuracy on simple case buildings."
+ },
+ "X024": {
+  "verdict": "Partly",
+  "basis": "web page",
+  "note": "Paper builds an error-free EnergyPlus model for one building (iUnit); 'ten of ten runs' could not be confirmed."
+ },
+ "X025": {
+  "verdict": "Supported",
+  "basis": "abstract",
+  "note": "173 laboratory rooms from an actual project; code generation accuracy of 97.1%."
+ },
+ "X026": {
+  "verdict": "Partly",
+  "basis": "abstract",
+  "note": "Buildrix abstract mentions expert-verified golden test cases but no EnergyPlus generation skill. Check the paper body or soften."
+ },
+ "X027": {
+  "verdict": "Supported",
+  "basis": "abstract",
+  "note": "BEMEval-Res: structured data extraction from residential documents, first of a benchmark suite for BEM tasks."
+ },
+ "X028": {
+  "verdict": "Partly",
+  "basis": "abstract",
+  "note": "ModiGen scores generated Modelica by simulation (pass@1). The Modelica workflow benchmark says simulating is not enough and checks physical behaviour with its own evaluator; reword 'by simulation'."
+ },
+ "X029": {
+  "verdict": "Supported",
+  "basis": "abstract",
+  "note": "Generates control modules for the Building Modelica Library with LLMs."
+ },
+ "X030": {
+  "verdict": "Supported",
+  "basis": "abstract",
+  "note": "CFDLLMBench scores executability, accuracy and convergence; FoamBench part covers OpenFOAM workflows."
+ },
+ "X031": {
+  "verdict": "Supported",
+  "basis": "abstract",
+  "note": "EngDesign uses simulation-based evaluation of designs."
+ },
+ "X032": {
+  "verdict": "Partly",
+  "basis": "abstract",
+  "note": "AutoB2G is a co-simulation environment with an LLM agent; abstract does not call it a benchmark or mention tiers. Verify in body."
+ },
+ "X033": {
+  "verdict": "Partly",
+  "basis": "abstract",
+  "note": "CodeAssay audits ground truth and reports mutation scores of test suites, so code benchmark claim fits. 'Not for simulation-graded ones' is an uncited negative; state it as 'we found none'."
+ },
+ "X034": {
+  "verdict": "No access",
+  "basis": "title only",
+  "note": "152 cases and exact match cannot be confirmed from the record."
+ },
+ "X035": {
+  "verdict": "Partly",
+  "basis": "web page",
+  "note": "arXiv version has 3 case studies; '10 runs' unverified."
+ },
+ "X036": {
+  "verdict": "Partly",
+  "basis": "web page",
+  "note": "One building (iUnit) confirmed; '10 runs' unverified."
+ },
+ "X037": {
+  "verdict": "No access",
+  "basis": "title only",
+  "note": "648 cases cannot be confirmed from the record."
+ },
+ "X038": {
+  "verdict": "Supported",
+  "basis": "abstract",
+  "note": "Bilingual worker-routing benchmark of 100 manually checked tasks per language."
+ },
+ "X039": {
+  "verdict": "Supported",
+  "basis": "abstract",
+  "note": "173 laboratory rooms; accuracy validated through a simulation model."
+ },
+ "X040": {
+  "verdict": "Supported",
+  "basis": "abstract",
+  "note": "Open-source MCP server with 35 tools; no accuracy benchmark described ('1 demo' unverified)."
+ },
+ "X041": {
+  "verdict": "Supported",
+  "basis": "abstract",
+  "note": "4,800-question dataset, expert review."
+ },
+ "X042": {
+  "verdict": "Partly",
+  "basis": "evidence table",
+  "note": "Evidence table says about 100 cases; verify '110+' in the paper."
+ },
+ "X043": {
+  "verdict": "Supported",
+  "basis": "title only",
+  "note": "General background; the cited work fits the topic."
+ },
+ "X044": {
+  "verdict": "Supported",
+  "basis": "web page",
+  "note": "Guideline 14 criteria; Coakley and Fabrizio review calibration methods."
+ },
+ "X045": {
+  "verdict": "Supported",
+  "basis": "title only",
+  "note": "General background; the cited work fits the topic."
+ },
+ "X046": {
+  "verdict": "Supported",
+  "basis": "title only",
+  "note": "General background; the cited work fits the topic."
+ },
+ "X047": {
+  "verdict": "Supported",
+  "basis": "abstract",
+  "note": "AECBench is a knowledge QA benchmark."
+ },
+ "X048": {
+  "verdict": "Supported",
+  "basis": "title only",
+  "note": "General background; the cited work fits the topic."
+ },
+ "X049": {
+  "verdict": "Supported",
+  "basis": "title only",
+  "note": "General background; the cited work fits the topic."
+ },
+ "X050": {
+  "verdict": "Supported",
+  "basis": "title only",
+  "note": "General background; the cited work fits the topic."
+ },
+ "X051": {
+  "verdict": "Supported",
+  "basis": "title only",
+  "note": "General background; the cited work fits the topic."
+ },
+ "X052": {
+  "verdict": "Supported",
+  "basis": "abstract",
+  "note": "Survey on benchmark contamination in pretraining; fits the 'public so likely in training data' point as general reasoning."
+ },
+ "X053": {
+  "verdict": "Supported",
+  "basis": "title only",
+  "note": "General background; the cited work fits the topic."
+ },
+ "X054": {
+  "verdict": "Supported",
+  "basis": "abstract",
+  "note": "Buildings-900K, 900K simulated buildings, load-forecasting benchmark."
+ },
+ "X055": {
+  "verdict": "Supported",
+  "basis": "title only",
+  "note": "General background; the cited work fits the topic."
+ },
+ "X056": {
+  "verdict": "Supported",
+  "basis": "title only",
+  "note": "General background; the cited work fits the topic."
+ },
+ "X057": {
+  "verdict": "Supported",
+  "basis": "title only",
+  "note": "General background; the cited work fits the topic."
+ },
+ "X058": {
+  "verdict": "Partly",
+  "basis": "abstract",
+  "note": "Std 140 and IEA BESTEST compare programs against reference-program ranges (fits). Judkoff 2010 is BESTEST-EX for existing homes; fits the tradition but not the inter-program range claim directly."
+ },
+ "X059": {
+  "verdict": "Supported",
+  "basis": "title only",
+  "note": "General background; the cited work fits the topic."
+ },
+ "X060": {
+  "verdict": "Supported",
+  "basis": "title only",
+  "note": "General background; the cited work fits the topic."
+ },
+ "X061": {
+  "verdict": "Supported",
+  "basis": "title only",
+  "note": "General background; the cited work fits the topic."
+ },
+ "X062": {
+  "verdict": "Supported",
+  "basis": "title only",
+  "note": "General background; the cited work fits the topic."
+ },
+ "X063": {
+  "verdict": "Supported",
+  "basis": "title only",
+  "note": "General background; the cited work fits the topic."
+ },
+ "X064": {
+  "verdict": "Supported",
+  "basis": "title only",
+  "note": "General background; the cited work fits the topic."
+ },
+ "X065": {
+  "verdict": "Supported",
+  "basis": "title only",
+  "note": "General background; the cited work fits the topic."
+ },
+ "X066": {
+  "verdict": "Supported",
+  "basis": "web page",
+  "note": "Guideline 14 criteria are for calibration against measured data."
+ },
+ "X067": {
+  "verdict": "Supported",
+  "basis": "title only",
+  "note": "General background; the cited work fits the topic."
+ },
+ "X068": {
+  "verdict": "Supported",
+  "basis": "title only",
+  "note": "General background; the cited work fits the topic."
+ },
+ "X069": {
+  "verdict": "Supported",
+  "basis": "title only",
+  "note": "General background; the cited work fits the topic."
+ },
+ "X070": {
+  "verdict": "Supported",
+  "basis": "title only",
+  "note": "General background; the cited work fits the topic."
+ },
+ "X071": {
+  "verdict": "Supported",
+  "basis": "title only",
+  "note": "General background; the cited work fits the topic."
+ },
+ "X072": {
+  "verdict": "Partly",
+  "basis": "abstract",
+  "note": "GEPIII papers cover competition results and model error limits; neither abstract reports leaderboard overfitting. Check text or reword."
+ },
+ "X073": {
+  "verdict": "Partly",
+  "basis": "abstract",
+  "note": "Miller 2024 supports CIs, paired comparisons and power analysis. Dodge 2019 is about reporting compute budget and validation results, not power analysis."
+ },
+ "X074": {
+  "verdict": "Supported",
+  "basis": "title only",
+  "note": "General background; the cited work fits the topic."
+ },
+ "X075": {
+  "verdict": "Supported",
+  "basis": "title only",
+  "note": "General background; the cited work fits the topic."
+ },
+ "X076": {
+  "verdict": "Supported",
+  "basis": "title only",
+  "note": "General background; the cited work fits the topic."
+ },
+ "X077": {
+  "verdict": "Supported",
+  "basis": "title only",
+  "note": "General background; the cited work fits the topic."
+ },
+ "X078": {
+  "verdict": "Supported",
+  "basis": "title only",
+  "note": "General background; the cited work fits the topic."
+ },
+ "X079": {
+  "verdict": "Supported",
+  "basis": "abstract",
+  "note": "Dodge et al. show results depend on compute/tuning budget."
+ },
+ "X080": {
+  "verdict": "Supported",
+  "basis": "title only",
+  "note": "General background; the cited work fits the topic."
+ },
+ "X081": {
+  "verdict": "Supported",
+  "basis": "title only",
+  "note": "General background; the cited work fits the topic."
+ },
+ "X082": {
+  "verdict": "Supported",
+  "basis": "title only",
+  "note": "General background; the cited work fits the topic."
+ },
+ "X083": {
+  "verdict": "Supported",
+  "basis": "title only",
+  "note": "General background; the cited work fits the topic."
+ },
+ "X084": {
+  "verdict": "Supported",
+  "basis": "title only",
+  "note": "General background; the cited work fits the topic."
+ },
+ "X085": {
+  "verdict": "Supported",
+  "basis": "title only",
+  "note": "General background; the cited work fits the topic."
+ },
+ "X086": {
+  "verdict": "Supported",
+  "basis": "web page",
+  "note": "EnergyPlus 22.2.0 release exists on NREL GitHub."
+ },
+ "X087": {
+  "verdict": "Supported",
+  "basis": "web page",
+  "note": "Std 90.1 Appendix G caps unmet load hours at 300 (standard not openly viewable; matches known text)."
+ },
+ "X088": {
+  "verdict": "Supported",
+  "basis": "title only",
+  "note": "General background; the cited work fits the topic."
+ },
+ "X089": {
+  "verdict": "Supported",
+  "basis": "web page",
+  "note": "Guideline 14 monthly criteria: NMBE 5%, CV(RMSE) 15%."
+ },
+ "X090": {
+  "verdict": "Supported",
+  "basis": "title only",
+  "note": "General background; the cited work fits the topic."
+ },
+ "X091": {
+  "verdict": "Supported",
+  "basis": "title only",
+  "note": "General background; the cited work fits the topic."
+ },
+ "X092": {
+  "verdict": "Supported",
+  "basis": "title only",
+  "note": "General background; the cited work fits the topic."
+ },
+ "X093": {
+  "verdict": "Supported",
+  "basis": "title only",
+  "note": "General background; the cited work fits the topic."
+ },
+ "X094": {
+  "verdict": "Supported",
+  "basis": "abstract",
+  "note": "Berkeley 2014 reports modeller decisions change results; sentence hedged as 'suggests'."
+ },
+ "N023": {
+  "verdict": "ok",
+  "note": "Heating median 87.5% (K18), cooling 46.3% (K19) for v1.0.4; 'about 50% or more' is loose for cooling (46.3) but acceptable. 14.2% is K17, 2.8% is K36. K7 match is coincidental."
+ },
+ "R121": {
+  "verdict": "verified",
+  "note": "ASHRAE bookstore lists ANSI/ASHRAE Standard 140-2020, Standard Method of Test for the Evaluation of Building Energy Analysis Computer Programs (page returns 403 to scripts; title/year match known listing)."
+ },
+ "R122": {
+  "verdict": "verified",
+  "note": "ASHRAE Guideline 14-2014, Measurement of Energy, Demand, and Water Savings exists (2014 edition)."
+ },
+ "R123": {
+  "verdict": "verified",
+  "note": "ANSI/ASHRAE/IES Standard 90.1-2019, Energy Standard for Buildings Except Low-Rise Residential Buildings exists."
+ },
+ "R124": {
+  "verdict": "verified",
+  "note": "EnergyPlus v22.2.0 release exists on github.com/NREL/EnergyPlus (page responds)."
+ },
+ "R125": {
+  "verdict": "verified",
+  "note": "OpenAI 'Introducing SWE-bench Verified' (Aug 2024) page responds; cited in no context found."
+ }
+}

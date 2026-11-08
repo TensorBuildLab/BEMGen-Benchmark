@@ -1,0 +1,47 @@
+{
+ "city": "Golden",
+ "heat_balance_gj": {
+  "People Sensible Heat Addition": 20.077,
+  "Lights Sensible Heat Addition": 17.197,
+  "Equipment Sensible Heat Addition": 49.258,
+  "Window Heat Addition": 55.648,
+  "Interzone Air Transfer Heat Addition": 0.0,
+  "Infiltration Heat Addition": 9.454,
+  "Opaque Surface Conduction and Other Heat Addition": 25.026,
+  "Equipment Sensible Heat Removal": 0.0,
+  "Window Heat Removal": -34.48,
+  "Interzone Air Transfer Heat Removal": 0.0,
+  "Infiltration Heat Removal": -47.518,
+  "Opaque Surface Conduction and Other Heat Removal": -60.212
+ },
+ "hb_tolerance": {
+  "People Sensible Heat Addition": 0.005,
+  "Lights Sensible Heat Addition": 0.005,
+  "Equipment Sensible Heat Addition": 0.005,
+  "Window Heat Addition": 0.016826606454040823,
+  "Interzone Air Transfer Heat Addition": 0.005,
+  "Infiltration Heat Addition": 0.005,
+  "Opaque Surface Conduction and Other Heat Addition": 0.005,
+  "Equipment Sensible Heat Removal": 0.005,
+  "Window Heat Removal": 0.005,
+  "Interzone Air Transfer Heat Removal": 0.005,
+  "Infiltration Heat Removal": 0.005,
+  "Opaque Surface Conduction and Other Heat Removal": 0.005
+ },
+ "mr_response": {
+  "total_site_kwh": 0.06218227363147419,
+  "heating_kwh": -0.11191335740072202,
+  "cooling_kwh": 0.19590363221100715,
+  "electricity_kwh": 0.10329330288071893,
+  "gas_kwh": -0.041111029249244826,
+  "fans_kwh": -0.01893464967214321
+ },
+ "mr_tolerance": {
+  "total_site_kwh": 0.01,
+  "heating_kwh": 0.01,
+  "cooling_kwh": 0.01,
+  "electricity_kwh": 0.01,
+  "gas_kwh": 0.01,
+  "fans_kwh": 0.01
+ }
+}

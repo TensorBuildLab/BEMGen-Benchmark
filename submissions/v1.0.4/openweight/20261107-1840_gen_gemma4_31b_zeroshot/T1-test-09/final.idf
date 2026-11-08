@@ -1,0 +1,401 @@
+Building {
+  }
+
+Material {
+  Heavyweight Concrete
+  0.105
+  0.224
+  1.311
+  836.8
+  0.100
+  0.000
+  0.000
+  }
+Material {
+  Carpet
+  0.035
+  0.288
+  0.060
+  1380.0
+  0.000
+  0.000
+  0.000
+  }
+Material {
+  Gypsum Board
+  0.0127
+  0.7849
+  0.160
+  830.0
+  0.000
+  0.000
+  0.000
+  }
+Material {
+  Wall Insulation
+  0.050
+  0.030
+  0.035
+  900.0
+  0.000
+  0.000
+  0.000
+  }
+Material {
+  Roof Insulation
+  0.150
+  0.030
+  0.030
+  100.0
+  0.000
+  0.000
+  0.000
+  }
+
+Construction {
+  Exterior Wall
+  1
+  Heavyweight Concrete
+  Wall Insulation
+  }
+Construction {
+  Roof Construction
+  1
+  Roof Insulation
+  }
+Construction {
+  Floor Construction
+  1
+  Carpet
+  Heavyweight Concrete
+  }
+Construction {
+  Interior Partition
+  1
+  Gypsum Board
+  Gypsum Board
+  }
+Construction {
+  Glazing Construction
+  1
+  Simple Glazing
+  }
+
+WindowMaterial {
+  Simple Glazing
+  0.006
+  0.000
+  0.000
+  0.000
+  0.000
+  0.000
+  0.000
+  0.45
+  0.62
+  2.0
+  0.000
+  }
+
+Zone {
+  Clinic Zone
+  0.0
+  0.0
+  0.0
+  }
+
+BuildingSurface:Detailed {
+  Wall_North
+  Clinic Zone
+  Wall
+  Exterior Wall
+  0
+  0
+  44.5
+  0
+  44.5
+  0
+  0
+  0
+  3
+  0
+  0
+  3
+  0
+  44.5
+  3
+  0
+  44.5
+  3
+  }
+BuildingSurface:Detailed {
+  Wall_East
+  Clinic Zone
+  Wall
+  Exterior Wall
+  0
+  14.5
+  14.5
+  0
+  14.5
+  0
+  0
+  0
+  3
+  0
+  0
+  3
+  0
+  14.5
+  3
+  0
+  14.5
+  3
+  }
+BuildingSurface:Detailed {
+  Wall_South
+  Clinic Zone
+  Wall
+  Exterior Wall
+  0
+  14.5
+  0
+  0
+  14.5
+  0
+  0
+  0
+  3
+  0
+  0
+  3
+  0
+  14.5
+  3
+  0
+  14.5
+  3
+  }
+BuildingSurface:Detailed {
+  Wall_West
+  Clinic Zone
+  Wall
+  Exterior Wall
+  0
+  0
+  0
+  0
+  0
+  0
+  0
+  0
+  3
+  0
+  0
+  3
+  0
+  14.5
+  3
+  0
+  14.5
+  3
+  }
+BuildingSurface:Detailed {
+  Roof
+  Clinic Zone
+  Roof
+  Roof Construction
+  0
+  0
+  0
+  0
+  44.5
+  0
+  0
+  14.5
+  0
+  0
+  0
+  0
+  44.5
+  0
+  0
+  14.5
+  0
+  }
+BuildingSurface:Detailed {
+  Floor
+  Clinic Zone
+  Floor
+  Floor Construction
+  0
+  0
+  0
+  0
+  44.5
+  0
+  0
+  14.5
+  0
+  0
+  0
+  0
+  44.5
+  0
+  0
+  14.5
+  0
+  }
+
+BuildingSurface:Detailed {
+  Win_North
+  Clinic Zone
+  Window
+  Glazing Construction
+  0
+  0
+  44.5
+  0
+  44.5
+  0
+  0
+  0
+  1.2
+  0
+  0
+  1.2
+  0
+  44.5
+  1.2
+  0
+  44.5
+  1.2
+  }
+BuildingSurface:Detailed {
+  Win_East
+  Clinic Zone
+  Window
+  Glazing Construction
+  0
+  14.5
+  14.5
+  0
+  14.5
+  0
+  0
+  0
+  1.2
+  0
+  0
+  1.2
+  0
+  14.5
+  1.2
+  0
+  14.5
+  1.2
+  }
+BuildingSurface:Detailed {
+  Win_South
+  Clinic Zone
+  Window
+  Glazing Construction
+  0
+  14.5
+  0
+  0
+  14.5
+  0
+  0
+  0
+  2.1
+  0
+  0
+  2.1
+  0
+  14.5
+  2.1
+  0
+  14.5
+  2.1
+  }
+BuildingSurface:Detailed {
+  Win_West
+  Clinic Zone
+  Window
+  Glazing Construction
+  0
+  0
+  0
+  0
+  0
+  0
+  0
+  0
+  1.2
+  0
+  0
+  1.2
+  0
+  14.5
+  1.2
+  0
+  14.5
+  1.2
+  }
+
+Schedule:Compact {
+  Occupancy_Schedule
+  Throughout,
+  Days: Weekday [07:00 1.0 19:00 0.0],
+  Days: Saturday [08:00 1.0 13:00 0.0],
+  Days: Sunday [0.0],
+  }
+Schedule:Compact {
+  Lighting_Schedule
+  Throughout,
+  Days: Weekday [07:00 1.0 19:00 0.1],
+  Days: Saturday [08:00 1.0 13:00 0.1],
+  Days: Sunday [0.1],
+  }
+Schedule:Compact {
+  Equipment_Schedule
+  Throughout,
+  Days: Weekday [07:00 0.95 19:00 0.4],
+  Days: Saturday [08:00 0.95 13:00 0.4],
+  Days: Sunday [0.4],
+  }
+
+People {
+  Clinic Zone
+  0.0952
+  0.0
+  0.0
+  Occupancy_Schedule
+  }
+Lights {
+  Clinic Zone
+  10.9
+  Lighting_Schedule
+  }
+ElectricEquipment {
+  Clinic Zone
+  8.5
+  Equipment_Schedule
+  }
+ZoneInfiltration {
+  Clinic Zone
+  0.25
+  }
+
+ZoneControl:Thermostat {
+  Clinic Zone
+  Occupancy_Schedule
+  20.0
+  24.5
+  16.5
+  29.0
+  }
+
+HVACTemplate:Zone:IdealLoadsAirSystem {
+  Clinic Zone
+  }

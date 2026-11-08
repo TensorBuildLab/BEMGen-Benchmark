@@ -1,0 +1,392 @@
+Building,
+  Retail,
+  30.0,
+  Suburbs,
+  0.04,
+  0.4,
+  FullExterior,
+  25,
+  6;
+
+Timestep,
+  4;
+
+Zone,
+  Retail,
+  0.0,
+  0.0,
+  0.0,
+  0.0,
+  1,
+  1,
+  autocalc,
+  autocalc;
+
+ScheduleTypeLimits,
+  Fraction,
+  0,
+  1,
+  Continuous,
+  Dimensionless;
+
+ScheduleTypeLimits,
+  Temperature,
+  -60,
+  200,
+  Continuous,
+  Temperature;
+
+ScheduleTypeLimits,
+  Activity,
+  0,
+  1000,
+  Continuous,
+  Dimensionless;
+
+Schedule:Compact,
+  OccupancySched,
+  Fraction,
+  Through: 12/31,
+  For: AllDays,
+  Until: 9:00, 0,
+  Until: 21:00, 1,
+  Until: 24:00, 0;
+
+Schedule:Compact,
+  LightingSched,
+  Fraction,
+  Through: 12/31,
+  For: AllDays,
+  Until: 9:00, 0.15,
+  Until: 21:00, 1,
+  Until: 24:00, 0.15;
+
+Schedule:Compact,
+  EquipmentSched,
+  Fraction,
+  Through: 12/31,
+  For: AllDays,
+  Until: 9:00, 0.2,
+  Until: 21:00, 0.8,
+  Until: 24:00, 0.2;
+
+Schedule:Compact,
+  ActivitySched,
+  Activity,
+  Through: 12/31,
+  For: AllDays,
+  Until: 24:00, 130;
+
+Schedule:Compact,
+  AlwaysOn,
+  Fraction,
+  Through: 12/31,
+  For: AllDays,
+  Until: 24:00, 1;
+
+Schedule:Compact,
+  HeatSetpointSched,
+  Temperature,
+  Through: 12/31,
+  For: AllDays,
+  Until: 9:00, 13.5,
+  Until: 21:00, 22,
+  Until: 24:00, 13.5;
+
+Schedule:Compact,
+  CoolSetpointSched,
+  Temperature,
+  Through: 12/31,
+  For: AllDays,
+  Until: 9:00, 27.5,
+  Until: 21:00, 24,
+  Until: 24:00, 27.5;
+
+HVACTemplate:Thermostat,
+  TStat,
+  HeatSetpointSched,
+  ,
+  CoolSetpointSched,
+  ;
+
+Material,
+  WoodSiding,
+  Medium,
+  0.01,
+  0.14,
+  530,
+  900;
+
+Material,
+  WallInsulation,
+  Rough,
+  0.0581,
+  0.04,
+  30,
+  1400;
+
+Material,
+  GypsumBoard,
+  Smooth,
+  0.0127,
+  0.16,
+  784.9,
+  830;
+
+Material,
+  HeavyConcrete100,
+  MediumRough,
+  0.1,
+  1.311,
+  2240,
+  836.8;
+
+Material,
+  RoofMembrane,
+  Smooth,
+  0.0095,
+  0.16,
+  1100,
+  1000;
+
+Material,
+  RoofInsulation,
+  Rough,
+  0.149,
+  0.04,
+  30,
+  1400;
+
+Material,
+  Carpet,
+  Rough,
+  0.0127,
+  0.06,
+  288,
+  1380;
+
+Construction,
+  ExtWall,
+  WoodSiding,
+  WallInsulation,
+  GypsumBoard;
+
+Construction,
+  RoofAssembly,
+  RoofMembrane,
+  RoofInsulation,
+  HeavyConcrete100;
+
+Construction,
+  FloorAssembly,
+  HeavyConcrete100,
+  Carpet;
+
+WindowMaterial:SimpleGlazingSystem,
+  Glazing,
+  2.6,
+  0.29,
+  0.4;
+
+Construction,
+  WindowConstruction,
+  Glazing;
+
+BuildingSurface:Detailed,
+  S_South,
+  Wall,
+  ExtWall,
+  Retail,
+  Outdoors,
+  ,
+  SunExposed,
+  WindExposed,
+  autocalc,
+  autocalc,
+  0.0, 0.0, 0.0,
+  31.0, 0.0, 0.0,
+  31.0, 0.0, 3.1,
+  0.0, 0.0, 3.1;
+
+BuildingSurface:Detailed,
+  S_East,
+  Wall,
+  ExtWall,
+  Retail,
+  Outdoors,
+  ,
+  SunExposed,
+  WindExposed,
+  autocalc,
+  autocalc,
+  31.0, 0.0, 0.0,
+  31.0, 18.0, 0.0,
+  31.0, 18.0, 3.1,
+  31.0, 0.0, 3.1;
+
+BuildingSurface:Detailed,
+  S_North,
+  Wall,
+  ExtWall,
+  Retail,
+  Outdoors,
+  ,
+  SunExposed,
+  WindExposed,
+  autocalc,
+  autocalc,
+  31.0, 18.0, 0.0,
+  0.0, 18.0, 0.0,
+  0.0, 18.0, 3.1,
+  31.0, 18.0, 3.1;
+
+BuildingSurface:Detailed,
+  S_West,
+  Wall,
+  ExtWall,
+  Retail,
+  Outdoors,
+  ,
+  SunExposed,
+  WindExposed,
+  autocalc,
+  autocalc,
+  0.0, 18.0, 0.0,
+  0.0, 0.0, 0.0,
+  0.0, 0.0, 3.1,
+  0.0, 18.0, 3.1;
+
+BuildingSurface:Detailed,
+  S_Floor,
+  Floor,
+  FloorAssembly,
+  Retail,
+  Ground,
+  ,
+  NoSun,
+  NoWind,
+  autocalc,
+  autocalc,
+  0.0, 0.0, 0.0,
+  0.0, 18.0, 0.0,
+  31.0, 18.0, 0.0,
+  31.0, 0.0, 0.0;
+
+BuildingSurface:Detailed,
+  S_Roof,
+  Roof,
+  RoofAssembly,
+  Retail,
+  Outdoors,
+  ,
+  SunExposed,
+  WindExposed,
+  autocalc,
+  autocalc,
+  0.0, 0.0, 3.1,
+  31.0, 0.0, 3.1,
+  31.0, 18.0, 3.1,
+  0.0, 18.0, 3.1;
+
+FenestrationSurface:Detailed,
+  S_South_Win,
+  Window,
+  WindowConstruction,
+  S_South,
+  ,
+  autocalc,
+  ,
+  ,
+  autocalc,
+  3.1, 0.0, 0.78,
+  27.9, 0.0, 0.78,
+  27.9, 0.0, 2.33,
+  3.1, 0.0, 2.33;
+
+FenestrationSurface:Detailed,
+  S_North_Win,
+  Window,
+  WindowConstruction,
+  S_North,
+  ,
+  autocalc,
+  ,
+  ,
+  autocalc,
+  27.9, 18.0, 0.97,
+  3.1, 18.0, 0.97,
+  3.1, 18.0, 2.13,
+  27.9, 18.0, 2.13;
+
+FenestrationSurface:Detailed,
+  S_West_Win,
+  Window,
+  WindowConstruction,
+  S_West,
+  ,
+  autocalc,
+  ,
+  ,
+  autocalc,
+  0.0, 16.2, 0.97,
+  0.0, 1.8, 0.97,
+  0.0, 1.8, 2.13,
+  0.0, 16.2, 2.13;
+
+People,
+  Retail_People,
+  Retail,
+  OccupancySched,
+  People/Area,
+  ,
+  0.095238,
+  ,
+  ,
+  ,
+  ActivitySched;
+
+Lights,
+  Retail_Lights,
+  Retail,
+  LightingSched,
+  Watts/Area,
+  ,
+  10.1,
+  ,
+  0.0,
+  0.7,
+  0.2;
+
+ElectricEquipment,
+  Retail_Equipment,
+  Retail,
+  EquipmentSched,
+  Watts/Area,
+  ,
+  2.9,
+  ,
+  0.0,
+  0.5,
+  0.0;
+
+ZoneInfiltration:DesignFlowRate,
+  Retail_Infiltration,
+  Retail,
+  AlwaysOn,
+  AirChanges/Hour,
+  ,
+  ,
+  ,
+  0.6,
+  1.0,
+  0.0,
+  0.0,
+  0.0;
+
+HVACTemplate:Zone:PTAC,
+  Retail,
+  TStat,
+  ,
+  Autosize,
+  0.4251,
+  OccupancySched;

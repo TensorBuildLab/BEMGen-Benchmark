@@ -1,0 +1,180 @@
+Version,22.2;
+
+Building,T3-test-08,15,Suburbs,0.04,0.4,FullInteriorAndExterior,25,6;
+
+Timestep,4;
+
+GlobalGeometryRules,UpperLeftCorner,Counterclockwise,Relative;
+
+ScheduleTypeLimits,Fraction,0,1,Continuous;
+ScheduleTypeLimits,Temperature,-60,200,Continuous;
+ScheduleTypeLimits,Any,,,Continuous;
+
+Material,Concrete200,MediumRough,0.2,1.311,2240,836.8,0.9,0.7,0.7;
+Material,Gypsum13,MediumRough,0.0127,0.16,784.9,830,0.9,0.7,0.7;
+Material,Membrane10,MediumRough,0.0095,0.16,1121.3,1460,0.9,0.7,0.7;
+Material,Concrete100,MediumRough,0.1,1.311,2240,836.8,0.9,0.7,0.7;
+Material,Carpet,MediumRough,0.0127,0.06,288,1380,0.9,0.7,0.7;
+Material,WallIns,MediumRough,0.0513,0.049,265,836.8,0.9,0.7,0.7;
+Material,RoofIns,MediumRough,0.10914,0.049,265,836.8,0.9,0.7,0.7;
+
+Construction,ExtWall_Cons,Concrete200,WallIns,Gypsum13;
+Construction,Roof_Cons,Membrane10,RoofIns,Concrete100;
+Construction,Slab_Cons,Concrete100,Carpet;
+Construction,IntFloor_Cons,Carpet,Concrete100;
+Construction,IntCeil_Cons,Concrete100,Carpet;
+
+WindowMaterial:SimpleGlazingSystem,Glazing,1.5,0.32,0.41;
+Construction,Win_Cons,Glazing;
+
+Zone,F1,0,0,0,0,1,1,autocalculate,autocalculate;
+Zone,F2,0,0,0,0,1,1,autocalculate,autocalculate;
+
+! ======== Floor 1 ========
+BuildingSurface:Detailed,F1_South,Wall,ExtWall_Cons,F1,,Outdoors,,SunExposed,WindExposed,autocalculate,4,
+    0,0,3.3, 0,0,0, 16.5,0,0, 16.5,0,3.3;
+FenestrationSurface:Detailed,F1_South_Win,Window,Win_Cons,F1_South,,autocalculate,,1,4,
+    1.65,0,1.959375, 1.65,0,1.340625, 14.85,0,1.340625, 14.85,0,1.959375;
+BuildingSurface:Detailed,F1_East,Wall,ExtWall_Cons,F1,,Outdoors,,SunExposed,WindExposed,autocalculate,4,
+    16.5,0,3.3, 16.5,0,0, 16.5,15,0, 16.5,15,3.3;
+FenestrationSurface:Detailed,F1_East_Win,Window,Win_Cons,F1_East,,autocalculate,,1,4,
+    16.5,1.5,1.959375, 16.5,1.5,1.340625, 16.5,13.5,1.340625, 16.5,13.5,1.959375;
+BuildingSurface:Detailed,F1_North,Wall,ExtWall_Cons,F1,,Outdoors,,SunExposed,WindExposed,autocalculate,4,
+    16.5,15,3.3, 16.5,15,0, 0,15,0, 0,15,3.3;
+FenestrationSurface:Detailed,F1_North_Win,Window,Win_Cons,F1_North,,autocalculate,,1,4,
+    14.85,15,2.578125, 14.85,15,0.721875, 1.65,15,0.721875, 1.65,15,2.578125;
+BuildingSurface:Detailed,F1_West,Wall,ExtWall_Cons,F1,,Outdoors,,SunExposed,WindExposed,autocalculate,4,
+    0,15,3.3, 0,15,0, 0,0,0, 0,0,3.3;
+FenestrationSurface:Detailed,F1_West_Win,Window,Win_Cons,F1_West,,autocalculate,,1,4,
+    0,13.5,2.475, 0,13.5,0.825, 0,1.5,0.825, 0,1.5,2.475;
+BuildingSurface:Detailed,F1_Floor,Floor,Slab_Cons,F1,,Ground,,NoSun,NoWind,autocalculate,4,
+    16.5,0,0, 0,0,0, 0,15,0, 16.5,15,0;
+BuildingSurface:Detailed,F1_Ceiling,Ceiling,IntCeil_Cons,F1,,Surface,F2_Floor,NoSun,NoWind,autocalculate,4,
+    16.5,15,3.3, 0,15,3.3, 0,0,3.3, 16.5,0,3.3;
+
+! ======== Floor 2 ========
+BuildingSurface:Detailed,F2_South,Wall,ExtWall_Cons,F2,,Outdoors,,SunExposed,WindExposed,autocalculate,4,
+    0,0,6.6, 0,0,3.3, 16.5,0,3.3, 16.5,0,6.6;
+FenestrationSurface:Detailed,F2_South_Win,Window,Win_Cons,F2_South,,autocalculate,,1,4,
+    1.65,0,5.259375, 1.65,0,4.640625, 14.85,0,4.640625, 14.85,0,5.259375;
+BuildingSurface:Detailed,F2_East,Wall,ExtWall_Cons,F2,,Outdoors,,SunExposed,WindExposed,autocalculate,4,
+    16.5,0,6.6, 16.5,0,3.3, 16.5,15,3.3, 16.5,15,6.6;
+FenestrationSurface:Detailed,F2_East_Win,Window,Win_Cons,F2_East,,autocalculate,,1,4,
+    16.5,1.5,5.259375, 16.5,1.5,4.640625, 16.5,13.5,4.640625, 16.5,13.5,5.259375;
+BuildingSurface:Detailed,F2_North,Wall,ExtWall_Cons,F2,,Outdoors,,SunExposed,WindExposed,autocalculate,4,
+    16.5,15,6.6, 16.5,15,3.3, 0,15,3.3, 0,15,6.6;
+FenestrationSurface:Detailed,F2_North_Win,Window,Win_Cons,F2_North,,autocalculate,,1,4,
+    14.85,15,5.878125, 14.85,15,4.021875, 1.65,15,4.021875, 1.65,15,5.878125;
+BuildingSurface:Detailed,F2_West,Wall,ExtWall_Cons,F2,,Outdoors,,SunExposed,WindExposed,autocalculate,4,
+    0,15,6.6, 0,15,3.3, 0,0,3.3, 0,0,6.6;
+FenestrationSurface:Detailed,F2_West_Win,Window,Win_Cons,F2_West,,autocalculate,,1,4,
+    0,13.5,5.775, 0,13.5,4.125, 0,1.5,4.125, 0,1.5,5.775;
+BuildingSurface:Detailed,F2_Floor,Floor,IntFloor_Cons,F2,,Surface,F1_Ceiling,NoSun,NoWind,autocalculate,4,
+    16.5,0,3.3, 0,0,3.3, 0,15,3.3, 16.5,15,3.3;
+BuildingSurface:Detailed,F2_Roof,Roof,Roof_Cons,F2,,Outdoors,,SunExposed,WindExposed,autocalculate,4,
+    16.5,15,6.6, 0,15,6.6, 0,0,6.6, 16.5,0,6.6;
+
+Schedule:Compact,ALWAYS_ON,Fraction,Through: 12/31,For: AllDays,Until: 24:00,1;
+
+Schedule:Compact,OCC_SCH,Fraction,Through: 12/31,
+    For: AllDays,Until: 09:00,0,Until: 21:00,1,Until: 24:00,0;
+
+Schedule:Compact,LTG_SCH,Fraction,Through: 12/31,
+    For: AllDays,Until: 09:00,0.05,Until: 21:00,0.85,Until: 24:00,0.05;
+
+Schedule:Compact,EQP_SCH,Fraction,Through: 12/31,
+    For: AllDays,Until: 09:00,0.2,Until: 21:00,0.8,Until: 24:00,0.2;
+
+Schedule:Compact,HTGSETP_SCH,Temperature,Through: 12/31,
+    For: AllDays,Until: 09:00,14,Until: 21:00,21.5,Until: 24:00,14;
+
+Schedule:Compact,CLGSETP_SCH,Temperature,Through: 12/31,
+    For: AllDays,Until: 09:00,29.5,Until: 21:00,23,Until: 24:00,29.5;
+
+Schedule:Compact,ACTIVITY_SCH,Any,Through: 12/31,For: AllDays,Until: 24:00,110;
+
+People,F1_People,F1,OCC_SCH,Area/Person,,,12,0.3,autocalculate,ACTIVITY_SCH;
+Lights,F1_Lights,F1,LTG_SCH,Watts/Area,,11.8,,0,0.7,0.2,1;
+ElectricEquipment,F1_Equip,F1,EQP_SCH,Watts/Area,,3,,0,0.5,0;
+ZoneInfiltration:DesignFlowRate,F1_Infil,F1,ALWAYS_ON,AirChanges/Hour,,,,0.15,1,0,0,0;
+
+People,F2_People,F2,OCC_SCH,Area/Person,,,12,0.3,autocalculate,ACTIVITY_SCH;
+Lights,F2_Lights,F2,LTG_SCH,Watts/Area,,11.8,,0,0.7,0.2,1;
+ElectricEquipment,F2_Equip,F2,EQP_SCH,Watts/Area,,3,,0,0.5,0;
+ZoneInfiltration:DesignFlowRate,F2_Infil,F2,ALWAYS_ON,AirChanges/Hour,,,,0.15,1,0,0,0;
+
+HVACTemplate:Thermostat,Tstat,HTGSETP_SCH,,CLGSETP_SCH,;
+
+HVACTemplate:Zone:PTHP,
+    F1,                      !- Zone Name
+    Tstat,                   !- Template Thermostat Name
+    autosize,                !- Cooling Supply Air Flow Rate
+    autosize,                !- Heating Supply Air Flow Rate
+    ,                        !- No Load Supply Air Flow Rate
+    ,                        !- Zone Heating Sizing Factor
+    ,                        !- Zone Cooling Sizing Factor
+    Flow/Person,             !- Outdoor Air Method
+    0.0095,                  !- Outdoor Air Flow Rate per Person
+    0,                       !- Outdoor Air Flow Rate per Zone Floor Area
+    0,                       !- Outdoor Air Flow Rate per Zone
+    ,                        !- System Availability Schedule Name
+    ,                        !- Supply Fan Operating Mode Schedule Name (blank = cycling)
+    DrawThrough,             !- Supply Fan Placement
+    0.55,                    !- Supply Fan Total Efficiency
+    125,                     !- Supply Fan Delta Pressure
+    0.9,                     !- Supply Fan Motor Efficiency
+    SingleSpeedDX,           !- Cooling Coil Type
+    ,                        !- Cooling Coil Availability Schedule Name
+    autosize,                !- Cooling Coil Gross Rated Total Capacity
+    autosize,                !- Cooling Coil Gross Rated Sensible Heat Ratio
+    3.2,                     !- Cooling Coil Gross Rated COP
+    SingleSpeedDXHeatPump,   !- Heat Pump Heating Coil Type
+    ,                        !- Heat Pump Heating Coil Availability Schedule Name
+    autosize,                !- Heat Pump Heating Coil Gross Rated Capacity
+    2.8,                     !- Heat Pump Heating Coil Gross Rated COP
+    -8,                      !- Heat Pump Heating Minimum Outdoor Dry-Bulb Temperature
+    ,                        !- Heat Pump Defrost Maximum Outdoor Dry-Bulb Temperature
+    ,                        !- Heat Pump Defrost Strategy
+    ,                        !- Heat Pump Defrost Control
+    ,                        !- Heat Pump Defrost Time Period Fraction
+    Electric,                !- Supplemental Heating Coil Type
+    ,                        !- Supplemental Heating Coil Availability Schedule Name
+    autosize,                !- Supplemental Heating Coil Capacity
+    21;                      !- Supplemental Heating Coil Maximum Outdoor Dry-Bulb Temperature
+
+HVACTemplate:Zone:PTHP,
+    F2,                      !- Zone Name
+    Tstat,                   !- Template Thermostat Name
+    autosize,                !- Cooling Supply Air Flow Rate
+    autosize,                !- Heating Supply Air Flow Rate
+    ,                        !- No Load Supply Air Flow Rate
+    ,                        !- Zone Heating Sizing Factor
+    ,                        !- Zone Cooling Sizing Factor
+    Flow/Person,             !- Outdoor Air Method
+    0.0095,                  !- Outdoor Air Flow Rate per Person
+    0,                       !- Outdoor Air Flow Rate per Zone Floor Area
+    0,                       !- Outdoor Air Flow Rate per Zone
+    ,                        !- System Availability Schedule Name
+    ,                        !- Supply Fan Operating Mode Schedule Name (blank = cycling)
+    DrawThrough,             !- Supply Fan Placement
+    0.55,                    !- Supply Fan Total Efficiency
+    125,                     !- Supply Fan Delta Pressure
+    0.9,                     !- Supply Fan Motor Efficiency
+    SingleSpeedDX,           !- Cooling Coil Type
+    ,                        !- Cooling Coil Availability Schedule Name
+    autosize,                !- Cooling Coil Gross Rated Total Capacity
+    autosize,                !- Cooling Coil Gross Rated Sensible Heat Ratio
+    3.2,                     !- Cooling Coil Gross Rated COP
+    SingleSpeedDXHeatPump,   !- Heat Pump Heating Coil Type
+    ,                        !- Heat Pump Heating Coil Availability Schedule Name
+    autosize,                !- Heat Pump Heating Coil Gross Rated Capacity
+    2.8,                     !- Heat Pump Heating Coil Gross Rated COP
+    -8,                      !- Heat Pump Heating Minimum Outdoor Dry-Bulb Temperature
+    ,                        !- Heat Pump Defrost Maximum Outdoor Dry-Bulb Temperature
+    ,                        !- Heat Pump Defrost Strategy
+    ,                        !- Heat Pump Defrost Control
+    ,                        !- Heat Pump Defrost Time Period Fraction
+    Electric,                !- Supplemental Heating Coil Type
+    ,                        !- Supplemental Heating Coil Availability Schedule Name
+    autosize,                !- Supplemental Heating Coil Capacity
+    21;                      !- Supplemental Heating Coil Maximum Outdoor Dry-Bulb Temperature

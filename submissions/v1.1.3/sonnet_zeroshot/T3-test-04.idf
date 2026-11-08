@@ -1,0 +1,117 @@
+Version, 22.2;
+
+Building, T3-test-04, 0, Suburbs, 0.04, 0.4, FullInteriorAndExterior, 25, 6;
+
+Timestep, 4;
+
+GlobalGeometryRules, UpperLeftCorner, Counterclockwise, Relative;
+
+ScheduleTypeLimits, Fraction, 0, 1, Continuous;
+ScheduleTypeLimits, Temperature, -60, 200, Continuous;
+ScheduleTypeLimits, Any, , , Continuous;
+
+Material, Concrete200, MediumRough, 0.2, 1.311, 2240, 836.8, 0.9, 0.7, 0.7;
+Material, Gypsum13, MediumRough, 0.0127, 0.16, 784.9, 830, 0.9, 0.7, 0.7;
+Material, WallIns, MediumRough, 0.061613, 0.049, 265, 836.8, 0.9, 0.7, 0.7;
+Material, Membrane10, MediumRough, 0.0095, 0.16, 1121.3, 1460, 0.9, 0.7, 0.7;
+Material, RoofIns, MediumRough, 0.104184, 0.049, 265, 836.8, 0.9, 0.7, 0.7;
+Material, MetalDeck, MediumRough, 0.0015, 45.006, 7680, 418.4, 0.9, 0.7, 0.7;
+Material, Concrete100, MediumRough, 0.1, 1.311, 2240, 836.8, 0.9, 0.7, 0.7;
+Material, Carpet, MediumRough, 0.0127, 0.06, 288, 1380, 0.9, 0.7, 0.7;
+
+Construction, ExtWall_Cons, Concrete200, WallIns, Gypsum13;
+Construction, Roof_Cons, Membrane10, RoofIns, MetalDeck;
+Construction, Slab_Cons, Concrete100, Carpet;
+Construction, Partition_Cons, Gypsum13, Gypsum13;
+
+WindowMaterial:SimpleGlazingSystem, Glazing, 2.5, 0.47, 0.64;
+Construction, Win_Cons, Glazing;
+
+Zone, Zone, 0, 0, 0, 0, 1, 1, autocalculate, autocalculate;
+
+BuildingSurface:Detailed, Zone_South, Wall, ExtWall_Cons, Zone, , Outdoors, , SunExposed, WindExposed, autocalculate, 4,
+ 0,0,3.3, 0,0,0, 43,0,0, 43,0,3.3;
+BuildingSurface:Detailed, Zone_East, Wall, ExtWall_Cons, Zone, , Outdoors, , SunExposed, WindExposed, autocalculate, 4,
+ 43,0,3.3, 43,0,0, 43,15.5,0, 43,15.5,3.3;
+BuildingSurface:Detailed, Zone_North, Wall, ExtWall_Cons, Zone, , Outdoors, , SunExposed, WindExposed, autocalculate, 4,
+ 43,15.5,3.3, 43,15.5,0, 0,15.5,0, 0,15.5,3.3;
+BuildingSurface:Detailed, Zone_West, Wall, ExtWall_Cons, Zone, , Outdoors, , SunExposed, WindExposed, autocalculate, 4,
+ 0,15.5,3.3, 0,15.5,0, 0,0,0, 0,0,3.3;
+BuildingSurface:Detailed, Zone_Floor, Floor, Slab_Cons, Zone, , Ground, , NoSun, NoWind, autocalculate, 4,
+ 43,0,0, 0,0,0, 0,15.5,0, 43,15.5,0;
+BuildingSurface:Detailed, Zone_Roof, Roof, Roof_Cons, Zone, , Outdoors, , SunExposed, WindExposed, autocalculate, 4,
+ 43,15.5,3.3, 0,15.5,3.3, 0,0,3.3, 43,0,3.3;
+
+FenestrationSurface:Detailed, Zone_South_Win, Window, Win_Cons, Zone_South, , autocalculate, , 1, 4,
+ 4.3,0,1.959375, 4.3,0,1.340625, 38.7,0,1.340625, 38.7,0,1.959375;
+FenestrationSurface:Detailed, Zone_East_Win, Window, Win_Cons, Zone_East, , autocalculate, , 1, 4,
+ 43,1.55,2.26875, 43,1.55,1.03125, 43,13.95,1.03125, 43,13.95,2.26875;
+FenestrationSurface:Detailed, Zone_North_Win, Window, Win_Cons, Zone_North, , autocalculate, , 1, 4,
+ 38.7,15.5,2.371875, 38.7,15.5,0.928125, 4.3,15.5,0.928125, 4.3,15.5,2.371875;
+FenestrationSurface:Detailed, Zone_West_Win, Window, Win_Cons, Zone_West, , autocalculate, , 1, 4,
+ 0,13.95,2.0625, 0,13.95,1.2375, 0,1.55,1.2375, 0,1.55,2.0625;
+
+Schedule:Compact, ALWAYS_ON, Fraction, Through: 12/31, For: AllDays, Until: 24:00, 1;
+Schedule:Compact, FAN_CYCLE, Fraction, Through: 12/31, For: AllDays, Until: 24:00, 0;
+Schedule:Compact, CTRL_TYPE, Any, Through: 12/31, For: AllDays, Until: 24:00, 4;
+Schedule:Compact, OCC_SCH, Fraction, Through: 12/31,
+ For: Weekdays SummerDesignDay WinterDesignDay, Until: 07:00, 0, Until: 19:00, 1, Until: 24:00, 0,
+ For: Saturday, Until: 08:00, 0, Until: 13:00, 1, Until: 24:00, 0,
+ For: AllOtherDays, Until: 24:00, 0;
+Schedule:Compact, LTG_SCH, Fraction, Through: 12/31,
+ For: Weekdays SummerDesignDay WinterDesignDay, Until: 07:00, 0.2, Until: 19:00, 0.95, Until: 24:00, 0.2,
+ For: Saturday, Until: 08:00, 0.2, Until: 13:00, 0.95, Until: 24:00, 0.2,
+ For: AllOtherDays, Until: 24:00, 0.2;
+Schedule:Compact, EQP_SCH, Fraction, Through: 12/31,
+ For: Weekdays SummerDesignDay WinterDesignDay, Until: 07:00, 0.2, Until: 19:00, 0.95, Until: 24:00, 0.2,
+ For: Saturday, Until: 08:00, 0.2, Until: 13:00, 0.95, Until: 24:00, 0.2,
+ For: AllOtherDays, Until: 24:00, 0.2;
+Schedule:Compact, HTGSETP_SCH, Temperature, Through: 12/31,
+ For: Weekdays SummerDesignDay WinterDesignDay, Until: 07:00, 15.5, Until: 19:00, 21, Until: 24:00, 15.5,
+ For: Saturday, Until: 08:00, 15.5, Until: 13:00, 21, Until: 24:00, 15.5,
+ For: AllOtherDays, Until: 24:00, 15.5;
+Schedule:Compact, CLGSETP_SCH, Temperature, Through: 12/31,
+ For: Weekdays SummerDesignDay WinterDesignDay, Until: 07:00, 27, Until: 19:00, 24.5, Until: 24:00, 27,
+ For: Saturday, Until: 08:00, 27, Until: 13:00, 24.5, Until: 24:00, 27,
+ For: AllOtherDays, Until: 24:00, 27;
+Schedule:Compact, ACTIVITY_SCH, Any, Through: 12/31, For: AllDays, Until: 24:00, 130;
+
+People, Zone_People, Zone, OCC_SCH, Area/Person, , , 12.5, 0.3, autocalculate, ACTIVITY_SCH;
+Lights, Zone_Lights, Zone, LTG_SCH, Watts/Area, , 11.3, , 0, 0.7, 0.2, 1;
+ElectricEquipment, Zone_Equip, Zone, EQP_SCH, Watts/Area, , 10.5, , 0, 0.5, 0;
+ZoneInfiltration:DesignFlowRate, Zone_Infil, Zone, ALWAYS_ON, AirChanges/Hour, , , , 0.5, 1, 0, 0, 0;
+
+! ---------------- HVAC: PTAC
+DesignSpecification:OutdoorAir, Zone_OA_Spec, Flow/Person, 0.0025;
+
+Sizing:Zone, Zone, SupplyAirTemperature, 14, , SupplyAirTemperature, 40, , 0.0085, 0.008, Zone_OA_Spec;
+
+ThermostatSetpoint:DualSetpoint, Zone_DualSP, HTGSETP_SCH, CLGSETP_SCH;
+ZoneControl:Thermostat, Zone_Tstat, Zone, CTRL_TYPE, ThermostatSetpoint:DualSetpoint, Zone_DualSP;
+
+ZoneHVAC:EquipmentConnections, Zone, Zone_EquipList, PTAC_Outlet_Node, PTAC_Inlet_Node, Zone_Air_Node;
+ZoneHVAC:EquipmentList, Zone_EquipList, SequentialLoad, ZoneHVAC:PackagedTerminalAirConditioner, Zone_PTAC, 1, 1;
+
+OutdoorAir:NodeList, PTAC_OA_Node;
+OutdoorAir:Mixer, PTAC_OA_Mixer, PTAC_Mixed_Node, PTAC_OA_Node, PTAC_Relief_Node, PTAC_Inlet_Node;
+
+ZoneHVAC:PackagedTerminalAirConditioner, Zone_PTAC, ALWAYS_ON, PTAC_Inlet_Node, PTAC_Outlet_Node,
+ OutdoorAir:Mixer, PTAC_OA_Mixer,
+ autosize, autosize, autosize, autosize, autosize, autosize,
+ Fan:OnOff, PTAC_Fan,
+ Coil:Heating:Electric, PTAC_HeatCoil,
+ Coil:Cooling:DX:SingleSpeed, PTAC_CoolCoil,
+ BlowThrough, FAN_CYCLE;
+
+Fan:OnOff, PTAC_Fan, ALWAYS_ON, 0.5, 100, autosize, 0.9, 1.0, PTAC_Mixed_Node, PTAC_FanOut_Node;
+
+Coil:Cooling:DX:SingleSpeed, PTAC_CoolCoil, ALWAYS_ON, autosize, autosize, 3.3, autosize, , PTAC_FanOut_Node, PTAC_CoolOut_Node,
+ CoolCapFT, CoolCapFFF, CoolEIRFT, CoolEIRFFF, CoolPLF;
+
+Coil:Heating:Electric, PTAC_HeatCoil, ALWAYS_ON, 1.0, autosize, PTAC_CoolOut_Node, PTAC_Outlet_Node;
+
+Curve:Biquadratic, CoolCapFT, 0.942587793, 0.009543347, 0.000683770, -0.011042676, 0.000005249, -0.000009720, 12.77, 23.88, 18.0, 46.11, , , Temperature, Temperature, Dimensionless;
+Curve:Quadratic, CoolCapFFF, 0.8, 0.2, 0.0, 0.5, 1.5, , , Dimensionless, Dimensionless;
+Curve:Biquadratic, CoolEIRFT, 0.342414409, 0.034885008, -0.000623700, 0.004977216, 0.000437951, -0.000728028, 12.77, 23.88, 18.0, 46.11, , , Temperature, Temperature, Dimensionless;
+Curve:Quadratic, CoolEIRFFF, 1.156, -0.1816, 0.0256, 0.5, 1.5, , , Dimensionless, Dimensionless;
+Curve:Quadratic, CoolPLF, 0.85, 0.15, 0.0, 0.0, 1.0, , , Dimensionless, Dimensionless;

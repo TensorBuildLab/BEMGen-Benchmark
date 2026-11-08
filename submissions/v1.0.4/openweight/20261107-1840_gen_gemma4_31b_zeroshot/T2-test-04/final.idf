@@ -1,0 +1,498 @@
+Version, 22.2;
+
+Material,
+  Concrete_Heavy,               ! Name
+  0.2,                         ! Roughness
+  0.05,                        ! Absorptance
+  0.4,                         ! Reflectance
+  0.1311,                      ! Conductivity
+  2240,                        ! Density
+  836.8,                       ! Specific Heat
+  0.0;                         ! Thermal Conductivity (not used if Conductivity is provided)
+
+Material,
+  Carpet,                       ! Name
+  0.2,                         ! Roughness
+  0.05,                        ! Absorptance
+  0.4,                         ! Reflectance
+  0.06,                        ! Conductivity
+  288,                         ! Density
+  1380,                        ! Specific Heat
+  0.0;
+
+Material,
+  Gypsum,                       ! Name
+  0.2,                         ! Roughness
+  0.05,                        ! Absorptance
+  0.4,                         ! Reflectance
+  0.16,                        ! Conductivity
+  784.9,                       ! Density
+  830,                         ! Specific Heat
+  0.0;
+
+Material,
+  Roof_Insulation,              ! Name
+  0.2,                         ! Roughness
+  0.05,                        ! Absorptance
+  0.4,                         ! Reflectance
+  0.035,                       ! Conductivity (Adjusted to meet U-value)
+  50,                          ! Density
+  1000,                        ! Specific Heat
+  0.0;
+
+Construction,
+  ExtWall,                      ! Name
+  1,                            ! No layers
+  Concrete_Heavy,               ! Layer 1
+  0.200;                        ! Thickness
+
+Construction,
+  RoofConst,                    ! Name
+  1,                            ! No layers
+  Roof_Insulation,              ! Layer 1
+  0.145;                        ! Thickness (Approx for U=0.39)
+
+Construction,
+  FloorConst,                   ! Name
+  2,                            ! No layers
+  Carpet,                       ! Layer 1
+  0.0127,                      ! Thickness
+  Concrete_Heavy,               ! Layer 2
+  0.100;
+
+Construction,
+  IntWallConst,                 ! Name
+  2,                            ! No layers
+  Gypsum,                       ! Layer 1
+  0.0127,                      ! Thickness
+  Gypsum,                       ! Layer 2
+  0.0127;
+
+WindowMaterial,
+  Glass_Simple,                 ! Name
+  0.8,                         ! Transmittance
+  0.23,                        ! Solar Heat Gain Coefficient
+  0.29,                        ! Visible Transmittance
+  2.1,                         ! U-Factor
+  0.0;                         ! Shading Coefficient
+
+Construction,
+  GlassConst,                   ! Name
+  1,                            ! No layers
+  Glass_Simple,                 ! Layer 1
+  0.006;
+
+Zone,
+  Zone_North;
+
+Zone,
+  Zone_South;
+
+Zone,
+  Zone_East;
+
+Zone,
+  Zone_West;
+
+Zone,
+  Zone_Core;
+
+BuildingSurface:Detailed,
+  Wall_North_North,             ! Name
+  Zone_North,                   ! Zone Name
+  Wall,                         ! Surface Type
+  ExtWall,                      ! Construction Name
+  Outside,                      ! Outside Boundary Condition
+  North,                        ! Wind Exposure
+  SunExposed,                   ! Sun Exposure
+  0.0, 0.0, 3.5,               ! Vertex 1 (x,y,z)
+  25.5, 0.0, 3.5,               ! Vertex 2
+  25.5, 0.0, 0.0,               ! Vertex 3
+  0.0, 0.0, 0.0;                ! Vertex 4
+
+BuildingSurface:Detailed,
+  Wall_South_South,             ! Name
+  Zone_South,                   ! Zone Name
+  Wall,                         ! Surface Type
+  ExtWall,                      ! Construction Name
+  Outside,                      ! Outside Boundary Condition
+  South,                        ! Wind Exposure
+  SunExposed,                   ! Sun Exposure
+  0.0, 19.0, 3.5,               ! Vertex 1
+  25.5, 19.0, 3.5,              ! Vertex 2
+  25.5, 19.0, 0.0,              ! Vertex 3
+  0.0, 19.0, 0.0;               ! Vertex 4
+
+BuildingSurface:Detailed,
+  Wall_East_East,               ! Name
+  Zone_East,                    ! Zone Name
+  Wall,                         ! Surface Type
+  ExtWall,                      ! Construction Name
+  Outside,                      ! Outside Boundary Condition
+  East,                         ! Wind Exposure
+  SunExposed,                   ! Sun Exposure
+  25.5, 0.0, 3.5,               ! Vertex 1
+  25.5, 19.0, 3.5,              ! Vertex 2
+  25.5, 19.0, 0.0,              ! Vertex 3
+  25.5, 0.0, 0.0;               ! Vertex 4
+
+BuildingSurface:Detailed,
+  Wall_West_West,               ! Name
+  Zone_West,                    ! Zone Name
+  Wall,                         ! Surface Type
+  ExtWall,                      ! Construction Name
+  Outside,                      ! Outside Boundary Condition
+  West,                         ! Wind Exposure
+  SunExposed,                   ! Sun Exposure
+  0.0, 0.0, 3.5,               ! Vertex 1
+  0.0, 19.0, 3.5,               ! Vertex 2
+  0.0, 19.0, 0.0,               ! Vertex 3
+  0.0, 0.0, 0.0;                ! Vertex 4
+
+BuildingSurface:Detailed,
+  Roof_Core,                    ! Name
+  Zone_Core,                    ! Zone Name
+  Roof,                         ! Surface Type
+  RoofConst,                    ! Construction Name
+  Outside,                      ! Outside Boundary Condition
+  0.0, 0.0, 3.5,               ! Vertex 1 (Simplified core roof)
+  17.5, 0.0, 3.5,               ! Vertex 2
+  17.5, 11.0, 3.5,              ! Vertex 3
+  0.0, 11.0, 3.5;               ! Vertex 4
+! Note: In a real model, the roof would be split across all 5 zones. 
+! For brevity and correctness of total area, we assign roofs to zones.
+
+BuildingSurface:Detailed,
+  Roof_North,
+  Zone_North,
+  Roof,
+  RoofConst,
+  Outside,
+  0.0, 0.0, 3.5,
+  25.5, 0.0, 3.5,
+  25.5, 4.0, 3.5,
+  0.0, 4.0, 3.5;
+
+BuildingSurface:Detailed,
+  Roof_South,
+  Zone_South,
+  Roof,
+  RoofConst,
+  Outside,
+  0.0, 15.0, 3.5,
+  25.5, 15.0, 3.5,
+  25.5, 19.0, 3.5,
+  0.0, 19.0, 3.5;
+
+BuildingSurface:Detailed,
+  Roof_East,
+  Zone_East,
+  Roof,
+  RoofConst,
+  Outside,
+  21.5, 4.0, 3.5,
+  25.5, 4.0, 3.5,
+  25.5, 15.0, 3.5,
+  21.5, 15.0, 3.5;
+
+BuildingSurface:Detailed,
+  Roof_West,
+  Zone_West,
+  Roof,
+  RoofConst,
+  Outside,
+  0.0, 4.0, 3.5,
+  4.0, 4.0, 3.5,
+  4.0, 15.0, 3.5,
+  0.0, 15.0, 3.5;
+
+BuildingSurface:Detailed,
+  Roof_Core_Actual,
+  Zone_Core,
+  Roof,
+  RoofConst,
+  Outside,
+  4.0, 4.0, 3.5,
+  21.5, 4.0, 3.5,
+  21.5, 15.0, 3.5,
+  4.0, 15.0, 3.5;
+
+BuildingSurface:Detailed,
+  Floor_North,
+  Zone_North,
+  Floor,
+  FloorConst,
+  Ground,
+  0.0, 0.0, 0.0,
+  25.5, 0.0, 0.0,
+  25.5, 4.0, 0.0,
+  0.0, 4.0, 0.0;
+
+BuildingSurface:Detailed,
+  Floor_South,
+  Zone_South,
+  Floor,
+  FloorConst,
+  Ground,
+  0.0, 15.0, 0.0,
+  25.5, 15.0, 0.0,
+  25.5, 19.0, 0.0,
+  0.0, 19.0, 0.0;
+
+BuildingSurface:Detailed,
+  Floor_East,
+  Zone_East,
+  Floor,
+  FloorConst,
+  Ground,
+  21.5, 4.0, 0.0,
+  25.5, 4.0, 0.0,
+  25.5, 15.0, 0.0,
+  21.5, 15.0, 0.0;
+
+BuildingSurface:Detailed,
+  Floor_West,
+  Zone_West,
+  Floor,
+  FloorConst,
+  Ground,
+  0.0, 4.0, 0.0,
+  4.0, 4.0, 0.0,
+  4.0, 15.0, 0.0,
+  0.0, 15.0, 0.0;
+
+BuildingSurface:Detailed,
+  Floor_Core,
+  Zone_Core,
+  Floor,
+  FloorConst,
+  Ground,
+  4.0, 4.0, 0.0,
+  21.5, 4.0, 0.0,
+  21.5, 15.0, 0.0,
+  4.0, 15.0, 0.0;
+
+BuildingSurface:Detailed,
+  Wall_North_Int,
+  Zone_North,
+  Wall,
+  IntWallConst,
+  ZoneInside,
+  Zone_Core,
+  0.0, 4.0, 3.5,
+  25.5, 4.0, 3.5,
+  25.5, 4.0, 0.0,
+  0.0, 4.0, 0.0;
+
+BuildingSurface:Detailed,
+  Wall_South_Int,
+  Zone_South,
+  Wall,
+  IntWallConst,
+  ZoneInside,
+  Zone_Core,
+  0.0, 15.0, 3.5,
+  25.5, 15.0, 3.5,
+  25.5, 15.0, 0.0,
+  0.0, 15.0, 0.0;
+
+BuildingSurface:Detailed,
+  Wall_East_Int,
+  Zone_East,
+  Wall,
+  IntWallConst,
+  ZoneInside,
+  Zone_Core,
+  21.5, 4.0, 3.5,
+  25.5, 4.0, 3.5,
+  25.5, 15.0, 3.5,
+  21.5, 15.0, 3.5;
+! Note: Simplified partitions for the core.
+
+BuildingSurface:Detailed,
+  Wall_West_Int,
+  Zone_West,
+  Wall,
+  IntWallConst,
+  ZoneInside,
+  Zone_Core,
+  4.0, 4.0, 3.5,
+  0.0, 4.0, 3.5,
+  0.0, 15.0, 3.5,
+  4.0, 15.0, 3.5;
+
+BuildingSurface:Detailed,
+  Window_North,
+  Zone_North,
+  Window,
+  GlassConst,
+  Outside,
+  North,
+  SunExposed,
+  5.0, 0.0, 3.0,
+  20.5, 0.0, 3.0,
+  20.5, 0.0, 1.0,
+  5.0, 0.0, 1.0;
+! WWR North: 0.45 * (25.5 * 3.5) = 40.16 m2. Window area: 15.5 * 2 = 31.
+! Adjusted for 45% WWR: 40.16 / (25.5*3.5) = 0.45. 
+! Let's use a simpler window: 20.5m wide, 1.95m high = 40.16m2.
+BuildingSurface:Detailed,
+  Window_North_Fixed,
+  Zone_North,
+  Window,
+  GlassConst,
+  Outside,
+  North,
+  SunExposed,
+  2.5, 0.0, 3.0,
+  23.0, 0.0, 3.0,
+  23.0, 0.0, 1.05,
+  2.5, 0.0, 1.05;
+
+BuildingSurface:Detailed,
+  Window_South,
+  Zone_South,
+  Window,
+  GlassConst,
+  Outside,
+  South,
+  SunExposed,
+  5.0, 19.0, 3.0,
+  15.5, 19.0, 3.0,
+  15.5, 19.0, 1.0,
+  5.0, 19.0, 1.0;
+! WWR South: 0.20 * (25.5 * 3.5) = 17.85 m2. 10.5 * 2 = 21.
+! Adjusted: 17.85 / 3.5 = 5.1m wide, 3.5m high? No.
+! 17.85 / 1.7 = 10.5m wide, 1.7m high.
+BuildingSurface:Detailed,
+  Window_South_Fixed,
+  Zone_South,
+  Window,
+  GlassConst,
+  Outside,
+  South,
+  SunExposed,
+  7.5, 19.0, 3.0,
+  17.85, 19.0, 3.0,
+  17.85, 19.0, 1.3,
+  7.5, 19.0, 1.3;
+
+BuildingSurface:Detailed,
+  Window_West,
+  Zone_West,
+  Window,
+  GlassConst,
+  Outside,
+  West,
+  SunExposed,
+  0.0, 5.0, 3.0,
+  0.0, 14.0, 3.0,
+  0.0, 14.0, 1.0,
+  0.0, 5.0, 1.0;
+! WWR West: 0.15 * (19 * 3.5) = 9.975 m2. 9 * 1.1 = 9.9.
+BuildingSurface:Detailed,
+  Window_West_Fixed,
+  Zone_West,
+  Window,
+  GlassConst,
+  Outside,
+  West,
+  SunExposed,
+  0.0, 5.0, 3.0,
+  0.0, 14.0, 3.0,
+  0.0, 14.0, 1.9,
+  0.0, 5.0, 1.9;
+
+Schedule:Compact,
+  Occ_Sched,
+  Weekday, 07:00, 1.0, 19:00, 0.0, 24:00, 0.0,
+  Saturday, 08:00, 1.0, 13:00, 0.0, 24:00, 0.0,
+  Sunday, 00:00, 0.0, 24:00, 0.0;
+
+Schedule:Compact,
+  Light_Sched,
+  Weekday, 07:00, 0.9, 19:00, 0.05, 24:00, 0.05,
+  Saturday, 08:00, 0.9, 13:00, 0.05, 24:00, 0.05,
+  Sunday, 00:00, 0.05, 24:00, 0.05;
+
+Schedule:Compact,
+  Plug_Sched,
+  Weekday, 07:00, 0.95, 19:00, 0.35, 24:00, 0.35,
+  Saturday, 08:00, 0.95, 13:00, 0.35, 24:00, 0.35,
+  Sunday, 00:00, 0.35, 24:00, 0.35;
+
+Schedule:Compact,
+  Heat_Set_Occ, 00:00, 20.5, 24:00, 20.5;
+Schedule:Compact,
+  Heat_Set_Unocc, 00:00, 16.5, 24:00, 16.5;
+Schedule:Compact,
+  Cool_Set_Occ, 00:00, 24.0, 24:00, 24.0;
+Schedule:Compact,
+  Cool_Set_Unocc, 00:00, 28.0, 24:00, 28.0;
+
+Schedule:Compact,
+  Thermostat_Heat,
+  Weekday, 07:00, 20.5, 19:00, 16.5, 24:00, 16.5,
+  Saturday, 08:00, 20.5, 13:00, 16.5, 24:00, 16.5,
+  Sunday, 00:00, 16.5, 24:00, 16.5;
+
+Schedule:Compact,
+  Thermostat_Cool,
+  Weekday, 07:00, 24.0, 19:00, 28.0, 24:00, 28.0,
+  Saturday, 08:00, 24.0, 13:00, 28.0, 24:00, 28.0,
+  Sunday, 00:00, 28.0, 24:00, 28.0;
+
+People,
+  Zone_North, 25.5*4/10, 130, Occ_Sched;
+People,
+  Zone_South, 25.5*4/10, 130, Occ_Sched;
+People,
+  Zone_East, 11*4/10, 130, Occ_Sched;
+People,
+  Zone_West, 11*4/10, 130, Occ_Sched;
+People,
+  Zone_Core, (25.5-8)*(19-8)/10, 130, Occ_Sched;
+
+Lights,
+  Zone_North, 25.5*4*8.2, Light_Sched;
+Lights,
+  Zone_South, 25.5*4*8.2, Light_Sched;
+Lights,
+  Zone_East, 11*4*8.2, Light_Sched;
+Lights,
+  Zone_West, 11*4*8.2, Light_Sched;
+Lights,
+  Zone_Core, (25.5-8)*(19-8)*8.2, Light_Sched;
+
+ElectricEquipment,
+  Zone_North, 25.5*4*13, Plug_Sched;
+ElectricEquipment,
+  Zone_South, 25.5*4*13, Plug_Sched;
+ElectricEquipment,
+  Zone_East, 11*4*13, Plug_Sched;
+ElectricEquipment,
+  Zone_West, 11*4*13, Plug_Sched;
+ElectricEquipment,
+  Zone_Core, (25.5-8)*(19-8)*13, Plug_Sched;
+
+ZoneInfiltration:DesignSpecification,
+  Zone_North, 0.1;
+ZoneInfiltration:DesignSpecification,
+  Zone_South, 0.1;
+ZoneInfiltration:DesignSpecification,
+  Zone_East, 0.1;
+ZoneInfiltration:DesignSpecification,
+  Zone_West, 0.1;
+ZoneInfiltration:DesignSpecification,
+  Zone_Core, 0.1;
+
+HVACTemplate:Zone:IdealLoadsAirSystem,
+  Zone_North, Thermostat_Heat, Thermostat_Cool;
+HVACTemplate:Zone:IdealLoadsAirSystem,
+  Zone_South, Thermostat_Heat, Thermostat_Cool;
+HVACTemplate:Zone:IdealLoadsAirSystem,
+  Zone_East, Thermostat_Heat, Thermostat_Cool;
+HVACTemplate:Zone:IdealLoadsAirSystem,
+  Zone_West, Thermostat_Heat, Thermostat_Cool;
+HVACTemplate:Zone:IdealLoadsAirSystem,
+  Zone_Core, Thermostat_Heat, Thermostat_Cool;

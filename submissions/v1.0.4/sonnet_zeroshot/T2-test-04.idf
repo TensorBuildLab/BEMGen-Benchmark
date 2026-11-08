@@ -1,0 +1,107 @@
+Version,22.2;
+Building,T2-test-04,0,Suburbs,0.04,0.4,FullExterior,25,6;
+Timestep,4;
+GlobalGeometryRules,UpperLeftCorner,Counterclockwise,Relative;
+ScheduleTypeLimits,Fraction,0,1,Continuous;
+ScheduleTypeLimits,Temperature,-60,200,Continuous;
+ScheduleTypeLimits,Any,,,Continuous;
+
+Material,Concrete200,MediumRough,0.2032,1.311,2240,836.8,0.9,0.7,0.7;
+Material,Gypsum13,MediumRough,0.0127,0.16,784.9,830,0.9,0.7,0.7;
+Material,Membrane10,MediumRough,0.0095,0.16,1121.3,1460,0.9,0.7,0.7;
+Material,MetalDeck,MediumRough,0.0015,45.006,7680,418.4,0.9,0.7,0.7;
+Material,Concrete100,MediumRough,0.1016,1.311,2240,836.8,0.9,0.7,0.7;
+Material,Carpet,MediumRough,0.0127,0.06,288,1380,0.9,0.7,0.7;
+Material:NoMass,WallIns,MediumRough,1.7888,0.9,0.7,0.7;
+Material:NoMass,RoofIns,MediumRough,2.3661,0.9,0.7,0.7;
+Construction,ExtWall_Cons,Concrete200,WallIns,Gypsum13;
+Construction,Roof_Cons,Membrane10,RoofIns,MetalDeck;
+Construction,Slab_Cons,Concrete100,Carpet;
+Construction,Partition_Cons,Gypsum13,Gypsum13;
+WindowMaterial:SimpleGlazingSystem,Glazing,2.1,0.23,0.29;
+Construction,Win_Cons,Glazing;
+
+Zone,ZS,0,0,0,0,1,1,autocalculate,autocalculate;
+Zone,ZE,0,0,0,0,1,1,autocalculate,autocalculate;
+Zone,ZN,0,0,0,0,1,1,autocalculate,autocalculate;
+Zone,ZW,0,0,0,0,1,1,autocalculate,autocalculate;
+Zone,ZC,0,0,0,0,1,1,autocalculate,autocalculate;
+
+! South zone
+BuildingSurface:Detailed,ZS_Wall,Wall,ExtWall_Cons,ZS,,Outdoors,,SunExposed,WindExposed,autocalculate,4,0,0,3.5,0,0,0,25.5,0,0,25.5,0,3.5;
+BuildingSurface:Detailed,ZS_P1,Wall,Partition_Cons,ZS,,Adiabatic,,NoSun,NoWind,autocalculate,4,25.5,0,3.5,25.5,0,0,21.5,4,0,21.5,4,3.5;
+BuildingSurface:Detailed,ZS_P2,Wall,Partition_Cons,ZS,,Adiabatic,,NoSun,NoWind,autocalculate,4,21.5,4,3.5,21.5,4,0,4,4,0,4,4,3.5;
+BuildingSurface:Detailed,ZS_P3,Wall,Partition_Cons,ZS,,Adiabatic,,NoSun,NoWind,autocalculate,4,4,4,3.5,4,4,0,0,0,0,0,0,3.5;
+BuildingSurface:Detailed,ZS_Floor,Floor,Slab_Cons,ZS,,Ground,,NoSun,NoWind,autocalculate,4,0,0,0,4,4,0,21.5,4,0,25.5,0,0;
+BuildingSurface:Detailed,ZS_Roof,Roof,Roof_Cons,ZS,,Outdoors,,SunExposed,WindExposed,autocalculate,4,0,0,3.5,25.5,0,3.5,21.5,4,3.5,4,4,3.5;
+FenestrationSurface:Detailed,ZS_Win,Window,Win_Cons,ZS_Wall,,autocalculate,,1,4,1.275,0,2.13889,1.275,0,1.36111,24.225,0,1.36111,24.225,0,2.13889;
+
+! East zone
+BuildingSurface:Detailed,ZE_Wall,Wall,ExtWall_Cons,ZE,,Outdoors,,SunExposed,WindExposed,autocalculate,4,25.5,0,3.5,25.5,0,0,25.5,19,0,25.5,19,3.5;
+BuildingSurface:Detailed,ZE_P1,Wall,Partition_Cons,ZE,,Adiabatic,,NoSun,NoWind,autocalculate,4,25.5,19,3.5,25.5,19,0,21.5,15,0,21.5,15,3.5;
+BuildingSurface:Detailed,ZE_P2,Wall,Partition_Cons,ZE,,Adiabatic,,NoSun,NoWind,autocalculate,4,21.5,15,3.5,21.5,15,0,21.5,4,0,21.5,4,3.5;
+BuildingSurface:Detailed,ZE_P3,Wall,Partition_Cons,ZE,,Adiabatic,,NoSun,NoWind,autocalculate,4,21.5,4,3.5,21.5,4,0,25.5,0,0,25.5,0,3.5;
+BuildingSurface:Detailed,ZE_Floor,Floor,Slab_Cons,ZE,,Ground,,NoSun,NoWind,autocalculate,4,25.5,0,0,21.5,4,0,21.5,15,0,25.5,19,0;
+BuildingSurface:Detailed,ZE_Roof,Roof,Roof_Cons,ZE,,Outdoors,,SunExposed,WindExposed,autocalculate,4,25.5,0,3.5,25.5,19,3.5,21.5,15,3.5,21.5,4,3.5;
+
+! North zone
+BuildingSurface:Detailed,ZN_Wall,Wall,ExtWall_Cons,ZN,,Outdoors,,SunExposed,WindExposed,autocalculate,4,25.5,19,3.5,25.5,19,0,0,19,0,0,19,3.5;
+BuildingSurface:Detailed,ZN_P1,Wall,Partition_Cons,ZN,,Adiabatic,,NoSun,NoWind,autocalculate,4,0,19,3.5,0,19,0,4,15,0,4,15,3.5;
+BuildingSurface:Detailed,ZN_P2,Wall,Partition_Cons,ZN,,Adiabatic,,NoSun,NoWind,autocalculate,4,4,15,3.5,4,15,0,21.5,15,0,21.5,15,3.5;
+BuildingSurface:Detailed,ZN_P3,Wall,Partition_Cons,ZN,,Adiabatic,,NoSun,NoWind,autocalculate,4,21.5,15,3.5,21.5,15,0,25.5,19,0,25.5,19,3.5;
+BuildingSurface:Detailed,ZN_Floor,Floor,Slab_Cons,ZN,,Ground,,NoSun,NoWind,autocalculate,4,25.5,19,0,21.5,15,0,4,15,0,0,19,0;
+BuildingSurface:Detailed,ZN_Roof,Roof,Roof_Cons,ZN,,Outdoors,,SunExposed,WindExposed,autocalculate,4,25.5,19,3.5,0,19,3.5,4,15,3.5,21.5,15,3.5;
+FenestrationSurface:Detailed,ZN_Win,Window,Win_Cons,ZN_Wall,,autocalculate,,1,4,24.225,19,2.625,24.225,19,0.875,1.275,19,0.875,1.275,19,2.625;
+
+! West zone
+BuildingSurface:Detailed,ZW_Wall,Wall,ExtWall_Cons,ZW,,Outdoors,,SunExposed,WindExposed,autocalculate,4,0,19,3.5,0,19,0,0,0,0,0,0,3.5;
+BuildingSurface:Detailed,ZW_P1,Wall,Partition_Cons,ZW,,Adiabatic,,NoSun,NoWind,autocalculate,4,0,0,3.5,0,0,0,4,4,0,4,4,3.5;
+BuildingSurface:Detailed,ZW_P2,Wall,Partition_Cons,ZW,,Adiabatic,,NoSun,NoWind,autocalculate,4,4,4,3.5,4,4,0,4,15,0,4,15,3.5;
+BuildingSurface:Detailed,ZW_P3,Wall,Partition_Cons,ZW,,Adiabatic,,NoSun,NoWind,autocalculate,4,4,15,3.5,4,15,0,0,19,0,0,19,3.5;
+BuildingSurface:Detailed,ZW_Floor,Floor,Slab_Cons,ZW,,Ground,,NoSun,NoWind,autocalculate,4,0,19,0,4,15,0,4,4,0,0,0,0;
+BuildingSurface:Detailed,ZW_Roof,Roof,Roof_Cons,ZW,,Outdoors,,SunExposed,WindExposed,autocalculate,4,0,19,3.5,0,0,3.5,4,4,3.5,4,15,3.5;
+FenestrationSurface:Detailed,ZW_Win,Window,Win_Cons,ZW_Wall,,autocalculate,,1,4,0,18.05,2.04167,0,18.05,1.45833,0,0.95,1.45833,0,0.95,2.04167;
+
+! Core zone
+BuildingSurface:Detailed,ZC_P1,Wall,Partition_Cons,ZC,,Adiabatic,,NoSun,NoWind,autocalculate,4,4,4,3.5,4,4,0,21.5,4,0,21.5,4,3.5;
+BuildingSurface:Detailed,ZC_P2,Wall,Partition_Cons,ZC,,Adiabatic,,NoSun,NoWind,autocalculate,4,21.5,4,3.5,21.5,4,0,21.5,15,0,21.5,15,3.5;
+BuildingSurface:Detailed,ZC_P3,Wall,Partition_Cons,ZC,,Adiabatic,,NoSun,NoWind,autocalculate,4,21.5,15,3.5,21.5,15,0,4,15,0,4,15,3.5;
+BuildingSurface:Detailed,ZC_P4,Wall,Partition_Cons,ZC,,Adiabatic,,NoSun,NoWind,autocalculate,4,4,15,3.5,4,15,0,4,4,0,4,4,3.5;
+BuildingSurface:Detailed,ZC_Floor,Floor,Slab_Cons,ZC,,Ground,,NoSun,NoWind,autocalculate,4,4,15,0,21.5,15,0,21.5,4,0,4,4,0;
+BuildingSurface:Detailed,ZC_Roof,Roof,Roof_Cons,ZC,,Outdoors,,SunExposed,WindExposed,autocalculate,4,4,4,3.5,21.5,4,3.5,21.5,15,3.5,4,15,3.5;
+
+Schedule:Compact,ALWAYS_ON,Fraction,Through: 12/31,For: AllDays,Until: 24:00,1;
+Schedule:Compact,OCC_SCH,Fraction,Through: 12/31,For: Weekdays SummerDesignDay WinterDesignDay,Until: 07:00,0,Until: 19:00,1,Until: 24:00,0,For: Saturday,Until: 08:00,0,Until: 13:00,1,Until: 24:00,0,For: AllOtherDays,Until: 24:00,0;
+Schedule:Compact,LTG_SCH,Fraction,Through: 12/31,For: Weekdays SummerDesignDay WinterDesignDay,Until: 07:00,0.05,Until: 19:00,0.9,Until: 24:00,0.05,For: Saturday,Until: 08:00,0.05,Until: 13:00,0.9,Until: 24:00,0.05,For: AllOtherDays,Until: 24:00,0.05;
+Schedule:Compact,EQP_SCH,Fraction,Through: 12/31,For: Weekdays SummerDesignDay WinterDesignDay,Until: 07:00,0.35,Until: 19:00,0.95,Until: 24:00,0.35,For: Saturday,Until: 08:00,0.35,Until: 13:00,0.95,Until: 24:00,0.35,For: AllOtherDays,Until: 24:00,0.35;
+Schedule:Compact,HTG_SCH,Temperature,Through: 12/31,For: Weekdays SummerDesignDay WinterDesignDay,Until: 07:00,16.5,Until: 19:00,20.5,Until: 24:00,16.5,For: Saturday,Until: 08:00,16.5,Until: 13:00,20.5,Until: 24:00,16.5,For: AllOtherDays,Until: 24:00,16.5;
+Schedule:Compact,CLG_SCH,Temperature,Through: 12/31,For: Weekdays SummerDesignDay WinterDesignDay,Until: 07:00,28,Until: 19:00,24,Until: 24:00,28,For: Saturday,Until: 08:00,28,Until: 13:00,24,Until: 24:00,28,For: AllOtherDays,Until: 24:00,28;
+Schedule:Compact,ACT_SCH,Any,Through: 12/31,For: AllDays,Until: 24:00,130;
+
+People,ZS_People,ZS,OCC_SCH,Area/Person,,,10,0.3,autocalculate,ACT_SCH;
+People,ZE_People,ZE,OCC_SCH,Area/Person,,,10,0.3,autocalculate,ACT_SCH;
+People,ZN_People,ZN,OCC_SCH,Area/Person,,,10,0.3,autocalculate,ACT_SCH;
+People,ZW_People,ZW,OCC_SCH,Area/Person,,,10,0.3,autocalculate,ACT_SCH;
+People,ZC_People,ZC,OCC_SCH,Area/Person,,,10,0.3,autocalculate,ACT_SCH;
+Lights,ZS_Lights,ZS,LTG_SCH,Watts/Area,,8.2,,0,0.37,0.18,1;
+Lights,ZE_Lights,ZE,LTG_SCH,Watts/Area,,8.2,,0,0.37,0.18,1;
+Lights,ZN_Lights,ZN,LTG_SCH,Watts/Area,,8.2,,0,0.37,0.18,1;
+Lights,ZW_Lights,ZW,LTG_SCH,Watts/Area,,8.2,,0,0.37,0.18,1;
+Lights,ZC_Lights,ZC,LTG_SCH,Watts/Area,,8.2,,0,0.37,0.18,1;
+ElectricEquipment,ZS_Equip,ZS,EQP_SCH,Watts/Area,,13,,0,0.3,0;
+ElectricEquipment,ZE_Equip,ZE,EQP_SCH,Watts/Area,,13,,0,0.3,0;
+ElectricEquipment,ZN_Equip,ZN,EQP_SCH,Watts/Area,,13,,0,0.3,0;
+ElectricEquipment,ZW_Equip,ZW,EQP_SCH,Watts/Area,,13,,0,0.3,0;
+ElectricEquipment,ZC_Equip,ZC,EQP_SCH,Watts/Area,,13,,0,0.3,0;
+ZoneInfiltration:DesignFlowRate,ZS_Infil,ZS,ALWAYS_ON,AirChanges/Hour,,,,0.1,1,0,0,0;
+ZoneInfiltration:DesignFlowRate,ZE_Infil,ZE,ALWAYS_ON,AirChanges/Hour,,,,0.1,1,0,0,0;
+ZoneInfiltration:DesignFlowRate,ZN_Infil,ZN,ALWAYS_ON,AirChanges/Hour,,,,0.1,1,0,0,0;
+ZoneInfiltration:DesignFlowRate,ZW_Infil,ZW,ALWAYS_ON,AirChanges/Hour,,,,0.1,1,0,0,0;
+ZoneInfiltration:DesignFlowRate,ZC_Infil,ZC,ALWAYS_ON,AirChanges/Hour,,,,0.1,1,0,0,0;
+
+HVACTemplate:Thermostat,Tstat,HTG_SCH,,CLG_SCH,;
+HVACTemplate:Zone:IdealLoadsAirSystem,ZS,Tstat;
+HVACTemplate:Zone:IdealLoadsAirSystem,ZE,Tstat;
+HVACTemplate:Zone:IdealLoadsAirSystem,ZN,Tstat;
+HVACTemplate:Zone:IdealLoadsAirSystem,ZW,Tstat;
+HVACTemplate:Zone:IdealLoadsAirSystem,ZC,Tstat;

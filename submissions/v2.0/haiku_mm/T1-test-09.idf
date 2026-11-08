@@ -1,0 +1,415 @@
+Building,
+  Clinic Washington Dulles, !- Name
+  0.0,                      !- North Axis (plan up = true north)
+  City,                     !- Terrain
+  0.04,                     !- Loads Convergence Tolerance Value
+  0.4,                      !- Temperature Convergence Tolerance Value (C)
+  FullExterior,             !- Solar Distribution
+  25,                       !- Maximum Number of Warmup Days
+  6;                        !- Minimum Number of Warmup Days
+
+Timestep,
+  4;
+
+ScheduleTypeLimits,
+  Any Number;
+
+Schedule:Compact,
+  ALWAYS_ON,
+  Any Number,
+  Through: 12/31,
+  For: AllDays,
+  Until: 24:00, 1.0;
+
+Schedule:Compact,
+  ACT_SCHED,
+  Any Number,
+  Through: 12/31,
+  For: AllDays,
+  Until: 24:00, 130.0;
+
+Schedule:Compact,
+  OCC_SCHED,
+  Any Number,
+  Through: 12/31,
+  For: Weekdays SummerDesignDay WinterDesignDay,
+  Until: 07:00, 0.0,
+  Until: 19:00, 1.0,
+  Until: 24:00, 0.0,
+  For: Saturday,
+  Until: 08:00, 0.0,
+  Until: 13:00, 1.0,
+  Until: 24:00, 0.0,
+  For: AllOtherDays,
+  Until: 24:00, 0.0;
+
+Schedule:Compact,
+  LIGHT_SCHED,
+  Any Number,
+  Through: 12/31,
+  For: Weekdays SummerDesignDay WinterDesignDay,
+  Until: 07:00, 0.1,
+  Until: 19:00, 1.0,
+  Until: 24:00, 0.1,
+  For: Saturday,
+  Until: 08:00, 0.1,
+  Until: 13:00, 1.0,
+  Until: 24:00, 0.1,
+  For: AllOtherDays,
+  Until: 24:00, 0.1;
+
+Schedule:Compact,
+  EQUIP_SCHED,
+  Any Number,
+  Through: 12/31,
+  For: Weekdays SummerDesignDay WinterDesignDay,
+  Until: 07:00, 0.4,
+  Until: 19:00, 0.95,
+  Until: 24:00, 0.4,
+  For: Saturday,
+  Until: 08:00, 0.4,
+  Until: 13:00, 0.95,
+  Until: 24:00, 0.4,
+  For: AllOtherDays,
+  Until: 24:00, 0.4;
+
+Schedule:Compact,
+  HEAT_SP,
+  Any Number,
+  Through: 12/31,
+  For: Weekdays SummerDesignDay WinterDesignDay,
+  Until: 07:00, 16.5,
+  Until: 19:00, 20.0,
+  Until: 24:00, 16.5,
+  For: Saturday,
+  Until: 08:00, 16.5,
+  Until: 13:00, 20.0,
+  Until: 24:00, 16.5,
+  For: AllOtherDays,
+  Until: 24:00, 16.5;
+
+Schedule:Compact,
+  COOL_SP,
+  Any Number,
+  Through: 12/31,
+  For: Weekdays SummerDesignDay WinterDesignDay,
+  Until: 07:00, 29.0,
+  Until: 19:00, 24.5,
+  Until: 24:00, 29.0,
+  For: Saturday,
+  Until: 08:00, 29.0,
+  Until: 13:00, 24.5,
+  Until: 24:00, 29.0,
+  For: AllOtherDays,
+  Until: 24:00, 29.0;
+
+Zone,
+  ZONE1;
+
+Material,
+  CONCRETE_200,             !- Name
+  MediumRough,              !- Roughness
+  0.2,                      !- Thickness (m)
+  1.311,                    !- Conductivity (W/m-K)
+  2240.0,                   !- Density (kg/m3)
+  836.8;                    !- Specific Heat (J/kg-K)
+
+Material,
+  WALL_INSUL,               !- Name
+  Rough,                    !- Roughness
+  0.2,                      !- Thickness (m)
+  0.1029,                   !- Conductivity (W/m-K)
+  30.0,                     !- Density (kg/m3)
+  1400.0;                   !- Specific Heat (J/kg-K)
+
+Material,
+  GYPSUM_12,                !- Name
+  Smooth,                   !- Roughness
+  0.0127,                   !- Thickness (m)
+  0.16,                     !- Conductivity (W/m-K)
+  784.9,                    !- Density (kg/m3)
+  830.0;                    !- Specific Heat (J/kg-K)
+
+Material,
+  ROOF_INSUL,               !- Name
+  Rough,                    !- Roughness
+  0.2,                      !- Thickness (m)
+  0.04963,                  !- Conductivity (W/m-K)
+  30.0,                     !- Density (kg/m3)
+  1400.0;                   !- Specific Heat (J/kg-K)
+
+Material,
+  METAL_DECK,               !- Name
+  Smooth,                   !- Roughness
+  0.0015,                   !- Thickness (m)
+  45.0,                     !- Conductivity (W/m-K)
+  7830.0,                   !- Density (kg/m3)
+  500.0;                    !- Specific Heat (J/kg-K)
+
+Material,
+  SLAB_CONCRETE,            !- Name
+  MediumRough,              !- Roughness
+  0.1,                      !- Thickness (m)
+  1.311,                    !- Conductivity (W/m-K)
+  2240.0,                   !- Density (kg/m3)
+  836.8;                    !- Specific Heat (J/kg-K)
+
+Material,
+  CARPET,                   !- Name
+  VeryRough,                !- Roughness
+  0.0127,                   !- Thickness (m)
+  0.06,                     !- Conductivity (W/m-K)
+  288.0,                    !- Density (kg/m3)
+  1380.0;                   !- Specific Heat (J/kg-K)
+
+WindowMaterial:SimpleGlazingSystem,
+  GLAZING,                  !- Name
+  2.0,                      !- U-Factor (W/m2-K)
+  0.45,                     !- Solar Heat Gain Coefficient
+  0.62;                     !- Visible Transmittance
+
+Construction,
+  EXT_WALL,
+  CONCRETE_200,
+  WALL_INSUL,
+  GYPSUM_12;
+
+Construction,
+  ROOF_CON,
+  ROOF_INSUL,
+  METAL_DECK;
+
+Construction,
+  GROUND_FLOOR,
+  SLAB_CONCRETE,
+  CARPET;
+
+Construction,
+  WINDOW_CON,
+  GLAZING;
+
+BuildingSurface:Detailed,
+  SOUTH_WALL,
+  Wall,
+  EXT_WALL,
+  ZONE1,
+  ,
+  Outdoors,
+  ,
+  SunExposed,
+  WindExposed,
+  autocalculate,
+  4,
+  0.0, 0.0, 0.0,
+  44.5, 0.0, 0.0,
+  44.5, 0.0, 3.0,
+  0.0, 0.0, 3.0;
+
+BuildingSurface:Detailed,
+  NORTH_WALL,
+  Wall,
+  EXT_WALL,
+  ZONE1,
+  ,
+  Outdoors,
+  ,
+  SunExposed,
+  WindExposed,
+  autocalculate,
+  4,
+  44.5, 14.5, 0.0,
+  0.0, 14.5, 0.0,
+  0.0, 14.5, 3.0,
+  44.5, 14.5, 3.0;
+
+BuildingSurface:Detailed,
+  EAST_WALL,
+  Wall,
+  EXT_WALL,
+  ZONE1,
+  ,
+  Outdoors,
+  ,
+  SunExposed,
+  WindExposed,
+  autocalculate,
+  4,
+  44.5, 0.0, 0.0,
+  44.5, 14.5, 0.0,
+  44.5, 14.5, 3.0,
+  44.5, 0.0, 3.0;
+
+BuildingSurface:Detailed,
+  WEST_WALL,
+  Wall,
+  EXT_WALL,
+  ZONE1,
+  ,
+  Outdoors,
+  ,
+  SunExposed,
+  WindExposed,
+  autocalculate,
+  4,
+  0.0, 14.5, 0.0,
+  0.0, 0.0, 0.0,
+  0.0, 0.0, 3.0,
+  0.0, 14.5, 3.0;
+
+BuildingSurface:Detailed,
+  ROOF,
+  Roof,
+  ROOF_CON,
+  ZONE1,
+  ,
+  Outdoors,
+  ,
+  SunExposed,
+  WindExposed,
+  autocalculate,
+  4,
+  0.0, 0.0, 3.0,
+  44.5, 0.0, 3.0,
+  44.5, 14.5, 3.0,
+  0.0, 14.5, 3.0;
+
+BuildingSurface:Detailed,
+  GROUND_FLOOR_SURF,
+  Floor,
+  GROUND_FLOOR,
+  ZONE1,
+  ,
+  Ground,
+  ,
+  NoSun,
+  NoWind,
+  autocalculate,
+  4,
+  0.0, 0.0, 0.0,
+  0.0, 14.5, 0.0,
+  44.5, 14.5, 0.0,
+  44.5, 0.0, 0.0;
+
+FenestrationSurface:Detailed,
+  SOUTH_WINDOW,
+  Window,
+  WINDOW_CON,
+  SOUTH_WALL,
+  ,
+  autocalculate,
+  ,
+  ,
+  4,
+  4.45, 0.0, 0.83,
+  40.05, 0.0, 0.83,
+  40.05, 0.0, 2.14,
+  4.45, 0.0, 2.14;
+
+FenestrationSurface:Detailed,
+  NORTH_WINDOW,
+  Window,
+  WINDOW_CON,
+  NORTH_WALL,
+  ,
+  autocalculate,
+  ,
+  ,
+  4,
+  40.05, 14.5, 1.12,
+  4.45, 14.5, 1.12,
+  4.45, 14.5, 1.87,
+  40.05, 14.5, 1.87;
+
+FenestrationSurface:Detailed,
+  EAST_WINDOW,
+  Window,
+  WINDOW_CON,
+  EAST_WALL,
+  ,
+  autocalculate,
+  ,
+  ,
+  4,
+  44.5, 1.45, 1.12,
+  44.5, 13.05, 1.12,
+  44.5, 13.05, 1.87,
+  44.5, 1.45, 1.87;
+
+FenestrationSurface:Detailed,
+  WEST_WINDOW,
+  Window,
+  WINDOW_CON,
+  WEST_WALL,
+  ,
+  autocalculate,
+  ,
+  ,
+  4,
+  0.0, 13.05, 1.12,
+  0.0, 1.45, 1.12,
+  0.0, 1.45, 1.87,
+  0.0, 13.05, 1.87;
+
+ZoneInfiltration:DesignFlowRate,
+  ZONE1 Infiltration,
+  ZONE1,
+  ALWAYS_ON,
+  AirChanges/Hour,
+  ,
+  ,
+  ,
+  0.25,
+  1.0,
+  0.0,
+  0.0,
+  0.0;
+
+People,
+  ZONE1 People,
+  ZONE1,
+  OCC_SCHED,
+  Area/Person,
+  ,
+  ,
+  10.5,
+  ,
+  ,
+  ACT_SCHED;
+
+Lights,
+  ZONE1 Lights,
+  ZONE1,
+  LIGHT_SCHED,
+  Watts/Area,
+  ,
+  10.9,
+  ,
+  ,
+  ,
+  ,
+  0.0,
+  0.7,
+  0.2;
+
+ElectricEquipment,
+  ZONE1 Equipment,
+  ZONE1,
+  EQUIP_SCHED,
+  Watts/Area,
+  ,
+  8.5,
+  ,
+  0.0,
+  0.5,
+  0.0;
+
+HVACTemplate:Thermostat,
+  ZONE1 Thermostat,
+  ,
+  HEAT_SP,
+  ,
+  COOL_SP;
+
+HVACTemplate:Zone:IdealLoadsAirSystem,
+  ZONE1,
+  ZONE1 Thermostat;

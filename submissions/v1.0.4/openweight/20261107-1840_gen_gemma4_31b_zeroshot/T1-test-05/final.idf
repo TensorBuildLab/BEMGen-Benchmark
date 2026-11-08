@@ -1,0 +1,347 @@
+Building {
+  North Axis = 30;
+}
+
+Material {
+  Name = Concrete_Heavy;
+  Roughness = Rough;
+  Density = 2240;
+  Specific Heat = 836.8;
+  Conductivity = 1.311;
+}
+
+Material {
+  Name = Carpet;
+  Roughness = Smooth;
+  Density = 288;
+  Specific Heat = 1380;
+  Conductivity = 0.06;
+}
+
+Material {
+  Name = Gypsum;
+  Roughness = Smooth;
+  Density = 784.9;
+  Specific Heat = 830;
+  Conductivity = 0.16;
+}
+
+Material {
+  Name = Roof_Insulation;
+  Roughness = Smooth;
+  Density = 32;
+  Specific Heat = 1200;
+  Conductivity = 0.03;
+}
+
+Construction {
+  Name = Wall_Mass;
+  Layer 1 {
+    Material Name = Concrete_Heavy;
+    Thickness = 0.200;
+  }
+}
+
+Construction {
+  Name = Roof_Light;
+  Layer 1 {
+    Material Name = Roof_Insulation;
+    Thickness = 0.15;
+  }
+}
+
+Construction {
+  Name = Floor_Slab;
+  Layer 1 {
+    Material Name = Carpet;
+    Thickness = 0.0127;
+  }
+  Layer 2 {
+    Material Name = Concrete_Heavy;
+    Thickness = 0.100;
+  }
+}
+
+Construction {
+  Name = Partition_Wall;
+  Layer 1 {
+    Material Name = Gypsum;
+    Thickness = 0.0127;
+  }
+  Layer 2 {
+    Material Name = Gypsum;
+    Thickness = 0.0127;
+  }
+}
+
+WindowMaterial {
+  Name = Glazing_Simple;
+  Optical Properties {
+    U-Factor = 1.6;
+    Solar Heat Gain Coefficient = 0.33;
+    Visible Transmittance = 0.49;
+  }
+}
+
+Construction {
+  Name = Window_Const;
+  Layer 1 {
+    WindowMaterial Name = Glazing_Simple;
+    Thickness = 0.024;
+  }
+}
+
+Zone {
+  Name = School_Zone;
+}
+
+BuildingSurface:Detailed {
+  Name = Wall_North;
+  Construction Name = Wall_Mass;
+  Zone Name = School_Zone;
+  Outside Boundary Condition = Outdoors;
+  Sun Blocking = No;
+  Wind Blocking = No;
+  Detailed Surface {
+    Vertex 1 { X = 0.0; Y = 22.5; Z = 0.0; }
+    Vertex 2 { X = 46.0; Y = 22.5; Z = 0.0; }
+    Vertex 3 { X = 46.0; Y = 22.5; Z = 3.3; }
+    Vertex 4 { X = 0.0; Y = 22.5; Z = 3.3; }
+  }
+}
+
+BuildingSurface:Detailed {
+  Name = Wall_East;
+  Construction Name = Wall_Mass;
+  Zone Name = School_Zone;
+  Outside Boundary Condition = Outdoors;
+  Sun Blocking = No;
+  Wind Blocking = No;
+  Detailed Surface {
+    Vertex 1 { X = 46.0; Y = 0.0; Z = 0.0; }
+    Vertex 2 { X = 46.0; Y = 22.5; Z = 0.0; }
+    Vertex 3 { X = 46.0; Y = 22.5; Z = 3.3; }
+    Vertex 4 { X = 46.0; Y = 0.0; Z = 3.3; }
+  }
+}
+
+BuildingSurface:Detailed {
+  Name = Wall_South;
+  Construction Name = Wall_Mass;
+  Zone Name = School_Zone;
+  Outside Boundary Condition = Outdoors;
+  Sun Blocking = No;
+  Wind Blocking = No;
+  Detailed Surface {
+    Vertex 1 { X = 46.0; Y = 0.0; Z = 0.0; }
+    Vertex 2 { X = 0.0; Y = 0.0; Z = 0.0; }
+    Vertex 3 { X = 0.0; Y = 0.0; Z = 3.3; }
+    Vertex 4 { X = 46.0; Y = 0.0; Z = 3.3; }
+  }
+}
+
+BuildingSurface:Detailed {
+  Name = Wall_West;
+  Construction Name = Wall_Mass;
+  Zone Name = School_Zone;
+  Outside Boundary Condition = Outdoors;
+  Sun Blocking = No;
+  Wind Blocking = No;
+  Detailed Surface {
+    Vertex 1 { X = 0.0; Y = 0.0; Z = 0.0; }
+    Vertex 2 { X = 0.0; Y = 22.5; Z = 0.0; }
+    Vertex 3 { X = 0.0; Y = 22.5; Z = 3.3; }
+    Vertex 4 { X = 0.0; Y = 0.0; Z = 3.3; }
+  }
+}
+
+BuildingSurface:Detailed {
+  Name = Roof;
+  Construction Name = Roof_Light;
+  Zone Name = School_Zone;
+  Outside Boundary Condition = Outdoors;
+  Sun Blocking = No;
+  Wind Blocking = No;
+  Detailed Surface {
+    Vertex 1 { X = 0.0; Y = 0.0; Z = 3.3; }
+    Vertex 2 { X = 46.0; Y = 0.0; Z = 3.3; }
+    Vertex 3 { X = 46.0; Y = 22.5; Z = 3.3; }
+    Vertex 4 { X = 0.0; Y = 22.5; Z = 3.3; }
+  }
+}
+
+BuildingSurface:Detailed {
+  Name = Floor;
+  Construction Name = Floor_Slab;
+  Zone Name = School_Zone;
+  Outside Boundary Condition = Ground;
+  Sun Blocking = No;
+  Wind Blocking = No;
+  Detailed Surface {
+    Vertex 1 { X = 0.0; Y = 0.0; Z = 0.0; }
+    Vertex 2 { X = 46.0; Y = 0.0; Z = 0.0; }
+    Vertex 3 { X = 46.0; Y = 22.5; Z = 0.0; }
+    Vertex 4 { X = 0.0; Y = 22.5; Z = 0.0; }
+  }
+}
+
+FenestrationSurface:Detailed {
+  Name = Win_North;
+  Construction Name = Window_Const;
+  Zone Name = School_Zone;
+  Outside Boundary Condition = Outdoors;
+  Sun Blocking = No;
+  Wind Blocking = No;
+  Detailed Surface {
+    Vertex 1 { X = 0.0; Y = 22.5; Z = 0.5; }
+    Vertex 2 { X = 46.0 * 0.35; Y = 22.5; Z = 0.5; }
+    Vertex 3 { X = 46.0 * 0.35; Y = 22.5; Z = 2.8; }
+    Vertex 4 { X = 0.0; Y = 22.5; Z = 2.8; }
+  }
+}
+
+FenestrationSurface:Detailed {
+  Name = Win_East;
+  Construction Name = Window_Const;
+  Zone Name = School_Zone;
+  Outside Boundary Condition = Outdoors;
+  Sun Blocking = No;
+  Wind Blocking = No;
+  Detailed Surface {
+    Vertex 1 { X = 46.0; Y = 0.0; Z = 0.5; }
+    Vertex 2 { X = 46.0; Y = 22.5 * 0.40; Z = 0.5; }
+    Vertex 3 { X = 46.0; Y = 22.5 * 0.40; Z = 2.8; }
+    Vertex 4 { X = 46.0; Y = 0.0; Z = 2.8; }
+  }
+}
+
+FenestrationSurface:Detailed {
+  Name = Win_South;
+  Construction Name = Window_Const;
+  Zone Name = School_Zone;
+  Outside Boundary Condition = Outdoors;
+  Sun Blocking = No;
+  Wind Blocking = No;
+  Detailed Surface {
+    Vertex 1 { X = 46.0; Y = 0.0; Z = 0.5; }
+    Vertex 2 { X = 46.0 * (1 - 0.20); Y = 0.0; Z = 0.5; }
+    Vertex 3 { X = 46.0 * (1 - 0.20); Y = 0.0; Z = 2.8; }
+    Vertex 4 { X = 46.0; Y = 0.0; Z = 2.8; }
+  }
+}
+
+FenestrationSurface:Detailed {
+  Name = Win_West;
+  Construction Name = Window_Const;
+  Zone Name = School_Zone;
+  Outside Boundary Condition = Outdoors;
+  Sun Blocking = No;
+  Wind Blocking = No;
+  Detailed Surface {
+    Vertex 1 { X = 0.0; Y = 0.0; Z = 0.5; }
+    Vertex 2 { X = 0.0; Y = 22.5 * 0.35; Z = 0.5; }
+    Vertex 3 { X = 0.0; Y = 22.5 * 0.35; Z = 2.8; }
+    Vertex 4 { X = 0.0; Y = 0.0; Z = 2.8; }
+  }
+}
+
+Schedule:Compact {
+  Name = Occupancy_Sched;
+  Schedule Type Limits = Fraction;
+  Field 1 { Value = 1.0; For: Weekdays; }
+  Field 2 { Value = 0.0; For: Weekdays; }
+  Field 3 { Value = 0.0; For: Weekends; }
+}
+
+Schedule:Compact {
+  Name = Lighting_Sched;
+  Schedule Type Limits = Fraction;
+  Field 1 { Value = 0.95; For: Weekdays; }
+  Field 2 { Value = 0.1; For: Weekdays; }
+  Field 3 { Value = 0.1; For: Weekends; }
+}
+
+Schedule:Compact {
+  Name = Equipment_Sched;
+  Schedule Type Limits = Fraction;
+  Field 1 { Value = 0.9; For: Weekdays; }
+  Field 2 { Value = 0.35; For: Weekdays; }
+  Field 3 { Value = 0.35; For: Weekends; }
+}
+
+Schedule:Compact {
+  Name = Temp_Sched_Occ;
+  Schedule Type Limits = Temperature;
+  Field 1 { Value = 22.0; For: Weekdays; }
+  Field 2 { Value = 23.5; For: Weekdays; }
+}
+
+Schedule:Compact {
+  Name = Temp_Sched_Unocc;
+  Schedule Type Limits = Temperature;
+  Field 1 { Value = 14.0; For: Weekdays; }
+  Field 2 { Value = 28.0; For: Weekdays; }
+}
+
+People {
+  Name = School_People;
+  Zone Name = School_Zone;
+  Number of People = 258;
+  Activity Level = 130;
+  Schedule Name = Occupancy_Sched;
+}
+
+Lights {
+  Name = School_Lights;
+  Zone Name = School_Zone;
+  Electric Power = 8307;
+  Schedule Name = Lighting_Sched;
+}
+
+ElectricEquipment {
+  Name = School_Equip;
+  Zone Name = School_Zone;
+  Electric Power = 5287.5;
+  Schedule Name = Equipment_Sched;
+}
+
+ZoneInfiltration {
+  Name = School_Infil;
+  Zone Name = School_Zone;
+  Infiltration Rate = 0.4;
+}
+
+HVACTemplate:Zone:IdealLoadsAirSystem {
+  Name = Ideal_Loads_System;
+  Zone Name = School_Zone;
+}
+
+ZoneControl:Thermostat {
+  Name = School_Thermostat;
+  Zone Name = School_Zone;
+  Heating Setpoint Temperature = 22.0;
+  Cooling Setpoint Temperature = 23.5;
+}
+
+Schedule:Compact {
+  Name = Heating_Setpoint_Sched;
+  Schedule Type Limits = Temperature;
+  Field 1 { Value = 22.0; For: Weekdays; }
+  Field 2 { Value = 14.0; For: Weekdays; }
+  Field 3 { Value = 14.0; For: Weekends; }
+}
+
+Schedule:Compact {
+  Name = Cooling_Setpoint_Sched;
+  Schedule Type Limits = Temperature;
+  Field 1 { Value = 23.5; For: Weekdays; }
+  Field 2 { Value = 28.0; For: Weekdays; }
+  Field 3 { Value = 28.0; For: Weekends; }
+}
+
+ZoneControl:Thermostat {
+  Name = School_Thermostat_Sched;
+  Zone Name = School_Zone;
+  Heating Setpoint Temperature Schedule Name = Heating_Setpoint_Sched;
+  Cooling Setpoint Temperature Schedule Name = Cooling_Setpoint_Sched;
+}

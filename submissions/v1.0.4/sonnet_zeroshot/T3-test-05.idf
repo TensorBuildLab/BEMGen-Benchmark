@@ -1,0 +1,72 @@
+Version,22.2;
+Building,T3-test-05,30,Suburbs,0.04,0.4,FullExterior,25,6;
+Timestep,4;
+GlobalGeometryRules,UpperLeftCorner,Counterclockwise,Relative;
+ScheduleTypeLimits,Fraction,0,1,Continuous;
+ScheduleTypeLimits,Temperature,-60,200,Continuous;
+ScheduleTypeLimits,Any,,,Continuous;
+
+Material,MetalSiding,MediumRough,0.0015,44.96,7688.9,410,0.9,0.7,0.7;
+Material,Plywood16,MediumRough,0.0159,0.12,544,1210,0.9,0.7,0.7;
+Material,Gypsum13,MediumRough,0.0127,0.16,784.9,830,0.9,0.7,0.7;
+Material,Membrane10,MediumRough,0.0095,0.16,1121.3,1460,0.9,0.7,0.7;
+Material,MetalDeck,MediumRough,0.0015,45.006,7680,418.4,0.9,0.7,0.7;
+Material,Concrete100,MediumRough,0.1,1.311,2240,836.8,0.9,0.7,0.7;
+Material,Carpet,MediumRough,0.0127,0.06,288,1380,0.9,0.7,0.7;
+Material,WallIns,MediumRough,0.0784,0.049,265,836.8,0.9,0.7,0.7;
+Material,RoofIns,MediumRough,0.2352,0.049,265,836.8,0.9,0.7,0.7;
+
+Construction,ExtWall_Cons,MetalSiding,Plywood16,WallIns,Gypsum13;
+Construction,Roof_Cons,Membrane10,RoofIns,MetalDeck;
+Construction,Slab_Cons,Concrete100,Carpet;
+Construction,UpperFloor_Cons,Concrete100,Carpet;
+Construction,LowerCeil_Cons,Carpet,Concrete100;
+Construction,Partition_Cons,Gypsum13,Gypsum13;
+WindowMaterial:SimpleGlazingSystem,Glazing,3.4,0.5,0.72;
+Construction,Win_Cons,Glazing;
+
+Zone,Zone_1F,0,0,0,0,1,1,autocalculate,autocalculate;
+Zone,Zone_2F,0,0,0,0,1,1,autocalculate,autocalculate;
+
+BuildingSurface:Detailed,1F_Wall_S,Wall,ExtWall_Cons,Zone_1F,,Outdoors,,SunExposed,WindExposed,autocalculate,4,0,0,3.2,0,0,0,28,0,0,28,0,3.2;
+BuildingSurface:Detailed,1F_Wall_E,Wall,ExtWall_Cons,Zone_1F,,Outdoors,,SunExposed,WindExposed,autocalculate,4,28,0,3.2,28,0,0,28,14,0,28,14,3.2;
+BuildingSurface:Detailed,1F_Wall_N,Wall,ExtWall_Cons,Zone_1F,,Outdoors,,SunExposed,WindExposed,autocalculate,4,28,14,3.2,28,14,0,0,14,0,0,14,3.2;
+BuildingSurface:Detailed,1F_Wall_W,Wall,ExtWall_Cons,Zone_1F,,Outdoors,,SunExposed,WindExposed,autocalculate,4,0,14,3.2,0,14,0,0,0,0,0,0,3.2;
+BuildingSurface:Detailed,1F_Floor,Floor,Slab_Cons,Zone_1F,,Ground,,NoSun,NoWind,autocalculate,4,28,0,0,0,0,0,0,14,0,28,14,0;
+BuildingSurface:Detailed,1F_Ceiling,Ceiling,LowerCeil_Cons,Zone_1F,,Adiabatic,,NoSun,NoWind,autocalculate,4,28,14,3.2,0,14,3.2,0,0,3.2,28,0,3.2;
+BuildingSurface:Detailed,2F_Wall_S,Wall,ExtWall_Cons,Zone_2F,,Outdoors,,SunExposed,WindExposed,autocalculate,4,0,0,6.4,0,0,3.2,28,0,3.2,28,0,6.4;
+BuildingSurface:Detailed,2F_Wall_E,Wall,ExtWall_Cons,Zone_2F,,Outdoors,,SunExposed,WindExposed,autocalculate,4,28,0,6.4,28,0,3.2,28,14,3.2,28,14,6.4;
+BuildingSurface:Detailed,2F_Wall_N,Wall,ExtWall_Cons,Zone_2F,,Outdoors,,SunExposed,WindExposed,autocalculate,4,28,14,6.4,28,14,3.2,0,14,3.2,0,14,6.4;
+BuildingSurface:Detailed,2F_Wall_W,Wall,ExtWall_Cons,Zone_2F,,Outdoors,,SunExposed,WindExposed,autocalculate,4,0,14,6.4,0,14,3.2,0,0,3.2,0,0,6.4;
+BuildingSurface:Detailed,2F_Floor,Floor,UpperFloor_Cons,Zone_2F,,Adiabatic,,NoSun,NoWind,autocalculate,4,28,0,3.2,0,0,3.2,0,14,3.2,28,14,3.2;
+BuildingSurface:Detailed,2F_Roof,Roof,Roof_Cons,Zone_2F,,Outdoors,,SunExposed,WindExposed,autocalculate,4,28,14,6.4,0,14,6.4,0,0,6.4,28,0,6.4;
+
+FenestrationSurface:Detailed,1F_Win_S,Window,Win_Cons,1F_Wall_S,,autocalculate,,1,4,0.5,0,1.7659,0.5,0,1.4341,27.5,0,1.4341,27.5,0,1.7659;
+FenestrationSurface:Detailed,1F_Win_E,Window,Win_Cons,1F_Wall_E,,autocalculate,,1,4,28,0.5,2.1169,28,0.5,1.0831,28,13.5,1.0831,28,13.5,2.1169;
+FenestrationSurface:Detailed,1F_Win_N,Window,Win_Cons,1F_Wall_N,,autocalculate,,1,4,27.5,14,2.0978,27.5,14,1.1022,0.5,14,1.1022,0.5,14,2.0978;
+FenestrationSurface:Detailed,2F_Win_S,Window,Win_Cons,2F_Wall_S,,autocalculate,,1,4,0.5,0,4.9659,0.5,0,4.6341,27.5,0,4.6341,27.5,0,4.9659;
+FenestrationSurface:Detailed,2F_Win_E,Window,Win_Cons,2F_Wall_E,,autocalculate,,1,4,28,0.5,5.3169,28,0.5,4.2831,28,13.5,4.2831,28,13.5,5.3169;
+FenestrationSurface:Detailed,2F_Win_N,Window,Win_Cons,2F_Wall_N,,autocalculate,,1,4,27.5,14,5.2978,27.5,14,4.3022,0.5,14,4.3022,0.5,14,5.2978;
+
+Schedule:Compact,ALWAYS_ON,Fraction,Through: 12/31,For: AllDays,Until: 24:00,1;
+Schedule:Compact,OCC_SCH,Fraction,Through: 12/31,For: Weekdays SummerDesignDay WinterDesignDay,Until: 08:00,0,Until: 18:00,1,Until: 24:00,0,For: AllOtherDays,Until: 24:00,0;
+Schedule:Compact,LTG_SCH,Fraction,Through: 12/31,For: Weekdays SummerDesignDay WinterDesignDay,Until: 08:00,0.05,Until: 18:00,0.8,Until: 24:00,0.05,For: AllOtherDays,Until: 24:00,0.05;
+Schedule:Compact,EQP_SCH,Fraction,Through: 12/31,For: Weekdays SummerDesignDay WinterDesignDay,Until: 08:00,0.35,Until: 18:00,1,Until: 24:00,0.35,For: AllOtherDays,Until: 24:00,0.35;
+Schedule:Compact,HTGSETP_SCH,Temperature,Through: 12/31,For: Weekdays SummerDesignDay WinterDesignDay,Until: 08:00,16.5,Until: 18:00,21.5,Until: 24:00,16.5,For: AllOtherDays,Until: 24:00,16.5;
+Schedule:Compact,CLGSETP_SCH,Temperature,Through: 12/31,For: Weekdays SummerDesignDay WinterDesignDay,Until: 08:00,29.5,Until: 18:00,24.5,Until: 24:00,29.5,For: AllOtherDays,Until: 24:00,29.5;
+Schedule:Compact,ACTIVITY_SCH,Any,Through: 12/31,For: AllDays,Until: 24:00,130;
+
+People,1F_People,Zone_1F,OCC_SCH,Area/Person,,,20,0.3,autocalculate,ACTIVITY_SCH;
+People,2F_People,Zone_2F,OCC_SCH,Area/Person,,,20,0.3,autocalculate,ACTIVITY_SCH;
+Lights,1F_Lights,Zone_1F,LTG_SCH,Watts/Area,,7.4,,0,0.7,0.2,1;
+Lights,2F_Lights,Zone_2F,LTG_SCH,Watts/Area,,7.4,,0,0.7,0.2,1;
+ElectricEquipment,1F_Equip,Zone_1F,EQP_SCH,Watts/Area,,6.6,,0,0.3,0;
+ElectricEquipment,2F_Equip,Zone_2F,EQP_SCH,Watts/Area,,6.6,,0,0.3,0;
+ZoneInfiltration:DesignFlowRate,1F_Infil,Zone_1F,ALWAYS_ON,AirChanges/Hour,,,,0.45,1,0,0,0;
+ZoneInfiltration:DesignFlowRate,2F_Infil,Zone_2F,ALWAYS_ON,AirChanges/Hour,,,,0.45,1,0,0,0;
+
+HVACTemplate:Thermostat,Tstat,HTGSETP_SCH,,CLGSETP_SCH,;
+HVACTemplate:Zone:Unitary,Zone_1F,PSZ_1F,Tstat,autosize,,,Flow/Person,0.006;
+HVACTemplate:Zone:Unitary,Zone_2F,PSZ_2F,Tstat,autosize,,,Flow/Person,0.006;
+HVACTemplate:System:Unitary,PSZ_1F,,Zone_1F,autosize,,0.5,500,0.9,1.0,SingleSpeedDX,,,autosize,autosize,3.3,Gas,,,autosize,0.88,,autosize,autosize,,NoEconomizer;
+HVACTemplate:System:Unitary,PSZ_2F,,Zone_2F,autosize,,0.5,500,0.9,1.0,SingleSpeedDX,,,autosize,autosize,3.3,Gas,,,autosize,0.88,,autosize,autosize,,NoEconomizer;

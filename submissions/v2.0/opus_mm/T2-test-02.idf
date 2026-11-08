@@ -1,0 +1,245 @@
+Building,
+    T2-test-02 Retail,       !- Name
+    340,                     !- North Axis {deg}
+    Suburbs,                 !- Terrain
+    0.04,                    !- Loads Convergence Tolerance Value
+    0.4,                     !- Temperature Convergence Tolerance Value
+    FullExterior,            !- Solar Distribution
+    25,                      !- Maximum Number of Warmup Days
+    6;                       !- Minimum Number of Warmup Days
+
+Timestep,4;
+
+GlobalGeometryRules,
+    UpperLeftCorner,         !- Starting Vertex Position
+    Counterclockwise,        !- Vertex Entry Direction
+    Absolute;                !- Coordinate System
+
+ScheduleTypeLimits,Fraction,0,1,Continuous;
+ScheduleTypeLimits,Temperature,-60,200,Continuous;
+ScheduleTypeLimits,Any Number;
+
+Schedule:Compact,
+    Occupancy_Sch,Fraction,
+    Through: 12/31,
+    For: AllDays,
+    Until: 09:00,0,
+    Until: 21:00,1,
+    Until: 24:00,0;
+
+Schedule:Compact,
+    Lighting_Sch,Fraction,
+    Through: 12/31,
+    For: AllDays,
+    Until: 09:00,0.15,
+    Until: 21:00,0.95,
+    Until: 24:00,0.15;
+
+Schedule:Compact,
+    Equipment_Sch,Fraction,
+    Through: 12/31,
+    For: AllDays,
+    Until: 09:00,0.45,
+    Until: 21:00,0.9,
+    Until: 24:00,0.45;
+
+Schedule:Compact,
+    Heating_SP_Sch,Temperature,
+    Through: 12/31,
+    For: AllDays,
+    Until: 09:00,16.5,
+    Until: 21:00,20.5,
+    Until: 24:00,16.5;
+
+Schedule:Compact,
+    Cooling_SP_Sch,Temperature,
+    Through: 12/31,
+    For: AllDays,
+    Until: 09:00,29.5,
+    Until: 21:00,25,
+    Until: 24:00,29.5;
+
+Schedule:Compact,
+    Activity_Sch,Any Number,
+    Through: 12/31,
+    For: AllDays,
+    Until: 24:00,110;
+
+Schedule:Compact,
+    Always_On,Fraction,
+    Through: 12/31,
+    For: AllDays,
+    Until: 24:00,1;
+
+Material,
+    Metal_Siding,Smooth,0.0015,44.96,7688.86,410,0.9,0.7,0.7;
+
+Material,
+    Wall_Insulation,MediumRough,0.047815,0.049,265,836.8,0.9,0.7,0.7;
+
+Material,
+    Gypsum_12.7,Smooth,0.0127,0.16,784.9,830,0.9,0.4,0.4;
+
+Material,
+    Roof_Membrane,VeryRough,0.0095,0.16,1121.29,1460,0.9,0.7,0.7;
+
+Material,
+    Roof_Insulation,MediumRough,0.29663,0.049,265,836.8,0.9,0.7,0.7;
+
+Material,
+    Metal_Deck,MediumSmooth,0.0008,45.28,7824,500,0.9,0.7,0.7;
+
+Material,
+    HW_Concrete_100,MediumRough,0.1,1.311,2240,836.8,0.9,0.7,0.7;
+
+Material,
+    Carpet_12.7,VeryRough,0.0127,0.06,288,1380,0.9,0.7,0.7;
+
+WindowMaterial:SimpleGlazingSystem,
+    Glazing_Simple,1.8,0.42,0.65;
+
+Construction,Ext_Wall,Metal_Siding,Wall_Insulation,Gypsum_12.7;
+Construction,Roof_Const,Roof_Membrane,Roof_Insulation,Metal_Deck;
+Construction,Floor_Const,HW_Concrete_100,Carpet_12.7;
+Construction,Partition_Const,Gypsum_12.7,Gypsum_12.7;
+Construction,Window_Const,Glazing_Simple;
+
+Zone,Perimeter_S,0,0,0,0,1,1,autocalculate,autocalculate;
+Zone,Perimeter_E,0,0,0,0,1,1,autocalculate,autocalculate;
+Zone,Perimeter_N,0,0,0,0,1,1,autocalculate,autocalculate;
+Zone,Perimeter_W,0,0,0,0,1,1,autocalculate,autocalculate;
+Zone,Core,0,0,0,0,1,1,autocalculate,autocalculate;
+
+!- ===== Perimeter_S =====
+BuildingSurface:Detailed,
+    S_Floor,Floor,Floor_Const,Perimeter_S,,Ground,,NoSun,NoWind,autocalculate,4,
+    4.5,4.5,0, 44.5,4.5,0, 49,0,0, 0,0,0;
+BuildingSurface:Detailed,
+    S_Roof,Roof,Roof_Const,Perimeter_S,,Outdoors,,SunExposed,WindExposed,autocalculate,4,
+    0,0,3.2, 49,0,3.2, 44.5,4.5,3.2, 4.5,4.5,3.2;
+BuildingSurface:Detailed,
+    S_ExtWall,Wall,Ext_Wall,Perimeter_S,,Outdoors,,SunExposed,WindExposed,autocalculate,4,
+    0,0,3.2, 0,0,0, 49,0,0, 49,0,3.2;
+BuildingSurface:Detailed,
+    S_Part_E,Wall,Partition_Const,Perimeter_S,,Surface,E_Part_S,NoSun,NoWind,autocalculate,4,
+    49,0,3.2, 49,0,0, 44.5,4.5,0, 44.5,4.5,3.2;
+BuildingSurface:Detailed,
+    S_Part_Core,Wall,Partition_Const,Perimeter_S,,Surface,Core_Part_S,NoSun,NoWind,autocalculate,4,
+    44.5,4.5,3.2, 44.5,4.5,0, 4.5,4.5,0, 4.5,4.5,3.2;
+BuildingSurface:Detailed,
+    S_Part_W,Wall,Partition_Const,Perimeter_S,,Surface,W_Part_S,NoSun,NoWind,autocalculate,4,
+    4.5,4.5,3.2, 4.5,4.5,0, 0,0,0, 0,0,3.2;
+FenestrationSurface:Detailed,
+    S_Window,Window,Window_Const,S_ExtWall,,autocalculate,,1,4,
+    4.9,0,2.4, 4.9,0,0.8, 44.1,0,0.8, 44.1,0,2.4;
+
+!- ===== Perimeter_E =====
+BuildingSurface:Detailed,
+    E_Floor,Floor,Floor_Const,Perimeter_E,,Ground,,NoSun,NoWind,autocalculate,4,
+    44.5,4.5,0, 44.5,24.5,0, 49,29,0, 49,0,0;
+BuildingSurface:Detailed,
+    E_Roof,Roof,Roof_Const,Perimeter_E,,Outdoors,,SunExposed,WindExposed,autocalculate,4,
+    49,0,3.2, 49,29,3.2, 44.5,24.5,3.2, 44.5,4.5,3.2;
+BuildingSurface:Detailed,
+    E_ExtWall,Wall,Ext_Wall,Perimeter_E,,Outdoors,,SunExposed,WindExposed,autocalculate,4,
+    49,0,3.2, 49,0,0, 49,29,0, 49,29,3.2;
+BuildingSurface:Detailed,
+    E_Part_N,Wall,Partition_Const,Perimeter_E,,Surface,N_Part_E,NoSun,NoWind,autocalculate,4,
+    49,29,3.2, 49,29,0, 44.5,24.5,0, 44.5,24.5,3.2;
+BuildingSurface:Detailed,
+    E_Part_Core,Wall,Partition_Const,Perimeter_E,,Surface,Core_Part_E,NoSun,NoWind,autocalculate,4,
+    44.5,24.5,3.2, 44.5,24.5,0, 44.5,4.5,0, 44.5,4.5,3.2;
+BuildingSurface:Detailed,
+    E_Part_S,Wall,Partition_Const,Perimeter_E,,Surface,S_Part_E,NoSun,NoWind,autocalculate,4,
+    44.5,4.5,3.2, 44.5,4.5,0, 49,0,0, 49,0,3.2;
+FenestrationSurface:Detailed,
+    E_Window,Window,Window_Const,E_ExtWall,,autocalculate,,1,4,
+    49,2.9,2.1, 49,2.9,1.1, 49,26.1,1.1, 49,26.1,2.1;
+
+!- ===== Perimeter_N =====
+BuildingSurface:Detailed,
+    N_Floor,Floor,Floor_Const,Perimeter_N,,Ground,,NoSun,NoWind,autocalculate,4,
+    44.5,24.5,0, 4.5,24.5,0, 0,29,0, 49,29,0;
+BuildingSurface:Detailed,
+    N_Roof,Roof,Roof_Const,Perimeter_N,,Outdoors,,SunExposed,WindExposed,autocalculate,4,
+    49,29,3.2, 0,29,3.2, 4.5,24.5,3.2, 44.5,24.5,3.2;
+BuildingSurface:Detailed,
+    N_ExtWall,Wall,Ext_Wall,Perimeter_N,,Outdoors,,SunExposed,WindExposed,autocalculate,4,
+    49,29,3.2, 49,29,0, 0,29,0, 0,29,3.2;
+BuildingSurface:Detailed,
+    N_Part_W,Wall,Partition_Const,Perimeter_N,,Surface,W_Part_N,NoSun,NoWind,autocalculate,4,
+    0,29,3.2, 0,29,0, 4.5,24.5,0, 4.5,24.5,3.2;
+BuildingSurface:Detailed,
+    N_Part_Core,Wall,Partition_Const,Perimeter_N,,Surface,Core_Part_N,NoSun,NoWind,autocalculate,4,
+    4.5,24.5,3.2, 4.5,24.5,0, 44.5,24.5,0, 44.5,24.5,3.2;
+BuildingSurface:Detailed,
+    N_Part_E,Wall,Partition_Const,Perimeter_N,,Surface,E_Part_N,NoSun,NoWind,autocalculate,4,
+    44.5,24.5,3.2, 44.5,24.5,0, 49,29,0, 49,29,3.2;
+FenestrationSurface:Detailed,
+    N_Window,Window,Window_Const,N_ExtWall,,autocalculate,,1,4,
+    44.1,29,2.4, 44.1,29,0.8, 4.9,29,0.8, 4.9,29,2.4;
+
+!- ===== Perimeter_W =====
+BuildingSurface:Detailed,
+    W_Floor,Floor,Floor_Const,Perimeter_W,,Ground,,NoSun,NoWind,autocalculate,4,
+    4.5,24.5,0, 4.5,4.5,0, 0,0,0, 0,29,0;
+BuildingSurface:Detailed,
+    W_Roof,Roof,Roof_Const,Perimeter_W,,Outdoors,,SunExposed,WindExposed,autocalculate,4,
+    0,29,3.2, 0,0,3.2, 4.5,4.5,3.2, 4.5,24.5,3.2;
+BuildingSurface:Detailed,
+    W_ExtWall,Wall,Ext_Wall,Perimeter_W,,Outdoors,,SunExposed,WindExposed,autocalculate,4,
+    0,29,3.2, 0,29,0, 0,0,0, 0,0,3.2;
+BuildingSurface:Detailed,
+    W_Part_S,Wall,Partition_Const,Perimeter_W,,Surface,S_Part_W,NoSun,NoWind,autocalculate,4,
+    0,0,3.2, 0,0,0, 4.5,4.5,0, 4.5,4.5,3.2;
+BuildingSurface:Detailed,
+    W_Part_Core,Wall,Partition_Const,Perimeter_W,,Surface,Core_Part_W,NoSun,NoWind,autocalculate,4,
+    4.5,4.5,3.2, 4.5,4.5,0, 4.5,24.5,0, 4.5,24.5,3.2;
+BuildingSurface:Detailed,
+    W_Part_N,Wall,Partition_Const,Perimeter_W,,Surface,N_Part_W,NoSun,NoWind,autocalculate,4,
+    4.5,24.5,3.2, 4.5,24.5,0, 0,29,0, 0,29,3.2;
+
+!- ===== Core =====
+BuildingSurface:Detailed,
+    Core_Floor,Floor,Floor_Const,Core,,Ground,,NoSun,NoWind,autocalculate,4,
+    4.5,24.5,0, 44.5,24.5,0, 44.5,4.5,0, 4.5,4.5,0;
+BuildingSurface:Detailed,
+    Core_Roof,Roof,Roof_Const,Core,,Outdoors,,SunExposed,WindExposed,autocalculate,4,
+    4.5,4.5,3.2, 44.5,4.5,3.2, 44.5,24.5,3.2, 4.5,24.5,3.2;
+BuildingSurface:Detailed,
+    Core_Part_S,Wall,Partition_Const,Core,,Surface,S_Part_Core,NoSun,NoWind,autocalculate,4,
+    4.5,4.5,3.2, 4.5,4.5,0, 44.5,4.5,0, 44.5,4.5,3.2;
+BuildingSurface:Detailed,
+    Core_Part_E,Wall,Partition_Const,Core,,Surface,E_Part_Core,NoSun,NoWind,autocalculate,4,
+    44.5,4.5,3.2, 44.5,4.5,0, 44.5,24.5,0, 44.5,24.5,3.2;
+BuildingSurface:Detailed,
+    Core_Part_N,Wall,Partition_Const,Core,,Surface,N_Part_Core,NoSun,NoWind,autocalculate,4,
+    44.5,24.5,3.2, 44.5,24.5,0, 4.5,24.5,0, 4.5,24.5,3.2;
+BuildingSurface:Detailed,
+    Core_Part_W,Wall,Partition_Const,Core,,Surface,W_Part_Core,NoSun,NoWind,autocalculate,4,
+    4.5,24.5,3.2, 4.5,24.5,0, 4.5,4.5,0, 4.5,4.5,3.2;
+
+!- ===== Internal loads =====
+ZoneList,All_Zones,Perimeter_S,Perimeter_E,Perimeter_N,Perimeter_W,Core;
+
+People,
+    All_People,All_Zones,Occupancy_Sch,Area/Person,,,9,0.3,autocalculate,Activity_Sch;
+
+Lights,
+    All_Lights,All_Zones,Lighting_Sch,Watts/Area,,10.6,,0,0.7,0.2,1,GeneralLights;
+
+ElectricEquipment,
+    All_Equipment,All_Zones,Equipment_Sch,Watts/Area,,2.6,,0,0.5,0,GeneralEquipment;
+
+ZoneInfiltration:DesignFlowRate,
+    All_Infiltration,All_Zones,Always_On,AirChanges/Hour,,,,0.2,1,0,0,0;
+
+!- ===== HVAC =====
+HVACTemplate:Thermostat,
+    Retail_Thermostat,Heating_SP_Sch,,Cooling_SP_Sch,;
+
+HVACTemplate:Zone:IdealLoadsAirSystem,Perimeter_S,Retail_Thermostat;
+HVACTemplate:Zone:IdealLoadsAirSystem,Perimeter_E,Retail_Thermostat;
+HVACTemplate:Zone:IdealLoadsAirSystem,Perimeter_N,Retail_Thermostat;
+HVACTemplate:Zone:IdealLoadsAirSystem,Perimeter_W,Retail_Thermostat;
+HVACTemplate:Zone:IdealLoadsAirSystem,Core,Retail_Thermostat;

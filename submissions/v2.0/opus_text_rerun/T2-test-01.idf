@@ -1,0 +1,284 @@
+Building,
+  T2-test-01 Office,
+  0,
+  City,
+  0.04,
+  0.4,
+  FullExterior,
+  25,
+  6;
+
+Timestep,6;
+
+GlobalGeometryRules,
+  UpperLeftCorner,
+  Counterclockwise,
+  Relative;
+
+ScheduleTypeLimits,Fraction,0,1,Continuous;
+ScheduleTypeLimits,Temperature,-60,200,Continuous;
+ScheduleTypeLimits,Any Number;
+
+Schedule:Compact,Occupancy Sch,Fraction,
+  Through: 12/31,
+  For: Weekdays,
+  Until: 08:00,0,
+  Until: 18:00,1,
+  Until: 24:00,0,
+  For: AllOtherDays,
+  Until: 24:00,0;
+
+Schedule:Compact,Lighting Sch,Fraction,
+  Through: 12/31,
+  For: Weekdays,
+  Until: 08:00,0.05,
+  Until: 18:00,0.95,
+  Until: 24:00,0.05,
+  For: AllOtherDays,
+  Until: 24:00,0.05;
+
+Schedule:Compact,Equipment Sch,Fraction,
+  Through: 12/31,
+  For: Weekdays,
+  Until: 08:00,0.35,
+  Until: 18:00,0.95,
+  Until: 24:00,0.35,
+  For: AllOtherDays,
+  Until: 24:00,0.35;
+
+Schedule:Compact,Activity Sch,Any Number,
+  Through: 12/31,
+  For: AllDays,
+  Until: 24:00,120;
+
+Schedule:Compact,Always On,Fraction,
+  Through: 12/31,
+  For: AllDays,
+  Until: 24:00,1;
+
+Schedule:Compact,Heating Setpoint Sch,Temperature,
+  Through: 12/31,
+  For: Weekdays,
+  Until: 08:00,15.5,
+  Until: 18:00,21,
+  Until: 24:00,15.5,
+  For: AllOtherDays,
+  Until: 24:00,15.5;
+
+Schedule:Compact,Cooling Setpoint Sch,Temperature,
+  Through: 12/31,
+  For: Weekdays,
+  Until: 08:00,29,
+  Until: 18:00,23,
+  Until: 24:00,29,
+  For: AllOtherDays,
+  Until: 24:00,29;
+
+Material,Heavyweight Concrete 200mm,MediumRough,0.2,1.311,2240,836.8,0.9,0.7,0.7;
+Material,Wall Insulation,MediumRough,0.04052,0.045,265,836.8,0.9,0.7,0.7;
+Material,Gypsum Board 12.7mm,Smooth,0.0127,0.16,784.9,830,0.9,0.4,0.4;
+Material,Roof Membrane,VeryRough,0.0095,0.16,1121.29,1460,0.9,0.7,0.7;
+Material,Roof Insulation,MediumRough,0.19453,0.049,265,836.8,0.9,0.7,0.7;
+Material,Metal Decking,MediumSmooth,0.0015,45.006,7680,418.4,0.9,0.7,0.3;
+Material,Heavyweight Concrete 100mm,MediumRough,0.1,1.311,2240,836.8,0.9,0.7,0.7;
+Material,Carpet 12.7mm,VeryRough,0.0127,0.06,288,1380,0.9,0.7,0.8;
+
+WindowMaterial:SimpleGlazingSystem,Glazing Simple,1.5,0.24,0.34;
+
+Construction,Ext Wall,Heavyweight Concrete 200mm,Wall Insulation,Gypsum Board 12.7mm;
+Construction,Roof,Roof Membrane,Roof Insulation,Metal Decking;
+Construction,Ground Floor,Heavyweight Concrete 100mm,Carpet 12.7mm;
+Construction,Interior Partition,Gypsum Board 12.7mm,Gypsum Board 12.7mm;
+Construction,Window,Glazing Simple;
+
+Zone,South Zone,0,0,0,0,1,1,autocalculate,autocalculate;
+Zone,East Zone,0,0,0,0,1,1,autocalculate,autocalculate;
+Zone,North Zone,0,0,0,0,1,1,autocalculate,autocalculate;
+Zone,West Zone,0,0,0,0,1,1,autocalculate,autocalculate;
+Zone,Core Zone,0,0,0,0,1,1,autocalculate,autocalculate;
+
+ZoneList,All Zones,South Zone,East Zone,North Zone,West Zone,Core Zone;
+
+! ---------------- South Zone ----------------
+BuildingSurface:Detailed,South Wall,Wall,Ext Wall,South Zone,,Outdoors,,SunExposed,WindExposed,autocalculate,4,
+  0,0,3.5,
+  0,0,0,
+  22,0,0,
+  22,0,3.5;
+BuildingSurface:Detailed,South-East Partition,Wall,Interior Partition,South Zone,,Surface,East-South Partition,NoSun,NoWind,autocalculate,4,
+  22,0,3.5,
+  22,0,0,
+  17,5,0,
+  17,5,3.5;
+BuildingSurface:Detailed,South-Core Partition,Wall,Interior Partition,South Zone,,Surface,Core-South Partition,NoSun,NoWind,autocalculate,4,
+  17,5,3.5,
+  17,5,0,
+  5,5,0,
+  5,5,3.5;
+BuildingSurface:Detailed,South-West Partition,Wall,Interior Partition,South Zone,,Surface,West-South Partition,NoSun,NoWind,autocalculate,4,
+  5,5,3.5,
+  5,5,0,
+  0,0,0,
+  0,0,3.5;
+BuildingSurface:Detailed,South Floor,Floor,Ground Floor,South Zone,,Ground,,NoSun,NoWind,autocalculate,4,
+  5,5,0,
+  17,5,0,
+  22,0,0,
+  0,0,0;
+BuildingSurface:Detailed,South Roof,Roof,Roof,South Zone,,Outdoors,,SunExposed,WindExposed,autocalculate,4,
+  0,0,3.5,
+  22,0,3.5,
+  17,5,3.5,
+  5,5,3.5;
+
+! ---------------- East Zone ----------------
+BuildingSurface:Detailed,East Wall,Wall,Ext Wall,East Zone,,Outdoors,,SunExposed,WindExposed,autocalculate,4,
+  22,0,3.5,
+  22,0,0,
+  22,18.5,0,
+  22,18.5,3.5;
+BuildingSurface:Detailed,East-North Partition,Wall,Interior Partition,East Zone,,Surface,North-East Partition,NoSun,NoWind,autocalculate,4,
+  22,18.5,3.5,
+  22,18.5,0,
+  17,13.5,0,
+  17,13.5,3.5;
+BuildingSurface:Detailed,East-Core Partition,Wall,Interior Partition,East Zone,,Surface,Core-East Partition,NoSun,NoWind,autocalculate,4,
+  17,13.5,3.5,
+  17,13.5,0,
+  17,5,0,
+  17,5,3.5;
+BuildingSurface:Detailed,East-South Partition,Wall,Interior Partition,East Zone,,Surface,South-East Partition,NoSun,NoWind,autocalculate,4,
+  17,5,3.5,
+  17,5,0,
+  22,0,0,
+  22,0,3.5;
+BuildingSurface:Detailed,East Floor,Floor,Ground Floor,East Zone,,Ground,,NoSun,NoWind,autocalculate,4,
+  17,5,0,
+  17,13.5,0,
+  22,18.5,0,
+  22,0,0;
+BuildingSurface:Detailed,East Roof,Roof,Roof,East Zone,,Outdoors,,SunExposed,WindExposed,autocalculate,4,
+  22,0,3.5,
+  22,18.5,3.5,
+  17,13.5,3.5,
+  17,5,3.5;
+
+! ---------------- North Zone ----------------
+BuildingSurface:Detailed,North Wall,Wall,Ext Wall,North Zone,,Outdoors,,SunExposed,WindExposed,autocalculate,4,
+  22,18.5,3.5,
+  22,18.5,0,
+  0,18.5,0,
+  0,18.5,3.5;
+BuildingSurface:Detailed,North-West Partition,Wall,Interior Partition,North Zone,,Surface,West-North Partition,NoSun,NoWind,autocalculate,4,
+  0,18.5,3.5,
+  0,18.5,0,
+  5,13.5,0,
+  5,13.5,3.5;
+BuildingSurface:Detailed,North-Core Partition,Wall,Interior Partition,North Zone,,Surface,Core-North Partition,NoSun,NoWind,autocalculate,4,
+  5,13.5,3.5,
+  5,13.5,0,
+  17,13.5,0,
+  17,13.5,3.5;
+BuildingSurface:Detailed,North-East Partition,Wall,Interior Partition,North Zone,,Surface,East-North Partition,NoSun,NoWind,autocalculate,4,
+  17,13.5,3.5,
+  17,13.5,0,
+  22,18.5,0,
+  22,18.5,3.5;
+BuildingSurface:Detailed,North Floor,Floor,Ground Floor,North Zone,,Ground,,NoSun,NoWind,autocalculate,4,
+  17,13.5,0,
+  5,13.5,0,
+  0,18.5,0,
+  22,18.5,0;
+BuildingSurface:Detailed,North Roof,Roof,Roof,North Zone,,Outdoors,,SunExposed,WindExposed,autocalculate,4,
+  22,18.5,3.5,
+  0,18.5,3.5,
+  5,13.5,3.5,
+  17,13.5,3.5;
+
+! ---------------- West Zone ----------------
+BuildingSurface:Detailed,West Wall,Wall,Ext Wall,West Zone,,Outdoors,,SunExposed,WindExposed,autocalculate,4,
+  0,18.5,3.5,
+  0,18.5,0,
+  0,0,0,
+  0,0,3.5;
+BuildingSurface:Detailed,West-South Partition,Wall,Interior Partition,West Zone,,Surface,South-West Partition,NoSun,NoWind,autocalculate,4,
+  0,0,3.5,
+  0,0,0,
+  5,5,0,
+  5,5,3.5;
+BuildingSurface:Detailed,West-Core Partition,Wall,Interior Partition,West Zone,,Surface,Core-West Partition,NoSun,NoWind,autocalculate,4,
+  5,5,3.5,
+  5,5,0,
+  5,13.5,0,
+  5,13.5,3.5;
+BuildingSurface:Detailed,West-North Partition,Wall,Interior Partition,West Zone,,Surface,North-West Partition,NoSun,NoWind,autocalculate,4,
+  5,13.5,3.5,
+  5,13.5,0,
+  0,18.5,0,
+  0,18.5,3.5;
+BuildingSurface:Detailed,West Floor,Floor,Ground Floor,West Zone,,Ground,,NoSun,NoWind,autocalculate,4,
+  5,13.5,0,
+  5,5,0,
+  0,0,0,
+  0,18.5,0;
+BuildingSurface:Detailed,West Roof,Roof,Roof,West Zone,,Outdoors,,SunExposed,WindExposed,autocalculate,4,
+  0,18.5,3.5,
+  0,0,3.5,
+  5,5,3.5,
+  5,13.5,3.5;
+
+! ---------------- Core Zone ----------------
+BuildingSurface:Detailed,Core-South Partition,Wall,Interior Partition,Core Zone,,Surface,South-Core Partition,NoSun,NoWind,autocalculate,4,
+  5,5,3.5,
+  5,5,0,
+  17,5,0,
+  17,5,3.5;
+BuildingSurface:Detailed,Core-East Partition,Wall,Interior Partition,Core Zone,,Surface,East-Core Partition,NoSun,NoWind,autocalculate,4,
+  17,5,3.5,
+  17,5,0,
+  17,13.5,0,
+  17,13.5,3.5;
+BuildingSurface:Detailed,Core-North Partition,Wall,Interior Partition,Core Zone,,Surface,North-Core Partition,NoSun,NoWind,autocalculate,4,
+  17,13.5,3.5,
+  17,13.5,0,
+  5,13.5,0,
+  5,13.5,3.5;
+BuildingSurface:Detailed,Core-West Partition,Wall,Interior Partition,Core Zone,,Surface,West-Core Partition,NoSun,NoWind,autocalculate,4,
+  5,13.5,3.5,
+  5,13.5,0,
+  5,5,0,
+  5,5,3.5;
+BuildingSurface:Detailed,Core Floor,Floor,Ground Floor,Core Zone,,Ground,,NoSun,NoWind,autocalculate,4,
+  5,13.5,0,
+  17,13.5,0,
+  17,5,0,
+  5,5,0;
+BuildingSurface:Detailed,Core Roof,Roof,Roof,Core Zone,,Outdoors,,SunExposed,WindExposed,autocalculate,4,
+  5,5,3.5,
+  17,5,3.5,
+  17,13.5,3.5,
+  5,13.5,3.5;
+
+! ---------------- Windows ----------------
+Window,South Window,Window,South Wall,,1,6.875,0.9,8.25,1.4;
+Window,East Window,Window,East Wall,,1,2.775,0.9,12.95,1.75;
+Window,North Window,Window,North Wall,,1,8.25,0.9,5.5,1.4;
+Window,West Window,Window,West Wall,,1,6.9375,0.9,4.625,1.4;
+
+! ---------------- Internal gains ----------------
+People,People All,All Zones,Occupancy Sch,Area/Person,,,24,0.3,autocalculate,Activity Sch;
+
+Lights,Lights All,All Zones,Lighting Sch,Watts/Area,,6.2,,0,0.7,0.2,0;
+
+ElectricEquipment,Equipment All,All Zones,Equipment Sch,Watts/Area,,11.6,,0,0.5,0;
+
+ZoneInfiltration:DesignFlowRate,Infiltration All,All Zones,Always On,AirChanges/Hour,,,,0.15,1,0,0,0;
+
+! ---------------- HVAC ----------------
+HVACTemplate:Thermostat,Office Thermostat,Heating Setpoint Sch,,Cooling Setpoint Sch,;
+
+HVACTemplate:Zone:IdealLoadsAirSystem,South Zone,Office Thermostat;
+HVACTemplate:Zone:IdealLoadsAirSystem,East Zone,Office Thermostat;
+HVACTemplate:Zone:IdealLoadsAirSystem,North Zone,Office Thermostat;
+HVACTemplate:Zone:IdealLoadsAirSystem,West Zone,Office Thermostat;
+HVACTemplate:Zone:IdealLoadsAirSystem,Core Zone,Office Thermostat;

@@ -1,0 +1,343 @@
+```idf
+Version 22.2
+
+Material {
+  Property {
+    Conductivity { 1.311 }
+    Density { 2240 }
+    SpecificHeat { 836.8 }
+  }
+}
+
+Material {
+  Property {
+    Conductivity { 0.06 }
+    Density { 288 }
+    SpecificHeat { 1380 }
+  }
+}
+
+Material {
+  Property {
+    Conductivity { 0.16 }
+    Density { 784.9 }
+    SpecificHeat { 830 }
+  }
+}
+
+Material {
+  Property {
+    Conductivity { 0.035 }
+    Density { 50 }
+    SpecificHeat { 1000 }
+  }
+}
+
+Construction {
+  1.0 { Material { Material } }
+}
+
+Construction {
+  1.0 { Material { Material } }
+}
+
+Construction {
+  1.0 { Material { Material } }
+  2.0 { Material { Material } }
+}
+
+Construction {
+  1.0 { Material { Material } }
+  2.0 { Material { Material } }
+}
+
+Construction {
+  1.0 { Material { Material } }
+  2.0 { Material { Material } }
+}
+
+WindowMaterial {
+  Property {
+    U-Factor { 2.7 }
+    SHGC { 0.41 }
+    VisibleTransmittance { 0.65 }
+  }
+}
+
+Construction {
+  1.0 { WindowMaterial { WindowMaterial } }
+}
+
+Zone {
+  Name { SchoolZone }
+}
+
+Building {
+  Zone { SchoolZone }
+}
+
+ZoneHVAC:IdealLoadsAirSystem {
+  Zone { SchoolZone }
+}
+
+HVACTemplate:Zone:IdealLoadsAirSystem {
+  ZoneName { SchoolZone }
+}
+
+ZoneConstruction:Wall {
+  ZoneName { SchoolZone }
+  Construction { Construction }
+}
+
+ZoneConstruction:Roof {
+  ZoneName { SchoolZone }
+  Construction { Construction }
+}
+
+ZoneConstruction:Floor {
+  ZoneName { SchoolZone }
+  Construction { Construction }
+}
+
+BuildingSurface:Detailed {
+  SurfaceType { Wall }
+  Construction { Construction }
+  OutsideBoundaryCondition { Outdoors }
+  SunFacingOrientation { North }
+  WindNormal { 0 1 0 }
+  OutsideOutsideBoundaryCondition { Outdoors }
+  XOrigin { 0 }
+  YOrigin { 17.5 }
+  ZOrigin { 0 }
+  XDirection { 1 0 0 }
+  YDirection { 0 0 1 }
+  MaxLength { 44 }
+  MaxHeight { 3.6 }
+}
+
+BuildingSurface:Detailed {
+  SurfaceType { Wall }
+  Construction { Construction }
+  OutsideBoundaryCondition { Outdoors }
+  SunFacingOrientation { East }
+  WindNormal { 1 0 0 }
+  OutsideOutsideBoundaryCondition { Outdoors }
+  XOrigin { 44 }
+  YOrigin { 0 }
+  ZOrigin { 0 }
+  XDirection { 0 1 0 }
+  YDirection { 0 0 1 }
+  MaxLength { 17.5 }
+  MaxHeight { 3.6 }
+}
+
+BuildingSurface:Detailed {
+  SurfaceType { Wall }
+  Construction { Construction }
+  OutsideBoundaryCondition { Outdoors }
+  SunFacingOrientation { South }
+  WindNormal { 0 -1 0 }
+  OutsideOutsideBoundaryCondition { Outdoors }
+  XOrigin { 0 }
+  YOrigin { 0 }
+  ZOrigin { 0 }
+  XDirection { 1 0 0 }
+  YDirection { 0 0 1 }
+  MaxLength { 44 }
+  MaxHeight { 3.6 }
+}
+
+BuildingSurface:Detailed {
+  SurfaceType { Wall }
+  Construction { Construction }
+  OutsideBoundaryCondition { Outdoors }
+  SunFacingOrientation { West }
+  WindNormal { -1 0 0 }
+  OutsideOutsideBoundaryCondition { Outdoors }
+  XOrigin { 0 }
+  YOrigin { 0 }
+  ZOrigin { 0 }
+  XDirection { 0 -1 0 }
+  YDirection { 0 0 1 }
+  MaxLength { 17.5 }
+  MaxHeight { 3.6 }
+}
+
+BuildingSurface:Detailed {
+  SurfaceType { Roof }
+  Construction { Construction }
+  OutsideBoundaryCondition { Outdoors }
+  XOrigin { 0 }
+  YOrigin { 0 }
+  ZOrigin { 3.6 }
+  XDirection { 1 0 0 }
+  YDirection { 0 1 0 }
+  MaxLength { 44 }
+  MaxWidth { 17.5 }
+}
+
+BuildingSurface:Detailed {
+  SurfaceType { Floor }
+  Construction { Construction }
+  OutsideBoundaryCondition { Ground }
+  XOrigin { 0 }
+  YOrigin { 0 }
+  ZOrigin { 0 }
+  XDirection { 1 0 0 }
+  YDirection { 0 1 0 }
+  MaxLength { 44 }
+  MaxWidth { 17.5 }
+}
+
+BuildingSurface:Detailed {
+  SurfaceType { Window }
+  Construction { Construction }
+  OutsideBoundaryCondition { Outdoors }
+  XOrigin { 0 }
+  YOrigin { 17.5 }
+  ZOrigin { 0 }
+  XDirection { 1 0 0 }
+  YDirection { 0 0 1 }
+  MaxLength { 44 * 0.2 }
+  MaxHeight { 3.6 }
+}
+
+BuildingSurface:Detailed {
+  SurfaceType { Window }
+  Construction { Construction }
+  OutsideBoundaryCondition { Outdoors }
+  XOrigin { 44 }
+  YOrigin { 0 }
+  ZOrigin { 0 }
+  XDirection { 0 1 0 }
+  YDirection { 0 0 1 }
+  MaxLength { 17.5 * 0.15 }
+  MaxHeight { 3.6 }
+}
+
+BuildingSurface:Detailed {
+  SurfaceType { Window }
+  Construction { Construction }
+  OutsideBoundaryCondition { Outdoors }
+  XOrigin { 0 }
+  YOrigin { 0 }
+  ZOrigin { 0 }
+  XDirection { 1 0 0 }
+  YDirection { 0 0 1 }
+  MaxLength { 44 * 0.45 }
+  MaxHeight { 3.6 }
+}
+
+BuildingSurface:Detailed {
+  SurfaceType { Window }
+  Construction { Construction }
+  OutsideBoundaryCondition { Outdoors }
+  XOrigin { 0 }
+  YOrigin { 0 }
+  ZOrigin { 0 }
+  XDirection { 0 -1 0 }
+  YDirection { 0 0 1 }
+  MaxLength { 17.5 * 0.45 }
+  MaxHeight { 3.6 }
+}
+
+Schedule:Compact {
+  Name { OccupancySchedule }
+  Field1 {
+    For: DayOfWeek
+    Days: Monday, Tuesday, Wednesday, Thursday, Friday
+    Value: 0 0 0 0 0 0 0 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0
+  }
+  Field2 {
+    For: DayOfWeek
+    Days: Saturday, Sunday
+    Value: 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+  }
+}
+
+Schedule:Compact {
+  Name { LightingSchedule }
+  Field1 {
+    For: DayOfWeek
+    Days: Monday, Tuesday, Wednesday, Thursday, Friday
+    Value: 0.15 0.15 0.15 0.15 0.15 0.15 0.15 0.85 0.85 0.85 0.85 0.85 0.85 0.85 0.85 0.85 0.15 0.15 0.15 0.15 0.15 0.15 0.15 0.15
+  }
+  Field2 {
+    For: DayOfWeek
+    Days: Saturday, Sunday
+    Value: 0.15 0.15 0.15 0.15 0.15 0.15 0.15 0.15 0.15 0.15 0.15 0.15 0.15 0.15 0.15 0.15 0.15 0.15 0.15 0.15 0.15 0.15 0.15 0.15
+  }
+}
+
+Schedule:Compact {
+  Name { EquipmentSchedule }
+  Field1 {
+    For: DayOfWeek
+    Days: Monday, Tuesday, Wednesday, Thursday, Friday
+    Value: 0.35 0.35 0.35 0.35 0.35 0.35 0.35 1 1 1 1 1 1 1 1 1 0.35 0.35 0.35 0.35 0.35 0.35 0.35 0.35
+  }
+  Field2 {
+    For: DayOfWeek
+    Days: Saturday, Sunday
+    Value: 0.35 0.35 0.35 0.35 0.35 0.35 0.35 0.35 0.35 0.35 0.35 0.35 0.35 0.35 0.35 0.35 0.35 0.35 0.35 0.35 0.35 0.35 0.35 0.35
+  }
+}
+
+Schedule:Compact {
+  Name { HeatingSetpointSchedule }
+  Field1 {
+    For: DayOfWeek
+    Days: Monday, Tuesday, Wednesday, Thursday, Friday
+    Value: 16 16 16 16 16 16 16 22 22 22 22 22 22 22 22 22 16 16 16 16 16 16 16 16
+  }
+  Field2 {
+    For: DayOfWeek
+    Days: Saturday, Sunday
+    Value: 16 16 16 16 16 16 16 16 16 16 16 16 16 16 16 16 16 16 16 16 16 16 16 16
+  }
+}
+
+Schedule:Compact {
+  Name { CoolingSetpointSchedule }
+  Field1 {
+    For: DayOfWeek
+    Days: Monday, Tuesday, Wednesday, Thursday, Friday
+    Value: 28 28 28 28 28 28 28 23.5 23.5 23.5 23.5 23.5 23.5 23.5 23.5 23.5 28 28 28 28 28 28 28 28
+  }
+  Field2 {
+    For: DayOfWeek
+    Days: Saturday, Sunday
+    Value: 28 28 28 28 28 28 28 28 28 28 28 28 28 28 28 28 28 28 28 28 28 28 28 28
+  }
+}
+
+People {
+  Zone { SchoolZone }
+  NumberofPersons { (44 * 17.5) / 4.5 }
+  PersonLoad { 120 }
+  Schedule { OccupancySchedule }
+}
+
+Lights {
+  Zone { SchoolZone }
+  ElectricPower { (44 * 17.5) * 10.8 }
+  Schedule { LightingSchedule }
+}
+
+ElectricEquipment {
+  Zone { SchoolZone }
+  ElectricPower { (44 * 17.5) * 6.8 }
+  Schedule { EquipmentSchedule }
+}
+
+ZoneInfiltration {
+  ZoneName { SchoolZone }
+  AirInfiltrationRate { 0.3 }
+}
+
+ZoneControl:Thermostat {
+  ZoneName { SchoolZone }
+  HeatingSetpointTemperatureSchedule { HeatingSetpointSchedule }
+  CoolingSetpointTemperatureSchedule { CoolingSetpointSchedule }
+}
+```

@@ -1,0 +1,158 @@
+Building,
+    T2-test-03,
+    15,
+    Suburbs,
+    0.04,
+    0.4,
+    FullExterior,
+    25,
+    6;
+
+Timestep,
+    4;
+
+GlobalGeometryRules,
+    UpperLeftCorner,
+    Counterclockwise,
+    Relative;
+
+ScheduleTypeLimits, Fraction, 0, 1, Continuous;
+ScheduleTypeLimits, Temperature, -60, 200, Continuous;
+ScheduleTypeLimits, Any, , , Continuous;
+
+Material, MetalSiding, MediumRough, 0.0015, 44.96, 7688.9, 410, 0.9, 0.7, 0.7;
+Material, MetalDeck, MediumRough, 0.0015, 45.006, 7680, 418.4, 0.9, 0.7, 0.7;
+Material, Gypsum13, MediumRough, 0.0127, 0.16, 784.9, 830, 0.9, 0.7, 0.7;
+Material, Concrete100, MediumRough, 0.1, 1.311, 2240, 836.8, 0.9, 0.7, 0.7;
+Material, Carpet, MediumRough, 0.0127, 0.06, 288, 1380, 0.9, 0.7, 0.7;
+Material:NoMass, InsW, MediumRough, 1.1039, 0.9, 0.7, 0.7;
+Material:NoMass, InsR, MediumRough, 2.6407, 0.9, 0.7, 0.7;
+
+Construction, ExtWall_LW, MetalSiding, InsW, Gypsum13;
+Construction, Roof_LW, MetalSiding, InsR, MetalDeck;
+Construction, Slab_Cons, Concrete100, Carpet;
+Construction, IntFloor_Cons, Concrete100, Carpet;
+Construction, Partition_Cons, Gypsum13, Gypsum13;
+
+WindowMaterial:SimpleGlazingSystem, Glz, 2.3, 0.52, 0.75;
+Construction, Win_Cons, Glz;
+
+Zone, S1, 0, 0, 0, 0, 1, 1, autocalculate, autocalculate;
+Zone, E1, 0, 0, 0, 0, 1, 1, autocalculate, autocalculate;
+Zone, N1, 0, 0, 0, 0, 1, 1, autocalculate, autocalculate;
+Zone, W1, 0, 0, 0, 0, 1, 1, autocalculate, autocalculate;
+Zone, C1, 0, 0, 0, 0, 1, 1, autocalculate, autocalculate;
+Zone, S2, 0, 0, 0, 0, 1, 1, autocalculate, autocalculate;
+Zone, E2, 0, 0, 0, 0, 1, 1, autocalculate, autocalculate;
+Zone, N2, 0, 0, 0, 0, 1, 1, autocalculate, autocalculate;
+Zone, W2, 0, 0, 0, 0, 1, 1, autocalculate, autocalculate;
+Zone, C2, 0, 0, 0, 0, 1, 1, autocalculate, autocalculate;
+ZoneList, AllZones, S1, E1, N1, W1, C1, S2, E2, N2, W2, C2;
+
+! ---------- Storey 1 (z 0 to 4) ----------
+BuildingSurface:Detailed, S1_Ext, Wall, ExtWall_LW, S1, , Outdoors, , SunExposed, WindExposed, autocalculate, 4, 0,0,0, 44,0,0, 44,0,4, 0,0,4;
+BuildingSurface:Detailed, S1_PE, Wall, Partition_Cons, S1, , Adiabatic, , NoSun, NoWind, autocalculate, 4, 44,0,0, 39.5,4.5,0, 39.5,4.5,4, 44,0,4;
+BuildingSurface:Detailed, S1_PC, Wall, Partition_Cons, S1, , Adiabatic, , NoSun, NoWind, autocalculate, 4, 39.5,4.5,0, 4.5,4.5,0, 4.5,4.5,4, 39.5,4.5,4;
+BuildingSurface:Detailed, S1_PW, Wall, Partition_Cons, S1, , Adiabatic, , NoSun, NoWind, autocalculate, 4, 4.5,4.5,0, 0,0,0, 0,0,4, 4.5,4.5,4;
+BuildingSurface:Detailed, S1_Floor, Floor, Slab_Cons, S1, , Ground, , NoSun, NoWind, autocalculate, 4, 4.5,4.5,0, 39.5,4.5,0, 44,0,0, 0,0,0;
+BuildingSurface:Detailed, S1_Ceil, Ceiling, IntFloor_Cons, S1, , Adiabatic, , NoSun, NoWind, autocalculate, 4, 0,0,4, 44,0,4, 39.5,4.5,4, 4.5,4.5,4;
+
+BuildingSurface:Detailed, E1_Ext, Wall, ExtWall_LW, E1, , Outdoors, , SunExposed, WindExposed, autocalculate, 4, 44,0,0, 44,20.5,0, 44,20.5,4, 44,0,4;
+BuildingSurface:Detailed, E1_PN, Wall, Partition_Cons, E1, , Adiabatic, , NoSun, NoWind, autocalculate, 4, 44,20.5,0, 39.5,16,0, 39.5,16,4, 44,20.5,4;
+BuildingSurface:Detailed, E1_PC, Wall, Partition_Cons, E1, , Adiabatic, , NoSun, NoWind, autocalculate, 4, 39.5,16,0, 39.5,4.5,0, 39.5,4.5,4, 39.5,16,4;
+BuildingSurface:Detailed, E1_PS, Wall, Partition_Cons, E1, , Adiabatic, , NoSun, NoWind, autocalculate, 4, 39.5,4.5,0, 44,0,0, 44,0,4, 39.5,4.5,4;
+BuildingSurface:Detailed, E1_Floor, Floor, Slab_Cons, E1, , Ground, , NoSun, NoWind, autocalculate, 4, 39.5,4.5,0, 39.5,16,0, 44,20.5,0, 44,0,0;
+BuildingSurface:Detailed, E1_Ceil, Ceiling, IntFloor_Cons, E1, , Adiabatic, , NoSun, NoWind, autocalculate, 4, 44,0,4, 44,20.5,4, 39.5,16,4, 39.5,4.5,4;
+
+BuildingSurface:Detailed, N1_Ext, Wall, ExtWall_LW, N1, , Outdoors, , SunExposed, WindExposed, autocalculate, 4, 44,20.5,0, 0,20.5,0, 0,20.5,4, 44,20.5,4;
+BuildingSurface:Detailed, N1_PW, Wall, Partition_Cons, N1, , Adiabatic, , NoSun, NoWind, autocalculate, 4, 0,20.5,0, 4.5,16,0, 4.5,16,4, 0,20.5,4;
+BuildingSurface:Detailed, N1_PC, Wall, Partition_Cons, N1, , Adiabatic, , NoSun, NoWind, autocalculate, 4, 4.5,16,0, 39.5,16,0, 39.5,16,4, 4.5,16,4;
+BuildingSurface:Detailed, N1_PE, Wall, Partition_Cons, N1, , Adiabatic, , NoSun, NoWind, autocalculate, 4, 39.5,16,0, 44,20.5,0, 44,20.5,4, 39.5,16,4;
+BuildingSurface:Detailed, N1_Floor, Floor, Slab_Cons, N1, , Ground, , NoSun, NoWind, autocalculate, 4, 39.5,16,0, 4.5,16,0, 0,20.5,0, 44,20.5,0;
+BuildingSurface:Detailed, N1_Ceil, Ceiling, IntFloor_Cons, N1, , Adiabatic, , NoSun, NoWind, autocalculate, 4, 44,20.5,4, 0,20.5,4, 4.5,16,4, 39.5,16,4;
+
+BuildingSurface:Detailed, W1_Ext, Wall, ExtWall_LW, W1, , Outdoors, , SunExposed, WindExposed, autocalculate, 4, 0,20.5,0, 0,0,0, 0,0,4, 0,20.5,4;
+BuildingSurface:Detailed, W1_PS, Wall, Partition_Cons, W1, , Adiabatic, , NoSun, NoWind, autocalculate, 4, 0,0,0, 4.5,4.5,0, 4.5,4.5,4, 0,0,4;
+BuildingSurface:Detailed, W1_PC, Wall, Partition_Cons, W1, , Adiabatic, , NoSun, NoWind, autocalculate, 4, 4.5,4.5,0, 4.5,16,0, 4.5,16,4, 4.5,4.5,4;
+BuildingSurface:Detailed, W1_PN, Wall, Partition_Cons, W1, , Adiabatic, , NoSun, NoWind, autocalculate, 4, 4.5,16,0, 0,20.5,0, 0,20.5,4, 4.5,16,4;
+BuildingSurface:Detailed, W1_Floor, Floor, Slab_Cons, W1, , Ground, , NoSun, NoWind, autocalculate, 4, 4.5,16,0, 4.5,4.5,0, 0,0,0, 0,20.5,0;
+BuildingSurface:Detailed, W1_Ceil, Ceiling, IntFloor_Cons, W1, , Adiabatic, , NoSun, NoWind, autocalculate, 4, 0,20.5,4, 0,0,4, 4.5,4.5,4, 4.5,16,4;
+
+BuildingSurface:Detailed, C1_PS, Wall, Partition_Cons, C1, , Adiabatic, , NoSun, NoWind, autocalculate, 4, 4.5,4.5,0, 39.5,4.5,0, 39.5,4.5,4, 4.5,4.5,4;
+BuildingSurface:Detailed, C1_PE, Wall, Partition_Cons, C1, , Adiabatic, , NoSun, NoWind, autocalculate, 4, 39.5,4.5,0, 39.5,16,0, 39.5,16,4, 39.5,4.5,4;
+BuildingSurface:Detailed, C1_PN, Wall, Partition_Cons, C1, , Adiabatic, , NoSun, NoWind, autocalculate, 4, 39.5,16,0, 4.5,16,0, 4.5,16,4, 39.5,16,4;
+BuildingSurface:Detailed, C1_PW, Wall, Partition_Cons, C1, , Adiabatic, , NoSun, NoWind, autocalculate, 4, 4.5,16,0, 4.5,4.5,0, 4.5,4.5,4, 4.5,16,4;
+BuildingSurface:Detailed, C1_Floor, Floor, Slab_Cons, C1, , Ground, , NoSun, NoWind, autocalculate, 4, 4.5,16,0, 39.5,16,0, 39.5,4.5,0, 4.5,4.5,0;
+BuildingSurface:Detailed, C1_Ceil, Ceiling, IntFloor_Cons, C1, , Adiabatic, , NoSun, NoWind, autocalculate, 4, 4.5,4.5,4, 39.5,4.5,4, 39.5,16,4, 4.5,16,4;
+
+! ---------- Storey 2 (z 4 to 8) ----------
+BuildingSurface:Detailed, S2_Ext, Wall, ExtWall_LW, S2, , Outdoors, , SunExposed, WindExposed, autocalculate, 4, 0,0,4, 44,0,4, 44,0,8, 0,0,8;
+BuildingSurface:Detailed, S2_PE, Wall, Partition_Cons, S2, , Adiabatic, , NoSun, NoWind, autocalculate, 4, 44,0,4, 39.5,4.5,4, 39.5,4.5,8, 44,0,8;
+BuildingSurface:Detailed, S2_PC, Wall, Partition_Cons, S2, , Adiabatic, , NoSun, NoWind, autocalculate, 4, 39.5,4.5,4, 4.5,4.5,4, 4.5,4.5,8, 39.5,4.5,8;
+BuildingSurface:Detailed, S2_PW, Wall, Partition_Cons, S2, , Adiabatic, , NoSun, NoWind, autocalculate, 4, 4.5,4.5,4, 0,0,4, 0,0,8, 4.5,4.5,8;
+BuildingSurface:Detailed, S2_Floor, Floor, IntFloor_Cons, S2, , Adiabatic, , NoSun, NoWind, autocalculate, 4, 4.5,4.5,4, 39.5,4.5,4, 44,0,4, 0,0,4;
+BuildingSurface:Detailed, S2_Roof, Roof, Roof_LW, S2, , Outdoors, , SunExposed, WindExposed, autocalculate, 4, 0,0,8, 44,0,8, 39.5,4.5,8, 4.5,4.5,8;
+
+BuildingSurface:Detailed, E2_Ext, Wall, ExtWall_LW, E2, , Outdoors, , SunExposed, WindExposed, autocalculate, 4, 44,0,4, 44,20.5,4, 44,20.5,8, 44,0,8;
+BuildingSurface:Detailed, E2_PN, Wall, Partition_Cons, E2, , Adiabatic, , NoSun, NoWind, autocalculate, 4, 44,20.5,4, 39.5,16,4, 39.5,16,8, 44,20.5,8;
+BuildingSurface:Detailed, E2_PC, Wall, Partition_Cons, E2, , Adiabatic, , NoSun, NoWind, autocalculate, 4, 39.5,16,4, 39.5,4.5,4, 39.5,4.5,8, 39.5,16,8;
+BuildingSurface:Detailed, E2_PS, Wall, Partition_Cons, E2, , Adiabatic, , NoSun, NoWind, autocalculate, 4, 39.5,4.5,4, 44,0,4, 44,0,8, 39.5,4.5,8;
+BuildingSurface:Detailed, E2_Floor, Floor, IntFloor_Cons, E2, , Adiabatic, , NoSun, NoWind, autocalculate, 4, 39.5,4.5,4, 39.5,16,4, 44,20.5,4, 44,0,4;
+BuildingSurface:Detailed, E2_Roof, Roof, Roof_LW, E2, , Outdoors, , SunExposed, WindExposed, autocalculate, 4, 44,0,8, 44,20.5,8, 39.5,16,8, 39.5,4.5,8;
+
+BuildingSurface:Detailed, N2_Ext, Wall, ExtWall_LW, N2, , Outdoors, , SunExposed, WindExposed, autocalculate, 4, 44,20.5,4, 0,20.5,4, 0,20.5,8, 44,20.5,8;
+BuildingSurface:Detailed, N2_PW, Wall, Partition_Cons, N2, , Adiabatic, , NoSun, NoWind, autocalculate, 4, 0,20.5,4, 4.5,16,4, 4.5,16,8, 0,20.5,8;
+BuildingSurface:Detailed, N2_PC, Wall, Partition_Cons, N2, , Adiabatic, , NoSun, NoWind, autocalculate, 4, 4.5,16,4, 39.5,16,4, 39.5,16,8, 4.5,16,8;
+BuildingSurface:Detailed, N2_PE, Wall, Partition_Cons, N2, , Adiabatic, , NoSun, NoWind, autocalculate, 4, 39.5,16,4, 44,20.5,4, 44,20.5,8, 39.5,16,8;
+BuildingSurface:Detailed, N2_Floor, Floor, IntFloor_Cons, N2, , Adiabatic, , NoSun, NoWind, autocalculate, 4, 39.5,16,4, 4.5,16,4, 0,20.5,4, 44,20.5,4;
+BuildingSurface:Detailed, N2_Roof, Roof, Roof_LW, N2, , Outdoors, , SunExposed, WindExposed, autocalculate, 4, 44,20.5,8, 0,20.5,8, 4.5,16,8, 39.5,16,8;
+
+BuildingSurface:Detailed, W2_Ext, Wall, ExtWall_LW, W2, , Outdoors, , SunExposed, WindExposed, autocalculate, 4, 0,20.5,4, 0,0,4, 0,0,8, 0,20.5,8;
+BuildingSurface:Detailed, W2_PS, Wall, Partition_Cons, W2, , Adiabatic, , NoSun, NoWind, autocalculate, 4, 0,0,4, 4.5,4.5,4, 4.5,4.5,8, 0,0,8;
+BuildingSurface:Detailed, W2_PC, Wall, Partition_Cons, W2, , Adiabatic, , NoSun, NoWind, autocalculate, 4, 4.5,4.5,4, 4.5,16,4, 4.5,16,8, 4.5,4.5,8;
+BuildingSurface:Detailed, W2_PN, Wall, Partition_Cons, W2, , Adiabatic, , NoSun, NoWind, autocalculate, 4, 4.5,16,4, 0,20.5,4, 0,20.5,8, 4.5,16,8;
+BuildingSurface:Detailed, W2_Floor, Floor, IntFloor_Cons, W2, , Adiabatic, , NoSun, NoWind, autocalculate, 4, 4.5,16,4, 4.5,4.5,4, 0,0,4, 0,20.5,4;
+BuildingSurface:Detailed, W2_Roof, Roof, Roof_LW, W2, , Outdoors, , SunExposed, WindExposed, autocalculate, 4, 0,20.5,8, 0,0,8, 4.5,4.5,8, 4.5,16,8;
+
+BuildingSurface:Detailed, C2_PS, Wall, Partition_Cons, C2, , Adiabatic, , NoSun, NoWind, autocalculate, 4, 4.5,4.5,4, 39.5,4.5,4, 39.5,4.5,8, 4.5,4.5,8;
+BuildingSurface:Detailed, C2_PE, Wall, Partition_Cons, C2, , Adiabatic, , NoSun, NoWind, autocalculate, 4, 39.5,4.5,4, 39.5,16,4, 39.5,16,8, 39.5,4.5,8;
+BuildingSurface:Detailed, C2_PN, Wall, Partition_Cons, C2, , Adiabatic, , NoSun, NoWind, autocalculate, 4, 39.5,16,4, 4.5,16,4, 4.5,16,8, 39.5,16,8;
+BuildingSurface:Detailed, C2_PW, Wall, Partition_Cons, C2, , Adiabatic, , NoSun, NoWind, autocalculate, 4, 4.5,16,4, 4.5,4.5,4, 4.5,4.5,8, 4.5,16,8;
+BuildingSurface:Detailed, C2_Floor, Floor, IntFloor_Cons, C2, , Adiabatic, , NoSun, NoWind, autocalculate, 4, 4.5,16,4, 39.5,16,4, 39.5,4.5,4, 4.5,4.5,4;
+BuildingSurface:Detailed, C2_Roof, Roof, Roof_LW, C2, , Outdoors, , SunExposed, WindExposed, autocalculate, 4, 4.5,4.5,8, 39.5,4.5,8, 39.5,16,8, 4.5,16,8;
+
+! ---------- Windows (WWR per facade, one band per storey) ----------
+FenestrationSurface:Detailed, S1_Win, Window, Win_Cons, S1_Ext, , autocalculate, , 1, 4, 15.714286,0,0.6, 28.285714,0,0.6, 28.285714,0,3.4, 15.714286,0,3.4;
+FenestrationSurface:Detailed, E1_Win, Window, Win_Cons, E1_Ext, , autocalculate, , 1, 4, 44,4.392857,0.6, 44,16.107143,0.6, 44,16.107143,3.4, 44,4.392857,3.4;
+FenestrationSurface:Detailed, N1_Win, Window, Win_Cons, N1_Ext, , autocalculate, , 1, 4, 25.142857,20.5,0.6, 18.857143,20.5,0.6, 18.857143,20.5,3.4, 25.142857,20.5,3.4;
+FenestrationSurface:Detailed, W1_Win, Window, Win_Cons, W1_Ext, , autocalculate, , 1, 4, 0,12.446429,0.6, 0,8.053571,0.6, 0,8.053571,3.4, 0,12.446429,3.4;
+FenestrationSurface:Detailed, S2_Win, Window, Win_Cons, S2_Ext, , autocalculate, , 1, 4, 15.714286,0,4.6, 28.285714,0,4.6, 28.285714,0,7.4, 15.714286,0,7.4;
+FenestrationSurface:Detailed, E2_Win, Window, Win_Cons, E2_Ext, , autocalculate, , 1, 4, 44,4.392857,4.6, 44,16.107143,4.6, 44,16.107143,7.4, 44,4.392857,7.4;
+FenestrationSurface:Detailed, N2_Win, Window, Win_Cons, N2_Ext, , autocalculate, , 1, 4, 25.142857,20.5,4.6, 18.857143,20.5,4.6, 18.857143,20.5,7.4, 25.142857,20.5,7.4;
+FenestrationSurface:Detailed, W2_Win, Window, Win_Cons, W2_Ext, , autocalculate, , 1, 4, 0,12.446429,4.6, 0,8.053571,4.6, 0,8.053571,7.4, 0,12.446429,7.4;
+
+! ---------- Schedules ----------
+Schedule:Compact, ALWAYS_ON, Fraction, Through: 12/31, For: AllDays, Until: 24:00, 1;
+Schedule:Compact, OCC_SCH, Fraction, Through: 12/31, For: Weekdays SummerDesignDay WinterDesignDay, Until: 08:00, 0, Until: 18:00, 1, Until: 24:00, 0, For: AllOtherDays, Until: 24:00, 0;
+Schedule:Compact, LTG_SCH, Fraction, Through: 12/31, For: Weekdays SummerDesignDay WinterDesignDay, Until: 08:00, 0.05, Until: 18:00, 1, Until: 24:00, 0.05, For: AllOtherDays, Until: 24:00, 0.05;
+Schedule:Compact, EQP_SCH, Fraction, Through: 12/31, For: Weekdays SummerDesignDay WinterDesignDay, Until: 08:00, 0.4, Until: 18:00, 0.9, Until: 24:00, 0.4, For: AllOtherDays, Until: 24:00, 0.4;
+Schedule:Compact, HTGSETP_SCH, Temperature, Through: 12/31, For: Weekdays SummerDesignDay WinterDesignDay, Until: 08:00, 15, Until: 18:00, 20.5, Until: 24:00, 15, For: AllOtherDays, Until: 24:00, 15;
+Schedule:Compact, CLGSETP_SCH, Temperature, Through: 12/31, For: Weekdays SummerDesignDay WinterDesignDay, Until: 08:00, 28, Until: 18:00, 24.5, Until: 24:00, 28, For: AllOtherDays, Until: 24:00, 28;
+Schedule:Compact, ACTIVITY_SCH, Any, Through: 12/31, For: AllDays, Until: 24:00, 120;
+
+People, AllZones_People, AllZones, OCC_SCH, Area/Person, , , 24, 0.3, autocalculate, ACTIVITY_SCH;
+Lights, AllZones_Lights, AllZones, LTG_SCH, Watts/Area, , 6.1, , 0, 0.7, 0.2, 1;
+ElectricEquipment, AllZones_Equip, AllZones, EQP_SCH, Watts/Area, , 11.3, , 0, 0.3, 0;
+ZoneInfiltration:DesignFlowRate, AllZones_Infil, AllZones, ALWAYS_ON, AirChanges/Hour, , , , 0.15, 1, 0, 0, 0;
+
+HVACTemplate:Thermostat, Tstat, HTGSETP_SCH, , CLGSETP_SCH, ;
+HVACTemplate:Zone:IdealLoadsAirSystem, S1, Tstat;
+HVACTemplate:Zone:IdealLoadsAirSystem, E1, Tstat;
+HVACTemplate:Zone:IdealLoadsAirSystem, N1, Tstat;
+HVACTemplate:Zone:IdealLoadsAirSystem, W1, Tstat;
+HVACTemplate:Zone:IdealLoadsAirSystem, C1, Tstat;
+HVACTemplate:Zone:IdealLoadsAirSystem, S2, Tstat;
+HVACTemplate:Zone:IdealLoadsAirSystem, E2, Tstat;
+HVACTemplate:Zone:IdealLoadsAirSystem, N2, Tstat;
+HVACTemplate:Zone:IdealLoadsAirSystem, W2, Tstat;
+HVACTemplate:Zone:IdealLoadsAirSystem, C2, Tstat;

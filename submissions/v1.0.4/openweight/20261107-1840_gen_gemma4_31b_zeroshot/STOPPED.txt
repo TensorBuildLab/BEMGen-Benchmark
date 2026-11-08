@@ -1,0 +1,1 @@
+stopped after 18 tasks (T1 and T2 complete): 0/18 executable, outputs not EnergyPlus syntax; see decisions.md

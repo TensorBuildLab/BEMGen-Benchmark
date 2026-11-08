@@ -1,0 +1,201 @@
+Timestep,
+  4;
+
+Building,
+  Office Building,
+  0,
+  Suburbs,
+  0.04,
+  0.4,
+  FullExterior,
+  25,
+  6;
+
+Zone,South Zone;
+Zone,East Zone;
+Zone,North Zone;
+Zone,West Zone;
+Zone,Core Zone;
+
+ScheduleTypeLimits,Fraction,0,1,Continuous,Dimensionless;
+ScheduleTypeLimits,Temperature,-60,200,Continuous,Temperature;
+ScheduleTypeLimits,Any Number;
+
+Schedule:Constant,Always On,Fraction,1;
+Schedule:Constant,Activity Level Schedule,Any Number,120;
+
+Schedule:Compact,
+  Occupancy Schedule,
+  Fraction,
+  Through: 12/31,
+  For: Weekdays,
+  Until: 08:00,0,
+  Until: 18:00,1,
+  Until: 24:00,0,
+  For: AllOtherDays,
+  Until: 24:00,0;
+
+Schedule:Compact,
+  Lighting Schedule,
+  Fraction,
+  Through: 12/31,
+  For: Weekdays,
+  Until: 08:00,0.05,
+  Until: 18:00,0.95,
+  Until: 24:00,0.05,
+  For: AllOtherDays,
+  Until: 24:00,0.05;
+
+Schedule:Compact,
+  Equipment Schedule,
+  Fraction,
+  Through: 12/31,
+  For: Weekdays,
+  Until: 08:00,0.35,
+  Until: 18:00,0.95,
+  Until: 24:00,0.35,
+  For: AllOtherDays,
+  Until: 24:00,0.35;
+
+Schedule:Compact,
+  Heating Setpoint Schedule,
+  Temperature,
+  Through: 12/31,
+  For: Weekdays,
+  Until: 08:00,15.5,
+  Until: 18:00,21,
+  Until: 24:00,15.5,
+  For: AllOtherDays,
+  Until: 24:00,15.5;
+
+Schedule:Compact,
+  Cooling Setpoint Schedule,
+  Temperature,
+  Through: 12/31,
+  For: Weekdays,
+  Until: 08:00,29,
+  Until: 18:00,23,
+  Until: 24:00,29,
+  For: AllOtherDays,
+  Until: 24:00,29;
+
+Material,Heavy Concrete 200mm,MediumRough,0.2,1.311,2240,836.8,0.9,0.7,0.7;
+Material,Wall Insulation,Rough,0.036,0.04,30,1400,0.9,0.7,0.7;
+Material,Gypsum 12.7mm,MediumSmooth,0.0127,0.16,784.9,830,0.9,0.5,0.5;
+Material,Floor Concrete 100mm,MediumRough,0.1,1.311,2240,836.8,0.9,0.7,0.7;
+Material,Carpet 12.7mm,VeryRough,0.0127,0.06,288,1380,0.9,0.5,0.5;
+Material,Roof Membrane,Smooth,0.0095,0.16,1100,1000,0.9,0.7,0.7;
+Material,Roof Insulation,Rough,0.159,0.04,30,1400,0.9,0.7,0.7;
+Material,Metal Deck,MediumSmooth,0.0015,45,7680,418,0.9,0.7,0.7;
+
+Construction,Exterior Wall,Heavy Concrete 200mm,Wall Insulation,Gypsum 12.7mm;
+Construction,Lightweight Roof,Roof Membrane,Roof Insulation,Metal Deck;
+Construction,Slab Floor,Floor Concrete 100mm,Carpet 12.7mm;
+Construction,Interior Partition,Gypsum 12.7mm,Gypsum 12.7mm;
+
+WindowMaterial:SimpleGlazingSystem,Simple Glazing,1.5,0.24,0.34;
+Construction,Simple Glazing Construction,Simple Glazing;
+
+People,South Zone People,South Zone,Occupancy Schedule,Area/Person,,,24,,,Activity Level Schedule;
+People,East Zone People,East Zone,Occupancy Schedule,Area/Person,,,24,,,Activity Level Schedule;
+People,North Zone People,North Zone,Occupancy Schedule,Area/Person,,,24,,,Activity Level Schedule;
+People,West Zone People,West Zone,Occupancy Schedule,Area/Person,,,24,,,Activity Level Schedule;
+People,Core Zone People,Core Zone,Occupancy Schedule,Area/Person,,,24,,,Activity Level Schedule;
+
+Lights,South Zone Lights,South Zone,Lighting Schedule,Watts/Area,,6.2,,0,0.7,0.2,0;
+Lights,East Zone Lights,East Zone,Lighting Schedule,Watts/Area,,6.2,,0,0.7,0.2,0;
+Lights,North Zone Lights,North Zone,Lighting Schedule,Watts/Area,,6.2,,0,0.7,0.2,0;
+Lights,West Zone Lights,West Zone,Lighting Schedule,Watts/Area,,6.2,,0,0.7,0.2,0;
+Lights,Core Zone Lights,Core Zone,Lighting Schedule,Watts/Area,,6.2,,0,0.7,0.2,0;
+
+ElectricEquipment,South Zone Equipment,South Zone,Equipment Schedule,Watts/Area,,11.6,,0,0.5,0;
+ElectricEquipment,East Zone Equipment,East Zone,Equipment Schedule,Watts/Area,,11.6,,0,0.5,0;
+ElectricEquipment,North Zone Equipment,North Zone,Equipment Schedule,Watts/Area,,11.6,,0,0.5,0;
+ElectricEquipment,West Zone Equipment,West Zone,Equipment Schedule,Watts/Area,,11.6,,0,0.5,0;
+ElectricEquipment,Core Zone Equipment,Core Zone,Equipment Schedule,Watts/Area,,11.6,,0,0.5,0;
+
+ZoneInfiltration:DesignFlowRate,South Zone Infiltration,South Zone,Always On,AirChanges/Hour,,,,0.15,1,0,0,0;
+ZoneInfiltration:DesignFlowRate,East Zone Infiltration,East Zone,Always On,AirChanges/Hour,,,,0.15,1,0,0,0;
+ZoneInfiltration:DesignFlowRate,North Zone Infiltration,North Zone,Always On,AirChanges/Hour,,,,0.15,1,0,0,0;
+ZoneInfiltration:DesignFlowRate,West Zone Infiltration,West Zone,Always On,AirChanges/Hour,,,,0.15,1,0,0,0;
+ZoneInfiltration:DesignFlowRate,Core Zone Infiltration,Core Zone,Always On,AirChanges/Hour,,,,0.15,1,0,0,0;
+
+HVACTemplate:Thermostat,Office Thermostat,,Heating Setpoint Schedule,,Cooling Setpoint Schedule;
+HVACTemplate:Zone:IdealLoadsAirSystem,South Zone,Office Thermostat;
+HVACTemplate:Zone:IdealLoadsAirSystem,East Zone,Office Thermostat;
+HVACTemplate:Zone:IdealLoadsAirSystem,North Zone,Office Thermostat;
+HVACTemplate:Zone:IdealLoadsAirSystem,West Zone,Office Thermostat;
+HVACTemplate:Zone:IdealLoadsAirSystem,Core Zone,Office Thermostat;
+
+BuildingSurface:Detailed,SZ South Wall,Wall,Exterior Wall,South Zone,,Outdoors,,SunExposed,WindExposed,autocalc,autocalc,
+  0,0,0, 22,0,0, 22,0,3.5, 0,0,3.5;
+BuildingSurface:Detailed,EZ East Wall,Wall,Exterior Wall,East Zone,,Outdoors,,SunExposed,WindExposed,autocalc,autocalc,
+  22,0,0, 22,18.5,0, 22,18.5,3.5, 22,0,3.5;
+BuildingSurface:Detailed,NZ North Wall,Wall,Exterior Wall,North Zone,,Outdoors,,SunExposed,WindExposed,autocalc,autocalc,
+  22,18.5,0, 0,18.5,0, 0,18.5,3.5, 22,18.5,3.5;
+BuildingSurface:Detailed,WZ West Wall,Wall,Exterior Wall,West Zone,,Outdoors,,SunExposed,WindExposed,autocalc,autocalc,
+  0,18.5,0, 0,0,0, 0,0,3.5, 0,18.5,3.5;
+
+BuildingSurface:Detailed,SZ-CZ Wall,Wall,Interior Partition,South Zone,,Zone,CZ-SZ Wall,NoSun,NoWind,autocalc,autocalc,
+  17,5,0, 5,5,0, 5,5,3.5, 17,5,3.5;
+BuildingSurface:Detailed,CZ-SZ Wall,Wall,Interior Partition,Core Zone,,Zone,SZ-CZ Wall,NoSun,NoWind,autocalc,autocalc,
+  5,5,0, 17,5,0, 17,5,3.5, 5,5,3.5;
+BuildingSurface:Detailed,EZ-CZ Wall,Wall,Interior Partition,East Zone,,Zone,CZ-EZ Wall,NoSun,NoWind,autocalc,autocalc,
+  17,13.5,0, 17,5,0, 17,5,3.5, 17,13.5,3.5;
+BuildingSurface:Detailed,CZ-EZ Wall,Wall,Interior Partition,Core Zone,,Zone,EZ-CZ Wall,NoSun,NoWind,autocalc,autocalc,
+  17,5,0, 17,13.5,0, 17,13.5,3.5, 17,5,3.5;
+BuildingSurface:Detailed,NZ-CZ Wall,Wall,Interior Partition,North Zone,,Zone,CZ-NZ Wall,NoSun,NoWind,autocalc,autocalc,
+  5,13.5,0, 17,13.5,0, 17,13.5,3.5, 5,13.5,3.5;
+BuildingSurface:Detailed,CZ-NZ Wall,Wall,Interior Partition,Core Zone,,Zone,NZ-CZ Wall,NoSun,NoWind,autocalc,autocalc,
+  17,13.5,0, 5,13.5,0, 5,13.5,3.5, 17,13.5,3.5;
+BuildingSurface:Detailed,WZ-CZ Wall,Wall,Interior Partition,West Zone,,Zone,CZ-WZ Wall,NoSun,NoWind,autocalc,autocalc,
+  5,5,0, 5,13.5,0, 5,13.5,3.5, 5,5,3.5;
+BuildingSurface:Detailed,CZ-WZ Wall,Wall,Interior Partition,Core Zone,,Zone,WZ-CZ Wall,NoSun,NoWind,autocalc,autocalc,
+  5,13.5,0, 5,5,0, 5,5,3.5, 5,13.5,3.5;
+BuildingSurface:Detailed,SZ-EZ Diag,Wall,Interior Partition,South Zone,,Zone,EZ-SZ Diag,NoSun,NoWind,autocalc,autocalc,
+  22,0,0, 17,5,0, 17,5,3.5, 22,0,3.5;
+BuildingSurface:Detailed,EZ-SZ Diag,Wall,Interior Partition,East Zone,,Zone,SZ-EZ Diag,NoSun,NoWind,autocalc,autocalc,
+  17,5,0, 22,0,0, 22,0,3.5, 17,5,3.5;
+BuildingSurface:Detailed,EZ-NZ Diag,Wall,Interior Partition,East Zone,,Zone,NZ-EZ Diag,NoSun,NoWind,autocalc,autocalc,
+  22,18.5,0, 17,13.5,0, 17,13.5,3.5, 22,18.5,3.5;
+BuildingSurface:Detailed,NZ-EZ Diag,Wall,Interior Partition,North Zone,,Zone,EZ-NZ Diag,NoSun,NoWind,autocalc,autocalc,
+  17,13.5,0, 22,18.5,0, 22,18.5,3.5, 17,13.5,3.5;
+BuildingSurface:Detailed,NZ-WZ Diag,Wall,Interior Partition,North Zone,,Zone,WZ-NZ Diag,NoSun,NoWind,autocalc,autocalc,
+  0,18.5,0, 5,13.5,0, 5,13.5,3.5, 0,18.5,3.5;
+BuildingSurface:Detailed,WZ-NZ Diag,Wall,Interior Partition,West Zone,,Zone,NZ-WZ Diag,NoSun,NoWind,autocalc,autocalc,
+  5,13.5,0, 0,18.5,0, 0,18.5,3.5, 5,13.5,3.5;
+BuildingSurface:Detailed,WZ-SZ Diag,Wall,Interior Partition,West Zone,,Zone,SZ-WZ Diag,NoSun,NoWind,autocalc,autocalc,
+  0,0,0, 5,5,0, 5,5,3.5, 0,0,3.5;
+BuildingSurface:Detailed,SZ-WZ Diag,Wall,Interior Partition,South Zone,,Zone,WZ-SZ Diag,NoSun,NoWind,autocalc,autocalc,
+  5,5,0, 0,0,0, 0,0,3.5, 5,5,3.5;
+
+BuildingSurface:Detailed,SZ Floor,Floor,Slab Floor,South Zone,,Ground,,NoSun,NoWind,autocalc,autocalc,
+  5,5,0, 17,5,0, 22,0,0, 0,0,0;
+BuildingSurface:Detailed,EZ Floor,Floor,Slab Floor,East Zone,,Ground,,NoSun,NoWind,autocalc,autocalc,
+  17,5,0, 17,13.5,0, 22,18.5,0, 22,0,0;
+BuildingSurface:Detailed,NZ Floor,Floor,Slab Floor,North Zone,,Ground,,NoSun,NoWind,autocalc,autocalc,
+  17,13.5,0, 5,13.5,0, 0,18.5,0, 22,18.5,0;
+BuildingSurface:Detailed,WZ Floor,Floor,Slab Floor,West Zone,,Ground,,NoSun,NoWind,autocalc,autocalc,
+  5,13.5,0, 5,5,0, 0,0,0, 0,18.5,0;
+BuildingSurface:Detailed,CZ Floor,Floor,Slab Floor,Core Zone,,Ground,,NoSun,NoWind,autocalc,autocalc,
+  5,13.5,0, 17,13.5,0, 17,5,0, 5,5,0;
+
+BuildingSurface:Detailed,SZ Roof,Roof,Lightweight Roof,South Zone,,Outdoors,,SunExposed,WindExposed,autocalc,autocalc,
+  0,0,3.5, 22,0,3.5, 17,5,3.5, 5,5,3.5;
+BuildingSurface:Detailed,EZ Roof,Roof,Lightweight Roof,East Zone,,Outdoors,,SunExposed,WindExposed,autocalc,autocalc,
+  22,0,3.5, 22,18.5,3.5, 17,13.5,3.5, 17,5,3.5;
+BuildingSurface:Detailed,NZ Roof,Roof,Lightweight Roof,North Zone,,Outdoors,,SunExposed,WindExposed,autocalc,autocalc,
+  22,18.5,3.5, 0,18.5,3.5, 5,13.5,3.5, 17,13.5,3.5;
+BuildingSurface:Detailed,WZ Roof,Roof,Lightweight Roof,West Zone,,Outdoors,,SunExposed,WindExposed,autocalc,autocalc,
+  0,18.5,3.5, 0,0,3.5, 5,5,3.5, 5,13.5,3.5;
+BuildingSurface:Detailed,CZ Roof,Roof,Lightweight Roof,Core Zone,,Outdoors,,SunExposed,WindExposed,autocalc,autocalc,
+  5,5,3.5, 17,5,3.5, 17,13.5,3.5, 5,13.5,3.5;
+
+FenestrationSurface:Detailed,SZ Window,Window,Simple Glazing Construction,SZ South Wall,,autocalc,,,autocalc,
+  8.1125,0,0.75, 13.8875,0,0.75, 13.8875,0,2.75, 8.1125,0,2.75;
+FenestrationSurface:Detailed,EZ Window,Window,Simple Glazing Construction,EZ East Wall,,autocalc,,,autocalc,
+  22,3.584375,0.75, 22,14.915625,0.75, 22,14.915625,2.75, 22,3.584375,2.75;
+FenestrationSurface:Detailed,NZ Window,Window,Simple Glazing Construction,NZ North Wall,,autocalc,,,autocalc,
+  12.925,18.5,0.75, 9.075,18.5,0.75, 9.075,18.5,2.75, 12.925,18.5,2.75;
+FenestrationSurface:Detailed,WZ Window,Window,Simple Glazing Construction,WZ West Wall,,autocalc,,,autocalc,
+  0,10.86875,0.75, 0,7.63125,0.75, 0,7.63125,2.75, 0,10.86875,2.75;

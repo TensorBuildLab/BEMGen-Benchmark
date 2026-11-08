@@ -1,0 +1,210 @@
+Version,
+    22.2;
+
+Building,
+    T3-test-05,              !- Name
+    30,                      !- North Axis
+    Suburbs,                 !- Terrain
+    0.04,                    !- Loads Convergence Tolerance
+    0.4,                     !- Temperature Convergence Tolerance
+    FullExterior,            !- Solar Distribution
+    25,                      !- Max Warmup Days
+    6;                       !- Min Warmup Days
+
+Timestep,
+    6;
+
+GlobalGeometryRules,
+    UpperLeftCorner,
+    Counterclockwise,
+    Relative;
+
+ScheduleTypeLimits, Fraction, 0, 1, Continuous;
+ScheduleTypeLimits, Temperature, -60, 200, Continuous;
+ScheduleTypeLimits, Any, , , Continuous;
+
+Material, MetalSiding, MediumRough, 0.0015, 44.96, 7688.9, 410, 0.9, 0.7, 0.7;
+Material, Plywood16, MediumRough, 0.0159, 0.12, 544, 1210, 0.9, 0.7, 0.7;
+Material, Gypsum13, MediumRough, 0.0127, 0.16, 784.9, 830, 0.9, 0.7, 0.7;
+Material, Membrane10, MediumRough, 0.0095, 0.16, 1121.3, 1460, 0.9, 0.7, 0.7;
+Material, MetalDeck, MediumRough, 0.0015, 45.006, 7680, 418.4, 0.9, 0.7, 0.7;
+Material, Concrete100, MediumRough, 0.1016, 1.311, 2240, 836.8, 0.9, 0.7, 0.7;
+Material, Carpet, MediumRough, 0.0127, 0.06, 288, 1380, 0.9, 0.7, 0.7;
+! Wall insulation sized for assembly U = 0.51 W/m2-K (incl. films)
+Material, WallIns, MediumRough, 0.078364, 0.049, 265, 836.8, 0.9, 0.7, 0.7;
+! Roof insulation sized for assembly U = 0.2 W/m2-K (incl. films)
+Material, RoofIns, MediumRough, 0.235381, 0.049, 265, 836.8, 0.9, 0.7, 0.7;
+
+Construction, ExtWall_Cons, MetalSiding, Plywood16, WallIns, Gypsum13;
+Construction, Roof_Cons, Membrane10, RoofIns, MetalDeck;
+Construction, Slab_Cons, Concrete100, Carpet;
+Construction, IntFloor_Cons, Concrete100, Carpet;
+Construction, IntCeil_Cons, Carpet, Concrete100;
+Construction, Partition_Cons, Gypsum13, Gypsum13;
+
+WindowMaterial:SimpleGlazingSystem, Glazing, 3.4, 0.5, 0.72;
+Construction, Win_Cons, Glazing;
+
+Zone, F1, 0, 0, 0, 0, 1, 1, autocalculate, autocalculate;
+Zone, F2, 0, 0, 0, 0, 1, 1, autocalculate, autocalculate;
+
+!======================== STOREY 1 (z 0 - 3.2) ========================
+BuildingSurface:Detailed, F1_WallS, Wall, ExtWall_Cons, F1, , Outdoors, , SunExposed, WindExposed, autocalculate, 4,
+    0,0,3.2,  0,0,0,  28,0,0,  28,0,3.2;
+FenestrationSurface:Detailed, F1_WallS_Win, Window, Win_Cons, F1_WallS, , autocalculate, , 1, 4,
+    0.1,0,1.761151,  0.1,0,1.438849,  27.9,0,1.438849,  27.9,0,1.761151;
+BuildingSurface:Detailed, F1_WallE, Wall, ExtWall_Cons, F1, , Outdoors, , SunExposed, WindExposed, autocalculate, 4,
+    28,0,3.2,  28,0,0,  28,14,0,  28,14,3.2;
+FenestrationSurface:Detailed, F1_WallE_Win, Window, Win_Cons, F1_WallE, , autocalculate, , 1, 4,
+    28,0.1,2.086957,  28,0.1,1.113044,  28,13.9,1.113044,  28,13.9,2.086957;
+BuildingSurface:Detailed, F1_WallN, Wall, ExtWall_Cons, F1, , Outdoors, , SunExposed, WindExposed, autocalculate, 4,
+    28,14,3.2,  28,14,0,  0,14,0,  0,14,3.2;
+FenestrationSurface:Detailed, F1_WallN_Win, Window, Win_Cons, F1_WallN, , autocalculate, , 1, 4,
+    27.9,14,2.083453,  27.9,14,1.116547,  0.1,14,1.116547,  0.1,14,2.083453;
+BuildingSurface:Detailed, F1_WallW, Wall, ExtWall_Cons, F1, , Outdoors, , SunExposed, WindExposed, autocalculate, 4,
+    0,14,3.2,  0,14,0,  0,0,0,  0,0,3.2;
+BuildingSurface:Detailed, F1_Floor, Floor, Slab_Cons, F1, , Ground, , NoSun, NoWind, autocalculate, 4,
+    28,0,0,  0,0,0,  0,14,0,  28,14,0;
+BuildingSurface:Detailed, F1_Ceil, Ceiling, IntCeil_Cons, F1, , Surface, F2_Floor, NoSun, NoWind, autocalculate, 4,
+    28,14,3.2,  0,14,3.2,  0,0,3.2,  28,0,3.2;
+
+!======================== STOREY 2 (z 3.2 - 6.4) ========================
+BuildingSurface:Detailed, F2_WallS, Wall, ExtWall_Cons, F2, , Outdoors, , SunExposed, WindExposed, autocalculate, 4,
+    0,0,6.4,  0,0,3.2,  28,0,3.2,  28,0,6.4;
+FenestrationSurface:Detailed, F2_WallS_Win, Window, Win_Cons, F2_WallS, , autocalculate, , 1, 4,
+    0.1,0,4.961151,  0.1,0,4.638849,  27.9,0,4.638849,  27.9,0,4.961151;
+BuildingSurface:Detailed, F2_WallE, Wall, ExtWall_Cons, F2, , Outdoors, , SunExposed, WindExposed, autocalculate, 4,
+    28,0,6.4,  28,0,3.2,  28,14,3.2,  28,14,6.4;
+FenestrationSurface:Detailed, F2_WallE_Win, Window, Win_Cons, F2_WallE, , autocalculate, , 1, 4,
+    28,0.1,5.286957,  28,0.1,4.313044,  28,13.9,4.313044,  28,13.9,5.286957;
+BuildingSurface:Detailed, F2_WallN, Wall, ExtWall_Cons, F2, , Outdoors, , SunExposed, WindExposed, autocalculate, 4,
+    28,14,6.4,  28,14,3.2,  0,14,3.2,  0,14,6.4;
+FenestrationSurface:Detailed, F2_WallN_Win, Window, Win_Cons, F2_WallN, , autocalculate, , 1, 4,
+    27.9,14,5.283453,  27.9,14,4.316547,  0.1,14,4.316547,  0.1,14,5.283453;
+BuildingSurface:Detailed, F2_WallW, Wall, ExtWall_Cons, F2, , Outdoors, , SunExposed, WindExposed, autocalculate, 4,
+    0,14,6.4,  0,14,3.2,  0,0,3.2,  0,0,6.4;
+BuildingSurface:Detailed, F2_Floor, Floor, IntFloor_Cons, F2, , Surface, F1_Ceil, NoSun, NoWind, autocalculate, 4,
+    28,0,3.2,  0,0,3.2,  0,14,3.2,  28,14,3.2;
+BuildingSurface:Detailed, F2_Roof, Roof, Roof_Cons, F2, , Outdoors, , SunExposed, WindExposed, autocalculate, 4,
+    28,14,6.4,  0,14,6.4,  0,0,6.4,  28,0,6.4;
+
+!======================== SCHEDULES & LOADS ========================
+
+Schedule:Compact, ALWAYS_ON, Fraction,
+    Through: 12/31, For: AllDays, Until: 24:00, 1;
+
+Schedule:Compact, OCC_SCH, Fraction,
+    Through: 12/31,
+    For: Weekdays SummerDesignDay WinterDesignDay, Until: 08:00, 0, Until: 18:00, 1, Until: 24:00, 0,
+    For: AllOtherDays, Until: 24:00, 0;
+
+Schedule:Compact, LTG_SCH, Fraction,
+    Through: 12/31,
+    For: Weekdays SummerDesignDay WinterDesignDay, Until: 08:00, 0.05, Until: 18:00, 0.8, Until: 24:00, 0.05,
+    For: AllOtherDays, Until: 24:00, 0.05;
+
+Schedule:Compact, EQP_SCH, Fraction,
+    Through: 12/31,
+    For: Weekdays SummerDesignDay WinterDesignDay, Until: 08:00, 0.35, Until: 18:00, 1, Until: 24:00, 0.35,
+    For: AllOtherDays, Until: 24:00, 0.35;
+
+Schedule:Compact, HTGSETP_SCH, Temperature,
+    Through: 12/31,
+    For: Weekdays SummerDesignDay WinterDesignDay, Until: 08:00, 16.5, Until: 18:00, 21.5, Until: 24:00, 16.5,
+    For: AllOtherDays, Until: 24:00, 16.5;
+
+Schedule:Compact, CLGSETP_SCH, Temperature,
+    Through: 12/31,
+    For: Weekdays SummerDesignDay WinterDesignDay, Until: 08:00, 29.5, Until: 18:00, 24.5, Until: 24:00, 29.5,
+    For: AllOtherDays, Until: 24:00, 29.5;
+
+Schedule:Compact, ACTIVITY_SCH, Any,
+    Through: 12/31, For: AllDays, Until: 24:00, 130;
+
+People, F1_People, F1, OCC_SCH, Area/Person, , , 20, 0.3, autocalculate, ACTIVITY_SCH;
+People, F2_People, F2, OCC_SCH, Area/Person, , , 20, 0.3, autocalculate, ACTIVITY_SCH;
+
+Lights, F1_Lights, F1, LTG_SCH, Watts/Area, , 7.4, , 0, 0.7, 0.2, 1;
+Lights, F2_Lights, F2, LTG_SCH, Watts/Area, , 7.4, , 0, 0.7, 0.2, 1;
+
+ElectricEquipment, F1_Equip, F1, EQP_SCH, Watts/Area, , 6.6, , 0, 0.5, 0;
+ElectricEquipment, F2_Equip, F2, EQP_SCH, Watts/Area, , 6.6, , 0, 0.5, 0;
+
+ZoneInfiltration:DesignFlowRate, F1_Infil, F1, ALWAYS_ON, AirChanges/Hour, , , , 0.45, 1, 0, 0, 0;
+ZoneInfiltration:DesignFlowRate, F2_Infil, F2, ALWAYS_ON, AirChanges/Hour, , , , 0.45, 1, 0, 0, 0;
+
+HVACTemplate:Thermostat, Tstat, HTGSETP_SCH, , CLGSETP_SCH, ;
+
+HVACTemplate:Zone:Unitary,
+    F1,                      !- Zone Name
+    PSZ_F1,                  !- Template Unitary System Name
+    Tstat,                   !- Template Thermostat Name
+    autosize,                !- Supply Air Maximum Flow Rate
+    ,                        !- Zone Heating Sizing Factor
+    ,                        !- Zone Cooling Sizing Factor
+    Flow/Person,             !- Outdoor Air Method
+    0.006;                   !- Outdoor Air Flow Rate per Person
+
+HVACTemplate:System:Unitary,
+    PSZ_F1,                  !- Name
+    ,                        !- System Availability Schedule Name
+    F1,                      !- Control Zone or Thermostat Location Name
+    autosize,                !- Supply Fan Maximum Flow Rate
+    ,                        !- Supply Fan Operating Mode Schedule Name (blank = cycling)
+    0.5,                     !- Supply Fan Total Efficiency
+    500,                     !- Supply Fan Delta Pressure
+    0.9,                     !- Supply Fan Motor Efficiency
+    1.0,                     !- Supply Fan Motor in Air Stream Fraction
+    SingleSpeedDX,           !- Cooling Coil Type
+    ,                        !- Cooling Coil Availability Schedule Name
+    ,                        !- Cooling Design Supply Air Temperature
+    autosize,                !- Cooling Coil Gross Rated Total Capacity
+    autosize,                !- Cooling Coil Gross Rated Sensible Heat Ratio
+    3.3,                     !- Cooling Coil Gross Rated COP
+    Gas,                     !- Heating Coil Type
+    ,                        !- Heating Coil Availability Schedule Name
+    ,                        !- Heating Design Supply Air Temperature
+    autosize,                !- Heating Coil Capacity
+    0.88,                    !- Gas Heating Coil Efficiency
+    ,                        !- Gas Heating Coil Parasitic Electric Load
+    autosize,                !- Maximum Outdoor Air Flow Rate
+    autosize,                !- Minimum Outdoor Air Flow Rate
+    ,                        !- Minimum Outdoor Air Schedule Name
+    NoEconomizer;            !- Economizer Type
+
+HVACTemplate:Zone:Unitary,
+    F2,                      !- Zone Name
+    PSZ_F2,                  !- Template Unitary System Name
+    Tstat,                   !- Template Thermostat Name
+    autosize,                !- Supply Air Maximum Flow Rate
+    ,                        !- Zone Heating Sizing Factor
+    ,                        !- Zone Cooling Sizing Factor
+    Flow/Person,             !- Outdoor Air Method
+    0.006;                   !- Outdoor Air Flow Rate per Person
+
+HVACTemplate:System:Unitary,
+    PSZ_F2,                  !- Name
+    ,                        !- System Availability Schedule Name
+    F2,                      !- Control Zone or Thermostat Location Name
+    autosize,                !- Supply Fan Maximum Flow Rate
+    ,                        !- Supply Fan Operating Mode Schedule Name (blank = cycling)
+    0.5,                     !- Supply Fan Total Efficiency
+    500,                     !- Supply Fan Delta Pressure
+    0.9,                     !- Supply Fan Motor Efficiency
+    1.0,                     !- Supply Fan Motor in Air Stream Fraction
+    SingleSpeedDX,           !- Cooling Coil Type
+    ,                        !- Cooling Coil Availability Schedule Name
+    ,                        !- Cooling Design Supply Air Temperature
+    autosize,                !- Cooling Coil Gross Rated Total Capacity
+    autosize,                !- Cooling Coil Gross Rated Sensible Heat Ratio
+    3.3,                     !- Cooling Coil Gross Rated COP
+    Gas,                     !- Heating Coil Type
+    ,                        !- Heating Coil Availability Schedule Name
+    ,                        !- Heating Design Supply Air Temperature
+    autosize,                !- Heating Coil Capacity
+    0.88,                    !- Gas Heating Coil Efficiency
+    ,                        !- Gas Heating Coil Parasitic Electric Load
+    autosize,                !- Maximum Outdoor Air Flow Rate
+    autosize,                !- Minimum Outdoor Air Flow Rate
+    ,                        !- Minimum Outdoor Air Schedule Name
+    NoEconomizer;            !- Economizer Type

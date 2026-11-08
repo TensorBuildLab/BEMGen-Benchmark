@@ -1,0 +1,232 @@
+TY  - RPRT
+ID  - deru2011u
+DO  - 10.2172/1009264
+UR  - http://dx.doi.org/10.2172/1009264
+TI  - U.S. Department of Energy Commercial Reference Building Models of the National Building Stock
+AU  - Deru, M.
+AU  - Field, K.
+AU  - Studer, D.
+AU  - Benne, K.
+AU  - Griffith, B.
+AU  - Torcellini, P.
+AU  - Liu, B.
+AU  - Halverson, M.
+AU  - Winiarski, D.
+AU  - Rosenberg, M.
+AU  - Yazdanian, M.
+AU  - Huang, J.
+AU  - Crawley, D.
+PY  - 2011
+DA  - 2011/02/01
+PB  - Office of Scientific and Technical Information (OSTI)
+N1  - OSTI ID 1009264; report NREL/TP-5500-46861; DOE Commercial Reference Buildings technical report. Full text: https://docs.nlr.gov/docs/fy11osti/46861.pdf (404 on 2026-11-07); archived copy web.archive.org 20250322022047. Record retrieved via doi.org content negotiation (Crossref/OSTI) on 2026-11-08.
+ER  - 
+
+TY  - RPRT
+ID  - goel2014enhancements
+DO  - 10.2172/1129366
+UR  - http://dx.doi.org/10.2172/1129366
+TI  - Enhancements to ASHRAE Standard 90.1 Prototype Building Models
+AU  - Goel, Supriya
+AU  - Athalye, Rahul
+AU  - Wang, Weimin
+AU  - Zhang, Jian
+AU  - Rosenberg, Michael
+AU  - Xie, YuLong
+AU  - Hart, Philip
+AU  - Mendon, Vrushali
+PY  - 2014
+DA  - 2014/04/01
+PB  - Office of Scientific and Technical Information (OSTI)
+N1  - OSTI ID 1129366 (duplicate OSTI record 1764628, DOI 10.2172/1764628); report PNNL-23269. Crossref author list contains blank entries; OSTI lists Goel, Athalye, Wang, Zhang, Rosenberg, Xie, Hart, Mendon. Record retrieved via doi.org content negotiation (Crossref/OSTI) on 2026-11-08.
+ER  - 
+
+TY  - RPRT
+ID  - thornton2011achieving
+DO  - 10.2172/1015277
+UR  - http://dx.doi.org/10.2172/1015277
+TI  - Achieving the 30% Goal: Energy and Cost Savings Analysis of ASHRAE Standard 90.1-2010
+AU  - Thornton, Brian A.
+AU  - Rosenberg, Michael I.
+AU  - Richman, Eric E.
+AU  - Wang, Weimin
+AU  - Xie, YuLong
+AU  - Zhang, Jian
+AU  - Cho, Heejin
+AU  - Mendon, Vrushali V.
+AU  - Athalye, Rahul A.
+AU  - Liu, Bing
+PY  - 2011
+DA  - 2011/05/24
+PB  - Office of Scientific and Technical Information (OSTI)
+N1  - OSTI ID 1015277 (second OSTI record 1721789); report PNNL-20405. Appendices A-E give prototype building descriptions, zone loads, schedules, HVAC list and envelope requirements for 90.1-2004/2010. Record retrieved via doi.org content negotiation (Crossref/OSTI) on 2026-11-08.
+ER  - 
+
+TY  - RPRT
+ID  - nambiar2024commercial
+DO  - 10.2172/2476528
+UR  - http://dx.doi.org/10.2172/2476528
+TI  - Commercial Building Prototypes Based on ANSI/ASHRAE/IES Standard 90.1-2019 Appendix G PRM: Technical Support Document
+AU  - Chandrasekharan Nambiar, Chitra
+AU  - Rosenberg, Michael
+AU  - Maddox, Douglas
+AU  - Nagda, Harshil
+AU  - Tillou, Michael
+AU  - Karpman, Maria
+AU  - Jung, Wooyoung
+AU  - Kim, Dongsu
+PY  - 2024
+DA  - 2024/06/28
+PB  - Office of Scientific and Technical Information (OSTI)
+N1  - OSTI ID 2476528; report PNNL-32815; Technical support document for 90.1-2019 Appendix G PRM prototypes (linked from energycodes.gov prototype page). Record retrieved via doi.org content negotiation (Crossref/OSTI) on 2026-11-08.
+ER  - 
+
+TY  - CPAPER
+ID  - zhang2024advancingb
+DO  - 10.26868/30680611.2024.2104
+UR  - http://dx.doi.org/10.26868/30680611.2024.2104
+TI  - Advancing Building Energy Modeling with Large Language Models: Exploration and Case Studies
+T2  - IBPSA-USA Building Simulation Conference
+AU  - Zhang, Liang
+AU  - Chen, Zhelun
+AU  - Ford, Vitaly
+AU  - Xu, Peng
+PY  - 2024
+DA  - 2024/05/21
+PB  - IBPSA-USA
+VL  - 11
+SN  - 3068-0611
+N1  - Uses DOE reference Large Office (Deru et al. 2011) as case for LLM post-processing of EnergyPlus outputs (verified in full text, IBPSA OA PDF). Record retrieved via doi.org content negotiation (Crossref/OSTI) on 2026-11-08.
+ER  - 
+
+TY  - CPAPER
+ID  - khadka2024scaling
+DO  - 10.63044/s24kha09
+UR  - http://dx.doi.org/10.63044/s24kha09
+TI  - Scaling Data-Driven Building Energy Modelling using Large Language Models
+T2  - 2024 ASHRAE Annual Conference
+AU  - Khadka, Sunil
+AU  - Zhang, Liang
+PY  - 2024
+DA  - 2024/09/11
+PB  - ASHRAE
+N1  - Case study is a DOE reference small office (511 m2) simulated in EnergyPlus; LLM generates data-driven-model code, not IDF (verified in arXiv 2407.03469 full text). Record retrieved via doi.org content negotiation (Crossref/OSTI) on 2026-11-08.
+ER  - 
+
+TY  - CPAPER
+ID  - mostafavi2024simplifying
+DO  - 10.26868/30680611.2024.2256
+UR  - http://dx.doi.org/10.26868/30680611.2024.2256
+TI  - Simplifying Modeling for Building and District Energy Systems with Large Language Models
+T2  - IBPSA-USA Building Simulation Conference
+AU  - Mostafavi, Saman
+AU  - Maxwell, John T.
+AU  - Zhenirovskyy, Maksym
+AU  - Matei, Ion
+PY  - 2024
+DA  - 2024/05/21
+PB  - IBPSA-USA
+VL  - 11
+SN  - 3068-0611
+N1  - LLM-generated Modelica models; a five-zone model is matched against an EnergyPlus prototype building model (verified in full text). Record retrieved via doi.org content negotiation (Crossref/OSTI) on 2026-11-08.
+ER  - 
+
+TY  - CPAPER
+ID  - sweeney2026eplusout
+DO  - 10.26868/30680611.2026.1307
+UR  - http://dx.doi.org/10.26868/30680611.2026.1307
+TI  - Eplusout Model Context Protocol (MCP): Large Language Model (LLM)-Enabled Simulation Results
+T2  - IBPSA-USA Building Simulation Conference
+AU  - Sweeney, Michael
+AU  - Meyer, Ryan
+AU  - Goel, Supriya
+PY  - 2026
+DA  - 2026/05/20
+PB  - IBPSA-USA
+VL  - 12
+SN  - 3068-0611
+N1  - EPlusOut-MCP demonstrated on PNNL commercial prototype models (Large Hotel, Warehouse; verified in full text). Record retrieved via doi.org content negotiation (Crossref/OSTI) on 2026-11-08.
+ER  - 
+
+TY  - CPAPER
+ID  - bai2026llm
+DO  - 10.26868/30680611.2026.1308
+UR  - http://dx.doi.org/10.26868/30680611.2026.1308
+TI  - LLM-Informed Efficient Bayesian Calibration of Building Energy Simulation Models under Limited Data
+T2  - IBPSA-USA Building Simulation Conference
+AU  - Bai, Yangxi
+AU  - Wang, Endong
+PY  - 2026
+DA  - 2026/05/20
+PB  - IBPSA-USA
+VL  - 12
+SN  - 3068-0611
+N1  - Uses DOE Medium Office prototype (90.1-2019, CZ 5A) as surrogate model in LLM-informed Bayesian calibration (verified in full text). Record retrieved via doi.org content negotiation (Crossref/OSTI) on 2026-11-08.
+ER  - 
+
+TY  - CPAPER
+ID  - li2026evaluating
+DO  - 10.26868/30680611.2026.1329
+UR  - http://dx.doi.org/10.26868/30680611.2026.1329
+TI  - Evaluating Prompt Engineering in Large Language Models (LLMs) for Transforming Occupant Behavior Modeling
+T2  - IBPSA-USA Building Simulation Conference
+AU  - Li, Shundong
+AU  - Ma, Nan
+PY  - 2026
+DA  - 2026/05/20
+PB  - IBPSA-USA
+VL  - 12
+SN  - 3068-0611
+N1  - Applies LLM-derived schedules to DOE 90.1-2022 Large Office New York prototype (verified in full text). Record retrieved via doi.org content negotiation (Crossref/OSTI) on 2026-11-08.
+ER  - 
+
+TY  - JOUR
+ID  - shirzadi2026tool
+DO  - 10.1016/j.egyai.2026.100896
+UR  - http://dx.doi.org/10.1016/j.egyai.2026.100896
+TI  - Tool-augmented vs. autonomous LLM agents for building energy model modifications: A comparative study using NECB compliance models
+T2  - Energy and AI
+AU  - Shirzadi, Navid
+AU  - Lopez, Phylroy
+AU  - Stylianou, Meli
+PY  - 2026
+DA  - 2026/12
+PB  - Elsevier BV
+SP  - 100896
+VL  - 26
+SN  - 2666-5468
+N1  - LLM agents modify seven NECB 2020 reference (archetype) IDFs; analogous Canadian archetype set (abstract only). Record retrieved via doi.org content negotiation (Crossref/OSTI) on 2026-11-08.
+ER  - 
+
+TY  - JOUR
+ID  - wan2026localized
+DO  - 10.59717/j.xinn-energy.2026.100194
+UR  - http://dx.doi.org/10.59717/j.xinn-energy.2026.100194
+TI  - Localized LLM selection for agentic building energy modeling worker routing
+T2  - The Innovation Energy
+AU  - Wan, Hanlong
+AU  - Yuan, Yanping
+PY  - 2026
+PB  - Innovation Press Co., Limited
+SP  - 100194
+IS  - 4
+VL  - 3
+SN  - 3006-418X
+N1  - Worker-routing benchmark includes "prototype generation" tasks (abstract only; full text not retrieved). Record retrieved via doi.org content negotiation (Crossref/OSTI) on 2026-11-08.
+ER  - 
+
+TY  - CPAPER
+ID  - sur2025demonstrating
+DO  - 10.26868/25222708.2025.1230
+UR  - http://dx.doi.org/10.26868/25222708.2025.1230
+TI  - Demonstrating the feasibility of prompt engineering to develop complex building energy models
+T2  - Building Simulation Conference Proceedings
+AU  - Sur, Dipashreya A.
+AU  - Jain, Rishee K.
+PY  - 2025
+DA  - 2025/08/24
+PB  - IBPSA
+VL  - 19
+SN  - 2522-2708
+N1  - LLM-driven BEM compared with a calibrated industry model; "reference building" here is that calibrated model, not a DOE model (full text checked). Record retrieved via doi.org content negotiation (Crossref/OSTI) on 2026-11-08.
+ER  - 

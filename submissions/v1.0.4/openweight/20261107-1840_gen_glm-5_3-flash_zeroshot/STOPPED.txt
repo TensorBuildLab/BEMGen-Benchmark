@@ -1,0 +1,1 @@
+stopped after first tasks: all used 32768 tokens; GLM produced only reasoning (empty answer), Qwen degenerated into repetition. Superseded by *_vendor runs (see decisions.md).

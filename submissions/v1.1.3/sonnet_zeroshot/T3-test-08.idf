@@ -1,0 +1,162 @@
+Version, 22.2;
+
+Building, T3-test-08, 15, Suburbs, 0.04, 0.4, FullInteriorAndExterior, 25, 6;
+
+Timestep, 4;
+
+GlobalGeometryRules, UpperLeftCorner, Counterclockwise, Relative;
+
+ScheduleTypeLimits, Fraction, 0, 1, Continuous;
+ScheduleTypeLimits, Temperature, -60, 200, Continuous;
+ScheduleTypeLimits, Any, , , Continuous;
+
+Material, Concrete200, MediumRough, 0.2, 1.311, 2240, 836.8, 0.9, 0.7, 0.7;
+Material, Gypsum13, MediumRough, 0.0127, 0.16, 784.9, 830, 0.9, 0.7, 0.7;
+Material, WallIns, MediumRough, 0.051285, 0.049, 265, 836.8, 0.9, 0.7, 0.7;
+Material, Membrane10, MediumRough, 0.0095, 0.16, 1121.3, 1460, 0.9, 0.7, 0.7;
+Material, RoofIns, MediumRough, 0.108993, 0.049, 265, 836.8, 0.9, 0.7, 0.7;
+Material, Concrete100, MediumRough, 0.1, 1.311, 2240, 836.8, 0.9, 0.7, 0.7;
+Material, Carpet, MediumRough, 0.0127, 0.06, 288, 1380, 0.9, 0.7, 0.7;
+
+Construction, ExtWall_Cons, Concrete200, WallIns, Gypsum13;
+Construction, Roof_Cons, Membrane10, RoofIns, Concrete100;
+Construction, Slab_Cons, Concrete100, Carpet;
+Construction, IntFloor_Cons, Concrete100, Carpet;
+Construction, IntCeil_Cons, Carpet, Concrete100;
+Construction, Partition_Cons, Gypsum13, Gypsum13;
+
+WindowMaterial:SimpleGlazingSystem, Glazing, 1.5, 0.32, 0.41;
+Construction, Win_Cons, Glazing;
+
+Zone, F1, 0, 0, 0, 0, 1, 1, autocalculate, autocalculate;
+Zone, F2, 0, 0, 0, 0, 1, 1, autocalculate, autocalculate;
+
+! ---------- Floor 1 (z 0 to 3.3)
+BuildingSurface:Detailed, F1_South, Wall, ExtWall_Cons, F1, , Outdoors, , SunExposed, WindExposed, autocalculate, 4,
+ 0,0,3.3, 0,0,0, 16.5,0,0, 16.5,0,3.3;
+BuildingSurface:Detailed, F1_East, Wall, ExtWall_Cons, F1, , Outdoors, , SunExposed, WindExposed, autocalculate, 4,
+ 16.5,0,3.3, 16.5,0,0, 16.5,15,0, 16.5,15,3.3;
+BuildingSurface:Detailed, F1_North, Wall, ExtWall_Cons, F1, , Outdoors, , SunExposed, WindExposed, autocalculate, 4,
+ 16.5,15,3.3, 16.5,15,0, 0,15,0, 0,15,3.3;
+BuildingSurface:Detailed, F1_West, Wall, ExtWall_Cons, F1, , Outdoors, , SunExposed, WindExposed, autocalculate, 4,
+ 0,15,3.3, 0,15,0, 0,0,0, 0,0,3.3;
+BuildingSurface:Detailed, F1_Floor, Floor, Slab_Cons, F1, , Ground, , NoSun, NoWind, autocalculate, 4,
+ 16.5,0,0, 0,0,0, 0,15,0, 16.5,15,0;
+BuildingSurface:Detailed, F1_Ceil, Ceiling, IntCeil_Cons, F1, , Surface, F2_Floor, NoSun, NoWind, autocalculate, 4,
+ 0,0,3.3, 16.5,0,3.3, 16.5,15,3.3, 0,15,3.3;
+
+FenestrationSurface:Detailed, F1_South_Win, Window, Win_Cons, F1_South, , autocalculate, , 1, 4,
+ 1.65,0,1.959375, 1.65,0,1.340625, 14.85,0,1.340625, 14.85,0,1.959375;
+FenestrationSurface:Detailed, F1_East_Win, Window, Win_Cons, F1_East, , autocalculate, , 1, 4,
+ 16.5,1.5,1.959375, 16.5,1.5,1.340625, 16.5,13.5,1.340625, 16.5,13.5,1.959375;
+FenestrationSurface:Detailed, F1_North_Win, Window, Win_Cons, F1_North, , autocalculate, , 1, 4,
+ 14.85,15,2.578125, 14.85,15,0.721875, 1.65,15,0.721875, 1.65,15,2.578125;
+FenestrationSurface:Detailed, F1_West_Win, Window, Win_Cons, F1_West, , autocalculate, , 1, 4,
+ 0,13.5,2.475, 0,13.5,0.825, 0,1.5,0.825, 0,1.5,2.475;
+
+! ---------- Floor 2 (z 3.3 to 6.6)
+BuildingSurface:Detailed, F2_South, Wall, ExtWall_Cons, F2, , Outdoors, , SunExposed, WindExposed, autocalculate, 4,
+ 0,0,6.6, 0,0,3.3, 16.5,0,3.3, 16.5,0,6.6;
+BuildingSurface:Detailed, F2_East, Wall, ExtWall_Cons, F2, , Outdoors, , SunExposed, WindExposed, autocalculate, 4,
+ 16.5,0,6.6, 16.5,0,3.3, 16.5,15,3.3, 16.5,15,6.6;
+BuildingSurface:Detailed, F2_North, Wall, ExtWall_Cons, F2, , Outdoors, , SunExposed, WindExposed, autocalculate, 4,
+ 16.5,15,6.6, 16.5,15,3.3, 0,15,3.3, 0,15,6.6;
+BuildingSurface:Detailed, F2_West, Wall, ExtWall_Cons, F2, , Outdoors, , SunExposed, WindExposed, autocalculate, 4,
+ 0,15,6.6, 0,15,3.3, 0,0,3.3, 0,0,6.6;
+BuildingSurface:Detailed, F2_Floor, Floor, IntFloor_Cons, F2, , Surface, F1_Ceil, NoSun, NoWind, autocalculate, 4,
+ 16.5,0,3.3, 0,0,3.3, 0,15,3.3, 16.5,15,3.3;
+BuildingSurface:Detailed, F2_Roof, Roof, Roof_Cons, F2, , Outdoors, , SunExposed, WindExposed, autocalculate, 4,
+ 16.5,15,6.6, 0,15,6.6, 0,0,6.6, 16.5,0,6.6;
+
+FenestrationSurface:Detailed, F2_South_Win, Window, Win_Cons, F2_South, , autocalculate, , 1, 4,
+ 1.65,0,5.259375, 1.65,0,4.640625, 14.85,0,4.640625, 14.85,0,5.259375;
+FenestrationSurface:Detailed, F2_East_Win, Window, Win_Cons, F2_East, , autocalculate, , 1, 4,
+ 16.5,1.5,5.259375, 16.5,1.5,4.640625, 16.5,13.5,4.640625, 16.5,13.5,5.259375;
+FenestrationSurface:Detailed, F2_North_Win, Window, Win_Cons, F2_North, , autocalculate, , 1, 4,
+ 14.85,15,5.878125, 14.85,15,4.021875, 1.65,15,4.021875, 1.65,15,5.878125;
+FenestrationSurface:Detailed, F2_West_Win, Window, Win_Cons, F2_West, , autocalculate, , 1, 4,
+ 0,13.5,5.775, 0,13.5,4.125, 0,1.5,4.125, 0,1.5,5.775;
+
+Schedule:Compact, ALWAYS_ON, Fraction, Through: 12/31, For: AllDays, Until: 24:00, 1;
+Schedule:Compact, FAN_CYCLE, Fraction, Through: 12/31, For: AllDays, Until: 24:00, 0;
+Schedule:Compact, CTRL_TYPE, Any, Through: 12/31, For: AllDays, Until: 24:00, 4;
+Schedule:Compact, OCC_SCH, Fraction, Through: 12/31,
+ For: AllDays, Until: 09:00, 0, Until: 21:00, 1, Until: 24:00, 0;
+Schedule:Compact, LTG_SCH, Fraction, Through: 12/31,
+ For: AllDays, Until: 09:00, 0.05, Until: 21:00, 0.85, Until: 24:00, 0.05;
+Schedule:Compact, EQP_SCH, Fraction, Through: 12/31,
+ For: AllDays, Until: 09:00, 0.2, Until: 21:00, 0.8, Until: 24:00, 0.2;
+Schedule:Compact, HTGSETP_SCH, Temperature, Through: 12/31,
+ For: AllDays, Until: 09:00, 14, Until: 21:00, 21.5, Until: 24:00, 14;
+Schedule:Compact, CLGSETP_SCH, Temperature, Through: 12/31,
+ For: AllDays, Until: 09:00, 29.5, Until: 21:00, 23, Until: 24:00, 29.5;
+Schedule:Compact, ACTIVITY_SCH, Any, Through: 12/31, For: AllDays, Until: 24:00, 110;
+
+People, F1_People, F1, OCC_SCH, Area/Person, , , 12, 0.3, autocalculate, ACTIVITY_SCH;
+Lights, F1_Lights, F1, LTG_SCH, Watts/Area, , 11.8, , 0, 0.7, 0.2, 1;
+ElectricEquipment, F1_Equip, F1, EQP_SCH, Watts/Area, , 3, , 0, 0.5, 0;
+ZoneInfiltration:DesignFlowRate, F1_Infil, F1, ALWAYS_ON, AirChanges/Hour, , , , 0.15, 1, 0, 0, 0;
+People, F2_People, F2, OCC_SCH, Area/Person, , , 12, 0.3, autocalculate, ACTIVITY_SCH;
+Lights, F2_Lights, F2, LTG_SCH, Watts/Area, , 11.8, , 0, 0.7, 0.2, 1;
+ElectricEquipment, F2_Equip, F2, EQP_SCH, Watts/Area, , 3, , 0, 0.5, 0;
+ZoneInfiltration:DesignFlowRate, F2_Infil, F2, ALWAYS_ON, AirChanges/Hour, , , , 0.15, 1, 0, 0, 0;
+
+! ---------------- HVAC: PTHP per zone
+DesignSpecification:OutdoorAir, PTHP_OA_Spec, Flow/Person, 0.0095;
+ThermostatSetpoint:DualSetpoint, Tstat_DualSP, HTGSETP_SCH, CLGSETP_SCH;
+
+Sizing:Zone, F1, SupplyAirTemperature, 14, , SupplyAirTemperature, 40, , 0.0085, 0.008, PTHP_OA_Spec;
+ZoneControl:Thermostat, F1_Tstat, F1, CTRL_TYPE, ThermostatSetpoint:DualSetpoint, Tstat_DualSP;
+ZoneHVAC:EquipmentConnections, F1, F1_EquipList, F1_PTHP_Outlet, F1_PTHP_Inlet, F1_Air_Node;
+ZoneHVAC:EquipmentList, F1_EquipList, SequentialLoad, ZoneHVAC:PackagedTerminalHeatPump, F1_PTHP, 1, 1;
+OutdoorAir:NodeList, F1_OA_Node;
+OutdoorAir:Mixer, F1_OA_Mixer, F1_Mixed_Node, F1_OA_Node, F1_Relief_Node, F1_PTHP_Inlet;
+ZoneHVAC:PackagedTerminalHeatPump, F1_PTHP, ALWAYS_ON, F1_PTHP_Inlet, F1_PTHP_Outlet,
+ OutdoorAir:Mixer, F1_OA_Mixer,
+ autosize, autosize, autosize, autosize, autosize, autosize,
+ Fan:OnOff, F1_Fan,
+ Coil:Heating:DX:SingleSpeed, F1_HPHeatCoil, 0.001,
+ Coil:Cooling:DX:SingleSpeed, F1_CoolCoil, 0.001,
+ autosize, 21,
+ Coil:Heating:Electric, F1_SuppCoil,
+ BlowThrough, FAN_CYCLE;
+Fan:OnOff, F1_Fan, ALWAYS_ON, 0.55, 125, autosize, 0.9, 1.0, F1_Mixed_Node, F1_FanOut_Node;
+Coil:Cooling:DX:SingleSpeed, F1_CoolCoil, ALWAYS_ON, autosize, autosize, 3.2, autosize, , F1_FanOut_Node, F1_CoolOut_Node,
+ CoolCapFT, CoolCapFFF, CoolEIRFT, CoolEIRFFF, CoolPLF;
+Coil:Heating:DX:SingleSpeed, F1_HPHeatCoil, ALWAYS_ON, autosize, 2.8, autosize, , F1_CoolOut_Node, F1_HeatOut_Node,
+ HeatCapFT, HeatCapFFF, HeatEIRFT, HeatEIRFFF, HeatPLF, DefrostEIRFT, -8;
+Coil:Heating:Electric, F1_SuppCoil, ALWAYS_ON, 1.0, autosize, F1_HeatOut_Node, F1_PTHP_Outlet;
+
+Sizing:Zone, F2, SupplyAirTemperature, 14, , SupplyAirTemperature, 40, , 0.0085, 0.008, PTHP_OA_Spec;
+ZoneControl:Thermostat, F2_Tstat, F2, CTRL_TYPE, ThermostatSetpoint:DualSetpoint, Tstat_DualSP;
+ZoneHVAC:EquipmentConnections, F2, F2_EquipList, F2_PTHP_Outlet, F2_PTHP_Inlet, F2_Air_Node;
+ZoneHVAC:EquipmentList, F2_EquipList, SequentialLoad, ZoneHVAC:PackagedTerminalHeatPump, F2_PTHP, 1, 1;
+OutdoorAir:NodeList, F2_OA_Node;
+OutdoorAir:Mixer, F2_OA_Mixer, F2_Mixed_Node, F2_OA_Node, F2_Relief_Node, F2_PTHP_Inlet;
+ZoneHVAC:PackagedTerminalHeatPump, F2_PTHP, ALWAYS_ON, F2_PTHP_Inlet, F2_PTHP_Outlet,
+ OutdoorAir:Mixer, F2_OA_Mixer,
+ autosize, autosize, autosize, autosize, autosize, autosize,
+ Fan:OnOff, F2_Fan,
+ Coil:Heating:DX:SingleSpeed, F2_HPHeatCoil, 0.001,
+ Coil:Cooling:DX:SingleSpeed, F2_CoolCoil, 0.001,
+ autosize, 21,
+ Coil:Heating:Electric, F2_SuppCoil,
+ BlowThrough, FAN_CYCLE;
+Fan:OnOff, F2_Fan, ALWAYS_ON, 0.55, 125, autosize, 0.9, 1.0, F2_Mixed_Node, F2_FanOut_Node;
+Coil:Cooling:DX:SingleSpeed, F2_CoolCoil, ALWAYS_ON, autosize, autosize, 3.2, autosize, , F2_FanOut_Node, F2_CoolOut_Node,
+ CoolCapFT, CoolCapFFF, CoolEIRFT, CoolEIRFFF, CoolPLF;
+Coil:Heating:DX:SingleSpeed, F2_HPHeatCoil, ALWAYS_ON, autosize, 2.8, autosize, , F2_CoolOut_Node, F2_HeatOut_Node,
+ HeatCapFT, HeatCapFFF, HeatEIRFT, HeatEIRFFF, HeatPLF, DefrostEIRFT, -8;
+Coil:Heating:Electric, F2_SuppCoil, ALWAYS_ON, 1.0, autosize, F2_HeatOut_Node, F2_PTHP_Outlet;
+
+Curve:Biquadratic, CoolCapFT, 0.942587793, 0.009543347, 0.000683770, -0.011042676, 0.000005249, -0.000009720, 12.77, 23.88, 18.0, 46.11, , , Temperature, Temperature, Dimensionless;
+Curve:Quadratic, CoolCapFFF, 0.8, 0.2, 0.0, 0.5, 1.5, , , Dimensionless, Dimensionless;
+Curve:Biquadratic, CoolEIRFT, 0.342414409, 0.034885008, -0.000623700, 0.004977216, 0.000437951, -0.000728028, 12.77, 23.88, 18.0, 46.11, , , Temperature, Temperature, Dimensionless;
+Curve:Quadratic, CoolEIRFFF, 1.156, -0.1816, 0.0256, 0.5, 1.5, , , Dimensionless, Dimensionless;
+Curve:Quadratic, CoolPLF, 0.85, 0.15, 0.0, 0.0, 1.0, , , Dimensionless, Dimensionless;
+Curve:Cubic, HeatCapFT, 0.758746, 0.027626, 0.000148716, 0.0000034992, -20, 20, , , Temperature, Dimensionless;
+Curve:Quadratic, HeatCapFFF, 0.84, 0.16, 0.0, 0.5, 1.5, , , Dimensionless, Dimensionless;
+Curve:Cubic, HeatEIRFT, 1.19248, -0.0300438, 0.00103745, -0.000023328, -20, 20, , , Temperature, Dimensionless;
+Curve:Quadratic, HeatEIRFFF, 1.3824, -0.4336, 0.0512, 0.0, 1.0, , , Dimensionless, Dimensionless;
+Curve:Quadratic, HeatPLF, 0.75, 0.25, 0.0, 0.0, 1.0, , , Dimensionless, Dimensionless;
+Curve:Biquadratic, DefrostEIRFT, 0.297145, 0.0430933, -0.000748766, 0.00597727, 0.000482112, -0.000956448, 12.77, 23.88, 21.11, 46.11, , , Temperature, Temperature, Dimensionless;

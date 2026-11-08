@@ -1,0 +1,196 @@
+Building,
+  T2-test-06,
+  -20,
+  City,
+  0.04,
+  0.4,
+  FullExterior,
+  25,
+  6;
+
+GlobalGeometryRules,
+  UpperLeftCorner,
+  Counterclockwise,
+  World;
+
+Timestep, 4;
+
+ScheduleTypeLimits, Fraction, 0, 1, Continuous;
+ScheduleTypeLimits, Temperature, -60, 200, Continuous;
+ScheduleTypeLimits, ActivityLevel, 0, , Continuous;
+
+Schedule:Compact, AlwaysOn, Fraction, Through: 12/31, For: AllDays, Until: 24:00, 1;
+Schedule:Compact, Activity, ActivityLevel, Through: 12/31, For: AllDays, Until: 24:00, 110;
+Schedule:Compact, Occupancy, Fraction, Through: 12/31, For: Weekdays, Until: 08:00, 0, Until: 18:00, 1, Until: 24:00, 0, For: AllOtherDays, Until: 24:00, 0;
+Schedule:Compact, LightSch, Fraction, Through: 12/31, For: Weekdays, Until: 08:00, 0.15, Until: 18:00, 0.95, Until: 24:00, 0.15, For: AllOtherDays, Until: 24:00, 0.15;
+Schedule:Compact, EquipSch, Fraction, Through: 12/31, For: Weekdays, Until: 08:00, 0.4, Until: 18:00, 0.95, Until: 24:00, 0.4, For: AllOtherDays, Until: 24:00, 0.4;
+Schedule:Compact, HeatSet, Temperature, Through: 12/31, For: Weekdays, Until: 08:00, 13.5, Until: 18:00, 21, Until: 24:00, 13.5, For: AllOtherDays, Until: 24:00, 13.5;
+Schedule:Compact, CoolSet, Temperature, Through: 12/31, For: Weekdays, Until: 08:00, 28, Until: 18:00, 24, Until: 24:00, 28, For: AllOtherDays, Until: 24:00, 28;
+
+Material, Concrete100, MediumRough, 0.1, 1.311, 2240, 836.8;
+Material, Gypsum, MediumSmooth, 0.0127, 0.16, 784.9, 830;
+Material, Carpet, MediumRough, 0.0127, 0.06, 288, 1380;
+Material, SteelSkin, Smooth, 0.0015, 45, 7680, 418;
+Material, Membrane, Rough, 0.01, 0.16, 1120, 1460;
+Material:NoMass, WallIns, Rough, 1.14;
+Material:NoMass, RoofIns, Rough, 4.27;
+WindowMaterial:SimpleGlazingSystem, Glz, 2.8, 0.57, 0.75;
+
+Construction, ExtWall, SteelSkin, WallIns, Gypsum;
+Construction, Roof, Membrane, RoofIns, Concrete100;
+Construction, GroundFloor, Concrete100, Carpet;
+Construction, IntFloor, Concrete100, Carpet;
+Construction, IntCeil, Carpet, Concrete100;
+Construction, Partition, Gypsum, Gypsum;
+Construction, Window, Glz;
+
+Zone, S1;
+Zone, E1;
+Zone, N1;
+Zone, W1;
+Zone, C1;
+Zone, S2;
+Zone, E2;
+Zone, N2;
+Zone, W2;
+Zone, C2;
+
+! ========== FLOOR 1 (z 0-3.2)
+! ---------- South
+BuildingSurface:Detailed, S1_Ext, Wall, ExtWall, S1, , Outdoors, , SunExposed, WindExposed, , 4, 0,0,3.2, 0,0,0, 44.5,0,0, 44.5,0,3.2;
+BuildingSurface:Detailed, S1_toE, Wall, Partition, S1, , Surface, E1_toS, NoSun, NoWind, , 4, 44.5,0,3.2, 44.5,0,0, 41,3.5,0, 41,3.5,3.2;
+BuildingSurface:Detailed, S1_toC, Wall, Partition, S1, , Surface, C1_toS, NoSun, NoWind, , 4, 41,3.5,3.2, 41,3.5,0, 3.5,3.5,0, 3.5,3.5,3.2;
+BuildingSurface:Detailed, S1_toW, Wall, Partition, S1, , Surface, W1_toS, NoSun, NoWind, , 4, 3.5,3.5,3.2, 3.5,3.5,0, 0,0,0, 0,0,3.2;
+BuildingSurface:Detailed, S1_Ceil, Ceiling, IntCeil, S1, , Surface, S2_Flr, NoSun, NoWind, , 4, 0,0,3.2, 44.5,0,3.2, 41,3.5,3.2, 3.5,3.5,3.2;
+BuildingSurface:Detailed, S1_Floor, Floor, GroundFloor, S1, , Ground, , NoSun, NoWind, , 4, 3.5,3.5,0, 41,3.5,0, 44.5,0,0, 0,0,0;
+FenestrationSurface:Detailed, S1_Win, Window, Window, S1_Ext, , autocalculate, , 1, 4, 2.225,0,1.866667, 2.225,0,0.8, 42.275,0,0.8, 42.275,0,1.866667;
+! ---------- East
+BuildingSurface:Detailed, E1_Ext, Wall, ExtWall, E1, , Outdoors, , SunExposed, WindExposed, , 4, 44.5,0,3.2, 44.5,0,0, 44.5,22,0, 44.5,22,3.2;
+BuildingSurface:Detailed, E1_toN, Wall, Partition, E1, , Surface, N1_toE, NoSun, NoWind, , 4, 44.5,22,3.2, 44.5,22,0, 41,18.5,0, 41,18.5,3.2;
+BuildingSurface:Detailed, E1_toC, Wall, Partition, E1, , Surface, C1_toE, NoSun, NoWind, , 4, 41,18.5,3.2, 41,18.5,0, 41,3.5,0, 41,3.5,3.2;
+BuildingSurface:Detailed, E1_toS, Wall, Partition, E1, , Surface, S1_toE, NoSun, NoWind, , 4, 41,3.5,3.2, 41,3.5,0, 44.5,0,0, 44.5,0,3.2;
+BuildingSurface:Detailed, E1_Ceil, Ceiling, IntCeil, E1, , Surface, E2_Flr, NoSun, NoWind, , 4, 44.5,0,3.2, 44.5,22,3.2, 41,18.5,3.2, 41,3.5,3.2;
+BuildingSurface:Detailed, E1_Floor, Floor, GroundFloor, E1, , Ground, , NoSun, NoWind, , 4, 41,3.5,0, 41,18.5,0, 44.5,22,0, 44.5,0,0;
+FenestrationSurface:Detailed, E1_Win, Window, Window, E1_Ext, , autocalculate, , 1, 4, 44.5,1.1,2.044444, 44.5,1.1,0.8, 44.5,20.9,0.8, 44.5,20.9,2.044444;
+! ---------- North
+BuildingSurface:Detailed, N1_Ext, Wall, ExtWall, N1, , Outdoors, , SunExposed, WindExposed, , 4, 44.5,22,3.2, 44.5,22,0, 0,22,0, 0,22,3.2;
+BuildingSurface:Detailed, N1_toW, Wall, Partition, N1, , Surface, W1_toN, NoSun, NoWind, , 4, 0,22,3.2, 0,22,0, 3.5,18.5,0, 3.5,18.5,3.2;
+BuildingSurface:Detailed, N1_toC, Wall, Partition, N1, , Surface, C1_toN, NoSun, NoWind, , 4, 3.5,18.5,3.2, 3.5,18.5,0, 41,18.5,0, 41,18.5,3.2;
+BuildingSurface:Detailed, N1_toE, Wall, Partition, N1, , Surface, E1_toN, NoSun, NoWind, , 4, 41,18.5,3.2, 41,18.5,0, 44.5,22,0, 44.5,22,3.2;
+BuildingSurface:Detailed, N1_Ceil, Ceiling, IntCeil, N1, , Surface, N2_Flr, NoSun, NoWind, , 4, 44.5,22,3.2, 0,22,3.2, 3.5,18.5,3.2, 41,18.5,3.2;
+BuildingSurface:Detailed, N1_Floor, Floor, GroundFloor, N1, , Ground, , NoSun, NoWind, , 4, 41,18.5,0, 3.5,18.5,0, 0,22,0, 44.5,22,0;
+FenestrationSurface:Detailed, N1_Win, Window, Window, N1_Ext, , autocalculate, , 1, 4, 42.275,22,2.044444, 42.275,22,0.8, 2.225,22,0.8, 2.225,22,2.044444;
+! ---------- West
+BuildingSurface:Detailed, W1_Ext, Wall, ExtWall, W1, , Outdoors, , SunExposed, WindExposed, , 4, 0,22,3.2, 0,22,0, 0,0,0, 0,0,3.2;
+BuildingSurface:Detailed, W1_toS, Wall, Partition, W1, , Surface, S1_toW, NoSun, NoWind, , 4, 0,0,3.2, 0,0,0, 3.5,3.5,0, 3.5,3.5,3.2;
+BuildingSurface:Detailed, W1_toC, Wall, Partition, W1, , Surface, C1_toW, NoSun, NoWind, , 4, 3.5,3.5,3.2, 3.5,3.5,0, 3.5,18.5,0, 3.5,18.5,3.2;
+BuildingSurface:Detailed, W1_toN, Wall, Partition, W1, , Surface, N1_toW, NoSun, NoWind, , 4, 3.5,18.5,3.2, 3.5,18.5,0, 0,22,0, 0,22,3.2;
+BuildingSurface:Detailed, W1_Ceil, Ceiling, IntCeil, W1, , Surface, W2_Flr, NoSun, NoWind, , 4, 0,22,3.2, 0,0,3.2, 3.5,3.5,3.2, 3.5,18.5,3.2;
+BuildingSurface:Detailed, W1_Floor, Floor, GroundFloor, W1, , Ground, , NoSun, NoWind, , 4, 3.5,18.5,0, 3.5,3.5,0, 0,0,0, 0,22,0;
+FenestrationSurface:Detailed, W1_Win, Window, Window, W1_Ext, , autocalculate, , 1, 4, 0,20.9,1.866667, 0,20.9,0.8, 0,1.1,0.8, 0,1.1,1.866667;
+! ---------- Core
+BuildingSurface:Detailed, C1_toS, Wall, Partition, C1, , Surface, S1_toC, NoSun, NoWind, , 4, 3.5,3.5,3.2, 3.5,3.5,0, 41,3.5,0, 41,3.5,3.2;
+BuildingSurface:Detailed, C1_toE, Wall, Partition, C1, , Surface, E1_toC, NoSun, NoWind, , 4, 41,3.5,3.2, 41,3.5,0, 41,18.5,0, 41,18.5,3.2;
+BuildingSurface:Detailed, C1_toN, Wall, Partition, C1, , Surface, N1_toC, NoSun, NoWind, , 4, 41,18.5,3.2, 41,18.5,0, 3.5,18.5,0, 3.5,18.5,3.2;
+BuildingSurface:Detailed, C1_toW, Wall, Partition, C1, , Surface, W1_toC, NoSun, NoWind, , 4, 3.5,18.5,3.2, 3.5,18.5,0, 3.5,3.5,0, 3.5,3.5,3.2;
+BuildingSurface:Detailed, C1_Ceil, Ceiling, IntCeil, C1, , Surface, C2_Flr, NoSun, NoWind, , 4, 3.5,3.5,3.2, 41,3.5,3.2, 41,18.5,3.2, 3.5,18.5,3.2;
+BuildingSurface:Detailed, C1_Floor, Floor, GroundFloor, C1, , Ground, , NoSun, NoWind, , 4, 3.5,18.5,0, 41,18.5,0, 41,3.5,0, 3.5,3.5,0;
+
+! ========== FLOOR 2 (z 3.2-6.4)
+! ---------- South
+BuildingSurface:Detailed, S2_Ext, Wall, ExtWall, S2, , Outdoors, , SunExposed, WindExposed, , 4, 0,0,6.4, 0,0,3.2, 44.5,0,3.2, 44.5,0,6.4;
+BuildingSurface:Detailed, S2_toE, Wall, Partition, S2, , Surface, E2_toS, NoSun, NoWind, , 4, 44.5,0,6.4, 44.5,0,3.2, 41,3.5,3.2, 41,3.5,6.4;
+BuildingSurface:Detailed, S2_toC, Wall, Partition, S2, , Surface, C2_toS, NoSun, NoWind, , 4, 41,3.5,6.4, 41,3.5,3.2, 3.5,3.5,3.2, 3.5,3.5,6.4;
+BuildingSurface:Detailed, S2_toW, Wall, Partition, S2, , Surface, W2_toS, NoSun, NoWind, , 4, 3.5,3.5,6.4, 3.5,3.5,3.2, 0,0,3.2, 0,0,6.4;
+BuildingSurface:Detailed, S2_Roof, Roof, Roof, S2, , Outdoors, , SunExposed, WindExposed, , 4, 0,0,6.4, 44.5,0,6.4, 41,3.5,6.4, 3.5,3.5,6.4;
+BuildingSurface:Detailed, S2_Flr, Floor, IntFloor, S2, , Surface, S1_Ceil, NoSun, NoWind, , 4, 3.5,3.5,3.2, 41,3.5,3.2, 44.5,0,3.2, 0,0,3.2;
+FenestrationSurface:Detailed, S2_Win, Window, Window, S2_Ext, , autocalculate, , 1, 4, 2.225,0,5.066667, 2.225,0,4, 42.275,0,4, 42.275,0,5.066667;
+! ---------- East
+BuildingSurface:Detailed, E2_Ext, Wall, ExtWall, E2, , Outdoors, , SunExposed, WindExposed, , 4, 44.5,0,6.4, 44.5,0,3.2, 44.5,22,3.2, 44.5,22,6.4;
+BuildingSurface:Detailed, E2_toN, Wall, Partition, E2, , Surface, N2_toE, NoSun, NoWind, , 4, 44.5,22,6.4, 44.5,22,3.2, 41,18.5,3.2, 41,18.5,6.4;
+BuildingSurface:Detailed, E2_toC, Wall, Partition, E2, , Surface, C2_toE, NoSun, NoWind, , 4, 41,18.5,6.4, 41,18.5,3.2, 41,3.5,3.2, 41,3.5,6.4;
+BuildingSurface:Detailed, E2_toS, Wall, Partition, E2, , Surface, S2_toE, NoSun, NoWind, , 4, 41,3.5,6.4, 41,3.5,3.2, 44.5,0,3.2, 44.5,0,6.4;
+BuildingSurface:Detailed, E2_Roof, Roof, Roof, E2, , Outdoors, , SunExposed, WindExposed, , 4, 44.5,0,6.4, 44.5,22,6.4, 41,18.5,6.4, 41,3.5,6.4;
+BuildingSurface:Detailed, E2_Flr, Floor, IntFloor, E2, , Surface, E1_Ceil, NoSun, NoWind, , 4, 41,3.5,3.2, 41,18.5,3.2, 44.5,22,3.2, 44.5,0,3.2;
+FenestrationSurface:Detailed, E2_Win, Window, Window, E2_Ext, , autocalculate, , 1, 4, 44.5,1.1,5.244444, 44.5,1.1,4, 44.5,20.9,4, 44.5,20.9,5.244444;
+! ---------- North
+BuildingSurface:Detailed, N2_Ext, Wall, ExtWall, N2, , Outdoors, , SunExposed, WindExposed, , 4, 44.5,22,6.4, 44.5,22,3.2, 0,22,3.2, 0,22,6.4;
+BuildingSurface:Detailed, N2_toW, Wall, Partition, N2, , Surface, W2_toN, NoSun, NoWind, , 4, 0,22,6.4, 0,22,3.2, 3.5,18.5,3.2, 3.5,18.5,6.4;
+BuildingSurface:Detailed, N2_toC, Wall, Partition, N2, , Surface, C2_toN, NoSun, NoWind, , 4, 3.5,18.5,6.4, 3.5,18.5,3.2, 41,18.5,3.2, 41,18.5,6.4;
+BuildingSurface:Detailed, N2_toE, Wall, Partition, N2, , Surface, E2_toN, NoSun, NoWind, , 4, 41,18.5,6.4, 41,18.5,3.2, 44.5,22,3.2, 44.5,22,6.4;
+BuildingSurface:Detailed, N2_Roof, Roof, Roof, N2, , Outdoors, , SunExposed, WindExposed, , 4, 44.5,22,6.4, 0,22,6.4, 3.5,18.5,6.4, 41,18.5,6.4;
+BuildingSurface:Detailed, N2_Flr, Floor, IntFloor, N2, , Surface, N1_Ceil, NoSun, NoWind, , 4, 41,18.5,3.2, 3.5,18.5,3.2, 0,22,3.2, 44.5,22,3.2;
+FenestrationSurface:Detailed, N2_Win, Window, Window, N2_Ext, , autocalculate, , 1, 4, 42.275,22,5.244444, 42.275,22,4, 2.225,22,4, 2.225,22,5.244444;
+! ---------- West
+BuildingSurface:Detailed, W2_Ext, Wall, ExtWall, W2, , Outdoors, , SunExposed, WindExposed, , 4, 0,22,6.4, 0,22,3.2, 0,0,3.2, 0,0,6.4;
+BuildingSurface:Detailed, W2_toS, Wall, Partition, W2, , Surface, S2_toW, NoSun, NoWind, , 4, 0,0,6.4, 0,0,3.2, 3.5,3.5,3.2, 3.5,3.5,6.4;
+BuildingSurface:Detailed, W2_toC, Wall, Partition, W2, , Surface, C2_toW, NoSun, NoWind, , 4, 3.5,3.5,6.4, 3.5,3.5,3.2, 3.5,18.5,3.2, 3.5,18.5,6.4;
+BuildingSurface:Detailed, W2_toN, Wall, Partition, W2, , Surface, N2_toW, NoSun, NoWind, , 4, 3.5,18.5,6.4, 3.5,18.5,3.2, 0,22,3.2, 0,22,6.4;
+BuildingSurface:Detailed, W2_Roof, Roof, Roof, W2, , Outdoors, , SunExposed, WindExposed, , 4, 0,22,6.4, 0,0,6.4, 3.5,3.5,6.4, 3.5,18.5,6.4;
+BuildingSurface:Detailed, W2_Flr, Floor, IntFloor, W2, , Surface, W1_Ceil, NoSun, NoWind, , 4, 3.5,18.5,3.2, 3.5,3.5,3.2, 0,0,3.2, 0,22,3.2;
+FenestrationSurface:Detailed, W2_Win, Window, Window, W2_Ext, , autocalculate, , 1, 4, 0,20.9,5.066667, 0,20.9,4, 0,1.1,4, 0,1.1,5.066667;
+! ---------- Core
+BuildingSurface:Detailed, C2_toS, Wall, Partition, C2, , Surface, S2_toC, NoSun, NoWind, , 4, 3.5,3.5,6.4, 3.5,3.5,3.2, 41,3.5,3.2, 41,3.5,6.4;
+BuildingSurface:Detailed, C2_toE, Wall, Partition, C2, , Surface, E2_toC, NoSun, NoWind, , 4, 41,3.5,6.4, 41,3.5,3.2, 41,18.5,3.2, 41,18.5,6.4;
+BuildingSurface:Detailed, C2_toN, Wall, Partition, C2, , Surface, N2_toC, NoSun, NoWind, , 4, 41,18.5,6.4, 41,18.5,3.2, 3.5,18.5,3.2, 3.5,18.5,6.4;
+BuildingSurface:Detailed, C2_toW, Wall, Partition, C2, , Surface, W2_toC, NoSun, NoWind, , 4, 3.5,18.5,6.4, 3.5,18.5,3.2, 3.5,3.5,3.2, 3.5,3.5,6.4;
+BuildingSurface:Detailed, C2_Roof, Roof, Roof, C2, , Outdoors, , SunExposed, WindExposed, , 4, 3.5,3.5,6.4, 41,3.5,6.4, 41,18.5,6.4, 3.5,18.5,6.4;
+BuildingSurface:Detailed, C2_Flr, Floor, IntFloor, C2, , Surface, C1_Ceil, NoSun, NoWind, , 4, 3.5,18.5,3.2, 41,18.5,3.2, 41,3.5,3.2, 3.5,3.5,3.2;
+
+! ---------- Internal loads
+People, P_S1, S1, Occupancy, Area/Person, , , 23, , , Activity;
+People, P_E1, E1, Occupancy, Area/Person, , , 23, , , Activity;
+People, P_N1, N1, Occupancy, Area/Person, , , 23, , , Activity;
+People, P_W1, W1, Occupancy, Area/Person, , , 23, , , Activity;
+People, P_C1, C1, Occupancy, Area/Person, , , 23, , , Activity;
+People, P_S2, S2, Occupancy, Area/Person, , , 23, , , Activity;
+People, P_E2, E2, Occupancy, Area/Person, , , 23, , , Activity;
+People, P_N2, N2, Occupancy, Area/Person, , , 23, , , Activity;
+People, P_W2, W2, Occupancy, Area/Person, , , 23, , , Activity;
+People, P_C2, C2, Occupancy, Area/Person, , , 23, , , Activity;
+
+Lights, L_S1, S1, LightSch, Watts/Area, , 8.6, , 0, 0.7, 0.2;
+Lights, L_E1, E1, LightSch, Watts/Area, , 8.6, , 0, 0.7, 0.2;
+Lights, L_N1, N1, LightSch, Watts/Area, , 8.6, , 0, 0.7, 0.2;
+Lights, L_W1, W1, LightSch, Watts/Area, , 8.6, , 0, 0.7, 0.2;
+Lights, L_C1, C1, LightSch, Watts/Area, , 8.6, , 0, 0.7, 0.2;
+Lights, L_S2, S2, LightSch, Watts/Area, , 8.6, , 0, 0.7, 0.2;
+Lights, L_E2, E2, LightSch, Watts/Area, , 8.6, , 0, 0.7, 0.2;
+Lights, L_N2, N2, LightSch, Watts/Area, , 8.6, , 0, 0.7, 0.2;
+Lights, L_W2, W2, LightSch, Watts/Area, , 8.6, , 0, 0.7, 0.2;
+Lights, L_C2, C2, LightSch, Watts/Area, , 8.6, , 0, 0.7, 0.2;
+
+ElectricEquipment, Q_S1, S1, EquipSch, Watts/Area, , 9, , 0, 0.5, 0;
+ElectricEquipment, Q_E1, E1, EquipSch, Watts/Area, , 9, , 0, 0.5, 0;
+ElectricEquipment, Q_N1, N1, EquipSch, Watts/Area, , 9, , 0, 0.5, 0;
+ElectricEquipment, Q_W1, W1, EquipSch, Watts/Area, , 9, , 0, 0.5, 0;
+ElectricEquipment, Q_C1, C1, EquipSch, Watts/Area, , 9, , 0, 0.5, 0;
+ElectricEquipment, Q_S2, S2, EquipSch, Watts/Area, , 9, , 0, 0.5, 0;
+ElectricEquipment, Q_E2, E2, EquipSch, Watts/Area, , 9, , 0, 0.5, 0;
+ElectricEquipment, Q_N2, N2, EquipSch, Watts/Area, , 9, , 0, 0.5, 0;
+ElectricEquipment, Q_W2, W2, EquipSch, Watts/Area, , 9, , 0, 0.5, 0;
+ElectricEquipment, Q_C2, C2, EquipSch, Watts/Area, , 9, , 0, 0.5, 0;
+
+ZoneInfiltration:DesignFlowRate, I_S1, S1, AlwaysOn, AirChanges/Hour, , , , 0.2, 1, 0, 0, 0;
+ZoneInfiltration:DesignFlowRate, I_E1, E1, AlwaysOn, AirChanges/Hour, , , , 0.2, 1, 0, 0, 0;
+ZoneInfiltration:DesignFlowRate, I_N1, N1, AlwaysOn, AirChanges/Hour, , , , 0.2, 1, 0, 0, 0;
+ZoneInfiltration:DesignFlowRate, I_W1, W1, AlwaysOn, AirChanges/Hour, , , , 0.2, 1, 0, 0, 0;
+ZoneInfiltration:DesignFlowRate, I_C1, C1, AlwaysOn, AirChanges/Hour, , , , 0.2, 1, 0, 0, 0;
+ZoneInfiltration:DesignFlowRate, I_S2, S2, AlwaysOn, AirChanges/Hour, , , , 0.2, 1, 0, 0, 0;
+ZoneInfiltration:DesignFlowRate, I_E2, E2, AlwaysOn, AirChanges/Hour, , , , 0.2, 1, 0, 0, 0;
+ZoneInfiltration:DesignFlowRate, I_N2, N2, AlwaysOn, AirChanges/Hour, , , , 0.2, 1, 0, 0, 0;
+ZoneInfiltration:DesignFlowRate, I_W2, W2, AlwaysOn, AirChanges/Hour, , , , 0.2, 1, 0, 0, 0;
+ZoneInfiltration:DesignFlowRate, I_C2, C2, AlwaysOn, AirChanges/Hour, , , , 0.2, 1, 0, 0, 0;
+
+! ---------- HVAC
+HVACTemplate:Thermostat, Tstat, HeatSet, , CoolSet, ;
+HVACTemplate:Zone:IdealLoadsAirSystem, S1, Tstat;
+HVACTemplate:Zone:IdealLoadsAirSystem, E1, Tstat;
+HVACTemplate:Zone:IdealLoadsAirSystem, N1, Tstat;
+HVACTemplate:Zone:IdealLoadsAirSystem, W1, Tstat;
+HVACTemplate:Zone:IdealLoadsAirSystem, C1, Tstat;
+HVACTemplate:Zone:IdealLoadsAirSystem, S2, Tstat;
+HVACTemplate:Zone:IdealLoadsAirSystem, E2, Tstat;
+HVACTemplate:Zone:IdealLoadsAirSystem, N2, Tstat;
+HVACTemplate:Zone:IdealLoadsAirSystem, W2, Tstat;
+HVACTemplate:Zone:IdealLoadsAirSystem, C2, Tstat;

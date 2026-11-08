@@ -1,0 +1,245 @@
+Building,
+  T2-test-08 Clinic,
+  0,
+  City,
+  0.04,
+  0.4,
+  FullExterior,
+  25,
+  6;
+
+Timestep,6;
+
+GlobalGeometryRules,
+  UpperLeftCorner,
+  Counterclockwise,
+  Relative;
+
+ScheduleTypeLimits,Fraction,0,1,Continuous;
+ScheduleTypeLimits,Temperature,-60,200,Continuous;
+ScheduleTypeLimits,Any Number;
+
+Schedule:Compact,Occupancy Sch,Fraction,
+  Through: 12/31,
+  For: Weekdays,
+  Until: 07:00,0,
+  Until: 19:00,1,
+  Until: 24:00,0,
+  For: Saturday,
+  Until: 08:00,0,
+  Until: 13:00,1,
+  Until: 24:00,0,
+  For: AllOtherDays,
+  Until: 24:00,0;
+
+Schedule:Compact,Lighting Sch,Fraction,
+  Through: 12/31,
+  For: Weekdays,
+  Until: 07:00,0.15,
+  Until: 19:00,0.85,
+  Until: 24:00,0.15,
+  For: Saturday,
+  Until: 08:00,0.15,
+  Until: 13:00,0.85,
+  Until: 24:00,0.15,
+  For: AllOtherDays,
+  Until: 24:00,0.15;
+
+Schedule:Compact,Equipment Sch,Fraction,
+  Through: 12/31,
+  For: Weekdays,
+  Until: 07:00,0.35,
+  Until: 19:00,0.8,
+  Until: 24:00,0.35,
+  For: Saturday,
+  Until: 08:00,0.35,
+  Until: 13:00,0.8,
+  Until: 24:00,0.35,
+  For: AllOtherDays,
+  Until: 24:00,0.35;
+
+Schedule:Compact,Activity Sch,Any Number,
+  Through: 12/31,
+  For: AllDays,
+  Until: 24:00,110;
+
+Schedule:Compact,Always On,Fraction,
+  Through: 12/31,
+  For: AllDays,
+  Until: 24:00,1;
+
+Schedule:Compact,Heating Setpoint Sch,Temperature,
+  Through: 12/31,
+  For: Weekdays,
+  Until: 07:00,16.5,
+  Until: 19:00,21.5,
+  Until: 24:00,16.5,
+  For: Saturday,
+  Until: 08:00,16.5,
+  Until: 13:00,21.5,
+  Until: 24:00,16.5,
+  For: AllOtherDays,
+  Until: 24:00,16.5;
+
+Schedule:Compact,Cooling Setpoint Sch,Temperature,
+  Through: 12/31,
+  For: Weekdays,
+  Until: 07:00,29.5,
+  Until: 19:00,23.5,
+  Until: 24:00,29.5,
+  For: Saturday,
+  Until: 08:00,29.5,
+  Until: 13:00,23.5,
+  Until: 24:00,29.5,
+  For: AllOtherDays,
+  Until: 24:00,29.5;
+
+Material,Heavyweight Concrete 200mm,MediumRough,0.2,1.311,2240,836.8,0.9,0.7,0.7;
+Material,Wall Insulation,MediumRough,0.09533,0.045,265,836.8,0.9,0.7,0.7;
+Material,Gypsum Board 12.7mm,Smooth,0.0127,0.16,784.9,830,0.9,0.4,0.4;
+Material,Roof Membrane,VeryRough,0.0095,0.16,1121.29,1460,0.9,0.7,0.7;
+Material,Roof Insulation,MediumRough,0.10173,0.049,265,836.8,0.9,0.7,0.7;
+Material,Metal Decking,MediumSmooth,0.0015,45.006,7680,418.4,0.9,0.7,0.3;
+Material,Heavyweight Concrete 100mm,MediumRough,0.1,1.311,2240,836.8,0.9,0.7,0.7;
+Material,Carpet 12.7mm,VeryRough,0.0127,0.06,288,1380,0.9,0.7,0.8;
+
+WindowMaterial:SimpleGlazingSystem,Glazing Simple,2.5,0.48,0.68;
+
+Construction,Ext Wall,Heavyweight Concrete 200mm,Wall Insulation,Gypsum Board 12.7mm;
+Construction,Roof,Roof Membrane,Roof Insulation,Metal Decking;
+Construction,Ground Floor,Heavyweight Concrete 100mm,Carpet 12.7mm;
+Construction,Interior Floor,Heavyweight Concrete 100mm,Carpet 12.7mm;
+Construction,Interior Ceiling,Carpet 12.7mm,Heavyweight Concrete 100mm;
+Construction,Window,Glazing Simple;
+
+Zone,Storey 1 Zone,0,0,0,0,1,1,autocalculate,autocalculate;
+Zone,Storey 2 Zone,0,0,0,0,1,1,autocalculate,autocalculate;
+Zone,Storey 3 Zone,0,0,0,0,1,1,autocalculate,autocalculate;
+
+ZoneList,All Zones,Storey 1 Zone,Storey 2 Zone,Storey 3 Zone;
+
+!=================== STOREY 1 (z = 0 to 3.1) ===================
+BuildingSurface:Detailed,S1 South Wall,Wall,Ext Wall,Storey 1 Zone,,Outdoors,,SunExposed,WindExposed,autocalculate,4,
+  0,0,3.1,
+  0,0,0,
+  49.5,0,0,
+  49.5,0,3.1;
+BuildingSurface:Detailed,S1 East Wall,Wall,Ext Wall,Storey 1 Zone,,Outdoors,,SunExposed,WindExposed,autocalculate,4,
+  49.5,0,3.1,
+  49.5,0,0,
+  49.5,21.5,0,
+  49.5,21.5,3.1;
+BuildingSurface:Detailed,S1 North Wall,Wall,Ext Wall,Storey 1 Zone,,Outdoors,,SunExposed,WindExposed,autocalculate,4,
+  49.5,21.5,3.1,
+  49.5,21.5,0,
+  0,21.5,0,
+  0,21.5,3.1;
+BuildingSurface:Detailed,S1 West Wall,Wall,Ext Wall,Storey 1 Zone,,Outdoors,,SunExposed,WindExposed,autocalculate,4,
+  0,21.5,3.1,
+  0,21.5,0,
+  0,0,0,
+  0,0,3.1;
+BuildingSurface:Detailed,S1 Floor,Floor,Ground Floor,Storey 1 Zone,,Ground,,NoSun,NoWind,autocalculate,4,
+  0,21.5,0,
+  49.5,21.5,0,
+  49.5,0,0,
+  0,0,0;
+BuildingSurface:Detailed,S1 Ceiling,Ceiling,Interior Ceiling,Storey 1 Zone,,Surface,S2 Floor,NoSun,NoWind,autocalculate,4,
+  0,0,3.1,
+  49.5,0,3.1,
+  49.5,21.5,3.1,
+  0,21.5,3.1;
+
+!=================== STOREY 2 (z = 3.1 to 6.2) ===================
+BuildingSurface:Detailed,S2 South Wall,Wall,Ext Wall,Storey 2 Zone,,Outdoors,,SunExposed,WindExposed,autocalculate,4,
+  0,0,6.2,
+  0,0,3.1,
+  49.5,0,3.1,
+  49.5,0,6.2;
+BuildingSurface:Detailed,S2 East Wall,Wall,Ext Wall,Storey 2 Zone,,Outdoors,,SunExposed,WindExposed,autocalculate,4,
+  49.5,0,6.2,
+  49.5,0,3.1,
+  49.5,21.5,3.1,
+  49.5,21.5,6.2;
+BuildingSurface:Detailed,S2 North Wall,Wall,Ext Wall,Storey 2 Zone,,Outdoors,,SunExposed,WindExposed,autocalculate,4,
+  49.5,21.5,6.2,
+  49.5,21.5,3.1,
+  0,21.5,3.1,
+  0,21.5,6.2;
+BuildingSurface:Detailed,S2 West Wall,Wall,Ext Wall,Storey 2 Zone,,Outdoors,,SunExposed,WindExposed,autocalculate,4,
+  0,21.5,6.2,
+  0,21.5,3.1,
+  0,0,3.1,
+  0,0,6.2;
+BuildingSurface:Detailed,S2 Floor,Floor,Interior Floor,Storey 2 Zone,,Surface,S1 Ceiling,NoSun,NoWind,autocalculate,4,
+  0,21.5,3.1,
+  49.5,21.5,3.1,
+  49.5,0,3.1,
+  0,0,3.1;
+BuildingSurface:Detailed,S2 Ceiling,Ceiling,Interior Ceiling,Storey 2 Zone,,Surface,S3 Floor,NoSun,NoWind,autocalculate,4,
+  0,0,6.2,
+  49.5,0,6.2,
+  49.5,21.5,6.2,
+  0,21.5,6.2;
+
+!=================== STOREY 3 (z = 6.2 to 9.3) ===================
+BuildingSurface:Detailed,S3 South Wall,Wall,Ext Wall,Storey 3 Zone,,Outdoors,,SunExposed,WindExposed,autocalculate,4,
+  0,0,9.3,
+  0,0,6.2,
+  49.5,0,6.2,
+  49.5,0,9.3;
+BuildingSurface:Detailed,S3 East Wall,Wall,Ext Wall,Storey 3 Zone,,Outdoors,,SunExposed,WindExposed,autocalculate,4,
+  49.5,0,9.3,
+  49.5,0,6.2,
+  49.5,21.5,6.2,
+  49.5,21.5,9.3;
+BuildingSurface:Detailed,S3 North Wall,Wall,Ext Wall,Storey 3 Zone,,Outdoors,,SunExposed,WindExposed,autocalculate,4,
+  49.5,21.5,9.3,
+  49.5,21.5,6.2,
+  0,21.5,6.2,
+  0,21.5,9.3;
+BuildingSurface:Detailed,S3 West Wall,Wall,Ext Wall,Storey 3 Zone,,Outdoors,,SunExposed,WindExposed,autocalculate,4,
+  0,21.5,9.3,
+  0,21.5,6.2,
+  0,0,6.2,
+  0,0,9.3;
+BuildingSurface:Detailed,S3 Floor,Floor,Interior Floor,Storey 3 Zone,,Surface,S2 Ceiling,NoSun,NoWind,autocalculate,4,
+  0,21.5,6.2,
+  49.5,21.5,6.2,
+  49.5,0,6.2,
+  0,0,6.2;
+BuildingSurface:Detailed,S3 Roof,Roof,Roof,Storey 3 Zone,,Outdoors,,SunExposed,WindExposed,autocalculate,4,
+  0,0,9.3,
+  49.5,0,9.3,
+  49.5,21.5,9.3,
+  0,21.5,9.3;
+
+! ---------------- Windows ----------------
+Window,S1 South Window,Window,S1 South Wall,,1,17.0775,0.8,15.345,1.5;
+Window,S1 East Window,Window,S1 East Wall,,1,6.45,0.8,8.6,1.55;
+Window,S1 North Window,Window,S1 North Wall,,1,7.7,0.7,34.1,1.8;
+Window,S1 West Window,Window,S1 West Wall,,1,5.375,0.8,10.75,1.55;
+Window,S2 South Window,Window,S2 South Wall,,1,17.0775,0.8,15.345,1.5;
+Window,S2 East Window,Window,S2 East Wall,,1,6.45,0.8,8.6,1.55;
+Window,S2 North Window,Window,S2 North Wall,,1,7.7,0.7,34.1,1.8;
+Window,S2 West Window,Window,S2 West Wall,,1,5.375,0.8,10.75,1.55;
+Window,S3 South Window,Window,S3 South Wall,,1,17.0775,0.8,15.345,1.5;
+Window,S3 East Window,Window,S3 East Wall,,1,6.45,0.8,8.6,1.55;
+Window,S3 North Window,Window,S3 North Wall,,1,7.7,0.7,34.1,1.8;
+Window,S3 West Window,Window,S3 West Wall,,1,5.375,0.8,10.75,1.55;
+
+! ---------------- Internal gains ----------------
+People,People All,All Zones,Occupancy Sch,Area/Person,,,14,0.3,autocalculate,Activity Sch;
+
+Lights,Lights All,All Zones,Lighting Sch,Watts/Area,,10,,0,0.7,0.2,0;
+
+ElectricEquipment,Equipment All,All Zones,Equipment Sch,Watts/Area,,11,,0,0.5,0;
+
+ZoneInfiltration:DesignFlowRate,Infiltration All,All Zones,Always On,AirChanges/Hour,,,,0.4,1,0,0,0;
+
+! ---------------- HVAC ----------------
+HVACTemplate:Thermostat,Clinic Thermostat,Heating Setpoint Sch,,Cooling Setpoint Sch,;
+
+HVACTemplate:Zone:IdealLoadsAirSystem,Storey 1 Zone,Clinic Thermostat;
+HVACTemplate:Zone:IdealLoadsAirSystem,Storey 2 Zone,Clinic Thermostat;
+HVACTemplate:Zone:IdealLoadsAirSystem,Storey 3 Zone,Clinic Thermostat;

@@ -1,0 +1,14 @@
+- **should** | Landscape para "Two repeated runs" — "both report the same ten-run experiment on one building" — could not confirm for Zhang 2024 (arXiv has 3 case studies) — check full texts and reword.
+- **should** | Landscape table — "Foam-Agent ... 110+", "AECBench", "Jiang 2025 648", "EPlus-LLM 152", "Zhang 10 runs" — case counts not verifiable from abstracts/records — verify against full text.
+- **should** | Landscape — "Buildrix ... EnergyPlus generation skill scored against expert-verified cases" — abstract mentions golden test cases but no EnergyPlus skill — verify or soften.
+- **should** | Landscape — "AutoB2G scores ... by tier" — abstract does not say benchmark or tiers — verify or reword.
+- **should** | Introduction para 7 — "generate ... other building engineering models [yue2025foam]" — Foam-Agent is OpenFOAM CFD, not a building model — reword.
+- **should** | Landscape — "but not for simulation-graded ones" — uncited negative claim — phrase as "we found none".
+- **should** | Landscape — "Modelica workflow benchmark grade ... by simulation" — that benchmark explicitly goes beyond simulating (physical-behaviour evaluator) — reword.
+- **should** | Benchmark trust — "Statistics ... power analysis [dodge2019show]" — Dodge is about reporting budget, not power analysis — cite only for budget.
+- **should** | GEPIII sentence — "showed the same overfitting risks" — abstracts do not report leaderboard overfitting — check or reword.
+- **should** | Conclusions — "about 50% or more" — cooling median is 46.3% (K19), heating 87.5% (K18) — write "46% to 88%".
+- **should** | Contribution 4 — "A first open ... benchmark" — rests on an unsupported negative; Buildrix, OpenStudio-MCP and BEMEval exist — qualify as "to our knowledge" with the novelty search date.
+- **should** | Body near-misses — "97.1%" (jiang2026large, own source, fine); "99.6%", "97.5%", "79%", "90%", "80%" vs K45/K54/K49 — near-misses in System results; confirm these are per-condition values and not stale (e.g. 97.5% vs 100.0 for K45).
+- **should** | Part B — any claim of "human modellers would not reach 100%" is hedged but unapproved empirically; keep as limitation.
+- Not checked for approval: claims.md was not cross-read line by line.

@@ -1,0 +1,203 @@
+Timestep,
+  4;
+
+Building,
+  Clinic Building,
+  0,
+  Suburbs,
+  0.04,
+  0.4,
+  FullExterior,
+  25,
+  6;
+
+Zone,Level 1 Zone;
+Zone,Level 2 Zone;
+Zone,Level 3 Zone;
+
+ScheduleTypeLimits,Fraction,0,1,Continuous,Dimensionless;
+ScheduleTypeLimits,Temperature,-60,200,Continuous,Temperature;
+ScheduleTypeLimits,Any Number;
+
+Schedule:Constant,Always On,Fraction,1;
+Schedule:Constant,Activity Level Schedule,Any Number,110;
+
+Schedule:Compact,
+  Occupancy Schedule,
+  Fraction,
+  Through: 12/31,
+  For: Weekdays,
+  Until: 07:00,0,
+  Until: 19:00,1,
+  Until: 24:00,0,
+  For: Saturday,
+  Until: 08:00,0,
+  Until: 13:00,1,
+  Until: 24:00,0,
+  For: AllOtherDays,
+  Until: 24:00,0;
+
+Schedule:Compact,
+  Lighting Schedule,
+  Fraction,
+  Through: 12/31,
+  For: Weekdays,
+  Until: 07:00,0.15,
+  Until: 19:00,0.85,
+  Until: 24:00,0.15,
+  For: Saturday,
+  Until: 08:00,0.15,
+  Until: 13:00,0.85,
+  Until: 24:00,0.15,
+  For: AllOtherDays,
+  Until: 24:00,0.15;
+
+Schedule:Compact,
+  Equipment Schedule,
+  Fraction,
+  Through: 12/31,
+  For: Weekdays,
+  Until: 07:00,0.35,
+  Until: 19:00,0.8,
+  Until: 24:00,0.35,
+  For: Saturday,
+  Until: 08:00,0.35,
+  Until: 13:00,0.8,
+  Until: 24:00,0.35,
+  For: AllOtherDays,
+  Until: 24:00,0.35;
+
+Schedule:Compact,
+  Heating Setpoint Schedule,
+  Temperature,
+  Through: 12/31,
+  For: Weekdays,
+  Until: 07:00,16.5,
+  Until: 19:00,21.5,
+  Until: 24:00,16.5,
+  For: Saturday,
+  Until: 08:00,16.5,
+  Until: 13:00,21.5,
+  Until: 24:00,16.5,
+  For: AllOtherDays,
+  Until: 24:00,16.5;
+
+Schedule:Compact,
+  Cooling Setpoint Schedule,
+  Temperature,
+  Through: 12/31,
+  For: Weekdays,
+  Until: 07:00,29.5,
+  Until: 19:00,23.5,
+  Until: 24:00,29.5,
+  For: Saturday,
+  Until: 08:00,29.5,
+  Until: 13:00,23.5,
+  Until: 24:00,29.5,
+  For: AllOtherDays,
+  Until: 24:00,29.5;
+
+Material,Heavy Concrete 200mm,MediumRough,0.2,1.311,2240,836.8,0.9,0.7,0.7;
+Material,Wall Insulation,Rough,0.0847,0.04,30,1400,0.9,0.7,0.7;
+Material,Gypsum 12.7mm,MediumSmooth,0.0127,0.16,784.9,830,0.9,0.5,0.5;
+Material,Floor Concrete 100mm,MediumRough,0.1,1.311,2240,836.8,0.9,0.7,0.7;
+Material,Carpet 12.7mm,VeryRough,0.0127,0.06,288,1380,0.9,0.5,0.5;
+Material,Roof Membrane,Smooth,0.0095,0.16,1100,1000,0.9,0.7,0.7;
+Material,Roof Insulation,Rough,0.0831,0.04,30,1400,0.9,0.7,0.7;
+Material,Metal Deck,MediumSmooth,0.0015,45,7680,418,0.9,0.7,0.7;
+
+Construction,Mass Wall,Heavy Concrete 200mm,Wall Insulation,Gypsum 12.7mm;
+Construction,Lightweight Roof,Roof Membrane,Roof Insulation,Metal Deck;
+Construction,Slab Floor,Floor Concrete 100mm,Carpet 12.7mm;
+Construction,Interior Partition,Gypsum 12.7mm,Gypsum 12.7mm;
+
+WindowMaterial:SimpleGlazingSystem,Simple Glazing,2.5,0.48,0.68;
+Construction,Simple Glazing Construction,Simple Glazing;
+
+People,Level 1 People,Level 1 Zone,Occupancy Schedule,Area/Person,,,14,,,Activity Level Schedule;
+People,Level 2 People,Level 2 Zone,Occupancy Schedule,Area/Person,,,14,,,Activity Level Schedule;
+People,Level 3 People,Level 3 Zone,Occupancy Schedule,Area/Person,,,14,,,Activity Level Schedule;
+
+Lights,Level 1 Lights,Level 1 Zone,Lighting Schedule,Watts/Area,,10,,0,0.7,0.2,0;
+Lights,Level 2 Lights,Level 2 Zone,Lighting Schedule,Watts/Area,,10,,0,0.7,0.2,0;
+Lights,Level 3 Lights,Level 3 Zone,Lighting Schedule,Watts/Area,,10,,0,0.7,0.2,0;
+
+ElectricEquipment,Level 1 Equipment,Level 1 Zone,Equipment Schedule,Watts/Area,,11,,0,0.5,0;
+ElectricEquipment,Level 2 Equipment,Level 2 Zone,Equipment Schedule,Watts/Area,,11,,0,0.5,0;
+ElectricEquipment,Level 3 Equipment,Level 3 Zone,Equipment Schedule,Watts/Area,,11,,0,0.5,0;
+
+ZoneInfiltration:DesignFlowRate,Level 1 Infiltration,Level 1 Zone,Always On,AirChanges/Hour,,,,0.4,1,0,0,0;
+ZoneInfiltration:DesignFlowRate,Level 2 Infiltration,Level 2 Zone,Always On,AirChanges/Hour,,,,0.4,1,0,0,0;
+ZoneInfiltration:DesignFlowRate,Level 3 Infiltration,Level 3 Zone,Always On,AirChanges/Hour,,,,0.4,1,0,0,0;
+
+HVACTemplate:Thermostat,Office Thermostat,,Heating Setpoint Schedule,,Cooling Setpoint Schedule;
+HVACTemplate:Zone:IdealLoadsAirSystem,Level 1 Zone,Office Thermostat;
+HVACTemplate:Zone:IdealLoadsAirSystem,Level 2 Zone,Office Thermostat;
+HVACTemplate:Zone:IdealLoadsAirSystem,Level 3 Zone,Office Thermostat;
+
+BuildingSurface:Detailed,L1 South Wall,Wall,Mass Wall,Level 1 Zone,,Outdoors,,SunExposed,WindExposed,autocalc,autocalc,
+  0,0,0, 49.5,0,0, 49.5,0,3.1, 0,0,3.1;
+BuildingSurface:Detailed,L1 East Wall,Wall,Mass Wall,Level 1 Zone,,Outdoors,,SunExposed,WindExposed,autocalc,autocalc,
+  49.5,0,0, 49.5,21.5,0, 49.5,21.5,3.1, 49.5,0,3.1;
+BuildingSurface:Detailed,L1 North Wall,Wall,Mass Wall,Level 1 Zone,,Outdoors,,SunExposed,WindExposed,autocalc,autocalc,
+  49.5,21.5,0, 0,21.5,0, 0,21.5,3.1, 49.5,21.5,3.1;
+BuildingSurface:Detailed,L1 West Wall,Wall,Mass Wall,Level 1 Zone,,Outdoors,,SunExposed,WindExposed,autocalc,autocalc,
+  0,21.5,0, 0,0,0, 0,0,3.1, 0,21.5,3.1;
+
+BuildingSurface:Detailed,L2 South Wall,Wall,Mass Wall,Level 2 Zone,,Outdoors,,SunExposed,WindExposed,autocalc,autocalc,
+  0,0,3.1, 49.5,0,3.1, 49.5,0,6.2, 0,0,6.2;
+BuildingSurface:Detailed,L2 East Wall,Wall,Mass Wall,Level 2 Zone,,Outdoors,,SunExposed,WindExposed,autocalc,autocalc,
+  49.5,0,3.1, 49.5,21.5,3.1, 49.5,21.5,6.2, 49.5,0,6.2;
+BuildingSurface:Detailed,L2 North Wall,Wall,Mass Wall,Level 2 Zone,,Outdoors,,SunExposed,WindExposed,autocalc,autocalc,
+  49.5,21.5,3.1, 0,21.5,3.1, 0,21.5,6.2, 49.5,21.5,6.2;
+BuildingSurface:Detailed,L2 West Wall,Wall,Mass Wall,Level 2 Zone,,Outdoors,,SunExposed,WindExposed,autocalc,autocalc,
+  0,21.5,3.1, 0,0,3.1, 0,0,6.2, 0,21.5,6.2;
+
+BuildingSurface:Detailed,L3 South Wall,Wall,Mass Wall,Level 3 Zone,,Outdoors,,SunExposed,WindExposed,autocalc,autocalc,
+  0,0,6.2, 49.5,0,6.2, 49.5,0,9.3, 0,0,9.3;
+BuildingSurface:Detailed,L3 East Wall,Wall,Mass Wall,Level 3 Zone,,Outdoors,,SunExposed,WindExposed,autocalc,autocalc,
+  49.5,0,6.2, 49.5,21.5,6.2, 49.5,21.5,9.3, 49.5,0,9.3;
+BuildingSurface:Detailed,L3 North Wall,Wall,Mass Wall,Level 3 Zone,,Outdoors,,SunExposed,WindExposed,autocalc,autocalc,
+  49.5,21.5,6.2, 0,21.5,6.2, 0,21.5,9.3, 49.5,21.5,9.3;
+BuildingSurface:Detailed,L3 West Wall,Wall,Mass Wall,Level 3 Zone,,Outdoors,,SunExposed,WindExposed,autocalc,autocalc,
+  0,21.5,6.2, 0,0,6.2, 0,0,9.3, 0,21.5,9.3;
+
+BuildingSurface:Detailed,L1 Floor,Floor,Slab Floor,Level 1 Zone,,Ground,,NoSun,NoWind,autocalc,autocalc,
+  0,0,0, 0,21.5,0, 49.5,21.5,0, 49.5,0,0;
+BuildingSurface:Detailed,L1 Ceiling,Ceiling,Slab Floor,Level 1 Zone,,Zone,L2 Floor,NoSun,NoWind,autocalc,autocalc,
+  0,0,3.1, 49.5,0,3.1, 49.5,21.5,3.1, 0,21.5,3.1;
+BuildingSurface:Detailed,L2 Floor,Floor,Slab Floor,Level 2 Zone,,Zone,L1 Ceiling,NoSun,NoWind,autocalc,autocalc,
+  0,0,3.1, 0,21.5,3.1, 49.5,21.5,3.1, 49.5,0,3.1;
+BuildingSurface:Detailed,L2 Ceiling,Ceiling,Slab Floor,Level 2 Zone,,Zone,L3 Floor,NoSun,NoWind,autocalc,autocalc,
+  0,0,6.2, 49.5,0,6.2, 49.5,21.5,6.2, 0,21.5,6.2;
+BuildingSurface:Detailed,L3 Floor,Floor,Slab Floor,Level 3 Zone,,Zone,L2 Ceiling,NoSun,NoWind,autocalc,autocalc,
+  0,0,6.2, 0,21.5,6.2, 49.5,21.5,6.2, 49.5,0,6.2;
+BuildingSurface:Detailed,L3 Roof,Roof,Lightweight Roof,Level 3 Zone,,Outdoors,,SunExposed,WindExposed,autocalc,autocalc,
+  0,0,9.3, 49.5,0,9.3, 49.5,21.5,9.3, 0,21.5,9.3;
+
+FenestrationSurface:Detailed,L1 South Window,Window,Simple Glazing Construction,L1 South Wall,,autocalc,,,autocalc,
+  18.35625,0,0.7, 31.14375,0,0.7, 31.14375,0,2.5, 18.35625,0,2.5;
+FenestrationSurface:Detailed,L1 North Window,Window,Simple Glazing Construction,L1 North Wall,,autocalc,,,autocalc,
+  41.8,21.5,0.7, 7.7,21.5,0.7, 7.7,21.5,2.5, 41.8,21.5,2.5;
+FenestrationSurface:Detailed,L1 East Window,Window,Simple Glazing Construction,L1 East Wall,,autocalc,,,autocalc,
+  49.5,7.047222,0.7, 49.5,14.452778,0.7, 49.5,14.452778,2.5, 49.5,7.047222,2.5;
+FenestrationSurface:Detailed,L1 West Window,Window,Simple Glazing Construction,L1 West Wall,,autocalc,,,autocalc,
+  0,15.378472,0.7, 0,6.121528,0.7, 0,6.121528,2.5, 0,15.378472,2.5;
+
+FenestrationSurface:Detailed,L2 South Window,Window,Simple Glazing Construction,L2 South Wall,,autocalc,,,autocalc,
+  18.35625,0,3.8, 31.14375,0,3.8, 31.14375,0,5.6, 18.35625,0,5.6;
+FenestrationSurface:Detailed,L2 North Window,Window,Simple Glazing Construction,L2 North Wall,,autocalc,,,autocalc,
+  41.8,21.5,3.8, 7.7,21.5,3.8, 7.7,21.5,5.6, 41.8,21.5,5.6;
+FenestrationSurface:Detailed,L2 East Window,Window,Simple Glazing Construction,L2 East Wall,,autocalc,,,autocalc,
+  49.5,7.047222,3.8, 49.5,14.452778,3.8, 49.5,14.452778,5.6, 49.5,7.047222,5.6;
+FenestrationSurface:Detailed,L2 West Window,Window,Simple Glazing Construction,L2 West Wall,,autocalc,,,autocalc,
+  0,15.378472,3.8, 0,6.121528,3.8, 0,6.121528,5.6, 0,15.378472,5.6;
+
+FenestrationSurface:Detailed,L3 South Window,Window,Simple Glazing Construction,L3 South Wall,,autocalc,,,autocalc,
+  18.35625,0,6.9, 31.14375,0,6.9, 31.14375,0,8.7, 18.35625,0,8.7;
+FenestrationSurface:Detailed,L3 North Window,Window,Simple Glazing Construction,L3 North Wall,,autocalc,,,autocalc,
+  41.8,21.5,6.9, 7.7,21.5,6.9, 7.7,21.5,8.7, 41.8,21.5,8.7;
+FenestrationSurface:Detailed,L3 East Window,Window,Simple Glazing Construction,L3 East Wall,,autocalc,,,autocalc,
+  49.5,7.047222,6.9, 49.5,14.452778,6.9, 49.5,14.452778,8.7, 49.5,7.047222,8.7;
+FenestrationSurface:Detailed,L3 West Window,Window,Simple Glazing Construction,L3 West Wall,,autocalc,,,autocalc,
+  0,15.378472,6.9, 0,6.121528,6.9, 0,6.121528,8.7, 0,15.378472,8.7;

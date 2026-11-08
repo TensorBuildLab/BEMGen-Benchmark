@@ -1,0 +1,4 @@
+system,run1_pass,run2_pass,agreement,kappa,pass^2,pass@2
+opus,38,37,0.975,0.787,37,38
+sonnet,37,14,0.425,0.084,14,37
+haiku,26,10,0.6,0.304,10,26

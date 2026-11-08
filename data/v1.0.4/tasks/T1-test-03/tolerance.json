@@ -1,0 +1,10 @@
+{
+ "total_site_kwh": 0.2890971295778284,
+ "electricity_kwh": 0.02,
+ "gas_kwh": 0.02,
+ "heating_kwh": 7.080508474576272,
+ "cooling_kwh": 0.4777817088271714,
+ "lighting_kwh": 0.02,
+ "equipment_kwh": 0.02,
+ "fans_kwh": 0.02
+}

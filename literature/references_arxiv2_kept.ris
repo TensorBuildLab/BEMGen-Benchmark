@@ -1,0 +1,187 @@
+TY  - JOUR
+ID  - jiang2026buildrix
+AU  - Jiang, Zixin
+AU  - Dong, Bing
+TI  - Buildrix: An Open Platform for Sharing and Benchmarking Agentic AI Skills in Building Engineering
+T2  - arXiv preprint
+PY  - 2026
+DO  - 10.48550/arXiv.2606.25139
+UR  - https://arxiv.org/abs/2606.25139
+N1  - arXiv:2606.25139; record from arXiv API 2026-11-07
+ER  - 
+
+TY  - JOUR
+ID  - wang2026executable
+AU  - Wang, Zizhe
+TI  - Beyond Executable Models: The Pufibara Agent Harness and the Modelica Agent Workflow Benchmark for Physical System Modeling
+T2  - arXiv preprint
+PY  - 2026
+DO  - 10.48550/arXiv.2608.23653
+UR  - https://arxiv.org/abs/2608.23653
+N1  - arXiv:2608.23653; record from arXiv API 2026-11-07
+ER  - 
+
+TY  - JOUR
+ID  - guo2025engineering
+AU  - Guo, Xingang
+AU  - Li, Yaxin
+AU  - Kong, Xiangyi
+AU  - Jiang, Yilan
+AU  - Zhao, Xiayu
+AU  - Gong, Zhihua
+AU  - Zhang, Yufan
+AU  - Li, Daixuan
+AU  - Sang, Tianle
+AU  - Zhu, Beixiao
+AU  - Jun, Gregory
+AU  - Huang, Yingbing
+AU  - Liu, Yiqi
+AU  - Xue, Yuqi
+AU  - Kundu, Rahul Dev
+AU  - Lim, Qi Jian
+AU  - Zhao, Yizhou
+AU  - Granger, Luke Alexander
+AU  - Younis, Mohamed Badr
+AU  - Keivan, Darioush
+AU  - Sabharwal, Nippun
+AU  - Sinha, Shreyanka
+AU  - Agarwal, Prakhar
+AU  - Vandyck, Kojo
+AU  - Mai, Hanlin
+AU  - Wang, Zichen
+AU  - Venkatesh, Aditya
+AU  - Barik, Ayush
+AU  - Yang, Jiankun
+AU  - Yue, Chongying
+AU  - He, Jingjie
+AU  - Wang, Libin
+AU  - Xu, Licheng
+AU  - Chen, Hao
+AU  - Wang, Jinwen
+AU  - Xu, Liujun
+AU  - Shetty, Rushabh
+AU  - Guo, Ziheng
+AU  - Song, Dahui
+AU  - Jha, Manvi
+AU  - Liang, Weijie
+AU  - Yan, Weiman
+AU  - Zhang, Bryan
+AU  - Karnoor, Sahil Bhandary
+AU  - Zhang, Jialiang
+AU  - Pandya, Rutva
+AU  - Gong, Xinyi
+AU  - Ganesh, Mithesh Ballae
+AU  - Shi, Feize
+AU  - Xu, Ruiling
+AU  - Zhang, Yifan
+AU  - Ouyang, Yanfeng
+AU  - Qin, Lianhui
+AU  - Rosenbaum, Elyse
+AU  - Snyder, Corey
+AU  - Seiler, Peter
+AU  - Dullerud, Geir
+AU  - Zhang, Xiaojia Shelly
+AU  - Cheng, Zuofu
+AU  - Hanumolu, Pavan Kumar
+AU  - Huang, Jian
+AU  - Kulkarni, Mayank
+AU  - Namazifar, Mahdi
+AU  - Zhang, Huan
+AU  - Hu, Bin
+TI  - Toward Engineering AGI: Benchmarking the Engineering Design Capabilities of LLMs
+T2  - arXiv preprint
+PY  - 2025
+DO  - 10.48550/arXiv.2509.16204
+UR  - https://arxiv.org/abs/2509.16204
+N1  - arXiv:2509.16204; record from arXiv API 2026-11-07
+ER  - 
+
+TY  - JOUR
+ID  - wan2025automating
+AU  - Wan, Hanlong
+AU  - Lu, Xing
+AU  - Chen, Yan
+AU  - Devaprasad, Karthik
+AU  - Hinkle, Laura
+TI  - Automating Modelica Module Generation Using Large Language Models: A Case Study on Building Control Description Language
+T2  - arXiv preprint
+PY  - 2025
+DO  - 10.48550/arXiv.2509.14623
+UR  - https://arxiv.org/abs/2509.14623
+N1  - arXiv:2509.14623; record from arXiv API 2026-11-07
+ER  - 
+
+TY  - JOUR
+ID  - xiang2025modigen
+AU  - Xiang, Jiahui
+AU  - Ye, Tong
+AU  - Liu, Peiyu
+AU  - Zhang, Yinan
+AU  - Wang, Wenhai
+TI  - ModiGen: A Large Language Model-Based Workflow for Multi-Task Modelica Code Generation
+T2  - arXiv preprint
+PY  - 2025
+DO  - 10.48550/arXiv.2503.18460
+UR  - https://arxiv.org/abs/2503.18460
+N1  - arXiv:2503.18460; record from arXiv API 2026-11-07
+ER  - 
+
+TY  - JOUR
+ID  - siddeeq2026codeassay
+AU  - Siddeeq, Shahbaz
+AU  - Waseem, Muhammad
+AU  - Malhi, Umar Subhan
+AU  - Abrahamsson, Pekka
+TI  - CodeAssay: A Multi-Metric Benchmark with Audited Ground Truth for LLM Code Generation
+T2  - arXiv preprint
+PY  - 2026
+DO  - 10.48550/arXiv.2608.03535
+UR  - https://arxiv.org/abs/2608.03535
+N1  - arXiv:2608.03535; record from arXiv API 2026-11-07
+ER  - 
+
+TY  - JOUR
+ID  - zhang2026autob2g
+AU  - Zhang, Borui
+AU  - Mahdavi, Nariman
+AU  - Sethuvenkatraman, Subbu
+AU  - Salim, Flora
+TI  - AutoB2G: Agentic Simulation and Reinforcement Learning for Spatio-Temporal Grid-Interactive Building Control
+T2  - arXiv preprint
+PY  - 2026
+DO  - 10.48550/arXiv.2603.26005
+UR  - https://arxiv.org/abs/2603.26005
+N1  - arXiv:2603.26005; record from arXiv API 2026-11-07
+ER  - 
+
+TY  - JOUR
+ID  - somasekharan2025cfdllmbench
+AU  - Somasekharan, Nithin
+AU  - Yue, Ling
+AU  - Cao, Yadi
+AU  - Li, Weichao
+AU  - Emami, Patrick
+AU  - Bhargav, Pochinapeddi Sai
+AU  - Acharya, Anurag
+AU  - Xie, Xingyu
+AU  - Pan, Shaowu
+TI  - CFDLLMBench: A Benchmark Suite for Evaluating Large Language Models in Computational Fluid Dynamics
+T2  - arXiv preprint
+PY  - 2025
+DO  - 10.48550/arXiv.2509.20374
+UR  - https://arxiv.org/abs/2509.20374
+N1  - arXiv:2509.20374; record from arXiv API 2026-11-07
+ER  - 
+
+TY  - JOUR
+ID  - jiang2026optagent
+AU  - Jiang, Zixin
+AU  - Xu, Weili
+AU  - Dong, Bing
+TI  - OptAgent: an Agentic AI framework for Intelligent Building Operations
+T2  - arXiv preprint
+PY  - 2026
+DO  - 10.48550/arXiv.2601.20005
+UR  - https://arxiv.org/abs/2601.20005
+N1  - arXiv:2601.20005; record from arXiv API 2026-11-07
+ER  - 

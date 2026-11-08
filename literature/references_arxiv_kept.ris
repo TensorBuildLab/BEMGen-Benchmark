@@ -1,0 +1,1035 @@
+TY  - JOUR
+ID  - recht2019imagenet
+AU  - Recht, Benjamin
+AU  - Roelofs, Rebecca
+AU  - Schmidt, Ludwig
+AU  - Shankar, Vaishaal
+TI  - Do ImageNet Classifiers Generalize to ImageNet?
+T2  - arXiv preprint
+PY  - 2019
+DO  - 10.48550/arXiv.1902.10811
+UR  - https://arxiv.org/abs/1902.10811
+N1  - arXiv:1902.10811; record from arXiv API 2026-11-07
+ER  - 
+
+TY  - JOUR
+ID  - raji2021ai
+AU  - Raji, Inioluwa Deborah
+AU  - Bender, Emily M.
+AU  - Paullada, Amandalynne
+AU  - Denton, Emily
+AU  - Hanna, Alex
+TI  - AI and the Everything in the Whole Wide World Benchmark
+T2  - arXiv preprint
+PY  - 2021
+DO  - 10.48550/arXiv.2111.15366
+UR  - https://arxiv.org/abs/2111.15366
+N1  - arXiv:2111.15366; record from arXiv API 2026-11-07
+ER  - 
+
+TY  - JOUR
+ID  - chen2021evaluating
+AU  - Chen, Mark
+AU  - Tworek, Jerry
+AU  - Jun, Heewoo
+AU  - Yuan, Qiming
+AU  - Pinto, Henrique Ponde de Oliveira
+AU  - Kaplan, Jared
+AU  - Edwards, Harri
+AU  - Burda, Yuri
+AU  - Joseph, Nicholas
+AU  - Brockman, Greg
+AU  - Ray, Alex
+AU  - Puri, Raul
+AU  - Krueger, Gretchen
+AU  - Petrov, Michael
+AU  - Khlaaf, Heidy
+AU  - Sastry, Girish
+AU  - Mishkin, Pamela
+AU  - Chan, Brooke
+AU  - Gray, Scott
+AU  - Ryder, Nick
+AU  - Pavlov, Mikhail
+AU  - Power, Alethea
+AU  - Kaiser, Lukasz
+AU  - Bavarian, Mohammad
+AU  - Winter, Clemens
+AU  - Tillet, Philippe
+AU  - Such, Felipe Petroski
+AU  - Cummings, Dave
+AU  - Plappert, Matthias
+AU  - Chantzis, Fotios
+AU  - Barnes, Elizabeth
+AU  - Herbert-Voss, Ariel
+AU  - Guss, William Hebgen
+AU  - Nichol, Alex
+AU  - Paino, Alex
+AU  - Tezak, Nikolas
+AU  - Tang, Jie
+AU  - Babuschkin, Igor
+AU  - Balaji, Suchir
+AU  - Jain, Shantanu
+AU  - Saunders, William
+AU  - Hesse, Christopher
+AU  - Carr, Andrew N.
+AU  - Leike, Jan
+AU  - Achiam, Josh
+AU  - Misra, Vedant
+AU  - Morikawa, Evan
+AU  - Radford, Alec
+AU  - Knight, Matthew
+AU  - Brundage, Miles
+AU  - Murati, Mira
+AU  - Mayer, Katie
+AU  - Welinder, Peter
+AU  - McGrew, Bob
+AU  - Amodei, Dario
+AU  - McCandlish, Sam
+AU  - Sutskever, Ilya
+AU  - Zaremba, Wojciech
+TI  - Evaluating Large Language Models Trained on Code
+T2  - arXiv preprint
+PY  - 2021
+DO  - 10.48550/arXiv.2107.03374
+UR  - https://arxiv.org/abs/2107.03374
+N1  - arXiv:2107.03374; record from arXiv API 2026-11-07
+ER  - 
+
+TY  - JOUR
+ID  - liang2022holistic
+AU  - Liang, Percy
+AU  - Bommasani, Rishi
+AU  - Lee, Tony
+AU  - Tsipras, Dimitris
+AU  - Soylu, Dilara
+AU  - Yasunaga, Michihiro
+AU  - Zhang, Yian
+AU  - Narayanan, Deepak
+AU  - Wu, Yuhuai
+AU  - Kumar, Ananya
+AU  - Newman, Benjamin
+AU  - Yuan, Binhang
+AU  - Yan, Bobby
+AU  - Zhang, Ce
+AU  - Cosgrove, Christian
+AU  - Manning, Christopher D.
+AU  - Ré, Christopher
+AU  - Acosta-Navas, Diana
+AU  - Hudson, Drew A.
+AU  - Zelikman, Eric
+AU  - Durmus, Esin
+AU  - Ladhak, Faisal
+AU  - Rong, Frieda
+AU  - Ren, Hongyu
+AU  - Yao, Huaxiu
+AU  - Wang, Jue
+AU  - Santhanam, Keshav
+AU  - Orr, Laurel
+AU  - Zheng, Lucia
+AU  - Yuksekgonul, Mert
+AU  - Suzgun, Mirac
+AU  - Kim, Nathan
+AU  - Guha, Neel
+AU  - Chatterji, Niladri
+AU  - Khattab, Omar
+AU  - Henderson, Peter
+AU  - Huang, Qian
+AU  - Chi, Ryan
+AU  - Xie, Sang Michael
+AU  - Santurkar, Shibani
+AU  - Ganguli, Surya
+AU  - Hashimoto, Tatsunori
+AU  - Icard, Thomas
+AU  - Zhang, Tianyi
+AU  - Chaudhary, Vishrav
+AU  - Wang, William
+AU  - Li, Xuechen
+AU  - Mai, Yifan
+AU  - Zhang, Yuhui
+AU  - Koreeda, Yuta
+TI  - Holistic Evaluation of Language Models
+T2  - arXiv preprint
+PY  - 2022
+DO  - 10.48550/arXiv.2211.09110
+UR  - https://arxiv.org/abs/2211.09110
+N1  - arXiv:2211.09110; record from arXiv API 2026-11-07
+ER  - 
+
+TY  - JOUR
+ID  - blum2015ladder
+AU  - Blum, Avrim
+AU  - Hardt, Moritz
+TI  - The Ladder: A Reliable Leaderboard for Machine Learning Competitions
+T2  - arXiv preprint
+PY  - 2015
+DO  - 10.48550/arXiv.1502.04585
+UR  - https://arxiv.org/abs/1502.04585
+N1  - arXiv:1502.04585; record from arXiv API 2026-11-07
+ER  - 
+
+TY  - JOUR
+ID  - srivastava2022imitation
+AU  - Srivastava, Aarohi
+AU  - Rastogi, Abhinav
+AU  - Rao, Abhishek
+AU  - Shoeb, Abu Awal Md
+AU  - Abid, Abubakar
+AU  - Fisch, Adam
+AU  - Brown, Adam R.
+AU  - Santoro, Adam
+AU  - Gupta, Aditya
+AU  - Garriga-Alonso, Adrià
+AU  - Kluska, Agnieszka
+AU  - Lewkowycz, Aitor
+AU  - Agarwal, Akshat
+AU  - Power, Alethea
+AU  - Ray, Alex
+AU  - Warstadt, Alex
+AU  - Kocurek, Alexander W.
+AU  - Safaya, Ali
+AU  - Tazarv, Ali
+AU  - Xiang, Alice
+AU  - Parrish, Alicia
+AU  - Nie, Allen
+AU  - Hussain, Aman
+AU  - Askell, Amanda
+AU  - Dsouza, Amanda
+AU  - Slone, Ambrose
+AU  - Rahane, Ameet
+AU  - Iyer, Anantharaman S.
+AU  - Andreassen, Anders
+AU  - Madotto, Andrea
+AU  - Santilli, Andrea
+AU  - Stuhlmüller, Andreas
+AU  - Dai, Andrew
+AU  - La, Andrew
+AU  - Lampinen, Andrew
+AU  - Zou, Andy
+AU  - Jiang, Angela
+AU  - Chen, Angelica
+AU  - Vuong, Anh
+AU  - Gupta, Animesh
+AU  - Gottardi, Anna
+AU  - Norelli, Antonio
+AU  - Venkatesh, Anu
+AU  - Gholamidavoodi, Arash
+AU  - Tabassum, Arfa
+AU  - Menezes, Arul
+AU  - Kirubarajan, Arun
+AU  - Mullokandov, Asher
+AU  - Sabharwal, Ashish
+AU  - Herrick, Austin
+AU  - Efrat, Avia
+AU  - Erdem, Aykut
+AU  - Karakaş, Ayla
+AU  - Roberts, B. Ryan
+AU  - Loe, Bao Sheng
+AU  - Zoph, Barret
+AU  - Bojanowski, Bartłomiej
+AU  - Özyurt, Batuhan
+AU  - Hedayatnia, Behnam
+AU  - Neyshabur, Behnam
+AU  - Inden, Benjamin
+AU  - Stein, Benno
+AU  - Ekmekci, Berk
+AU  - Lin, Bill Yuchen
+AU  - Howald, Blake
+AU  - Orinion, Bryan
+AU  - Diao, Cameron
+AU  - Dour, Cameron
+AU  - Stinson, Catherine
+AU  - Argueta, Cedrick
+AU  - Ramírez, César Ferri
+AU  - Singh, Chandan
+AU  - Rathkopf, Charles
+AU  - Meng, Chenlin
+AU  - Baral, Chitta
+AU  - Wu, Chiyu
+AU  - Callison-Burch, Chris
+AU  - Waites, Chris
+AU  - Voigt, Christian
+AU  - Manning, Christopher D.
+AU  - Potts, Christopher
+AU  - Ramirez, Cindy
+AU  - Rivera, Clara E.
+AU  - Siro, Clemencia
+AU  - Raffel, Colin
+AU  - Ashcraft, Courtney
+AU  - Garbacea, Cristina
+AU  - Sileo, Damien
+AU  - Garrette, Dan
+AU  - Hendrycks, Dan
+AU  - Kilman, Dan
+AU  - Roth, Dan
+AU  - Freeman, Daniel
+AU  - Khashabi, Daniel
+AU  - Levy, Daniel
+AU  - González, Daniel Moseguí
+AU  - Perszyk, Danielle
+AU  - Hernandez, Danny
+AU  - Chen, Danqi
+AU  - Ippolito, Daphne
+AU  - Gilboa, Dar
+AU  - Dohan, David
+AU  - Drakard, David
+AU  - Jurgens, David
+AU  - Datta, Debajyoti
+AU  - Ganguli, Deep
+AU  - Emelin, Denis
+AU  - Kleyko, Denis
+AU  - Yuret, Deniz
+AU  - Chen, Derek
+AU  - Tam, Derek
+AU  - Hupkes, Dieuwke
+AU  - Misra, Diganta
+AU  - Buzan, Dilyar
+AU  - Mollo, Dimitri Coelho
+AU  - Yang, Diyi
+AU  - Lee, Dong-Ho
+AU  - Schrader, Dylan
+AU  - Shutova, Ekaterina
+AU  - Cubuk, Ekin Dogus
+AU  - Segal, Elad
+AU  - Hagerman, Eleanor
+AU  - Barnes, Elizabeth
+AU  - Donoway, Elizabeth
+AU  - Pavlick, Ellie
+AU  - Rodola, Emanuele
+AU  - Lam, Emma
+AU  - Chu, Eric
+AU  - Tang, Eric
+AU  - Erdem, Erkut
+AU  - Chang, Ernie
+AU  - Chi, Ethan A.
+AU  - Dyer, Ethan
+AU  - Jerzak, Ethan
+AU  - Kim, Ethan
+AU  - Manyasi, Eunice Engefu
+AU  - Zheltonozhskii, Evgenii
+AU  - Xia, Fanyue
+AU  - Siar, Fatemeh
+AU  - Martínez-Plumed, Fernando
+AU  - Happé, Francesca
+AU  - Chollet, Francois
+AU  - Rong, Frieda
+AU  - Mishra, Gaurav
+AU  - Winata, Genta Indra
+AU  - Melo, Gerard de
+AU  - Kruszewski, Germán
+AU  - Parascandolo, Giambattista
+AU  - Mariani, Giorgio
+AU  - Wang, Gloria
+AU  - Jaimovitch-López, Gonzalo
+AU  - Betz, Gregor
+AU  - Gur-Ari, Guy
+AU  - Galijasevic, Hana
+AU  - Kim, Hannah
+AU  - Rashkin, Hannah
+AU  - Hajishirzi, Hannaneh
+AU  - Mehta, Harsh
+AU  - Bogar, Hayden
+AU  - Shevlin, Henry
+AU  - Schütze, Hinrich
+AU  - Yakura, Hiromu
+AU  - Zhang, Hongming
+AU  - Wong, Hugh Mee
+AU  - Ng, Ian
+AU  - Noble, Isaac
+AU  - Jumelet, Jaap
+AU  - Geissinger, Jack
+AU  - Kernion, Jackson
+AU  - Hilton, Jacob
+AU  - Lee, Jaehoon
+AU  - Fisac, Jaime Fernández
+AU  - Simon, James B.
+AU  - Koppel, James
+AU  - Zheng, James
+AU  - Zou, James
+AU  - Kocoń, Jan
+AU  - Thompson, Jana
+AU  - Wingfield, Janelle
+AU  - Kaplan, Jared
+AU  - Radom, Jarema
+AU  - Sohl-Dickstein, Jascha
+AU  - Phang, Jason
+AU  - Wei, Jason
+AU  - Yosinski, Jason
+AU  - Novikova, Jekaterina
+AU  - Bosscher, Jelle
+AU  - Marsh, Jennifer
+AU  - Kim, Jeremy
+AU  - Taal, Jeroen
+AU  - Engel, Jesse
+AU  - Alabi, Jesujoba
+AU  - Xu, Jiacheng
+AU  - Song, Jiaming
+AU  - Tang, Jillian
+AU  - Waweru, Joan
+AU  - Burden, John
+AU  - Miller, John
+AU  - Balis, John U.
+AU  - Batchelder, Jonathan
+AU  - Berant, Jonathan
+AU  - Frohberg, Jörg
+AU  - Rozen, Jos
+AU  - Hernandez-Orallo, Jose
+AU  - Boudeman, Joseph
+AU  - Guerr, Joseph
+AU  - Jones, Joseph
+AU  - Tenenbaum, Joshua B.
+AU  - Rule, Joshua S.
+AU  - Chua, Joyce
+AU  - Kanclerz, Kamil
+AU  - Livescu, Karen
+AU  - Krauth, Karl
+AU  - Gopalakrishnan, Karthik
+AU  - Ignatyeva, Katerina
+AU  - Markert, Katja
+AU  - Dhole, Kaustubh D.
+AU  - Gimpel, Kevin
+AU  - Omondi, Kevin
+AU  - Mathewson, Kory
+AU  - Chiafullo, Kristen
+AU  - Shkaruta, Ksenia
+AU  - Shridhar, Kumar
+AU  - McDonell, Kyle
+AU  - Richardson, Kyle
+AU  - Reynolds, Laria
+AU  - Gao, Leo
+AU  - Zhang, Li
+AU  - Dugan, Liam
+AU  - Qin, Lianhui
+AU  - Contreras-Ochando, Lidia
+AU  - Morency, Louis-Philippe
+AU  - Moschella, Luca
+AU  - Lam, Lucas
+AU  - Noble, Lucy
+AU  - Schmidt, Ludwig
+AU  - He, Luheng
+AU  - Colón, Luis Oliveros
+AU  - Metz, Luke
+AU  - Şenel, Lütfi Kerem
+AU  - Bosma, Maarten
+AU  - Sap, Maarten
+AU  - Hoeve, Maartje ter
+AU  - Farooqi, Maheen
+AU  - Faruqui, Manaal
+AU  - Mazeika, Mantas
+AU  - Baturan, Marco
+AU  - Marelli, Marco
+AU  - Maru, Marco
+AU  - Quintana, Maria Jose Ramírez
+AU  - Tolkiehn, Marie
+AU  - Giulianelli, Mario
+AU  - Lewis, Martha
+AU  - Potthast, Martin
+AU  - Leavitt, Matthew L.
+AU  - Hagen, Matthias
+AU  - Schubert, Mátyás
+AU  - Baitemirova, Medina Orduna
+AU  - Arnaud, Melody
+AU  - McElrath, Melvin
+AU  - Yee, Michael A.
+AU  - Cohen, Michael
+AU  - Gu, Michael
+AU  - Ivanitskiy, Michael
+AU  - Starritt, Michael
+AU  - Strube, Michael
+AU  - Swędrowski, Michał
+AU  - Bevilacqua, Michele
+AU  - Yasunaga, Michihiro
+AU  - Kale, Mihir
+AU  - Cain, Mike
+AU  - Xu, Mimee
+AU  - Suzgun, Mirac
+AU  - Walker, Mitch
+AU  - Tiwari, Mo
+AU  - Bansal, Mohit
+AU  - Aminnaseri, Moin
+AU  - Geva, Mor
+AU  - Gheini, Mozhdeh
+AU  - T, Mukund Varma
+AU  - Peng, Nanyun
+AU  - Chi, Nathan A.
+AU  - Lee, Nayeon
+AU  - Krakover, Neta Gur-Ari
+AU  - Cameron, Nicholas
+AU  - Roberts, Nicholas
+AU  - Doiron, Nick
+AU  - Martinez, Nicole
+AU  - Nangia, Nikita
+AU  - Deckers, Niklas
+AU  - Muennighoff, Niklas
+AU  - Keskar, Nitish Shirish
+AU  - Iyer, Niveditha S.
+AU  - Constant, Noah
+AU  - Fiedel, Noah
+AU  - Wen, Nuan
+AU  - Zhang, Oliver
+AU  - Agha, Omar
+AU  - Elbaghdadi, Omar
+AU  - Levy, Omer
+AU  - Evans, Owain
+AU  - Casares, Pablo Antonio Moreno
+AU  - Doshi, Parth
+AU  - Fung, Pascale
+AU  - Liang, Paul Pu
+AU  - Vicol, Paul
+AU  - Alipoormolabashi, Pegah
+AU  - Liao, Peiyuan
+AU  - Liang, Percy
+AU  - Chang, Peter
+AU  - Eckersley, Peter
+AU  - Htut, Phu Mon
+AU  - Hwang, Pinyu
+AU  - Miłkowski, Piotr
+AU  - Patil, Piyush
+AU  - Pezeshkpour, Pouya
+AU  - Oli, Priti
+AU  - Mei, Qiaozhu
+AU  - Lyu, Qing
+AU  - Chen, Qinlang
+AU  - Banjade, Rabin
+AU  - Rudolph, Rachel Etta
+AU  - Gabriel, Raefer
+AU  - Habacker, Rahel
+AU  - Risco, Ramon
+AU  - Millière, Raphaël
+AU  - Garg, Rhythm
+AU  - Barnes, Richard
+AU  - Saurous, Rif A.
+AU  - Arakawa, Riku
+AU  - Raymaekers, Robbe
+AU  - Frank, Robert
+AU  - Sikand, Rohan
+AU  - Novak, Roman
+AU  - Sitelew, Roman
+AU  - LeBras, Ronan
+AU  - Liu, Rosanne
+AU  - Jacobs, Rowan
+AU  - Zhang, Rui
+AU  - Salakhutdinov, Ruslan
+AU  - Chi, Ryan
+AU  - Lee, Ryan
+AU  - Stovall, Ryan
+AU  - Teehan, Ryan
+AU  - Yang, Rylan
+AU  - Singh, Sahib
+AU  - Mohammad, Saif M.
+AU  - Anand, Sajant
+AU  - Dillavou, Sam
+AU  - Shleifer, Sam
+AU  - Wiseman, Sam
+AU  - Gruetter, Samuel
+AU  - Bowman, Samuel R.
+AU  - Schoenholz, Samuel S.
+AU  - Han, Sanghyun
+AU  - Kwatra, Sanjeev
+AU  - Rous, Sarah A.
+AU  - Ghazarian, Sarik
+AU  - Ghosh, Sayan
+AU  - Casey, Sean
+AU  - Bischoff, Sebastian
+AU  - Gehrmann, Sebastian
+AU  - Schuster, Sebastian
+AU  - Sadeghi, Sepideh
+AU  - Hamdan, Shadi
+AU  - Zhou, Sharon
+AU  - Srivastava, Shashank
+AU  - Shi, Sherry
+AU  - Singh, Shikhar
+AU  - Asaadi, Shima
+AU  - Gu, Shixiang Shane
+AU  - Pachchigar, Shubh
+AU  - Toshniwal, Shubham
+AU  - Upadhyay, Shyam
+AU  - Shyamolima, 
+AU  - Debnath, 
+AU  - Shakeri, Siamak
+AU  - Thormeyer, Simon
+AU  - Melzi, Simone
+AU  - Reddy, Siva
+AU  - Makini, Sneha Priscilla
+AU  - Lee, Soo-Hwan
+AU  - Torene, Spencer
+AU  - Hatwar, Sriharsha
+AU  - Dehaene, Stanislas
+AU  - Divic, Stefan
+AU  - Ermon, Stefano
+AU  - Biderman, Stella
+AU  - Lin, Stephanie
+AU  - Prasad, Stephen
+AU  - Piantadosi, Steven T.
+AU  - Shieber, Stuart M.
+AU  - Misherghi, Summer
+AU  - Kiritchenko, Svetlana
+AU  - Mishra, Swaroop
+AU  - Linzen, Tal
+AU  - Schuster, Tal
+AU  - Li, Tao
+AU  - Yu, Tao
+AU  - Ali, Tariq
+AU  - Hashimoto, Tatsu
+AU  - Wu, Te-Lin
+AU  - Desbordes, Théo
+AU  - Rothschild, Theodore
+AU  - Phan, Thomas
+AU  - Wang, Tianle
+AU  - Nkinyili, Tiberius
+AU  - Schick, Timo
+AU  - Kornev, Timofei
+AU  - Tunduny, Titus
+AU  - Gerstenberg, Tobias
+AU  - Chang, Trenton
+AU  - Neeraj, Trishala
+AU  - Khot, Tushar
+AU  - Shultz, Tyler
+AU  - Shaham, Uri
+AU  - Misra, Vedant
+AU  - Demberg, Vera
+AU  - Nyamai, Victoria
+AU  - Raunak, Vikas
+AU  - Ramasesh, Vinay
+AU  - Prabhu, Vinay Uday
+AU  - Padmakumar, Vishakh
+AU  - Srikumar, Vivek
+AU  - Fedus, William
+AU  - Saunders, William
+AU  - Zhang, William
+AU  - Vossen, Wout
+AU  - Ren, Xiang
+AU  - Tong, Xiaoyu
+AU  - Zhao, Xinran
+AU  - Wu, Xinyi
+AU  - Shen, Xudong
+AU  - Yaghoobzadeh, Yadollah
+AU  - Lakretz, Yair
+AU  - Song, Yangqiu
+AU  - Bahri, Yasaman
+AU  - Choi, Yejin
+AU  - Yang, Yichi
+AU  - Hao, Yiding
+AU  - Chen, Yifu
+AU  - Belinkov, Yonatan
+AU  - Hou, Yu
+AU  - Hou, Yufang
+AU  - Bai, Yuntao
+AU  - Seid, Zachary
+AU  - Zhao, Zhuoye
+AU  - Wang, Zijian
+AU  - Wang, Zijie J.
+AU  - Wang, Zirui
+AU  - Wu, Ziyi
+TI  - Beyond the Imitation Game: Quantifying and extrapolating the capabilities of language models
+T2  - arXiv preprint
+PY  - 2022
+DO  - 10.48550/arXiv.2206.04615
+UR  - https://arxiv.org/abs/2206.04615
+N1  - arXiv:2206.04615; record from arXiv API 2026-11-07
+ER  - 
+
+TY  - JOUR
+ID  - pineau2020improving
+AU  - Pineau, Joelle
+AU  - Vincent-Lamarre, Philippe
+AU  - Sinha, Koustuv
+AU  - Larivière, Vincent
+AU  - Beygelzimer, Alina
+AU  - d'Alché-Buc, Florence
+AU  - Fox, Emily
+AU  - Larochelle, Hugo
+TI  - Improving Reproducibility in Machine Learning Research (A Report from the NeurIPS 2019 Reproducibility Program)
+T2  - arXiv preprint
+PY  - 2020
+DO  - 10.48550/arXiv.2003.12206
+UR  - https://arxiv.org/abs/2003.12206
+N1  - arXiv:2003.12206; record from arXiv API 2026-11-07
+ER  - 
+
+TY  - JOUR
+ID  - northcutt2021pervasive
+AU  - Northcutt, Curtis G.
+AU  - Athalye, Anish
+AU  - Mueller, Jonas
+TI  - Pervasive Label Errors in Test Sets Destabilize Machine Learning Benchmarks
+T2  - arXiv preprint
+PY  - 2021
+DO  - 10.48550/arXiv.2103.14749
+UR  - https://arxiv.org/abs/2103.14749
+N1  - arXiv:2103.14749; record from arXiv API 2026-11-07
+ER  - 
+
+TY  - JOUR
+ID  - lai2022ds
+AU  - Lai, Yuhang
+AU  - Li, Chengxi
+AU  - Wang, Yiming
+AU  - Zhang, Tianyi
+AU  - Zhong, Ruiqi
+AU  - Zettlemoyer, Luke
+AU  - Yih, Scott Wen-tau
+AU  - Fried, Daniel
+AU  - Wang, Sida
+AU  - Yu, Tao
+TI  - DS-1000: A Natural and Reliable Benchmark for Data Science Code Generation
+T2  - arXiv preprint
+PY  - 2022
+DO  - 10.48550/arXiv.2211.11501
+UR  - https://arxiv.org/abs/2211.11501
+N1  - arXiv:2211.11501; record from arXiv API 2026-11-07
+ER  - 
+
+TY  - JOUR
+ID  - zhou2023webarena
+AU  - Zhou, Shuyan
+AU  - Xu, Frank F.
+AU  - Zhu, Hao
+AU  - Zhou, Xuhui
+AU  - Lo, Robert
+AU  - Sridhar, Abishek
+AU  - Cheng, Xianyi
+AU  - Ou, Tianyue
+AU  - Bisk, Yonatan
+AU  - Fried, Daniel
+AU  - Alon, Uri
+AU  - Neubig, Graham
+TI  - WebArena: A Realistic Web Environment for Building Autonomous Agents
+T2  - arXiv preprint
+PY  - 2023
+DO  - 10.48550/arXiv.2307.13854
+UR  - https://arxiv.org/abs/2307.13854
+N1  - arXiv:2307.13854; record from arXiv API 2026-11-07
+ER  - 
+
+TY  - JOUR
+ID  - austin2021program
+AU  - Austin, Jacob
+AU  - Odena, Augustus
+AU  - Nye, Maxwell
+AU  - Bosma, Maarten
+AU  - Michalewski, Henryk
+AU  - Dohan, David
+AU  - Jiang, Ellen
+AU  - Cai, Carrie
+AU  - Terry, Michael
+AU  - Le, Quoc
+AU  - Sutton, Charles
+TI  - Program Synthesis with Large Language Models
+T2  - arXiv preprint
+PY  - 2021
+DO  - 10.48550/arXiv.2108.07732
+UR  - https://arxiv.org/abs/2108.07732
+N1  - arXiv:2108.07732; record from arXiv API 2026-11-07
+ER  - 
+
+TY  - JOUR
+ID  - hendrycks2021measuring
+AU  - Hendrycks, Dan
+AU  - Basart, Steven
+AU  - Kadavath, Saurav
+AU  - Mazeika, Mantas
+AU  - Arora, Akul
+AU  - Guo, Ethan
+AU  - Burns, Collin
+AU  - Puranik, Samir
+AU  - He, Horace
+AU  - Song, Dawn
+AU  - Steinhardt, Jacob
+TI  - Measuring Coding Challenge Competence With APPS
+T2  - arXiv preprint
+PY  - 2021
+DO  - 10.48550/arXiv.2105.09938
+UR  - https://arxiv.org/abs/2105.09938
+N1  - arXiv:2105.09938; record from arXiv API 2026-11-07
+ER  - 
+
+TY  - JOUR
+ID  - du2023classeval
+AU  - Du, Xueying
+AU  - Liu, Mingwei
+AU  - Wang, Kaixin
+AU  - Wang, Hanlin
+AU  - Liu, Junwei
+AU  - Chen, Yixuan
+AU  - Feng, Jiayi
+AU  - Sha, Chaofeng
+AU  - Peng, Xin
+AU  - Lou, Yiling
+TI  - ClassEval: A Manually-Crafted Benchmark for Evaluating LLMs on Class-level Code Generation
+T2  - arXiv preprint
+PY  - 2023
+DO  - 10.48550/arXiv.2308.01861
+UR  - https://arxiv.org/abs/2308.01861
+N1  - arXiv:2308.01861; record from arXiv API 2026-11-07
+ER  - 
+
+TY  - JOUR
+ID  - chan2024mle
+AU  - Chan, Jun Shern
+AU  - Chowdhury, Neil
+AU  - Jaffe, Oliver
+AU  - Aung, James
+AU  - Sherburn, Dane
+AU  - Mays, Evan
+AU  - Starace, Giulio
+AU  - Liu, Kevin
+AU  - Maksin, Leon
+AU  - Patwardhan, Tejal
+AU  - Weng, Lilian
+AU  - Mądry, Aleksander
+TI  - MLE-bench: Evaluating Machine Learning Agents on Machine Learning Engineering
+T2  - arXiv preprint
+PY  - 2024
+DO  - 10.48550/arXiv.2410.07095
+UR  - https://arxiv.org/abs/2410.07095
+N1  - arXiv:2410.07095; record from arXiv API 2026-11-07
+ER  - 
+
+TY  - JOUR
+ID  - jimenez2023swe
+AU  - Jimenez, Carlos E.
+AU  - Yang, John
+AU  - Wettig, Alexander
+AU  - Yao, Shunyu
+AU  - Pei, Kexin
+AU  - Press, Ofir
+AU  - Narasimhan, Karthik
+TI  - SWE-bench: Can Language Models Resolve Real-World GitHub Issues?
+T2  - arXiv preprint
+PY  - 2023
+DO  - 10.48550/arXiv.2310.06770
+UR  - https://arxiv.org/abs/2310.06770
+N1  - arXiv:2310.06770; record from arXiv API 2026-11-07
+ER  - 
+
+TY  - JOUR
+ID  - white2024livebench
+AU  - White, Colin
+AU  - Dooley, Samuel
+AU  - Roberts, Manley
+AU  - Pal, Arka
+AU  - Feuer, Ben
+AU  - Jain, Siddhartha
+AU  - Shwartz-Ziv, Ravid
+AU  - Jain, Neel
+AU  - Saifullah, Khalid
+AU  - Dey, Sreemanti
+AU  - Shubh-Agrawal, 
+AU  - Sandha, Sandeep Singh
+AU  - Naidu, Siddartha
+AU  - Hegde, Chinmay
+AU  - LeCun, Yann
+AU  - Goldstein, Tom
+AU  - Neiswanger, Willie
+AU  - Goldblum, Micah
+TI  - LiveBench: A Challenging, Contamination-Limited LLM Benchmark
+T2  - arXiv preprint
+PY  - 2024
+DO  - 10.48550/arXiv.2406.19314
+UR  - https://arxiv.org/abs/2406.19314
+N1  - arXiv:2406.19314; record from arXiv API 2026-11-07
+ER  - 
+
+TY  - JOUR
+ID  - liu2023agentbench
+AU  - Liu, Xiao
+AU  - Yu, Hao
+AU  - Zhang, Hanchen
+AU  - Xu, Yifan
+AU  - Lei, Xuanyu
+AU  - Lai, Hanyu
+AU  - Gu, Yu
+AU  - Ding, Hangliang
+AU  - Men, Kaiwen
+AU  - Yang, Kejuan
+AU  - Zhang, Shudan
+AU  - Deng, Xiang
+AU  - Zeng, Aohan
+AU  - Du, Zhengxiao
+AU  - Zhang, Chenhui
+AU  - Shen, Sheng
+AU  - Zhang, Tianjun
+AU  - Su, Yu
+AU  - Sun, Huan
+AU  - Huang, Minlie
+AU  - Dong, Yuxiao
+AU  - Tang, Jie
+TI  - AgentBench: Evaluating LLMs as Agents
+T2  - arXiv preprint
+PY  - 2023
+DO  - 10.48550/arXiv.2308.03688
+UR  - https://arxiv.org/abs/2308.03688
+N1  - arXiv:2308.03688; record from arXiv API 2026-11-07
+ER  - 
+
+TY  - JOUR
+ID  - miller2024adding
+AU  - Miller, Evan
+TI  - Adding Error Bars to Evals: A Statistical Approach to Language Model Evaluations
+T2  - arXiv preprint
+PY  - 2024
+DO  - 10.48550/arXiv.2411.00640
+UR  - https://arxiv.org/abs/2411.00640
+N1  - arXiv:2411.00640; record from arXiv API 2026-11-07
+ER  - 
+
+TY  - JOUR
+ID  - huang2023mlagentbench
+AU  - Huang, Qian
+AU  - Vora, Jian
+AU  - Liang, Percy
+AU  - Leskovec, Jure
+TI  - MLAgentBench: Evaluating Language Agents on Machine Learning Experimentation
+T2  - arXiv preprint
+PY  - 2023
+DO  - 10.48550/arXiv.2310.03302
+UR  - https://arxiv.org/abs/2310.03302
+N1  - arXiv:2310.03302; record from arXiv API 2026-11-07
+ER  - 
+
+TY  - JOUR
+ID  - jain2024livecodebench
+AU  - Jain, Naman
+AU  - Han, King
+AU  - Gu, Alex
+AU  - Li, Wen-Ding
+AU  - Yan, Fanjia
+AU  - Zhang, Tianjun
+AU  - Wang, Sida
+AU  - Solar-Lezama, Armando
+AU  - Sen, Koushik
+AU  - Stoica, Ion
+TI  - LiveCodeBench: Holistic and Contamination Free Evaluation of Large Language Models for Code
+T2  - arXiv preprint
+PY  - 2024
+DO  - 10.48550/arXiv.2403.07974
+UR  - https://arxiv.org/abs/2403.07974
+N1  - arXiv:2403.07974; record from arXiv API 2026-11-07
+ER  - 
+
+TY  - JOUR
+ID  - zhuo2024bigcodebench
+AU  - Zhuo, Terry Yue
+AU  - Vu, Minh Chien
+AU  - Chim, Jenny
+AU  - Hu, Han
+AU  - Yu, Wenhao
+AU  - Widyasari, Ratnadira
+AU  - Yusuf, Imam Nur Bani
+AU  - Zhan, Haolan
+AU  - He, Junda
+AU  - Paul, Indraneil
+AU  - Brunner, Simon
+AU  - Gong, Chen
+AU  - Hoang, Thong
+AU  - Zebaze, Armel Randy
+AU  - Hong, Xiaoheng
+AU  - Li, Wen-Ding
+AU  - Kaddour, Jean
+AU  - Xu, Ming
+AU  - Zhang, Zhihan
+AU  - Yadav, Prateek
+AU  - Jain, Naman
+AU  - Gu, Alex
+AU  - Cheng, Zhoujun
+AU  - Liu, Jiawei
+AU  - Liu, Qian
+AU  - Wang, Zijian
+AU  - Hui, Binyuan
+AU  - Muennighoff, Niklas
+AU  - Lo, David
+AU  - Fried, Daniel
+AU  - Du, Xiaoning
+AU  - Vries, Harm de
+AU  - Werra, Leandro Von
+TI  - BigCodeBench: Benchmarking Code Generation with Diverse Function Calls and Complex Instructions
+T2  - arXiv preprint
+PY  - 2024
+DO  - 10.48550/arXiv.2406.15877
+UR  - https://arxiv.org/abs/2406.15877
+N1  - arXiv:2406.15877; record from arXiv API 2026-11-07
+ER  - 
+
+TY  - JOUR
+ID  - mialon2023gaia
+AU  - Mialon, Grégoire
+AU  - Fourrier, Clémentine
+AU  - Swift, Craig
+AU  - Wolf, Thomas
+AU  - LeCun, Yann
+AU  - Scialom, Thomas
+TI  - GAIA: a benchmark for General AI Assistants
+T2  - arXiv preprint
+PY  - 2023
+DO  - 10.48550/arXiv.2311.12983
+UR  - https://arxiv.org/abs/2311.12983
+N1  - arXiv:2311.12983; record from arXiv API 2026-11-07
+ER  - 
+
+TY  - JOUR
+ID  - yang2023rethinking
+AU  - Yang, Shuo
+AU  - Chiang, Wei-Lin
+AU  - Zheng, Lianmin
+AU  - Gonzalez, Joseph E.
+AU  - Stoica, Ion
+TI  - Rethinking Benchmark and Contamination for Language Models with Rephrased Samples
+T2  - arXiv preprint
+PY  - 2023
+DO  - 10.48550/arXiv.2311.04850
+UR  - https://arxiv.org/abs/2311.04850
+N1  - arXiv:2311.04850; record from arXiv API 2026-11-07
+ER  - 
+
+TY  - JOUR
+ID  - biderman2024lessons
+AU  - Biderman, Stella
+AU  - Schoelkopf, Hailey
+AU  - Sutawika, Lintang
+AU  - Gao, Leo
+AU  - Tow, Jonathan
+AU  - Abbasi, Baber
+AU  - Aji, Alham Fikri
+AU  - Ammanamanchi, Pawan Sasanka
+AU  - Black, Sidney
+AU  - Clive, Jordan
+AU  - DiPofi, Anthony
+AU  - Etxaniz, Julen
+AU  - Fattori, Benjamin
+AU  - Forde, Jessica Zosa
+AU  - Foster, Charles
+AU  - Hsu, Jeffrey
+AU  - Jaiswal, Mimansa
+AU  - Lee, Wilson Y.
+AU  - Li, Haonan
+AU  - Lovering, Charles
+AU  - Muennighoff, Niklas
+AU  - Pavlick, Ellie
+AU  - Phang, Jason
+AU  - Skowron, Aviya
+AU  - Tan, Samson
+AU  - Tang, Xiangru
+AU  - Wang, Kevin A.
+AU  - Winata, Genta Indra
+AU  - Yvon, François
+AU  - Zou, Andy
+TI  - Lessons from the Trenches on Reproducible Evaluation of Language Models
+T2  - arXiv preprint
+PY  - 2024
+DO  - 10.48550/arXiv.2405.14782
+UR  - https://arxiv.org/abs/2405.14782
+N1  - arXiv:2405.14782; record from arXiv API 2026-11-07
+ER  - 
+TY  - JOUR
+ID  - xu2024benchmark
+AU  - Xu, Cheng
+AU  - Guan, Shuhao
+AU  - Greene, Derek
+AU  - Kechadi, M-Tahar
+TI  - Benchmark Data Contamination of Large Language Models: A Survey
+T2  - arXiv preprint
+PY  - 2024
+DO  - 10.48550/arXiv.2406.04244
+UR  - https://arxiv.org/abs/2406.04244
+N1  - arXiv:2406.04244; record from arXiv API 2026-11-07
+ER  - 

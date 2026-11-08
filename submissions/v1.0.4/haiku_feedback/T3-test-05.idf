@@ -1,0 +1,89 @@
+Building,
+    T3-test-05,
+    30,
+    Suburbs,
+    0.04,
+    0.4,
+    FullExterior,
+    25,
+    6;
+
+Timestep,
+    4;
+
+GlobalGeometryRules,
+    UpperLeftCorner,
+    Counterclockwise,
+    Relative;
+
+ScheduleTypeLimits, Fraction, 0, 1, Continuous;
+ScheduleTypeLimits, Temperature, -60, 200, Continuous;
+ScheduleTypeLimits, Any, , , Continuous;
+
+Material, MetalSiding, MediumRough, 0.0015, 44.96, 7688.9, 410, 0.9, 0.7, 0.7;
+Material, MetalDeck, MediumRough, 0.0015, 45.006, 7680, 418.4, 0.9, 0.7, 0.7;
+Material, Gypsum13, MediumRough, 0.0127, 0.16, 784.9, 830, 0.9, 0.7, 0.7;
+Material, Concrete100, MediumRough, 0.1, 1.311, 2240, 836.8, 0.9, 0.7, 0.7;
+Material, Carpet, MediumRough, 0.0127, 0.06, 288, 1380, 0.9, 0.7, 0.7;
+Material:NoMass, InsW, MediumRough, 1.7314, 0.9, 0.7, 0.7;
+Material:NoMass, InsR, MediumRough, 4.8629, 0.9, 0.7, 0.7;
+
+Construction, ExtWall_LW, MetalSiding, InsW, Gypsum13;
+Construction, Roof_LW, MetalSiding, InsR, MetalDeck;
+Construction, Slab_Cons, Concrete100, Carpet;
+Construction, IntFloor_Cons, Concrete100, Carpet;
+
+WindowMaterial:SimpleGlazingSystem, Glz, 3.4, 0.5, 0.72;
+Construction, Win_Cons, Glz;
+
+Zone, Zone1, 0, 0, 0, 0, 1, 1, autocalculate, autocalculate;
+Zone, Zone2, 0, 0, 0, 0, 1, 1, autocalculate, autocalculate;
+
+! ---------- Storey 1 (z 0 to 3.2) ----------
+BuildingSurface:Detailed, Z1_S, Wall, ExtWall_LW, Zone1, , Outdoors, , SunExposed, WindExposed, autocalculate, 4, 0,0,0, 28,0,0, 28,0,3.2, 0,0,3.2;
+BuildingSurface:Detailed, Z1_E, Wall, ExtWall_LW, Zone1, , Outdoors, , SunExposed, WindExposed, autocalculate, 4, 28,0,0, 28,14,0, 28,14,3.2, 28,0,3.2;
+BuildingSurface:Detailed, Z1_N, Wall, ExtWall_LW, Zone1, , Outdoors, , SunExposed, WindExposed, autocalculate, 4, 28,14,0, 0,14,0, 0,14,3.2, 28,14,3.2;
+BuildingSurface:Detailed, Z1_W, Wall, ExtWall_LW, Zone1, , Outdoors, , SunExposed, WindExposed, autocalculate, 4, 0,14,0, 0,0,0, 0,0,3.2, 0,14,3.2;
+BuildingSurface:Detailed, Z1_Floor, Floor, Slab_Cons, Zone1, , Ground, , NoSun, NoWind, autocalculate, 4, 28,0,0, 0,0,0, 0,14,0, 28,14,0;
+BuildingSurface:Detailed, Z1_Ceil, Ceiling, IntFloor_Cons, Zone1, , Adiabatic, , NoSun, NoWind, autocalculate, 4, 0,0,3.2, 28,0,3.2, 28,14,3.2, 0,14,3.2;
+
+! ---------- Storey 2 (z 3.2 to 6.4) ----------
+BuildingSurface:Detailed, Z2_S, Wall, ExtWall_LW, Zone2, , Outdoors, , SunExposed, WindExposed, autocalculate, 4, 0,0,3.2, 28,0,3.2, 28,0,6.4, 0,0,6.4;
+BuildingSurface:Detailed, Z2_E, Wall, ExtWall_LW, Zone2, , Outdoors, , SunExposed, WindExposed, autocalculate, 4, 28,0,3.2, 28,14,3.2, 28,14,6.4, 28,0,6.4;
+BuildingSurface:Detailed, Z2_N, Wall, ExtWall_LW, Zone2, , Outdoors, , SunExposed, WindExposed, autocalculate, 4, 28,14,3.2, 0,14,3.2, 0,14,6.4, 28,14,6.4;
+BuildingSurface:Detailed, Z2_W, Wall, ExtWall_LW, Zone2, , Outdoors, , SunExposed, WindExposed, autocalculate, 4, 0,14,3.2, 0,0,3.2, 0,0,6.4, 0,14,6.4;
+BuildingSurface:Detailed, Z2_Floor, Floor, IntFloor_Cons, Zone2, , Adiabatic, , NoSun, NoWind, autocalculate, 4, 28,0,3.2, 0,0,3.2, 0,14,3.2, 28,14,3.2;
+BuildingSurface:Detailed, Z2_Roof, Roof, Roof_LW, Zone2, , Outdoors, , SunExposed, WindExposed, autocalculate, 4, 0,0,6.4, 28,0,6.4, 28,14,6.4, 0,14,6.4;
+
+! ---------- Windows (no west glazing) ----------
+FenestrationSurface:Detailed, Z1_S_Win, Window, Win_Cons, Z1_S, , autocalculate, , 1, 4, 16.24,0,0.6, 11.76,0,0.6, 11.76,0,2.6, 16.24,0,2.6;
+FenestrationSurface:Detailed, Z1_E_Win, Window, Win_Cons, Z1_E, , autocalculate, , 1, 4, 28,3.64,0.6, 28,10.36,0.6, 28,10.36,2.6, 28,3.64,2.6;
+FenestrationSurface:Detailed, Z1_N_Win, Window, Win_Cons, Z1_N, , autocalculate, , 1, 4, 20.72,14,0.6, 7.28,14,0.6, 7.28,14,2.6, 20.72,14,2.6;
+FenestrationSurface:Detailed, Z2_S_Win, Window, Win_Cons, Z2_S, , autocalculate, , 1, 4, 16.24,0,3.8, 11.76,0,3.8, 11.76,0,5.8, 16.24,0,5.8;
+FenestrationSurface:Detailed, Z2_E_Win, Window, Win_Cons, Z2_E, , autocalculate, , 1, 4, 28,3.64,3.8, 28,10.36,3.8, 28,10.36,5.8, 28,3.64,5.8;
+FenestrationSurface:Detailed, Z2_N_Win, Window, Win_Cons, Z2_N, , autocalculate, , 1, 4, 20.72,14,3.8, 7.28,14,3.8, 7.28,14,5.8, 20.72,14,5.8;
+
+! ---------- Schedules ----------
+Schedule:Compact, ALWAYS_ON, Fraction, Through: 12/31, For: AllDays, Until: 24:00, 1;
+Schedule:Compact, OCC_SCH, Fraction, Through: 12/31, For: Weekdays SummerDesignDay WinterDesignDay, Until: 08:00, 0, Until: 18:00, 1, Until: 24:00, 0, For: AllOtherDays, Until: 24:00, 0;
+Schedule:Compact, LTG_SCH, Fraction, Through: 12/31, For: Weekdays SummerDesignDay WinterDesignDay, Until: 08:00, 0.05, Until: 18:00, 0.8, Until: 24:00, 0.05, For: AllOtherDays, Until: 24:00, 0.05;
+Schedule:Compact, EQP_SCH, Fraction, Through: 12/31, For: Weekdays SummerDesignDay WinterDesignDay, Until: 08:00, 0.35, Until: 18:00, 1, Until: 24:00, 0.35, For: AllOtherDays, Until: 24:00, 0.35;
+Schedule:Compact, HTGSETP_SCH, Temperature, Through: 12/31, For: Weekdays SummerDesignDay WinterDesignDay, Until: 08:00, 16.5, Until: 18:00, 21.5, Until: 24:00, 16.5, For: AllOtherDays, Until: 24:00, 16.5;
+Schedule:Compact, CLGSETP_SCH, Temperature, Through: 12/31, For: Weekdays SummerDesignDay WinterDesignDay, Until: 08:00, 29.5, Until: 18:00, 24.5, Until: 24:00, 29.5, For: AllOtherDays, Until: 24:00, 29.5;
+Schedule:Compact, ACTIVITY_SCH, Any, Through: 12/31, For: AllDays, Until: 24:00, 130;
+
+People, Zone1_People, Zone1, OCC_SCH, Area/Person, , , 20, 0.3, autocalculate, ACTIVITY_SCH;
+People, Zone2_People, Zone2, OCC_SCH, Area/Person, , , 20, 0.3, autocalculate, ACTIVITY_SCH;
+Lights, Zone1_Lights, Zone1, LTG_SCH, Watts/Area, , 7.4, , 0, 0.7, 0.2, 1;
+Lights, Zone2_Lights, Zone2, LTG_SCH, Watts/Area, , 7.4, , 0, 0.7, 0.2, 1;
+ElectricEquipment, Zone1_Equip, Zone1, EQP_SCH, Watts/Area, , 6.6, , 0, 0.3, 0;
+ElectricEquipment, Zone2_Equip, Zone2, EQP_SCH, Watts/Area, , 6.6, , 0, 0.3, 0;
+ZoneInfiltration:DesignFlowRate, Zone1_Infil, Zone1, ALWAYS_ON, AirChanges/Hour, , , , 0.45, 1, 0, 0, 0;
+ZoneInfiltration:DesignFlowRate, Zone2_Infil, Zone2, ALWAYS_ON, AirChanges/Hour, , , , 0.45, 1, 0, 0, 0;
+
+HVACTemplate:Thermostat, Tstat1, HTGSETP_SCH, , CLGSETP_SCH, ;
+HVACTemplate:Thermostat, Tstat2, HTGSETP_SCH, , CLGSETP_SCH, ;
+HVACTemplate:Zone:Unitary, Zone1, RTU1, Tstat1, autosize, , , Flow/Person, 0.006;
+HVACTemplate:System:Unitary, RTU1, , Zone, autosize, , 0.5, 500, 0.9, 1.0, SingleSpeedDX, , , autosize, autosize, 3.3, Gas, , , autosize, 0.88, , autosize, autosize, , NoEconomizer;
+HVACTemplate:Zone:Unitary, Zone2, RTU2, Tstat2, autosize, , , Flow/Person, 0.006;
+HVACTemplate:System:Unitary, RTU2, , Zone, autosize, , 0.5, 500, 0.9, 1.0, SingleSpeedDX, , , autosize, autosize, 3.3, Gas, , , autosize, 0.88, , autosize, autosize, , NoEconomizer;

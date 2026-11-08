@@ -1,0 +1,401 @@
+Building {
+  North Axis = -20;
+}
+
+Material {
+  Name = Mat_Wall_Lightweight;
+  Roughness = Smooth;
+  Density = 600;
+  Specific Heat = 1000;
+  Conductivity = 0.15;
+}
+
+Material {
+  Name = Mat_Roof_Concrete;
+  Roughness = Smooth;
+  Density = 2240;
+  Specific Heat = 836.8;
+  Conductivity = 1.311;
+}
+
+Material {
+  Name = Mat_Roof_Insulation;
+  Roughness = Smooth;
+  Density = 50;
+  Specific Heat = 1200;
+  Conductivity = 0.03;
+}
+
+Material {
+  Name = Mat_Floor_Concrete;
+  Roughness = Smooth;
+  Density = 2240;
+  Specific Heat = 836.8;
+  Conductivity = 1.311;
+}
+
+Material {
+  Name = Mat_Floor_Carpet;
+  Roughness = Smooth;
+  Density = 288;
+  Specific Heat = 1380;
+  Conductivity = 0.06;
+}
+
+Material {
+  Name = Mat_Gypsum;
+  Roughness = Smooth;
+  Density = 784.9;
+  Specific Heat = 830;
+  Conductivity = 0.16;
+}
+
+Construction {
+  Name = Const_Wall;
+  Layer 1 {
+    Material Name = Mat_Wall_Lightweight;
+    Thickness = 0.2;
+  }
+}
+
+Construction {
+  Name = Const_Roof;
+  Layer 1 {
+    Material Name = Mat_Roof_Concrete;
+    Thickness = 0.1;
+  }
+  Layer 2 {
+    Material Name = Mat_Roof_Insulation;
+    Thickness = 0.15;
+  }
+}
+
+Construction {
+  Name = Const_Floor;
+  Layer 1 {
+    Material Name = Mat_Floor_Carpet;
+    Thickness = 0.0127;
+  }
+  Layer 2 {
+    Material Name = Mat_Floor_Concrete;
+    Thickness = 0.1;
+  }
+}
+
+Construction {
+  Name = Const_Partition;
+  Layer 1 {
+    Material Name = Mat_Gypsum;
+    Thickness = 0.0127;
+  }
+  Layer 2 {
+    Material Name = Mat_Gypsum;
+    Thickness = 0.0127;
+  }
+}
+
+WindowMaterial {
+  Name = Glazing_Simple;
+  Optical Properties {
+    Transmittance = 0.56;
+    Solar Heat Gain Coefficient = 0.39;
+  }
+  Thermal Properties {
+    Conductivity = 0.7;
+  }
+}
+
+Construction {
+  Name = Const_Window;
+  Layer 1 {
+    WindowMaterial Name = Glazing_Simple;
+    Thickness = 0.024;
+  }
+}
+
+Zone {
+  Name = Zone_1;
+}
+
+BuildingSurface:Detailed {
+  Name = Wall_North;
+  Construction Name = Const_Wall;
+  Zone Name = Zone_1;
+  Outside Boundary Condition = Outdoors;
+  Sun Blocking = No;
+  Wind Blocking = No;
+  Detailed Surface {
+    Vertex 1 { X = 0; Y = 26; Z = 0; }
+    Vertex 2 { X = 26.5; Y = 26; Z = 0; }
+    Vertex 3 { X = 26.5; Y = 26; Z = 3.2; }
+    Vertex 4 { X = 0; Y = 26; Z = 3.2; }
+  }
+}
+
+BuildingSurface:Detailed {
+  Name = Wall_East;
+  Construction Name = Const_Wall;
+  Zone Name = Zone_1;
+  Outside Boundary Condition = Outdoors;
+  Sun Blocking = No;
+  Wind Blocking = No;
+  Detailed Surface {
+    Vertex 1 { X = 26.5; Y = 0; Z = 0; }
+    Vertex 2 { X = 26.5; Y = 26; Z = 0; }
+    Vertex 3 { X = 26.5; Y = 26; Z = 3.2; }
+    Vertex 4 { X = 26.5; Y = 0; Z = 3.2; }
+  }
+}
+
+BuildingSurface:Detailed {
+  Name = Wall_South;
+  Construction Name = Const_Wall;
+  Zone Name = Zone_1;
+  Outside Boundary Condition = Outdoors;
+  Sun Blocking = No;
+  Wind Blocking = No;
+  Detailed Surface {
+    Vertex 1 { X = 26.5; Y = 0; Z = 0; }
+    Vertex 2 { X = 0; Y = 0; Z = 0; }
+    Vertex 3 { X = 0; Y = 0; Z = 3.2; }
+    Vertex 4 { X = 26.5; Y = 0; Z = 3.2; }
+  }
+}
+
+BuildingSurface:Detailed {
+  Name = Wall_West;
+  Construction Name = Const_Wall;
+  Zone Name = Zone_1;
+  Outside Boundary Condition = Outdoors;
+  Sun Blocking = No;
+  Wind Blocking = No;
+  Detailed Surface {
+    Vertex 1 { X = 0; Y = 0; Z = 0; }
+    Vertex 2 { X = 0; Y = 26; Z = 0; }
+    Vertex 3 { X = 0; Y = 26; Z = 3.2; }
+    Vertex 4 { X = 0; Y = 0; Z = 3.2; }
+  }
+}
+
+BuildingSurface:Detailed {
+  Name = Roof;
+  Construction Name = Const_Roof;
+  Zone Name = Zone_1;
+  Outside Boundary Condition = Outdoors;
+  Sun Blocking = No;
+  Wind Blocking = No;
+  Detailed Surface {
+    Vertex 1 { X = 0; Y = 0; Z = 3.2; }
+    Vertex 2 { X = 26.5; Y = 0; Z = 3.2; }
+    Vertex 3 { X = 26.5; Y = 26; Z = 3.2; }
+    Vertex 4 { X = 0; Y = 26; Z = 3.2; }
+  }
+}
+
+BuildingSurface:Detailed {
+  Name = Floor;
+  Construction Name = Const_Floor;
+  Zone Name = Zone_1;
+  Outside Boundary Condition = Ground;
+  Sun Blocking = No;
+  Wind Blocking = No;
+  Detailed Surface {
+    Vertex 1 { X = 0; Y = 0; Z = 0; }
+    Vertex 2 { X = 26.5; Y = 0; Z = 0; }
+    Vertex 3 { X = 26.5; Y = 26; Z = 0; }
+    Vertex 4 { X = 0; Y = 26; Z = 0; }
+  }
+}
+
+FenestrationSurface:Detailed {
+  Name = Win_North;
+  Construction Name = Const_Window;
+  Zone Name = Zone_1;
+  Outside Boundary Condition = Outdoors;
+  Sun Blocking = No;
+  Wind Blocking = No;
+  Detailed Surface {
+    Vertex 1 { X = 0; Y = 26; Z = 0.5; }
+    Vertex 2 { X = 13.25; Y = 26; Z = 0.5; }
+    Vertex 3 { X = 13.25; Y = 26; Z = 2.7; }
+    Vertex 4 { X = 0; Y = 26; Z = 2.7; }
+  }
+}
+
+FenestrationSurface:Detailed {
+  Name = Win_East;
+  Construction Name = Const_Window;
+  Zone Name = Zone_1;
+  Outside Boundary Condition = Outdoors;
+  Sun Blocking = No;
+  Wind Blocking = No;
+  Detailed Surface {
+    Vertex 1 { X = 26.5; Y = 0; Z = 0.5; }
+    Vertex 2 { X = 26.5; Y = 6.5; Z = 0.5; }
+    Vertex 3 { X = 26.5; Y = 6.5; Z = 2.7; }
+    Vertex 4 { X = 26.5; Y = 0; Z = 2.7; }
+  }
+}
+
+FenestrationSurface:Detailed {
+  Name = Win_South;
+  Construction Name = Const_Window;
+  Zone Name = Zone_1;
+  Outside Boundary Condition = Outdoors;
+  Sun Blocking = No;
+  Wind Blocking = No;
+  Detailed Surface {
+    Vertex 1 { X = 26.5; Y = 0; Z = 0.5; }
+    Vertex 2 { X = 16.5; Y = 0; Z = 0.5; }
+    Vertex 3 { X = 16.5; Y = 0; Z = 2.7; }
+    Vertex 4 { X = 26.5; Y = 0; Z = 2.7; }
+  }
+}
+
+FenestrationSurface:Detailed {
+  Name = Win_West;
+  Construction Name = Const_Window;
+  Zone Name = Zone_1;
+  Outside Boundary Condition = Outdoors;
+  Sun Blocking = No;
+  Wind Blocking = No;
+  Detailed Surface {
+    Vertex 1 { X = 0; Y = 0; Z = 0.5; }
+    Vertex 2 { X = 0; Y = 15.6; Z = 0.5; }
+    Vertex 3 { X = 0; Y = 15.6; Z = 2.7; }
+    Vertex 4 { X = 0; Y = 0; Z = 2.7; }
+  }
+}
+
+Schedule:Compact {
+  Name = Occ_Schedule;
+  Schedule [ Day ]
+    Interval = Hour;
+    For 1Jan to 31Dec {
+      For 1Jan to 31Dec {
+        For 1 to 5 {
+          00:00 - 08:00 0;
+          08:00 - 18:00 1;
+          18:00 - 24:00 0;
+        }
+        For 6 to 7 {
+          00:00 - 24:00 0;
+        }
+      }
+    }
+}
+
+Schedule:Compact {
+  Name = Light_Schedule;
+  Schedule [ Day ]
+    Interval = Hour;
+    For 1Jan to 31Dec {
+      For 1Jan to 31Dec {
+        For 1 to 5 {
+          00:00 - 08:00 0.05;
+          08:00 - 18:00 0.95;
+          18:00 - 24:00 0.05;
+        }
+        For 6 to 7 {
+          00:00 - 24:00 0.05;
+        }
+      }
+    }
+}
+
+Schedule:Compact {
+  Name = Equip_Schedule;
+  Schedule [ Day ]
+    Interval = Hour;
+    For 1Jan to 31Dec {
+      For 1Jan to 31Dec {
+        For 1 to 5 {
+          00:00 - 08:00 0.25;
+          08:00 - 18:00 0.95;
+          18:00 - 24:00 0.25;
+        }
+        For 6 to 7 {
+          00:00 - 24:00 0.25;
+        }
+      }
+    }
+}
+
+People {
+  Name = People_1;
+  Zone Name = Zone_1;
+  Number of People = 35.3;
+  Activity Level = 110;
+  Schedule Name = Occ_Schedule;
+}
+
+Lights {
+  Name = Lights_1;
+  Zone Name = Zone_1;
+  Electric Power = 4618.9;
+  Schedule Name = Light_Schedule;
+}
+
+ElectricEquipment {
+  Name = Equip_1;
+  Zone Name = Zone_1;
+  Electric Power = 7958;
+  Schedule Name = Equip_Schedule;
+}
+
+ZoneInfiltration {
+  Name = Infilt_1;
+  Zone Name = Zone_1;
+  Infiltration Flow Rate = 0.45;
+  Frequency = AirChangesPerHour;
+}
+
+ZoneControl:Thermostat {
+  Name = Therm_1;
+  Zone Name = Zone_1;
+  Heating Setpoint Temperature = 21.5;
+  Cooling Setpoint Temperature = 24.0;
+  Heating Setpoint Temperature Schedule Name = Heat_Unocc_Sched;
+  Cooling Setpoint Temperature Schedule Name = Cool_Unocc_Sched;
+}
+
+Schedule:Compact {
+  Name = Heat_Unocc_Sched;
+  Schedule [ Day ]
+    Interval = Hour;
+    For 1Jan to 31Dec {
+      For 1Jan to 31Dec {
+        For 1 to 5 {
+          00:00 - 08:00 15.0;
+          08:00 - 18:00 21.5;
+          18:00 - 24:00 15.0;
+        }
+        For 6 to 7 {
+          00:00 - 24:00 15.0;
+        }
+      }
+    }
+}
+
+Schedule:Compact {
+  Name = Cool_Unocc_Sched;
+  Schedule [ Day ]
+    Interval = Hour;
+    For 1Jan to 31Dec {
+      For 1Jan to 31Dec {
+        For 1 to 5 {
+          00:00 - 08:00 29.0;
+          08:00 - 18:00 24.0;
+          18:00 - 24:00 29.0;
+        }
+        For 6 to 7 {
+          00:00 - 24:00 29.0;
+        }
+      }
+    }
+}
+
+HVACTemplate:Zone:IdealLoadsAirSystem {
+  Name = IdealLoads_1;
+  Zone Name = Zone_1;
+}

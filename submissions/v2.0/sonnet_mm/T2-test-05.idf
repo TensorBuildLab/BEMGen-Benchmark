@@ -1,0 +1,70 @@
+Version,22.2;
+Building,School,16,City,0.04,0.4,FullExterior,25;
+GlobalGeometryRules,UpperLeftCorner,CounterClockWise,World;
+Timestep,4;
+
+Material,Concrete200,MediumRough,0.2,1.311,2240,836.8,0.9,0.7,0.7;
+Material,Concrete100,MediumRough,0.1,1.311,2240,836.8,0.9,0.7,0.7;
+Material,Carpet,MediumRough,0.0127,0.06,288,1380,0.9,0.7,0.7;
+Material,Gypsum,MediumSmooth,0.0127,0.16,784.9,830,0.9,0.7,0.7;
+Material,Membrane,Rough,0.01,0.16,1121,1460,0.9,0.7,0.7;
+Material:NoMass,WallIns,Rough,0.968,0.9,0.7,0.7;
+Material:NoMass,RoofIns,Rough,5.25,0.9,0.7,0.7;
+WindowMaterial:SimpleGlazingSystem,Glz,2.4,0.28,0.37;
+
+Construction,ExtWall,Concrete200,WallIns,Gypsum;
+Construction,Roof,Membrane,RoofIns,Concrete100;
+Construction,GroundFloor,Concrete100,Carpet;
+Construction,IntFloor,Concrete100,Carpet;
+Construction,IntCeiling,Carpet,Concrete100;
+Construction,Window,Glz;
+
+Schedule:Compact,Occ,Fraction,Through: 12/31,For: Weekdays SummerDesignDay WinterDesignDay,Until: 07:00,0,Until: 16:00,1,Until: 24:00,0,For: AllOtherDays,Until: 24:00,0;
+Schedule:Compact,Light,Fraction,Through: 12/31,For: Weekdays SummerDesignDay WinterDesignDay,Until: 07:00,0.15,Until: 16:00,0.9,Until: 24:00,0.15,For: AllOtherDays,Until: 24:00,0.15;
+Schedule:Compact,Equip,Fraction,Through: 12/31,For: Weekdays SummerDesignDay WinterDesignDay,Until: 07:00,0.3,Until: 16:00,0.95,Until: 24:00,0.3,For: AllOtherDays,Until: 24:00,0.3;
+Schedule:Compact,HeatSet,Temperature,Through: 12/31,For: Weekdays SummerDesignDay WinterDesignDay,Until: 07:00,16.5,Until: 16:00,20.5,Until: 24:00,16.5,For: AllOtherDays,Until: 24:00,16.5;
+Schedule:Compact,CoolSet,Temperature,Through: 12/31,For: Weekdays SummerDesignDay WinterDesignDay,Until: 07:00,27,Until: 16:00,23,Until: 24:00,27,For: AllOtherDays,Until: 24:00,27;
+Schedule:Compact,Activity,Any Number,Through: 12/31,For: AllDays,Until: 24:00,120;
+Schedule:Compact,AlwaysOn,Fraction,Through: 12/31,For: AllDays,Until: 24:00,1;
+
+HVACTemplate:Thermostat,Tstat,HeatSet,,CoolSet,;
+
+Zone,Z1,0,0,0,0,1,1;
+Zone,Z2,0,0,3.7,0,1,1;
+
+HVACTemplate:Zone:IdealLoadsAirSystem,Z1,Tstat;
+HVACTemplate:Zone:IdealLoadsAirSystem,Z2,Tstat;
+
+People,People1,Z1,Occ,People/Area,,,0.133333,,,Activity;
+People,People2,Z2,Occ,People/Area,,,0.133333,,,Activity;
+Lights,Light1,Z1,Light,Watts/Area,,9,,0,0.7,0.2;
+Lights,Light2,Z2,Light,Watts/Area,,9,,0,0.7,0.2;
+ElectricEquipment,Equip1,Z1,Equip,Watts/Area,,6.5,,0,0.5,0;
+ElectricEquipment,Equip2,Z2,Equip,Watts/Area,,6.5,,0,0.5,0;
+ZoneInfiltration:DesignFlowRate,Inf1,Z1,AlwaysOn,AirChanges/Hour,,,,0.2,1,0,0,0;
+ZoneInfiltration:DesignFlowRate,Inf2,Z2,AlwaysOn,AirChanges/Hour,,,,0.2,1,0,0,0;
+
+! Storey 1 walls (z 0-3.7)
+BuildingSurface:Detailed,S1,Wall,ExtWall,Z1,Outdoors,,SunExposed,WindExposed,,4,0,0,3.7,0,0,0,28,0,0,28,0,3.7;
+BuildingSurface:Detailed,E1,Wall,ExtWall,Z1,Outdoors,,SunExposed,WindExposed,,4,28,0,3.7,28,0,0,28,22,0,28,22,3.7;
+BuildingSurface:Detailed,N1,Wall,ExtWall,Z1,Outdoors,,SunExposed,WindExposed,,4,28,22,3.7,28,22,0,0,22,0,0,22,3.7;
+BuildingSurface:Detailed,W1,Wall,ExtWall,Z1,Outdoors,,SunExposed,WindExposed,,4,0,22,3.7,0,22,0,0,0,0,0,0,3.7;
+FenestrationSurface:Detailed,S1_win,Window,Window,S1,,,,,,4,2.8,0,2.89,2.8,0,0.81,25.2,0,0.81,25.2,0,2.89;
+FenestrationSurface:Detailed,E1_win,Window,Window,E1,,,,,,4,28,2.2,2.55,28,2.2,1.16,28,19.8,1.16,28,19.8,2.55;
+FenestrationSurface:Detailed,N1_win,Window,Window,N1,,,,,,4,25.2,22,2.55,25.2,22,1.16,2.8,22,1.16,2.8,22,2.55;
+FenestrationSurface:Detailed,W1_win,Window,Window,W1,,,,,,4,0,19.8,2.55,0,19.8,1.16,0,2.2,1.16,0,2.2,2.55;
+
+! Storey 2 walls (z 3.7-7.4)
+BuildingSurface:Detailed,S2,Wall,ExtWall,Z2,Outdoors,,SunExposed,WindExposed,,4,0,0,7.4,0,0,3.7,28,0,3.7,28,0,7.4;
+BuildingSurface:Detailed,E2,Wall,ExtWall,Z2,Outdoors,,SunExposed,WindExposed,,4,28,0,7.4,28,0,3.7,28,22,3.7,28,22,7.4;
+BuildingSurface:Detailed,N2,Wall,ExtWall,Z2,Outdoors,,SunExposed,WindExposed,,4,28,22,7.4,28,22,3.7,0,22,3.7,0,22,7.4;
+BuildingSurface:Detailed,W2,Wall,ExtWall,Z2,Outdoors,,SunExposed,WindExposed,,4,0,22,7.4,0,22,3.7,0,0,3.7,0,0,7.4;
+FenestrationSurface:Detailed,S2_win,Window,Window,S2,,,,,,4,2.8,0,6.59,2.8,0,4.51,25.2,0,4.51,25.2,0,6.59;
+FenestrationSurface:Detailed,E2_win,Window,Window,E2,,,,,,4,28,2.2,6.25,28,2.2,4.86,28,19.8,4.86,28,19.8,6.25;
+FenestrationSurface:Detailed,N2_win,Window,Window,N2,,,,,,4,25.2,22,6.25,25.2,22,4.86,2.8,22,4.86,2.8,22,6.25;
+FenestrationSurface:Detailed,W2_win,Window,Window,W2,,,,,,4,0,19.8,6.25,0,19.8,4.86,0,2.2,4.86,0,2.2,6.25;
+
+BuildingSurface:Detailed,Roof2,Roof,Roof,Z2,Outdoors,,SunExposed,WindExposed,,4,0,22,7.4,0,0,7.4,28,0,7.4,28,22,7.4;
+BuildingSurface:Detailed,Floor1,Floor,GroundFloor,Z1,Ground,,NoSun,NoWind,,4,0,0,0,0,22,0,28,22,0,28,0,0;
+BuildingSurface:Detailed,Ceil1,Ceiling,IntCeiling,Z1,Surface,Floor2,NoSun,NoWind,,4,0,22,3.7,0,0,3.7,28,0,3.7,28,22,3.7;
+BuildingSurface:Detailed,Floor2,Floor,IntFloor,Z2,Surface,Ceil1,NoSun,NoWind,,4,0,0,3.7,0,22,3.7,28,22,3.7,28,0,3.7;

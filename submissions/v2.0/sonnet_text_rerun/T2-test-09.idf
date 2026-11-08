@@ -1,0 +1,104 @@
+Building,
+  T2-test-09,
+  0,
+  City,
+  0.04,
+  0.4,
+  FullExterior,
+  25,
+  6;
+
+GlobalGeometryRules,
+  UpperLeftCorner,
+  Counterclockwise,
+  World;
+
+Timestep, 4;
+
+ScheduleTypeLimits, Fraction, 0, 1, Continuous;
+ScheduleTypeLimits, Temperature, -60, 200, Continuous;
+ScheduleTypeLimits, ActivityLevel, 0, , Continuous;
+
+Schedule:Compact, AlwaysOn, Fraction, Through: 12/31, For: AllDays, Until: 24:00, 1;
+Schedule:Compact, Activity, ActivityLevel, Through: 12/31, For: AllDays, Until: 24:00, 130;
+Schedule:Compact, Occupancy, Fraction, Through: 12/31, For: Weekdays, Until: 08:00, 0, Until: 18:00, 1, Until: 24:00, 0, For: AllOtherDays, Until: 24:00, 0;
+Schedule:Compact, LightSch, Fraction, Through: 12/31, For: Weekdays, Until: 08:00, 0.15, Until: 18:00, 0.9, Until: 24:00, 0.15, For: AllOtherDays, Until: 24:00, 0.15;
+Schedule:Compact, EquipSch, Fraction, Through: 12/31, For: Weekdays, Until: 08:00, 0.45, Until: 18:00, 0.8, Until: 24:00, 0.45, For: AllOtherDays, Until: 24:00, 0.45;
+Schedule:Compact, HeatSet, Temperature, Through: 12/31, For: Weekdays, Until: 08:00, 17, Until: 18:00, 21.5, Until: 24:00, 17, For: AllOtherDays, Until: 24:00, 17;
+Schedule:Compact, CoolSet, Temperature, Through: 12/31, For: Weekdays, Until: 08:00, 27.5, Until: 18:00, 24, Until: 24:00, 27.5, For: AllOtherDays, Until: 24:00, 27.5;
+
+Material, Concrete100, MediumRough, 0.1, 1.311, 2240, 836.8;
+Material, Gypsum, MediumSmooth, 0.0127, 0.16, 784.9, 830;
+Material, Carpet, MediumRough, 0.0127, 0.06, 288, 1380;
+Material, SteelSkin, Smooth, 0.0015, 45, 7680, 418;
+Material, Membrane, Rough, 0.01, 0.16, 1120, 1460;
+Material:NoMass, WallIns, Rough, 0.947;
+Material:NoMass, RoofIns, Rough, 3.17;
+WindowMaterial:SimpleGlazingSystem, Glz, 2.9, 0.59, 0.65;
+
+Construction, ExtWall, SteelSkin, WallIns, Gypsum;
+Construction, Roof, Membrane, RoofIns, Concrete100;
+Construction, GroundFloor, Concrete100, Carpet;
+Construction, IntFloor, Concrete100, Carpet;
+Construction, IntCeil, Carpet, Concrete100;
+Construction, Window, Glz;
+
+Zone, Z1;
+Zone, Z2;
+Zone, Z3;
+
+! ---------- Storey 1 (z 0-4)
+BuildingSurface:Detailed, Z1_S, Wall, ExtWall, Z1, , Outdoors, , SunExposed, WindExposed, , 4, 0,0,4, 0,0,0, 28,0,0, 28,0,4;
+BuildingSurface:Detailed, Z1_E, Wall, ExtWall, Z1, , Outdoors, , SunExposed, WindExposed, , 4, 28,0,4, 28,0,0, 28,22.5,0, 28,22.5,4;
+BuildingSurface:Detailed, Z1_N, Wall, ExtWall, Z1, , Outdoors, , SunExposed, WindExposed, , 4, 28,22.5,4, 28,22.5,0, 0,22.5,0, 0,22.5,4;
+BuildingSurface:Detailed, Z1_W, Wall, ExtWall, Z1, , Outdoors, , SunExposed, WindExposed, , 4, 0,22.5,4, 0,22.5,0, 0,0,0, 0,0,4;
+BuildingSurface:Detailed, Z1_Ceil, Ceiling, IntCeil, Z1, , Surface, Z2_Flr, NoSun, NoWind, , 4, 0,0,4, 28,0,4, 28,22.5,4, 0,22.5,4;
+BuildingSurface:Detailed, Z1_Floor, Floor, GroundFloor, Z1, , Ground, , NoSun, NoWind, , 4, 0,22.5,0, 28,22.5,0, 28,0,0, 0,0,0;
+FenestrationSurface:Detailed, Z1_S_Win, Window, Window, Z1_S, , autocalculate, , 1, 4, 1.4,0,1.466667, 1.4,0,0.8, 26.6,0,0.8, 26.6,0,1.466667;
+FenestrationSurface:Detailed, Z1_E_Win, Window, Window, Z1_E, , autocalculate, , 1, 4, 28,1.125,2.8, 28,1.125,0.8, 28,21.375,0.8, 28,21.375,2.8;
+FenestrationSurface:Detailed, Z1_N_Win, Window, Window, Z1_N, , autocalculate, , 1, 4, 26.6,22.5,2.577778, 26.6,22.5,0.8, 1.4,22.5,0.8, 1.4,22.5,2.577778;
+FenestrationSurface:Detailed, Z1_W_Win, Window, Window, Z1_W, , autocalculate, , 1, 4, 0,21.375,2.8, 0,21.375,0.8, 0,1.125,0.8, 0,1.125,2.8;
+
+! ---------- Storey 2 (z 4-8)
+BuildingSurface:Detailed, Z2_S, Wall, ExtWall, Z2, , Outdoors, , SunExposed, WindExposed, , 4, 0,0,8, 0,0,4, 28,0,4, 28,0,8;
+BuildingSurface:Detailed, Z2_E, Wall, ExtWall, Z2, , Outdoors, , SunExposed, WindExposed, , 4, 28,0,8, 28,0,4, 28,22.5,4, 28,22.5,8;
+BuildingSurface:Detailed, Z2_N, Wall, ExtWall, Z2, , Outdoors, , SunExposed, WindExposed, , 4, 28,22.5,8, 28,22.5,4, 0,22.5,4, 0,22.5,8;
+BuildingSurface:Detailed, Z2_W, Wall, ExtWall, Z2, , Outdoors, , SunExposed, WindExposed, , 4, 0,22.5,8, 0,22.5,4, 0,0,4, 0,0,8;
+BuildingSurface:Detailed, Z2_Ceil, Ceiling, IntCeil, Z2, , Surface, Z3_Flr, NoSun, NoWind, , 4, 0,0,8, 28,0,8, 28,22.5,8, 0,22.5,8;
+BuildingSurface:Detailed, Z2_Flr, Floor, IntFloor, Z2, , Surface, Z1_Ceil, NoSun, NoWind, , 4, 0,22.5,4, 28,22.5,4, 28,0,4, 0,0,4;
+FenestrationSurface:Detailed, Z2_S_Win, Window, Window, Z2_S, , autocalculate, , 1, 4, 1.4,0,5.466667, 1.4,0,4.8, 26.6,0,4.8, 26.6,0,5.466667;
+FenestrationSurface:Detailed, Z2_E_Win, Window, Window, Z2_E, , autocalculate, , 1, 4, 28,1.125,6.8, 28,1.125,4.8, 28,21.375,4.8, 28,21.375,6.8;
+FenestrationSurface:Detailed, Z2_N_Win, Window, Window, Z2_N, , autocalculate, , 1, 4, 26.6,22.5,6.577778, 26.6,22.5,4.8, 1.4,22.5,4.8, 1.4,22.5,6.577778;
+FenestrationSurface:Detailed, Z2_W_Win, Window, Window, Z2_W, , autocalculate, , 1, 4, 0,21.375,6.8, 0,21.375,4.8, 0,1.125,4.8, 0,1.125,6.8;
+
+! ---------- Storey 3 (z 8-12)
+BuildingSurface:Detailed, Z3_S, Wall, ExtWall, Z3, , Outdoors, , SunExposed, WindExposed, , 4, 0,0,12, 0,0,8, 28,0,8, 28,0,12;
+BuildingSurface:Detailed, Z3_E, Wall, ExtWall, Z3, , Outdoors, , SunExposed, WindExposed, , 4, 28,0,12, 28,0,8, 28,22.5,8, 28,22.5,12;
+BuildingSurface:Detailed, Z3_N, Wall, ExtWall, Z3, , Outdoors, , SunExposed, WindExposed, , 4, 28,22.5,12, 28,22.5,8, 0,22.5,8, 0,22.5,12;
+BuildingSurface:Detailed, Z3_W, Wall, ExtWall, Z3, , Outdoors, , SunExposed, WindExposed, , 4, 0,22.5,12, 0,22.5,8, 0,0,8, 0,0,12;
+BuildingSurface:Detailed, Z3_Roof, Roof, Roof, Z3, , Outdoors, , SunExposed, WindExposed, , 4, 0,0,12, 28,0,12, 28,22.5,12, 0,22.5,12;
+BuildingSurface:Detailed, Z3_Flr, Floor, IntFloor, Z3, , Surface, Z2_Ceil, NoSun, NoWind, , 4, 0,22.5,8, 28,22.5,8, 28,0,8, 0,0,8;
+FenestrationSurface:Detailed, Z3_S_Win, Window, Window, Z3_S, , autocalculate, , 1, 4, 1.4,0,9.466667, 1.4,0,8.8, 26.6,0,8.8, 26.6,0,9.466667;
+FenestrationSurface:Detailed, Z3_E_Win, Window, Window, Z3_E, , autocalculate, , 1, 4, 28,1.125,10.8, 28,1.125,8.8, 28,21.375,8.8, 28,21.375,10.8;
+FenestrationSurface:Detailed, Z3_N_Win, Window, Window, Z3_N, , autocalculate, , 1, 4, 26.6,22.5,10.577778, 26.6,22.5,8.8, 1.4,22.5,8.8, 1.4,22.5,10.577778;
+FenestrationSurface:Detailed, Z3_W_Win, Window, Window, Z3_W, , autocalculate, , 1, 4, 0,21.375,10.8, 0,21.375,8.8, 0,1.125,8.8, 0,1.125,10.8;
+
+! ---------- Internal loads
+People, P_1, Z1, Occupancy, Area/Person, , , 17, , , Activity;
+People, P_2, Z2, Occupancy, Area/Person, , , 17, , , Activity;
+People, P_3, Z3, Occupancy, Area/Person, , , 17, , , Activity;
+Lights, L_1, Z1, LightSch, Watts/Area, , 7.8, , 0, 0.7, 0.2;
+Lights, L_2, Z2, LightSch, Watts/Area, , 7.8, , 0, 0.7, 0.2;
+Lights, L_3, Z3, LightSch, Watts/Area, , 7.8, , 0, 0.7, 0.2;
+ElectricEquipment, Q_1, Z1, EquipSch, Watts/Area, , 10.5, , 0, 0.5, 0;
+ElectricEquipment, Q_2, Z2, EquipSch, Watts/Area, , 10.5, , 0, 0.5, 0;
+ElectricEquipment, Q_3, Z3, EquipSch, Watts/Area, , 10.5, , 0, 0.5, 0;
+ZoneInfiltration:DesignFlowRate, I_1, Z1, AlwaysOn, AirChanges/Hour, , , , 0.4, 1, 0, 0, 0;
+ZoneInfiltration:DesignFlowRate, I_2, Z2, AlwaysOn, AirChanges/Hour, , , , 0.4, 1, 0, 0, 0;
+ZoneInfiltration:DesignFlowRate, I_3, Z3, AlwaysOn, AirChanges/Hour, , , , 0.4, 1, 0, 0, 0;
+
+! ---------- HVAC
+HVACTemplate:Thermostat, Tstat, HeatSet, , CoolSet, ;
+HVACTemplate:Zone:IdealLoadsAirSystem, Z1, Tstat;
+HVACTemplate:Zone:IdealLoadsAirSystem, Z2, Tstat;
+HVACTemplate:Zone:IdealLoadsAirSystem, Z3, Tstat;

@@ -1,0 +1,6 @@
+! BEMGEN-PATCH
+WindowMaterial:SimpleGlazingSystem,
+    Glazing Layer,
+    1.7035,
+    0.39,
+    0.55;

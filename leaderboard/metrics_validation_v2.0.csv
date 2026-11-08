@@ -1,23 +1,8 @@
-set,kind,criterion,n,rate,measure
-P,mutant,L3,176,0.4943181818181818,false-accept
-P,mutant,L3h,176,0.5454545454545454,false-accept
-P,mutant,L3+L3h,176,0.4375,false-accept
-P,mutant,G14h,176,0.9829545454545454,false-accept
-P,mutant,EUI10,176,0.9829545454545454,false-accept
-P,variant,L3,135,0.0,false-reject
-P,variant,L3h,135,0.0,false-reject
-P,variant,L3+L3h,135,0.0,false-reject
-P,variant,G14h,135,0.0,false-reject
-P,variant,EUI10,135,0.0,false-reject
-text,mutant,L3,457,0.30196936542669583,false-accept
-text,mutant,L3h,457,0.2888402625820569,false-accept
-text,mutant,L3+L3h,457,0.2188183807439825,false-accept
-text,mutant,G14h,457,0.6892778993435449,false-accept
-text,mutant,EUI10,457,0.7483588621444202,false-accept
-text,variant,L3,320,0.0,false-reject
-text,variant,L3h,320,0.0,false-reject
-text,variant,L3+L3h,320,0.0,false-reject
-text,variant,G14h,320,0.053125,false-reject
-text,variant,EUI10,320,0.03125,false-reject
-all,mutant,caught by L3h only (L3 accepts),633,0.07582938388625593,incremental detection
-all,mutant,caught by L3 only (L3h accepts),633,0.08056872037914692,incremental detection
+criterion,text_false_accept,text_false_reject,doe_false_accept,doe_false_reject,role
+"Annual end uses (L3, in the grader)",0.302,0.0,0.4971,0.0074,required
+Hourly load shape and peaks (L3h),0.2888,0.0,0.5455,0.0,diagnostic
+Heat-balance fingerprint (L3b),0.1379,0.0,0.2629,0.0148,diagnostic
+Climate-swap check (MR1),0.1947,0.0,0.5449,0.0226,diagnostic
+L3 and L3b and MR1 together,0.0328,0.0,0.2057,0.0296,diagnostic (combined)
+ASHRAE Guideline 14 hourly,0.6893,0.0531,0.983,0.0,comparison only
+Total EUI within ±10%,0.7484,0.0312,0.983,0.0,comparison only

@@ -126,7 +126,7 @@ for s in SYS:
 # H8 (controls, from the build), H9-H11 on P
 ctrl = json.loads((A / "runs/20261107-build_p2.0.1/controls_rows.json").read_text())
 var = [r for r in ctrl if r["kind"] == "variant"]
-mut = [r for r in ctrl if r["kind"] == "mutant" and r["name"] != "collateral_timestep_1"]
+mut = [r for r in ctrl if r["kind"] == "mutant" and r["name"] != "collateral_timestep_1" and r.get("executable", True)]
 tests["H8"] = {"FRR": [sum(not r["passed"] for r in var), len(var)], "FAR": [sum(r["passed"] for r in mut), len(mut)],
                "EUI10_FAR": [sum(r["eui10"] for r in mut), len(mut)],
                "L3only_FAR": [sum(r["l3_only"] for r in mut), len(mut)],
